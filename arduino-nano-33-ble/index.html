@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Arduino Nano 33 BLE   센서 &#x2F; 모듈 이름 Info    nRF52840 32Bbit, 64MHz MCU   NINA-B306 Bluetooth   LSM9DS1 9축 IMU센서    RESET 버튼을 2번 눌러 Upload mode로 전환 begin() 메서드 필수  Aruino Nano 33 BLE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Arduino Nano 33 BLE">
+<meta property="og:url" content="https://zerohertz.github.io/arduino-nano-33-ble/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Arduino Nano 33 BLE   센서 &#x2F; 모듈 이름 Info    nRF52840 32Bbit, 64MHz MCU   NINA-B306 Bluetooth   LSM9DS1 9축 IMU센서    RESET 버튼을 2번 눌러 Upload mode로 전환 begin() 메서드 필수  Aruino Nano 33 BLE">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89915513-6ab55b80-dc31-11ea-96ee-de1eac623357.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89915989-ffb85480-dc31-11ea-946e-f56a7c213746.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89916584-be747480-dc32-11ea-98e8-2d2c457aa54f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89916551-b583a300-dc32-11ea-8d7d-549241512a9c.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89924286-c6d1ad00-dc3c-11ea-9da0-2ff8961262f9.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89924997-bcfc7980-dc3d-11ea-8533-10b7bea3d618.png">
+<meta property="article:published_time" content="2020-08-11T15:08:38.000Z">
+<meta property="article:modified_time" content="2020-08-19T15:18:00.127Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="C, C++">
+<meta property="article:tag" content="RaspberryPi">
+<meta property="article:tag" content="Arduino">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/89915513-6ab55b80-dc31-11ea-96ee-de1eac623357.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/arduino-nano-33-ble/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Arduino Nano 33 BLE | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Arduino-Nano-33-BLE"><span class="nav-number">1.</span> <span class="nav-text">Arduino Nano 33 BLE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Arduino-IDE%EC%99%80-Arduino-Nano-33-BLE-%EC%97%B0%EA%B2%B0"><span class="nav-number">2.</span> <span class="nav-text">Arduino IDE와 Arduino Nano 33 BLE 연결</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#IMU-Sensor"><span class="nav-number">3.</span> <span class="nav-text">IMU Sensor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bluetooth-Module"><span class="nav-number">4.</span> <span class="nav-text">Bluetooth Module</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/arduino-nano-33-ble/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Arduino Nano 33 BLE
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-12 00:08:38" itemprop="dateCreated datePublished" datetime="2020-08-12T00:08:38+09:00">2020-08-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-08-20 00:18:00" itemprop="dateModified" datetime="2020-08-20T00:18:00+09:00">2020-08-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">C, C++</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/arduino/" itemprop="url" rel="index"><span itemprop="name">Arduino</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/arduino-nano-33-ble/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="arduino-nano-33-ble/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>11 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Arduino-Nano-33-BLE"><a href="#Arduino-Nano-33-BLE" class="headerlink" title="Arduino Nano 33 BLE"></a>Arduino Nano 33 BLE</h1><table>
+<thead>
+<tr>
+<th align="center">센서 / 모듈 이름</th>
+<th align="center">Info</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">nRF52840</td>
+<td align="center">32Bbit, 64MHz MCU</td>
+</tr>
+<tr>
+<td align="center">NINA-B306</td>
+<td align="center">Bluetooth</td>
+</tr>
+<tr>
+<td align="center">LSM9DS1</td>
+<td align="center">9축 IMU센서</td>
+</tr>
+</tbody></table>
+<ul>
+<li>RESET 버튼을 2번 눌러 Upload mode로 전환</li>
+<li><code>begin()</code> 메서드 필수</li>
+</ul>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="http://mechasolution.com/shop/goods/goods_view.php?&goodsno=586133">Aruino Nano 33 BLE</a></p>
+<a id="more"></a>
+
+<hr>
+<h1 id="Arduino-IDE와-Arduino-Nano-33-BLE-연결"><a href="#Arduino-IDE와-Arduino-Nano-33-BLE-연결" class="headerlink" title="Arduino IDE와 Arduino Nano 33 BLE 연결"></a>Arduino IDE와 Arduino Nano 33 BLE 연결</h1><img width="912" alt="Board Manager" src="https://user-images.githubusercontent.com/42334717/89915513-6ab55b80-dc31-11ea-96ee-de1eac623357.png">
+
+<ul>
+<li><code>툴</code> - <code>보드</code> - <code>보드 매니저</code>에서 <code>arduino nano 33 BLE</code>를 검색</li>
+<li><code>Arduino nRF528x Boards</code> 설치</li>
+</ul>
+<img width="1100" alt="Serial Port" src="https://user-images.githubusercontent.com/42334717/89915989-ffb85480-dc31-11ea-946e-f56a7c213746.png">
+
+<ul>
+<li><code>툴</code> - <code>포트</code> - <code>Arduino Nano 33 BLE</code> 선택</li>
+<li><code>보드 정보 얻기</code>로 연결 확인 가능</li>
+<li>안된다면 케이블을 바꿔 해결 가능(데이터 전송이 가능한 케이블)</li>
+</ul>
+<hr>
+<h1 id="IMU-Sensor"><a href="#IMU-Sensor" class="headerlink" title="IMU Sensor"></a>IMU Sensor</h1><img width="730" alt="Manage Library" src="https://user-images.githubusercontent.com/42334717/89916584-be747480-dc32-11ea-98e8-2d2c457aa54f.png">
+
+<ul>
+<li><code>툴</code> - <code>라이브러리 관리...</code></li>
+</ul>
+<img width="912" alt="LSM9DS1" src="https://user-images.githubusercontent.com/42334717/89916551-b583a300-dc32-11ea-8d7d-549241512a9c.png">
+
+<ul>
+<li>9축 IMU센서의 이름 <code>LSM9DS1</code> 검색 후 <code>Arduino_LSM9DS1</code> 라이브러리 다운로드</li>
+</ul>
+<figure class="highlight c++"><figcaption><span>IMU.ino</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Arduino_LSM9DS1.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> acc_x, acc_y, acc_z;</span><br><span class="line"><span class="keyword">float</span> gyro_x, gyro_y, gyro_z;</span><br><span class="line"><span class="keyword">float</span> mag_x, mag_y, mag_z;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">2000000</span>);</span><br><span class="line">  <span class="keyword">while</span>(!Serial);</span><br><span class="line">  <span class="keyword">if</span> (!IMU.begin()) &#123; <span class="comment">//LSM9DSI센서 시작</span></span><br><span class="line">    Serial.println(<span class="string">&quot;LSM9DSI센서 오류!&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  Serial.println(<span class="string">&quot;acc_x,acc_y,acc_z,gyro_x,gyro_y,gyro_z,mag_x,mag_y,mag_z&quot;</span>);</span><br><span class="line">  delay(<span class="number">100</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">//가속도센서</span></span><br><span class="line">  <span class="keyword">if</span> (IMU.accelerationAvailable()) &#123;</span><br><span class="line">    IMU.readAcceleration(acc_x, acc_y, acc_z);</span><br><span class="line">    Serial.print(acc_x); Serial.print(<span class="string">&quot;,&quot;</span>); Serial.print(acc_y); Serial.print(<span class="string">&quot;,&quot;</span>); Serial.print(acc_z); Serial.print(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//자이로센서</span></span><br><span class="line">  <span class="keyword">if</span> (IMU.gyroscopeAvailable()) &#123;</span><br><span class="line">    IMU.readGyroscope(gyro_x, gyro_y, gyro_z);</span><br><span class="line">    Serial.print(gyro_x); Serial.print(<span class="string">&quot;,&quot;</span>); Serial.print(gyro_y); Serial.print(<span class="string">&quot;,&quot;</span>); Serial.print(gyro_z); Serial.print(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">//지자계센서</span></span><br><span class="line">  <span class="keyword">if</span> (IMU.magneticFieldAvailable()) &#123;</span><br><span class="line">    IMU.readMagneticField(mag_x, mag_y, mag_z);</span><br><span class="line">    Serial.print(mag_x); Serial.print(<span class="string">&quot;,&quot;</span>); Serial.print(mag_y); Serial.print(<span class="string">&quot;,&quot;</span>); Serial.println(mag_z);</span><br><span class="line">  &#125;</span><br><span class="line">  delay(<span class="number">50</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Graph</p>
+</blockquote>
+<img width="1204" alt="IMU" src="https://user-images.githubusercontent.com/42334717/89924286-c6d1ad00-dc3c-11ea-9da0-2ff8961262f9.png">
+
+<hr>
+<h1 id="Bluetooth-Module"><a href="#Bluetooth-Module" class="headerlink" title="Bluetooth Module"></a>Bluetooth Module</h1><img width="912" alt="스크린샷 2020-08-12 오전 1 47 07" src="https://user-images.githubusercontent.com/42334717/89924997-bcfc7980-dc3d-11ea-8533-10b7bea3d618.png">
+
+<figure class="highlight c++"><figcaption><span>PeripheralExplorer.ino</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  Peripheral Explorer</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  This example scans for BLE peripherals until one with a particular name (&quot;LED&quot;)</span></span><br><span class="line"><span class="comment">  is found. Then connects, and discovers + prints all the peripheral&#x27;s attributes.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  The circuit:</span></span><br><span class="line"><span class="comment">  - Arduino MKR WiFi 1010, Arduino Uno WiFi Rev2 board, Arduino Nano 33 IoT,</span></span><br><span class="line"><span class="comment">    Arduino Nano 33 BLE, or Arduino Nano 33 BLE Sense board.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  You can use it with another board that is compatible with this library and the</span></span><br><span class="line"><span class="comment">  Peripherals -&gt; LED example.</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  This example code is in the public domain.</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ArduinoBLE.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">9600</span>);</span><br><span class="line">  <span class="keyword">while</span> (!Serial);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// begin initialization</span></span><br><span class="line">  <span class="keyword">if</span> (!BLE.begin()) &#123;</span><br><span class="line">    Serial.println(<span class="string">&quot;starting BLE failed!&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Serial.println(<span class="string">&quot;BLE Central - Peripheral Explorer&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// start scanning for peripherals</span></span><br><span class="line">  BLE.scan();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="comment">// check if a peripheral has been discovered</span></span><br><span class="line">  BLEDevice peripheral = BLE.available();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (peripheral) &#123;</span><br><span class="line">    <span class="comment">// discovered a peripheral, print out address, local name, and advertised service</span></span><br><span class="line">    Serial.print(<span class="string">&quot;Found &quot;</span>);</span><br><span class="line">    Serial.print(peripheral.address());</span><br><span class="line">    Serial.print(<span class="string">&quot; &#x27;&quot;</span>);</span><br><span class="line">    Serial.print(peripheral.localName());</span><br><span class="line">    Serial.print(<span class="string">&quot;&#x27; &quot;</span>);</span><br><span class="line">    Serial.print(peripheral.advertisedServiceUuid());</span><br><span class="line">    Serial.println();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// see if peripheral is a LED</span></span><br><span class="line">    <span class="keyword">if</span> (peripheral.localName() == <span class="string">&quot;IMU&quot;</span>) &#123;</span><br><span class="line">      <span class="comment">// stop scanning</span></span><br><span class="line">      BLE.stopScan();</span><br><span class="line"></span><br><span class="line">      explorerPeripheral(peripheral);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// peripheral disconnected, we are done</span></span><br><span class="line">      <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="comment">// do nothing</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">explorerPeripheral</span><span class="params">(BLEDevice peripheral)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// connect to the peripheral</span></span><br><span class="line">  Serial.println(<span class="string">&quot;Connecting ...&quot;</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (peripheral.connect()) &#123;</span><br><span class="line">    Serial.println(<span class="string">&quot;Connected&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Serial.println(<span class="string">&quot;Failed to connect!&quot;</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// discover peripheral attributes</span></span><br><span class="line">  Serial.println(<span class="string">&quot;Discovering attributes ...&quot;</span>);</span><br><span class="line">  <span class="keyword">if</span> (peripheral.discoverAttributes()) &#123;</span><br><span class="line">    Serial.println(<span class="string">&quot;Attributes discovered&quot;</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    Serial.println(<span class="string">&quot;Attribute discovery failed!&quot;</span>);</span><br><span class="line">    peripheral.disconnect();</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// read and print device name of peripheral</span></span><br><span class="line">  Serial.println();</span><br><span class="line">  Serial.print(<span class="string">&quot;Device name: &quot;</span>);</span><br><span class="line">  Serial.println(peripheral.deviceName());</span><br><span class="line">  Serial.print(<span class="string">&quot;Appearance: 0x&quot;</span>);</span><br><span class="line">  Serial.println(peripheral.appearance(), HEX);</span><br><span class="line">  Serial.println();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// loop the services of the peripheral and explore each</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; peripheral.serviceCount(); i++) &#123;</span><br><span class="line">    BLEService service = peripheral.service(i);</span><br><span class="line"></span><br><span class="line">    exploreService(service);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  Serial.println();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// we are done exploring, disconnect</span></span><br><span class="line">  Serial.println(<span class="string">&quot;Disconnecting ...&quot;</span>);</span><br><span class="line">  peripheral.disconnect();</span><br><span class="line">  Serial.println(<span class="string">&quot;Disconnected&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exploreService</span><span class="params">(BLEService service)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// print the UUID of the service</span></span><br><span class="line">  Serial.print(<span class="string">&quot;Service &quot;</span>);</span><br><span class="line">  Serial.println(service.uuid());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// loop the characteristics of the service and explore each</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; service.characteristicCount(); i++) &#123;</span><br><span class="line">    BLECharacteristic characteristic = service.characteristic(i);</span><br><span class="line"></span><br><span class="line">    exploreCharacteristic(characteristic);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exploreCharacteristic</span><span class="params">(BLECharacteristic characteristic)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// print the UUID and properties of the characteristic</span></span><br><span class="line">  Serial.print(<span class="string">&quot;\tCharacteristic &quot;</span>);</span><br><span class="line">  Serial.print(characteristic.uuid());</span><br><span class="line">  Serial.print(<span class="string">&quot;, properties 0x&quot;</span>);</span><br><span class="line">  Serial.print(characteristic.properties(), HEX);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// check if the characteristic is readable</span></span><br><span class="line">  <span class="keyword">if</span> (characteristic.canRead()) &#123;</span><br><span class="line">    <span class="comment">// read the characteristic value</span></span><br><span class="line">    characteristic.read();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (characteristic.valueLength() &gt; <span class="number">0</span>) &#123;</span><br><span class="line">      <span class="comment">// print out the value of the characteristic</span></span><br><span class="line">      Serial.print(<span class="string">&quot;, value 0x&quot;</span>);</span><br><span class="line">      printData(characteristic.value(), characteristic.valueLength());</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  Serial.println();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// loop the descriptors of the characteristic and explore each</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; characteristic.descriptorCount(); i++) &#123;</span><br><span class="line">    BLEDescriptor descriptor = characteristic.descriptor(i);</span><br><span class="line"></span><br><span class="line">    exploreDescriptor(descriptor);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">exploreDescriptor</span><span class="params">(BLEDescriptor descriptor)</span> </span>&#123;</span><br><span class="line">  <span class="comment">// print the UUID of the descriptor</span></span><br><span class="line">  Serial.print(<span class="string">&quot;\t\tDescriptor &quot;</span>);</span><br><span class="line">  Serial.print(descriptor.uuid());</span><br><span class="line"></span><br><span class="line">  <span class="comment">// read the descriptor value</span></span><br><span class="line">  descriptor.read();</span><br><span class="line"></span><br><span class="line">  <span class="comment">// print out the value of the descriptor</span></span><br><span class="line">  Serial.print(<span class="string">&quot;, value 0x&quot;</span>);</span><br><span class="line">  printData(descriptor.value(), descriptor.valueLength());</span><br><span class="line"></span><br><span class="line">  Serial.println();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printData</span><span class="params">(<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> data[], <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">char</span> b = data[i]; </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (b &lt; <span class="number">16</span>) &#123;</span><br><span class="line">      Serial.print(<span class="string">&quot;0&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    Serial.print(b, HEX);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><figcaption><span>Output</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">BLE Central - Peripheral Explorer</span><br><span class="line">Found e8:61:57:48:1a:ef &#x27;IMU&#x27; 1101</span><br><span class="line">Connecting ...</span><br><span class="line">Connected</span><br><span class="line">Discovering attributes ...</span><br><span class="line">Attributes discovered</span><br><span class="line"></span><br><span class="line">Device name: IMU</span><br><span class="line">Appearance: <span class="number">0x0</span></span><br><span class="line"></span><br><span class="line">Service <span class="number">1800</span></span><br><span class="line">	Characteristic <span class="number">2</span>a00, properties <span class="number">0x2</span>, value <span class="number">0x494D55</span></span><br><span class="line">	Characteristic <span class="number">2</span>a01, properties <span class="number">0x2</span>, value <span class="number">0x0000</span></span><br><span class="line">Service <span class="number">1801</span></span><br><span class="line">	Characteristic <span class="number">2</span>a05, properties <span class="number">0x20</span></span><br><span class="line">		Descriptor <span class="number">2902</span>, value <span class="number">0x0000</span></span><br><span class="line">Service <span class="number">1101</span></span><br><span class="line">	Characteristic <span class="number">2101</span>, properties <span class="number">0x12</span>, value <span class="number">0x0A</span></span><br><span class="line">		Descriptor <span class="number">2902</span>, value <span class="number">0x0000</span></span><br><span class="line"></span><br><span class="line">Disconnecting ...</span><br><span class="line">Disconnected</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><figcaption><span>peripheral.ino</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ArduinoBLE.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Arduino_LSM9DS1.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">BLEService <span class="title">ACC</span><span class="params">(<span class="string">&quot;1001&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">accX</span><span class="params">(<span class="string">&quot;2001&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">accY</span><span class="params">(<span class="string">&quot;2002&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">accZ</span><span class="params">(<span class="string">&quot;2003&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">BLEService <span class="title">GYRO</span><span class="params">(<span class="string">&quot;1002&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">gyroX</span><span class="params">(<span class="string">&quot;2011&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">gyroY</span><span class="params">(<span class="string">&quot;2012&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">gyroZ</span><span class="params">(<span class="string">&quot;2013&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">BLEService <span class="title">MAG</span><span class="params">(<span class="string">&quot;1003&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">magX</span><span class="params">(<span class="string">&quot;2021&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">magY</span><span class="params">(<span class="string">&quot;2022&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">magZ</span><span class="params">(<span class="string">&quot;2023&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> acc_x, acc_y, acc_z;</span><br><span class="line"><span class="keyword">float</span> gyro_x, gyro_y, gyro_z;</span><br><span class="line"><span class="keyword">float</span> mag_x, mag_y, mag_z;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">115200</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(!BLE.begin()) &#123;</span><br><span class="line">    Serial.println(<span class="string">&quot;Starting BLE Failed!&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!IMU.begin()) &#123; <span class="comment">//LSM9DSI센서 시작</span></span><br><span class="line">    Serial.println(<span class="string">&quot;LSM9DSI센서 오류!&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  BLE.setDeviceName(<span class="string">&quot;IMU&quot;</span>);</span><br><span class="line">  BLE.setLocalName(<span class="string">&quot;IMU&quot;</span>);</span><br><span class="line">  </span><br><span class="line">  BLE.setAdvertisedService(ACC);</span><br><span class="line">  BLE.setAdvertisedService(GYRO);</span><br><span class="line">  BLE.setAdvertisedService(MAG);</span><br><span class="line">  ACC.addCharacteristic(accX);</span><br><span class="line">  ACC.addCharacteristic(accY);</span><br><span class="line">  ACC.addCharacteristic(accZ);</span><br><span class="line">  GYRO.addCharacteristic(gyroX);</span><br><span class="line">  GYRO.addCharacteristic(gyroY);</span><br><span class="line">  GYRO.addCharacteristic(gyroZ);</span><br><span class="line">  MAG.addCharacteristic(magX);</span><br><span class="line">  MAG.addCharacteristic(magY);</span><br><span class="line">  MAG.addCharacteristic(magZ);</span><br><span class="line">  BLE.addService(ACC);</span><br><span class="line">  BLE.addService(GYRO);</span><br><span class="line">  BLE.addService(MAG);</span><br><span class="line">  BLE.setConnectable(<span class="literal">true</span>);</span><br><span class="line">  BLE.setAdvertisingInterval(<span class="number">100</span>);</span><br><span class="line">  BLE.advertise();</span><br><span class="line">  Serial.println(<span class="string">&quot;Bluetooth Device Active, Waiting for Connections...&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  BLEDevice central = BLE.central();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(central) &#123;</span><br><span class="line">    Serial.print(<span class="string">&quot;Connected to Central: &quot;</span>);</span><br><span class="line">    Serial.println(central.address());</span><br><span class="line">    <span class="keyword">while</span>(central.connected()) &#123;</span><br><span class="line">      IMU.readAcceleration(acc_x, acc_y, acc_z);</span><br><span class="line">      IMU.readGyroscope(gyro_x, gyro_y, gyro_z);</span><br><span class="line">      IMU.readMagneticField(mag_x, mag_y, mag_z);      </span><br><span class="line">      accX.writeValue(acc_x);</span><br><span class="line">      accY.writeValue(acc_y);</span><br><span class="line">      accZ.writeValue(acc_z);</span><br><span class="line">      gyroX.writeValue(gyro_x);</span><br><span class="line">      gyroY.writeValue(gyro_y);</span><br><span class="line">      gyroZ.writeValue(gyro_z);</span><br><span class="line">      magX.writeValue(mag_x);</span><br><span class="line">      magY.writeValue(mag_y);</span><br><span class="line">      magZ.writeValue(mag_z);</span><br><span class="line">      Serial.println(acc_x);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  Serial.print(<span class="string">&quot;Disconnected from Central: &quot;</span>);</span><br><span class="line">  Serial.println(BLE.address());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><figcaption><span>central.ino</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ArduinoBLE.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> dat&#123;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> asdf[<span class="number">4</span>];</span><br><span class="line">  <span class="keyword">float</span> zxcv;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">getData</span><span class="params">(<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> data[], <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">  dat dat;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">    dat.asdf[i] = data[i]; </span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">return</span> dat.zxcv;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printcsv</span><span class="params">(BLECharacteristic c1, BLECharacteristic c2, BLECharacteristic c3, BLECharacteristic c4, BLECharacteristic c5, BLECharacteristic c6, BLECharacteristic c7, BLECharacteristic c8, BLECharacteristic c9)</span></span>&#123;</span><br><span class="line">  c1.read();</span><br><span class="line">  c2.read();</span><br><span class="line">  c3.read();</span><br><span class="line">  c4.read();</span><br><span class="line">  c5.read();</span><br><span class="line">  c6.read();</span><br><span class="line">  c7.read();</span><br><span class="line">  c8.read();</span><br><span class="line">  c9.read(); </span><br><span class="line">  <span class="keyword">float</span> f1=getData(c1.value(), c1.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f2=getData(c2.value(), c2.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f3=getData(c3.value(), c3.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f4=getData(c4.value(), c4.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f5=getData(c5.value(), c5.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f6=getData(c6.value(), c6.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f7=getData(c7.value(), c7.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f8=getData(c8.value(), c8.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f9=getData(c9.value(), c9.valueLength());</span><br><span class="line">  Serial.print(f1);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f2);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f3);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f4);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f5);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f6);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f7);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f8);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f9);</span><br><span class="line">  Serial.print(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">115200</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!BLE.begin()) &#123;</span><br><span class="line">    Serial.println(<span class="string">&quot;Starting BLE Failed!&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  BLE.scan();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  BLEDevice peripheral = BLE.available();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(peripheral)&#123;</span><br><span class="line">    <span class="keyword">if</span>(peripheral.localName()==<span class="string">&quot;IMU&quot;</span>)&#123;</span><br><span class="line">      BLE.stopScan();</span><br><span class="line">      <span class="keyword">if</span>(peripheral.connect())&#123;</span><br><span class="line">        Serial.println(<span class="string">&quot;Connect1&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(peripheral.discoverAttributes())&#123;</span><br><span class="line">        Serial.println(<span class="string">&quot;Connect2&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      BLEService acc=peripheral.service(<span class="string">&quot;1001&quot;</span>);</span><br><span class="line">      BLECharacteristic accx=acc.characteristic(<span class="string">&quot;2001&quot;</span>);</span><br><span class="line">      BLECharacteristic accy=acc.characteristic(<span class="string">&quot;2002&quot;</span>);</span><br><span class="line">      BLECharacteristic accz=acc.characteristic(<span class="string">&quot;2003&quot;</span>);</span><br><span class="line">      BLEService gyro=peripheral.service(<span class="string">&quot;1002&quot;</span>);</span><br><span class="line">      BLECharacteristic gyrox=gyro.characteristic(<span class="string">&quot;2011&quot;</span>);</span><br><span class="line">      BLECharacteristic gyroy=gyro.characteristic(<span class="string">&quot;2012&quot;</span>);</span><br><span class="line">      BLECharacteristic gyroz=gyro.characteristic(<span class="string">&quot;2013&quot;</span>);</span><br><span class="line">      BLEService mag=peripheral.service(<span class="string">&quot;1003&quot;</span>);</span><br><span class="line">      BLECharacteristic magx=mag.characteristic(<span class="string">&quot;2021&quot;</span>);</span><br><span class="line">      BLECharacteristic magy=mag.characteristic(<span class="string">&quot;2022&quot;</span>);</span><br><span class="line">      BLECharacteristic magz=mag.characteristic(<span class="string">&quot;2023&quot;</span>);</span><br><span class="line">      <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line"><span class="comment">//        accx.read();</span></span><br><span class="line"><span class="comment">//        float f1=getData(accx.value(),accx.valueLength());</span></span><br><span class="line"><span class="comment">//        Serial.print(f1);</span></span><br><span class="line"><span class="comment">//        Serial.print(&#x27;,&#x27;);</span></span><br><span class="line"><span class="comment">//        accy.read();</span></span><br><span class="line"><span class="comment">//        float f2=getData(accy.value(),accy.valueLength());</span></span><br><span class="line"><span class="comment">//        Serial.print(f2);</span></span><br><span class="line"><span class="comment">//        Serial.print(&#x27;,&#x27;);</span></span><br><span class="line"><span class="comment">//        accz.read();</span></span><br><span class="line"><span class="comment">//        float f3=getData(accz.value(),accz.valueLength());</span></span><br><span class="line"><span class="comment">//        Serial.println(f3);</span></span><br><span class="line">        <span class="keyword">if</span>(peripheral.connected())&#123;</span><br><span class="line">          printcsv(accx,accy,accz,gyrox,gyroy,gyroz,magx,magy,magz);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">          peripheral.disconnect();</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  BLE.scan();</span><br><span class="line">  Serial.println(<span class="string">&quot;rescan&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/source-code-obstructive-sleep-apnea/" rel="bookmark">Source Code(Obstructive Sleep Apnea)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/serial-communication-arduino-to-raspberrypi/" rel="bookmark">Serial Communication(Arduino to RaspberryPi)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/" rel="bookmark">Development of a Obstructive Sleep Apnea Diagnosis Algorithm Using HRV</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/face-recognition-by-raspberrypi/" rel="bookmark">Face recognition by RaspberryPi</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/emg-sensor/" rel="bookmark">EMG Sensor</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/arduino-nano-33-ble/" title="Arduino Nano 33 BLE">https://zerohertz.github.io/arduino-nano-33-ble/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> C, C++</a>
+              <a href="/tags/raspberrypi/" rel="tag"><i class="fa fa-tag"></i> RaspberryPi</a>
+              <a href="/tags/arduino/" rel="tag"><i class="fa fa-tag"></i> Arduino</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/labview/" rel="prev" title="LabVIEW">
+                  <i class="fa fa-chevron-left"></i> LabVIEW
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/serial-communication-arduino-to-raspberrypi/" rel="next" title="Serial Communication(Arduino to RaspberryPi)">
+                  Serial Communication(Arduino to RaspberryPi) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/arduino-nano-33-ble/";
+    this.page.identifier = "arduino-nano-33-ble/";
+    this.page.title = "Arduino Nano 33 BLE";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

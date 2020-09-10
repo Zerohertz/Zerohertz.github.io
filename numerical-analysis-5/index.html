@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Runge-Kutta Method for ODE Process   Heun’s Method(a(2)&#x3D;1&#x2F;2) Ralston’s Method(a(2)&#x3D;2&#x2F;3) y(i+1)&#x3D;y(i)+(a(1)k(1)+a(2)k(2))h k(1)&#x3D;f(x(i), y(i)) k(2)&#x3D;f(x(i)+p(1)h, y(i)+q(11)k(1)h)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Numerical analysis(5)">
+<meta property="og:url" content="https://zerohertz.github.io/numerical-analysis-5/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Runge-Kutta Method for ODE Process   Heun’s Method(a(2)&#x3D;1&#x2F;2) Ralston’s Method(a(2)&#x3D;2&#x2F;3) y(i+1)&#x3D;y(i)+(a(1)k(1)+a(2)k(2))h k(1)&#x3D;f(x(i), y(i)) k(2)&#x3D;f(x(i)+p(1)h, y(i)+q(11)k(1)h)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/49585936-1a3d2380-f9a3-11e8-995a-371b124f9803.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/49585939-1ad5ba00-f9a3-11e8-8986-7fd7c4d8597b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/49587478-4c508480-f9a7-11e8-8aa2-1c359dbb2968.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/49588816-12817d00-f9ab-11e8-91be-6bf017ce6451.jpg">
+<meta property="article:published_time" content="2018-12-06T11:30:17.000Z">
+<meta property="article:modified_time" content="2020-02-25T07:00:27.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Matlab">
+<meta property="article:tag" content="Numerical analysis">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/49585936-1a3d2380-f9a3-11e8-995a-371b124f9803.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/numerical-analysis-5/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Numerical analysis(5) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Runge-Kutta-Method-for-ODE"><span class="nav-number">1.</span> <span class="nav-text">Runge-Kutta Method for ODE</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Source-code"><span class="nav-number">2.</span> <span class="nav-text">Source code</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%8D%B0%EC%9D%B4%ED%84%B0-%EB%B9%84%EA%B5%90"><span class="nav-number">3.</span> <span class="nav-text">데이터 비교</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Discussion"><span class="nav-number">4.</span> <span class="nav-text">Discussion</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%98%B8%EA%B8%B0%EC%8B%AC-%ED%95%B4%EA%B2%B0"><span class="nav-number">5.</span> <span class="nav-text">호기심 해결</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">6.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/numerical-analysis-5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Numerical analysis(5)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-12-06 20:30:17" itemprop="dateCreated datePublished" datetime="2018-12-06T20:30:17+09:00">2018-12-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-02-25 16:00:27" itemprop="dateModified" datetime="2020-02-25T16:00:27+09:00">2020-02-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/numerical-analysis/" itemprop="url" rel="index"><span itemprop="name">Numerical analysis</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/numerical-analysis-5/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="numerical-analysis-5/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>5.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>5 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Runge-Kutta-Method-for-ODE"><a href="#Runge-Kutta-Method-for-ODE" class="headerlink" title="Runge-Kutta Method for ODE"></a>Runge-Kutta Method for ODE</h1><blockquote>
+<p>Process</p>
+</blockquote>
+<ul>
+<li>Heun’s Method(a(2)=1/2)</li>
+<li>Ralston’s Method(a(2)=2/3)</li>
+<li>y(i+1)=y(i)+(a(1)k(1)+a(2)k(2))h</li>
+<li>k(1)=f(x(i), y(i))</li>
+<li>k(2)=f(x(i)+p(1)h, y(i)+q(11)k(1)h)</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h1 id="Source-code"><a href="#Source-code" class="headerlink" title="Source code"></a>Source code</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly</span><br><span class="line"><span class="keyword">from</span> plotly.graph_objs <span class="keyword">import</span> Scatter, Layout</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">t</span>):</span> <span class="comment">#Defining dy/dt</span></span><br><span class="line">    <span class="keyword">return</span> - t + t**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Hyip1</span>(<span class="params">t</span>):</span> <span class="comment">#Defining y sub i+1 in Heun&#x27;s Method</span></span><br><span class="line">    <span class="keyword">return</span> Hyi + (<span class="number">1</span>/<span class="number">2</span> * Hk1 + <span class="number">1</span>/<span class="number">2</span> * Hk2) * h</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Ryip1</span>(<span class="params">t</span>):</span> <span class="comment">#Defining y sub i+1 in Ralston&#x27;s Method</span></span><br><span class="line">    <span class="keyword">return</span> Ryi + (<span class="number">1</span>/<span class="number">3</span> * Rk1 + <span class="number">2</span>/<span class="number">3</span> * Rk2) * h</span><br><span class="line"></span><br><span class="line">Hyi = <span class="number">1</span> <span class="comment">#Defining y sub i in Heun&#x27;s Method</span></span><br><span class="line">Ryi = <span class="number">1</span> <span class="comment">#Defining y sub i in Ralston&#x27;s Method</span></span><br><span class="line">Ht = <span class="number">0</span> <span class="comment">#Defining initial value t in Heun&#x27;s Method</span></span><br><span class="line">Rt = <span class="number">0</span> <span class="comment">#Defining initial value t in Ralston&#x27;s Method</span></span><br><span class="line">h = <span class="number">0.1</span> <span class="comment">#Defining h</span></span><br><span class="line">Hyisav = [] <span class="comment">#Defining y sub i in Heun&#x27;s Method to save</span></span><br><span class="line">Ryisav = [] <span class="comment">#Defining y sub i in Ralston&#x27;s Method to save</span></span><br><span class="line">Htsav = [] <span class="comment">#Defining initial value t in Heun&#x27;s Method to save</span></span><br><span class="line">Rtsav = [] <span class="comment">#Defining initial value t in Ralston&#x27;s Method to save</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(Ht &lt;= <span class="number">3</span>):</span><br><span class="line">    Ht = round(Ht, <span class="number">2</span>)</span><br><span class="line">    Hk1 = round(f(Ht), <span class="number">2</span>)  <span class="comment">#Defining k sub 1 in Heun&#x27;s Method</span></span><br><span class="line">    Hk2 = round(f(Ht + h), <span class="number">2</span>) <span class="comment">#Defining k sub 2 in Heun&#x27;s Method</span></span><br><span class="line">    Hyi = round(Hyip1(Ht), <span class="number">2</span>) <span class="comment">#Determine new y sub i in Heun&#x27;s Mthod</span></span><br><span class="line">    Hyisav = Hyisav + [Hyi]</span><br><span class="line">    Htsav = Htsav + [Ht]</span><br><span class="line">    Ht = Ht + h <span class="comment">#Redefining time</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(Rt &lt;= <span class="number">3</span>):</span><br><span class="line">    Rt = round(Rt, <span class="number">2</span>)</span><br><span class="line">    Rk1 = round(f(Rt),)  <span class="comment">#Defining k sub 1 in Ralston&#x27;s Method</span></span><br><span class="line">    Rk2 = round(f(Rt + <span class="number">3</span> / <span class="number">4</span> * h), <span class="number">2</span>)  <span class="comment">#Defining k sub 2 in Ralston&#x27;s Method</span></span><br><span class="line">    Ryi = round(Ryip1(Rt), <span class="number">2</span>) <span class="comment">#Determine new y sub i in Ralston&#x27;s Mthod</span></span><br><span class="line">    Ryisav = Ryisav + [Ryi]</span><br><span class="line">    Rtsav = Rtsav + [Rt]</span><br><span class="line">    Rt = Rt + h <span class="comment">#Redefining time</span></span><br><span class="line"></span><br><span class="line">plotly.offline.plot(&#123; <span class="comment">#Data ploting</span></span><br><span class="line">    <span class="string">&quot;data&quot;</span>: [Scatter(x = Htsav, y = Hyisav)],</span><br><span class="line">    <span class="string">&quot;layout&quot;</span>: Layout(title=<span class="string">&quot;Heun&#x27;s Method&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">plotly.offline.plot(&#123; <span class="comment">#Data ploting</span></span><br><span class="line">    <span class="string">&quot;data&quot;</span>: [Scatter(x = Rtsav, y = Ryisav)],</span><br><span class="line">    <span class="string">&quot;layout&quot;</span>: Layout(title=<span class="string">&quot;Ralston&#x27;s Method&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">print(Htsav)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">0</span>, len(Hyisav)):</span><br><span class="line">    print(Hyisav[a], end=<span class="string">&quot; &quot;</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">print(Rtsav)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">0</span>, len(Ryisav)):</span><br><span class="line">    print(Hyisav[a], end=<span class="string">&quot; &quot;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>실행결과</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;C:\Users\s_oh3417\PycharmProjects\수치 Proj4\venv\Scripts\python.exe&quot;</span> <span class="string">&quot;C:/Users/s_oh3417/PycharmProjects/수치 Proj4/Main.py&quot;</span></span><br><span class="line">[<span class="number">0</span>, <span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.3</span>, <span class="number">0.4</span>, <span class="number">0.5</span>, <span class="number">0.6</span>, <span class="number">0.7</span>, <span class="number">0.8</span>, <span class="number">0.9</span>, <span class="number">1.0</span>, <span class="number">1.1</span>, <span class="number">1.2</span>, <span class="number">1.3</span>, <span class="number">1.4</span>, <span class="number">1.5</span>, <span class="number">1.6</span>, <span class="number">1.7</span>, <span class="number">1.8</span>, <span class="number">1.9</span>, <span class="number">2.0</span>, <span class="number">2.1</span>, <span class="number">2.2</span>, <span class="number">2.3</span>, <span class="number">2.4</span>, <span class="number">2.5</span>, <span class="number">2.6</span>, <span class="number">2.7</span>, <span class="number">2.8</span>, <span class="number">2.9</span>, <span class="number">3.0</span>]</span><br><span class="line"><span class="number">1.0</span> <span class="number">0.99</span> <span class="number">0.97</span> <span class="number">0.95</span> <span class="number">0.93</span> <span class="number">0.91</span> <span class="number">0.89</span> <span class="number">0.87</span> <span class="number">0.86</span> <span class="number">0.86</span> <span class="number">0.87</span> <span class="number">0.89</span> <span class="number">0.92</span> <span class="number">0.97</span> <span class="number">1.04</span> <span class="number">1.13</span> <span class="number">1.24</span> <span class="number">1.37</span> <span class="number">1.53</span> <span class="number">1.72</span> <span class="number">1.94</span> <span class="number">2.19</span> <span class="number">2.47</span> <span class="number">2.79</span> <span class="number">3.15</span> <span class="number">3.55</span> <span class="number">3.99</span> <span class="number">4.47</span> <span class="number">5.0</span> <span class="number">5.58</span> <span class="number">6.21</span> </span><br><span class="line"></span><br><span class="line">[<span class="number">0</span>, <span class="number">0.1</span>, <span class="number">0.2</span>, <span class="number">0.3</span>, <span class="number">0.4</span>, <span class="number">0.5</span>, <span class="number">0.6</span>, <span class="number">0.7</span>, <span class="number">0.8</span>, <span class="number">0.9</span>, <span class="number">1.0</span>, <span class="number">1.1</span>, <span class="number">1.2</span>, <span class="number">1.3</span>, <span class="number">1.4</span>, <span class="number">1.5</span>, <span class="number">1.6</span>, <span class="number">1.7</span>, <span class="number">1.8</span>, <span class="number">1.9</span>, <span class="number">2.0</span>, <span class="number">2.1</span>, <span class="number">2.2</span>, <span class="number">2.3</span>, <span class="number">2.4</span>, <span class="number">2.5</span>, <span class="number">2.6</span>, <span class="number">2.7</span>, <span class="number">2.8</span>, <span class="number">2.9</span>, <span class="number">3.0</span>]</span><br><span class="line"><span class="number">1.0</span> <span class="number">0.99</span> <span class="number">0.98</span> <span class="number">0.96</span> <span class="number">0.94</span> <span class="number">0.92</span> <span class="number">0.91</span> <span class="number">0.9</span> <span class="number">0.89</span> <span class="number">0.89</span> <span class="number">0.9</span> <span class="number">0.91</span> <span class="number">0.93</span> <span class="number">0.96</span> <span class="number">1.04</span> <span class="number">1.13</span> <span class="number">1.24</span> <span class="number">1.37</span> <span class="number">1.51</span> <span class="number">1.71</span> <span class="number">1.93</span> <span class="number">2.17</span> <span class="number">2.46</span> <span class="number">2.78</span> <span class="number">3.12</span> <span class="number">3.52</span> <span class="number">3.95</span> <span class="number">4.45</span> <span class="number">4.98</span> <span class="number">5.57</span> <span class="number">6.2</span> </span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/42334717/49585936-1a3d2380-f9a3-11e8-995a-371b124f9803.png" alt="실행결과"><br><img src="https://user-images.githubusercontent.com/42334717/49585939-1ad5ba00-f9a3-11e8-8986-7fd7c4d8597b.png" alt="Solution of ODE"></p>
+<hr>
+<h1 id="데이터-비교"><a href="#데이터-비교" class="headerlink" title="데이터 비교"></a>데이터 비교</h1><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">0</span>:<span class="number">0.1</span>:<span class="number">3</span>;</span><br><span class="line">y1 = <span class="number">1</span><span class="number">-1</span>/<span class="number">2</span>*x.^<span class="number">2</span>+<span class="number">1</span>/<span class="number">3</span>*x.^<span class="number">3</span>;</span><br><span class="line">y2 = [<span class="number">1</span> <span class="number">0.99</span> <span class="number">0.97</span> <span class="number">0.95</span> <span class="number">0.93</span> <span class="number">0.91</span> <span class="number">0.89</span> <span class="number">0.87</span> <span class="number">0.86</span> <span class="number">0.86</span> <span class="number">0.87</span> <span class="number">0.89</span> <span class="number">0.92</span> <span class="number">0.97</span> <span class="number">1.04</span> <span class="number">1.13</span> <span class="number">1.24</span> <span class="number">1.37</span> <span class="number">1.53</span> <span class="number">1.72</span> <span class="number">1.94</span> <span class="number">2.19</span> <span class="number">2.47</span> <span class="number">2.79</span> <span class="number">3.15</span> <span class="number">3.55</span> <span class="number">3.99</span> <span class="number">4.47</span> <span class="number">5.0</span> <span class="number">5.58</span> <span class="number">6.21</span>]</span><br><span class="line">y3 = [<span class="number">1.0</span> <span class="number">0.99</span> <span class="number">0.98</span> <span class="number">0.96</span> <span class="number">0.94</span> <span class="number">0.92</span> <span class="number">0.91</span> <span class="number">0.9</span> <span class="number">0.89</span> <span class="number">0.89</span> <span class="number">0.9</span> <span class="number">0.91</span> <span class="number">0.93</span> <span class="number">0.96</span> <span class="number">1.04</span> <span class="number">1.13</span> <span class="number">1.24</span> <span class="number">1.37</span> <span class="number">1.51</span> <span class="number">1.71</span> <span class="number">1.93</span> <span class="number">2.17</span> <span class="number">2.46</span> <span class="number">2.78</span> <span class="number">3.12</span> <span class="number">3.52</span> <span class="number">3.95</span> <span class="number">4.45</span> <span class="number">4.98</span> <span class="number">5.57</span> <span class="number">6.2</span>]</span><br><span class="line"><span class="built_in">plot</span>(x,y1,x,y2,x,y3)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/42334717/49587478-4c508480-f9a7-11e8-8aa2-1c359dbb2968.jpg" alt="실행결과"></p>
+<hr>
+<h1 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h1><p> 오차가 가장 큰 t=3인 지점의 참값은 5.5이지만 Heun’s Method와 Ralston’s Method를 통한 값은 각각 6.21, 6,2이다. 이는 각각 0.71, 0.7이라는 값이 차이난다는 것이고 미세하게 Ralston’s Method가 더 정교함을 울 수 있다. 또한 이 정도의 오차가 발생한 이유를 생각해보면, h값이 0.1로 꽤나 큰 수치이기 때문일 것이다. 그럼에도 불구하고 약 t=1.2까지는 True value와 거의 같다고 볼 수 있다. h가 작아지면 충분히 같아질 것이다.</p>
+<hr>
+<h1 id="호기심-해결"><a href="#호기심-해결" class="headerlink" title="호기심 해결"></a>호기심 해결</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly</span><br><span class="line"><span class="keyword">from</span> plotly.graph_objs <span class="keyword">import</span> Scatter, Layout</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">t</span>):</span> <span class="comment">#Defining dy/dt</span></span><br><span class="line">    <span class="keyword">return</span> - t + t**<span class="number">2</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Hyip1</span>(<span class="params">t</span>):</span> <span class="comment">#Defining y sub i+1 in Heun&#x27;s Method</span></span><br><span class="line">    <span class="keyword">return</span> Hyi + (<span class="number">1</span>/<span class="number">2</span> * Hk1 + <span class="number">1</span>/<span class="number">2</span> * Hk2) * h</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Ryip1</span>(<span class="params">t</span>):</span> <span class="comment">#Defining y sub i+1 in Ralston&#x27;s Method</span></span><br><span class="line">    <span class="keyword">return</span> Ryi + (<span class="number">1</span>/<span class="number">3</span> * Rk1 + <span class="number">2</span>/<span class="number">3</span> * Rk2) * h</span><br><span class="line"></span><br><span class="line">Hyi = <span class="number">1</span> <span class="comment">#Defining y sub i in Heun&#x27;s Method</span></span><br><span class="line">Ryi = <span class="number">1</span> <span class="comment">#Defining y sub i in Ralston&#x27;s Method</span></span><br><span class="line">Ht = <span class="number">0</span> <span class="comment">#Defining initial value t in Heun&#x27;s Method</span></span><br><span class="line">Rt = <span class="number">0</span> <span class="comment">#Defining initial value t in Ralston&#x27;s Method</span></span><br><span class="line">h = <span class="number">0.0001</span> <span class="comment">#Defining h</span></span><br><span class="line">Hyisav = [] <span class="comment">#Defining y sub i in Heun&#x27;s Method to save</span></span><br><span class="line">Ryisav = [] <span class="comment">#Defining y sub i in Ralston&#x27;s Method to save</span></span><br><span class="line">Htsav = [] <span class="comment">#Defining initial value t in Heun&#x27;s Method to save</span></span><br><span class="line">Rtsav = [] <span class="comment">#Defining initial value t in Ralston&#x27;s Method to save</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(Ht &lt;= <span class="number">3</span>):</span><br><span class="line">    Ht = round(Ht, <span class="number">10</span>)</span><br><span class="line">    Hk1 = round(f(Ht), <span class="number">10</span>)  <span class="comment">#Defining k sub 1 in Heun&#x27;s Method</span></span><br><span class="line">    Hk2 = round(f(Ht + h), <span class="number">10</span>) <span class="comment">#Defining k sub 2 in Heun&#x27;s Method</span></span><br><span class="line">    Hyi = round(Hyip1(Ht), <span class="number">10</span>) <span class="comment">#Determine new y sub i in Heun&#x27;s Mthod</span></span><br><span class="line">    Hyisav = Hyisav + [Hyi]</span><br><span class="line">    Htsav = Htsav + [Ht]</span><br><span class="line">    Ht = Ht + h <span class="comment">#Redefining time</span></span><br><span class="line">    print(Ht)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(Rt &lt;= <span class="number">3</span>):</span><br><span class="line">    Rt = round(Rt, <span class="number">10</span>)</span><br><span class="line">    Rk1 = round(f(Rt), <span class="number">10</span>)  <span class="comment">#Defining k sub 1 in Ralston&#x27;s Method</span></span><br><span class="line">    Rk2 = round(f(Rt + <span class="number">3</span> / <span class="number">4</span> * h), <span class="number">10</span>)  <span class="comment">#Defining k sub 2 in Ralston&#x27;s Method</span></span><br><span class="line">    Ryi = round(Ryip1(Rt), <span class="number">10</span>) <span class="comment">#Determine new y sub i in Ralston&#x27;s Mthod</span></span><br><span class="line">    Ryisav = Ryisav + [Ryi]</span><br><span class="line">    Rtsav = Rtsav + [Rt]</span><br><span class="line">    Rt = Rt + h <span class="comment">#Redefining time</span></span><br><span class="line">    print(Rt)</span><br><span class="line"></span><br><span class="line">plotly.offline.plot(&#123; <span class="comment">#Data ploting</span></span><br><span class="line">    <span class="string">&quot;data&quot;</span>: [Scatter(x = Htsav, y = Hyisav)],</span><br><span class="line">    <span class="string">&quot;layout&quot;</span>: Layout(title=<span class="string">&quot;Heun&#x27;s Method&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">plotly.offline.plot(&#123; <span class="comment">#Data ploting</span></span><br><span class="line">    <span class="string">&quot;data&quot;</span>: [Scatter(x = Rtsav, y = Ryisav)],</span><br><span class="line">    <span class="string">&quot;layout&quot;</span>: Layout(title=<span class="string">&quot;Ralston&#x27;s Method&quot;</span>)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">print(Htsav)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">0</span>, len(Hyisav)):</span><br><span class="line">    print(Hyisav[a], end=<span class="string">&quot; &quot;</span>)</span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line">print(Rtsav)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">0</span>, len(Ryisav)):</span><br><span class="line">    print(Ryisav[a], end=<span class="string">&quot; &quot;</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>실행결과</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.4925</span>, <span class="number">2.4926</span>, <span class="number">2.4927</span>, <span class="number">2.4928</span>, <span class="number">2.4929</span>, <span class="number">2.493</span>, <span class="number">2.4931</span>, <span class="number">2.4932</span>, <span class="number">2.4933</span>, <span class="number">2.4934</span>, <span class="number">2.4935</span>, <span class="number">2.4936</span>, <span class="number">2.4937</span>, <span class="number">2.4938</span>, <span class="number">2.4939</span>, <span class="number">2.494</span>, <span class="number">2.4941</span>, <span class="number">2.4942</span>, <span class="number">2.4943</span>, <span class="number">2.4944</span>, <span class="number">2.4945</span>, <span class="number">2.4946</span>, <span class="number">2.4947</span>, <span class="number">2.4948</span>, <span class="number">2.4949</span>, <span class="number">2.495</span>, ..., <span class="number">5.4946022248</span> <span class="number">5.4952017999</span> <span class="number">5.495801425</span> <span class="number">5.4964011</span> <span class="number">5.497000825</span> <span class="number">5.4976006</span> <span class="number">5.498200425</span> <span class="number">5.4988003</span> <span class="number">5.499400225</span> <span class="number">5.5000002</span> <span class="number">5.500600225</span>]</span><br><span class="line">plot(x,y1,x,y2,x,y3)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/42334717/49588816-12817d00-f9ab-11e8-91be-6bf017ce6451.jpg" alt="실행결과"></p>
+<hr>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><p>결론을 짓기 위해 h를 0.0001로 설정한 뒤 같은 코드를 살짝 수정해서 돌려보니 아래 그림과 같이 세 곡선이 모두 일정하게 그려졌다. 따라서 오차는 h값이 커서 났던 것이고 Ralston’s Method가 상대적으로 Heun’s Method보다 정확하다고 할 수 있다.</p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/source-code-obstructive-sleep-apnea/" rel="bookmark">Source Code(Obstructive Sleep Apnea)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/numerical-analysis-2/" rel="bookmark">Numerical analysis(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/numerical-analysis-3/" rel="bookmark">Numerical analysis(3)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/numerical-analysis-4/" rel="bookmark">Numerical analysis(4)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/numerical-analysis-1/" rel="bookmark">Numerical analysis(1)</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/numerical-analysis-5/" title="Numerical analysis(5)">https://zerohertz.github.io/numerical-analysis-5/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/matlab/" rel="tag"><i class="fa fa-tag"></i> Matlab</a>
+              <a href="/tags/numerical-analysis/" rel="tag"><i class="fa fa-tag"></i> Numerical analysis</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/numerical-analysis-4/" rel="prev" title="Numerical analysis(4)">
+                  <i class="fa fa-chevron-left"></i> Numerical analysis(4)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/unreal-engine-and-c-1/" rel="next" title="Unreal engine and C++(1)">
+                  Unreal engine and C++(1) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/numerical-analysis-5/";
+    this.page.identifier = "numerical-analysis-5/";
+    this.page.title = "Numerical analysis(5)";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

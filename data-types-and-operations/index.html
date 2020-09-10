@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="변수와 상수 변수(Variable) : 프로그램이 실행되는 동안 저장된 값이 변경될 수 있는 공간 상수(Constant) : 프로그램이 실행되는 동안 값이 변경되지 않는 공간   자료형 데이터의 종류를 자료형(Data type) 또는 데이터 타입이라고 한다.   변수는 일단 하나의 자료형으로 정의되면 해당되는 종류의 데이터만 저장할 수 있음 자료형을 크게">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Data Types and Operations">
+<meta property="og:url" content="https://zerohertz.github.io/data-types-and-operations/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="변수와 상수 변수(Variable) : 프로그램이 실행되는 동안 저장된 값이 변경될 수 있는 공간 상수(Constant) : 프로그램이 실행되는 동안 값이 변경되지 않는 공간   자료형 데이터의 종류를 자료형(Data type) 또는 데이터 타입이라고 한다.   변수는 일단 하나의 자료형으로 정의되면 해당되는 종류의 데이터만 저장할 수 있음 자료형을 크게">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-01T07:24:22.000Z">
+<meta property="article:modified_time" content="2020-07-02T06:31:17.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="C, C++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/data-types-and-operations/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Data Types and Operations | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B3%80%EC%88%98%EC%99%80-%EC%83%81%EC%88%98"><span class="nav-number">1.</span> <span class="nav-text">변수와 상수</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95"><span class="nav-number">2.</span> <span class="nav-text">자료형</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B3%80%EC%88%98-%EC%84%A0%EC%96%B8"><span class="nav-number">3.</span> <span class="nav-text">변수 선언</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%A0%95%EC%88%98%ED%98%95"><span class="nav-number">4.</span> <span class="nav-text">정수형</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%98%A4%EB%B2%84%ED%94%8C%EB%A1%9C%EC%9A%B0"><span class="nav-number">4.1.</span> <span class="nav-text">오버플로우</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%ED%98%B8-%EC%83%81%EC%88%98"><span class="nav-number">4.2.</span> <span class="nav-text">기호 상수</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%AC%B8%EC%9E%90%ED%98%95"><span class="nav-number">5.</span> <span class="nav-text">문자형</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Bool%ED%98%95"><span class="nav-number">5.1.</span> <span class="nav-text">Bool형</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B6%80%EB%8F%99-%EC%86%8C%EC%88%98%EC%A0%90%ED%98%95"><span class="nav-number">6.</span> <span class="nav-text">부동 소수점형</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%88%98%EC%8B%9D%EA%B3%BC-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">7.</span> <span class="nav-text">수식과 연산자</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%82%B0%EC%88%A0-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">8.</span> <span class="nav-text">산술 연산자</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%98%95%EB%B3%80%ED%99%98"><span class="nav-number">8.1.</span> <span class="nav-text">형변환</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B4%80%EA%B3%84-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">9.</span> <span class="nav-text">관계 연산자</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%85%BC%EB%A6%AC-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">10.</span> <span class="nav-text">논리 연산자</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%A1%B0%EA%B1%B4-%EC%97%B0%EC%82%B0%EC%9E%90"><span class="nav-number">11.</span> <span class="nav-text">조건 연산자</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/data-types-and-operations/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Data Types and Operations
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-01 16:24:22" itemprop="dateCreated datePublished" datetime="2020-07-01T16:24:22+09:00">2020-07-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-07-02 15:31:17" itemprop="dateModified" datetime="2020-07-02T15:31:17+09:00">2020-07-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">C, C++</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/basic/" itemprop="url" rel="index"><span itemprop="name">Basic</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/data-types-and-operations/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="data-types-and-operations/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>4.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="변수와-상수"><a href="#변수와-상수" class="headerlink" title="변수와 상수"></a>변수와 상수</h1><ul>
+<li>변수(Variable) : 프로그램이 실행되는 동안 저장된 값이 변경될 수 있는 공간</li>
+<li>상수(Constant) : 프로그램이 실행되는 동안 값이 변경되지 않는 공간</li>
+</ul>
+<hr>
+<h1 id="자료형"><a href="#자료형" class="headerlink" title="자료형"></a>자료형</h1><blockquote>
+<p>데이터의 종류를 자료형(Data type) 또는 데이터 타입이라고 한다.</p>
+</blockquote>
+<ul>
+<li>변수는 일단 하나의 자료형으로 정의되면 해당되는 종류의 데이터만 저장할 수 있음</li>
+<li>자료형을 크게 나누면 정수형(Interger type)과 문자형(Charater type), 부동 소수점형(Floating-point type)으로 나눌 수 있음<ul>
+<li>정수형 : 정수 타입의 데이터</li>
+<li>문자형 : 하나의 문자 데이터</li>
+<li>부동 소수점형 : 실수 타입의 데이터</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+
+<hr>
+<h1 id="변수-선언"><a href="#변수-선언" class="headerlink" title="변수 선언"></a>변수 선언</h1><ul>
+<li>변수를 사용하기 전에 반드시 미리 선언</li>
+<li>변수 선언 : 컴파일러에게 어떤 변수를 사용하겠다고 미리 알리는 것</li>
+</ul>
+<blockquote>
+<p>변수 선언 방법</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">자료형 변수이름</span><br><span class="line"><span class="keyword">char</span> c;</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">double</span> interest_rate;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>변수가 선언되면 변수의 값은 아직 정의되지 않은 상태</li>
+<li>변수를 선언과 동시에 값을 넣는 방법은 변수 이름 뒤에 할당 연산자 <code>=</code>를 놓고 초기값을 적어 넣으면 됨 - 변수의 초기화(Initialization)</li>
+</ul>
+<blockquote>
+<p>변수의 초기화</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">7</span>;</span><br><span class="line"><span class="keyword">double</span> interest_rate = <span class="number">0.05</span>;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="정수형"><a href="#정수형" class="headerlink" title="정수형"></a>정수형</h1><ul>
+<li><code>short</code> : 16비트(2바이트)</li>
+<li><code>int</code> : 32비트(4바이트)</li>
+<li><code>long</code> : 32비트(4바이트)</li>
+<li><code>sizeof()</code> : 자료형의 크기를 Return하는 함수</li>
+<li><code>unsigned</code> : 자료형이 음수가 아닌 값만을 나타낸다는 것을 의미(더 넓은 범위의 양수)</li>
+<li><code>signed</code> : 자료형이 음수도 가질 수 있음을 명백히 하는데 사용(<code>signed int == int</code>, 보통 생략)</li>
+</ul>
+<h2 id="오버플로우"><a href="#오버플로우" class="headerlink" title="오버플로우"></a>오버플로우</h2><blockquote>
+<p>Overflow.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">short</span> s = SHRT_MAX;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span> u = USHRT_MAX;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;원래 s 값 : &quot;</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;원래 u 값 : &quot;</span> &lt;&lt; u &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    s = s + <span class="number">1</span>;</span><br><span class="line">    u = u + <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;오버플로우 s 값 : &quot;</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;오버플로우 u 값 : &quot;</span> &lt;&lt; u &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Output</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">원래 s 값 : <span class="number">32767</span></span><br><span class="line">원래 u 값 : <span class="number">65535</span></span><br><span class="line">오버플로우 s 값 : <span class="number">-32768</span></span><br><span class="line">오버플로우 u 값 : <span class="number">0</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>변수가 나타낼 수 있는 범위가 제한되어 있기 때문에 일어남</li>
+<li>오버플로우가 발생하더라도 컴파일러는 아무런 경고를 하지 않음</li>
+</ul>
+<h2 id="기호-상수"><a href="#기호-상수" class="headerlink" title="기호 상수"></a>기호 상수</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">define</span> TAX_RATE 0.15</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> TAX_RATE = <span class="number">0.15</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>#define</code><ul>
+<li>보통 프로그램의 맨 첫 부분에 모여 있음</li>
+<li>컴파일러가 동작하기 전에 전처리기(Preprocessor)가 처리</li>
+<li>전처리기는 단순히 기호의 이름을 전부 찾아 정의된 값으로 바꿈(<code>TAX_RATE</code>를 전부 찾아 <code>0.15</code>로 바꿈)</li>
+</ul>
+</li>
+<li><code>const</code><ul>
+<li><code>const</code>를 변수 선언 앞에 붙이면 상수가 됨</li>
+<li>선언 시 <code>const</code>가 붙여진 변수는 일단 초기화 된 후 그 값이 변경될 수 없음</li>
+<li>변수 선언과 같이 끝에 <code>;</code> 사용</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="문자형"><a href="#문자형" class="headerlink" title="문자형"></a>문자형</h1><ul>
+<li>문자(Character)는 한글이나 영어에서의 하나의 글자, 숫자, 기호 등을 의미</li>
+<li>문자를 숫자로 나타내는 규격으로 아스키(ASCII : American Standard Code for Information Interchange) 존재</li>
+</ul>
+<blockquote>
+<p>Char.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;원래의 C : &quot;</span> &lt;&lt; c &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    c = c + <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;C + 1 : &quot;</span> &lt;&lt; c &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Output</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">원래의 C : a</span><br><span class="line">C + <span class="number">1</span> : b</span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">원래의 C : A</span><br><span class="line">C + <span class="number">1</span> : B</span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Bool형"><a href="#Bool형" class="headerlink" title="Bool형"></a>Bool형</h2><ul>
+<li>참(<code>true</code>) or 거짓(<code>false</code>)</li>
+</ul>
+<hr>
+<h1 id="부동-소수점형"><a href="#부동-소수점형" class="headerlink" title="부동 소수점형"></a>부동 소수점형</h1><table>
+<thead>
+<tr>
+<th align="center">자료형</th>
+<th align="center">명칭</th>
+<th align="center">크기</th>
+<th align="center">범위</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">float</td>
+<td align="center">단일정밀도(Single-precision) 부동 소수점</td>
+<td align="center">32비트</td>
+<td align="center">$\pm1.17549\times10^{-38}$~$\pm3.40282\times10^{+38}$</td>
+</tr>
+<tr>
+<td align="center">double</td>
+<td align="center">두배정밀도(Double-precision) 부동 소수점</td>
+<td align="center">64비트</td>
+<td align="center">$\pm2.22507\times10^{-308}$~$\pm1.79769\times10^{+308}$</td>
+</tr>
+<tr>
+<td align="center">long double</td>
+<td align="center">두배확장정밀도(Double-extension-precision) 부동 소수점</td>
+<td align="center">64비트 또는 80비트</td>
+<td align="center">$\pm2.22507\times10^{-308}$~$\pm1.79769\times10^{+308}$</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>Float.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>.setf(ios_base::fixed); <span class="comment">//소수점 표기법</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">float</span> fvalue = <span class="number">1234567890.12345678901234567890</span>;</span><br><span class="line">    <span class="keyword">double</span> dvalue = <span class="number">1234567890.12345678901234567890</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Float : &quot;</span> &lt;&lt; fvalue &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Double : &quot;</span> &lt;&lt; dvalue &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Output</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Float : <span class="number">1234567936.000000</span></span><br><span class="line">Double : <span class="number">1234567890.123457</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>소수점 표기법을 사용하지 않은 Output(<code>cout.setf()</code> 삭제)</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Float : <span class="number">1.23457e+09</span></span><br><span class="line">Double : <span class="number">1.23457e+09</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Overflow.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> x = <span class="number">1e39</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; x &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Output</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">inf</span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Underflow.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> x = <span class="number">1.23e-39</span>;</span><br><span class="line">    <span class="keyword">float</span> y = <span class="number">1.23e-46</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;X : &quot;</span> &lt;&lt; x &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;y : &quot;</span> &lt;&lt; y &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Output</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X : <span class="number">1.23e-39</span></span><br><span class="line">y : <span class="number">0</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="수식과-연산자"><a href="#수식과-연산자" class="headerlink" title="수식과 연산자"></a>수식과 연산자</h1><ul>
+<li>수식 : 피연산자들과 연산자의 조합</li>
+<li>연산자(Operator) : 어떤 연산을 나타내는 기호</li>
+<li>피연산자(Operand) : 연산의 대상이 되는 것</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">연산자의 분류</th>
+<th align="center">연산자</th>
+<th align="center">의미</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">할당</td>
+<td align="center"><code>=</code></td>
+<td align="center">오른쪽을 왼쪽에 할당</td>
+</tr>
+<tr>
+<td align="center">산술</td>
+<td align="center"><code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code></td>
+<td align="center">사칙연산과 나머지 연산</td>
+</tr>
+<tr>
+<td align="center">부호</td>
+<td align="center"><code>+</code> <code>-</code></td>
+<td align="center">양수와 음수 표시</td>
+</tr>
+<tr>
+<td align="center">증감</td>
+<td align="center"><code>++</code> <code>--</code></td>
+<td align="center">증가, 감소 연산</td>
+</tr>
+<tr>
+<td align="center">관계</td>
+<td align="center"><code>&gt;</code> <code>&lt;</code> <code>==</code> <code>!=</code> <code>&gt;=</code> <code>&lt;=</code></td>
+<td align="center">오른쪽과 왼쪽 비교</td>
+</tr>
+<tr>
+<td align="center">논리</td>
+<td align="center"><code>&amp;&amp;</code> `</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">조건</td>
+<td align="center"><code>?</code></td>
+<td align="center">조건에 따라 선택</td>
+</tr>
+<tr>
+<td align="center">콤마</td>
+<td align="center"><code>,</code></td>
+<td align="center">피연산자들을 순차적으로 실행</td>
+</tr>
+<tr>
+<td align="center">비트 단위 연산자</td>
+<td align="center"><code>&amp;</code> `</td>
+<td align="center"><code> </code>^<code> </code>~<code> </code>&lt;&lt;<code> </code>&gt;&gt;`</td>
+</tr>
+<tr>
+<td align="center">sizeof 연산자</td>
+<td align="center"><code>sizeof</code></td>
+<td align="center">자료형이나 변수의 크기를 바이트 단위로 반환</td>
+</tr>
+<tr>
+<td align="center">형변환</td>
+<td align="center"><code>(type)</code></td>
+<td align="center">변수나 상수의 자료형을 변환</td>
+</tr>
+<tr>
+<td align="center">포인터 연산자</td>
+<td align="center"><code>*</code> <code>&amp;</code> <code>[]</code></td>
+<td align="center">주소계산, 포인터가 가르키는 곳의 내용 추출</td>
+</tr>
+<tr>
+<td align="center">구조체 연산자</td>
+<td align="center"><code>.</code> <code>-&gt;</code></td>
+<td align="center">구조체의 멤버 참조</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="산술-연산자"><a href="#산술-연산자" class="headerlink" title="산술 연산자"></a>산술 연산자</h1><ul>
+<li><code>%</code> : 나머지 값</li>
+<li><code>x += y</code> : <code>x = x + y</code></li>
+<li><code>++x</code> : <code>x</code>값을 먼저 증가한 후에 다른 연산에 사용</li>
+<li><code>x++</code> : <code>x</code>값을 먼저 사용한 후에 증가</li>
+</ul>
+<h2 id="형변환"><a href="#형변환" class="headerlink" title="형변환"></a>형변환</h2><ul>
+<li>자동적인 형변환<ul>
+<li>할당 연산자의 오른쪽에 있는 값은 왼쪽에 있는 변수의 자료형으로 자동 변환</li>
+</ul>
+</li>
+<li>명시적인 형변환<ul>
+<li><code>(자료형) 상수 또는 변수</code></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Type.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">float</span> b = <span class="number">10.82</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;int + float : &quot;</span> &lt;&lt; a + b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;float + int : &quot;</span> &lt;&lt; b + a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">int</span>)a + (<span class="keyword">int</span>)b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Output</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> + <span class="keyword">float</span> : <span class="number">20.82</span></span><br><span class="line"><span class="keyword">float</span> + <span class="keyword">int</span> : <span class="number">20.82</span></span><br><span class="line"><span class="number">20</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="관계-연산자"><a href="#관계-연산자" class="headerlink" title="관계 연산자"></a>관계 연산자</h1><ul>
+<li>관계 연산자(Relational operator) : 두 개의 피연산자를 비교하는데 사용</li>
+<li><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li>
+</ul>
+<hr>
+<h1 id="논리-연산자"><a href="#논리-연산자" class="headerlink" title="논리 연산자"></a>논리 연산자</h1><ul>
+<li>논리 연산자 : 여러 개의 조건을 조합하여 참인지 거짓인지를 따짐</li>
+<li><code>&amp;&amp;</code>, <code>||</code>, <code>!</code></li>
+</ul>
+<hr>
+<h1 id="조건-연산자"><a href="#조건-연산자" class="headerlink" title="조건 연산자"></a>조건 연산자</h1><ul>
+<li><code>exp1 ? exp2 : exp3</code><ul>
+<li><code>exp1</code>이 참이면 결과값은 <code>exp2</code></li>
+<li><code>exp1</code>이 거짓이면 결과값은 <code>exp3</code></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/inverse-kinematics-in-unreal-engine-1/" rel="bookmark">Inverse Kinematics in Unreal engine(1)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/face-recognition-by-raspberrypi/" rel="bookmark">Face recognition by RaspberryPi</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/source-code-obstructive-sleep-apnea/" rel="bookmark">Source Code(Obstructive Sleep Apnea)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/line-detection/" rel="bookmark">Line Detection</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c-basic-1/" rel="bookmark">C++ Basic(1)</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/data-types-and-operations/" title="Data Types and Operations">https://zerohertz.github.io/data-types-and-operations/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> C, C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/introduction-of-c/" rel="prev" title="Introduction of C++">
+                  <i class="fa fa-chevron-left"></i> Introduction of C++
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/selection-and-iteration/" rel="next" title="Selection and Iteration">
+                  Selection and Iteration <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/data-types-and-operations/";
+    this.page.identifier = "data-types-and-operations/";
+    this.page.title = "Data Types and Operations";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

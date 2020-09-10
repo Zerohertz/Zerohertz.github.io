@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="DOM 요소의 속성 추출12345678910111213141516C:\Users\OHG&gt;pythonPython 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:59:51) [MSC v.1914 64 bit (AMD64)] on win32Type &quot;help&quot;, &quot;copyright&quot;, &amp;quo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web crawling by BeautifulSoup(2)">
+<meta property="og:url" content="https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="DOM 요소의 속성 추출12345678910111213141516C:\Users\OHG&gt;pythonPython 3.7.0 (v3.7.0:1bf9cc5093, Jun 27 2018, 04:59:51) [MSC v.1914 64 bit (AMD64)] on win32Type &quot;help&quot;, &quot;copyright&quot;, &amp;quo">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/44307044-740ae500-a3d6-11e8-81ce-58d78041d9ef.png">
+<meta property="article:published_time" content="2018-08-19T07:33:02.000Z">
+<meta property="article:modified_time" content="2020-01-10T08:58:19.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Web crawling">
+<meta property="article:tag" content="BeautifulSoup">
+<meta property="article:tag" content="HTML">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/44307044-740ae500-a3d6-11e8-81ce-58d78041d9ef.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Web crawling by BeautifulSoup(2) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DOM-%EC%9A%94%EC%86%8C%EC%9D%98-%EC%86%8D%EC%84%B1-%EC%B6%94%EC%B6%9C"><span class="nav-number">1.</span> <span class="nav-text">DOM 요소의 속성 추출</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#urlopen-%EA%B3%BC-BeautifulSoup%EC%A1%B0%ED%95%A9%ED%95%98%EA%B8%B0"><span class="nav-number">2.</span> <span class="nav-text">urlopen()과 BeautifulSoup조합하기</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%84%A4%EC%9D%B4%EB%B2%84-%EA%B8%88%EC%9C%B5%EC%97%90%EC%84%9C-%ED%99%98%EC%9C%A8-%EC%A0%95%EB%B3%B4-%EC%B6%94%EC%B6%9C%ED%95%98%EA%B8%B0"><span class="nav-number">3.</span> <span class="nav-text">네이버 금융에서 환율 정보 추출하기</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Web crawling by BeautifulSoup(2)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-08-19 16:33:02" itemprop="dateCreated datePublished" datetime="2018-08-19T16:33:02+09:00">2018-08-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-01-10 17:58:19" itemprop="dateModified" datetime="2020-01-10T17:58:19+09:00">2020-01-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/web-crawling/" itemprop="url" rel="index"><span itemprop="name">Web crawling</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/web-crawling-by-beautifulsoup-2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="web-crawling-by-beautifulsoup-2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>2.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>2 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="DOM-요소의-속성-추출"><a href="#DOM-요소의-속성-추출" class="headerlink" title="DOM 요소의 속성 추출"></a>DOM 요소의 속성 추출</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\OHG&gt;python</span><br><span class="line">Python <span class="number">3.7</span><span class="number">.0</span> (v3<span class="number">.7</span><span class="number">.0</span>:<span class="number">1</span>bf9cc5093, Jun <span class="number">27</span> <span class="number">2018</span>, <span class="number">04</span>:<span class="number">59</span>:<span class="number">51</span>) [MSC v<span class="number">.1914</span> <span class="number">64</span> bit (AMD64)] on win32</span><br><span class="line">Type <span class="string">&quot;help&quot;</span>, <span class="string">&quot;copyright&quot;</span>, <span class="string">&quot;credits&quot;</span> <span class="keyword">or</span> <span class="string">&quot;license&quot;</span> <span class="keyword">for</span> more information.</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup=BeautifulSoup(</span><br><span class="line"><span class="meta">... </span>    <span class="string">&quot;&lt;p&gt;&lt;a href=&#x27;a.html&#x27;&gt;test&lt;/a&gt;&lt;/p&gt;&quot;</span>,</span><br><span class="line"><span class="meta">... </span>    <span class="string">&quot;html.parser&quot;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>soup.prettify()</span><br><span class="line"><span class="string">&#x27;&lt;p&gt;\n &lt;a href=&quot;a.html&quot;&gt;\n  test\n &lt;/a&gt;\n&lt;/p&gt;&#x27;</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a=soup.p.a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(a.attrs)</span><br><span class="line">&lt;<span class="class"><span class="keyword">class</span> &#x27;<span class="title">dict</span>&#x27;&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; &#x27;<span class="title">href</span>&#x27; <span class="title">in</span> <span class="title">a</span>.<span class="title">attrs</span></span></span><br><span class="line"><span class="class"><span class="title">True</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">a</span>[&#x27;<span class="title">href</span>&#x27;]</span></span><br><span class="line"><span class="class">&#x27;<span class="title">a</span>.<span class="title">html</span>&#x27;</span></span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p><code>cmd</code>에서 <code>prettify()</code> 메서드를 이용하여 제대로 분석이 됐는지 확인했다.<br>또한 <code>attrs</code> 속성의 자료형은 딕셔너리(<code>dict</code>)임을 알 수 있다.</p>
+<hr>
+<h1 id="urlopen-과-BeautifulSoup조합하기"><a href="#urlopen-과-BeautifulSoup조합하기" class="headerlink" title="urlopen()과 BeautifulSoup조합하기"></a>urlopen()과 BeautifulSoup조합하기</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> urllib.request <span class="keyword">as</span> req</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp&quot;</span></span><br><span class="line"></span><br><span class="line">res = req.urlopen(url) <span class="comment">#urlopen으로 url열기</span></span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(res, <span class="string">&quot;html.parser&quot;</span>) <span class="comment">#BeautifulSoup로 분석하기</span></span><br><span class="line"></span><br><span class="line">title = soup.find(<span class="string">&quot;title&quot;</span>).string <span class="comment">#태그 추출, 결과 출력</span></span><br><span class="line">wf = soup.find(<span class="string">&quot;wf&quot;</span>).string</span><br><span class="line">print(title)</span><br><span class="line">print(wf)</span><br></pre></td></tr></table></figure>
+<p>기상청 <code>RSS</code>에서 XML데이터를 추출하여 XML의 내용을 출력한다.</p>
+<blockquote>
+<p>실행결과</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\OHG\PycharmProjects\Webcrawling2&gt;python main.py</span><br><span class="line">기상청 육상 중기예보</span><br><span class="line">이번 예보기간에는 북태평양고기압의 영향을 주로 받는 가운데, 가끔 구름이 많겠습니다.&lt;br /&gt;기온은 평년(최저기온: <span class="number">18</span>~<span class="number">23</span>℃, 최고기온: <span class="number">26</span>~<span class="number">31</span>℃)보다 높겠습니다.&lt;br /&gt;강수량은 평년(<span class="number">6</span>~<span class="number">17</span>mm)보다 적겠습니다.&lt;br /&gt;&lt;br /&gt;* 이번 예보기간에도 무더위가 계속 이어지겠고, 밤에는 열대야가 나타나는 곳이 있겠습니다.&lt;br /&gt;* 주의보 수준의 폭염이 당분간 이어짐에 따라 온열질환자 발 생 가능성이 있으니, 건강관리와 농.축산물과 수산물 관리에 유의하기 바랍니다.&lt;br /&gt;* 제<span class="number">19</span>호 태풍 <span class="string">&#x27;솔릭(SOULIK)&#x27;</span>이 북상하는 가운데, 이 태풍의 발달과 이동경로에 따라 전반에 기압계 변동 가능성이 크겠으니, 앞으로 발표되는 기상정보를 참고하기 바랍니다.</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="네이버-금융에서-환율-정보-추출하기"><a href="#네이버-금융에서-환율-정보-추출하기" class="headerlink" title="네이버 금융에서 환율 정보 추출하기"></a>네이버 금융에서 환율 정보 추출하기</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> urllib.request <span class="keyword">as</span> req</span><br><span class="line"></span><br><span class="line">url = <span class="string">&quot;https://finance.naver.com/marketindex/&quot;</span> <span class="comment">#HTML 가져오기</span></span><br><span class="line">res = req.urlopen(url)</span><br><span class="line"></span><br><span class="line">soup = BeautifulSoup(res, <span class="string">&quot;html.parser&quot;</span>) <span class="comment">#HTML 분석</span></span><br><span class="line"></span><br><span class="line">price = soup.select_one(<span class="string">&quot;div.head_info &gt; span.value&quot;</span>).string <span class="comment">#데이터 추출</span></span><br><span class="line">print(<span class="string">&quot;usd/krw =&quot;</span>, price)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/42334717/44307044-740ae500-a3d6-11e8-81ce-58d78041d9ef.png" alt="HTML분석"><br>위에 있는 소스가 환율 정보다.</p>
+<blockquote>
+<p>실행결과</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\OHG\PycharmProjects\Webcrawling3\venv\Scripts\python.exe C:/Users/OHG/PycharmProjects/Webcrawling3/Main.py</span><br><span class="line">usd/krw = <span class="number">1</span>,<span class="number">125.00</span></span><br><span class="line"></span><br><span class="line">Process finished <span class="keyword">with</span> exit code <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/web-crawling-by-beautifulsoup-1/" rel="bookmark">Web crawling by BeautifulSoup(1)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/web-crawling-by-beautifulsoup-4/" rel="bookmark">Web crawling by BeautifulSoup(4)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/web-crawling-by-beautifulsoup-3/" rel="bookmark">Web crawling by BeautifulSoup(3)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/web-crawling-by-selenium-2/" rel="bookmark">Web crawling by Selenium(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/web-crawler-for-ecampus-by-selenium/" rel="bookmark">Web Crawler for eCampus by Selenium</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/" title="Web crawling by BeautifulSoup(2)">https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/web-crawling/" rel="tag"><i class="fa fa-tag"></i> Web crawling</a>
+              <a href="/tags/beautifulsoup/" rel="tag"><i class="fa fa-tag"></i> BeautifulSoup</a>
+              <a href="/tags/html/" rel="tag"><i class="fa fa-tag"></i> HTML</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/ems-electrical-muscle-stimulation/" rel="prev" title="EMS(Electrical Muscle Stimulation)">
+                  <i class="fa fa-chevron-left"></i> EMS(Electrical Muscle Stimulation)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/ems-electrical-muscle-stimulation-1/" rel="next" title="EMS(Electrical Muscle Stimulation) 논문 분석(1)">
+                  EMS(Electrical Muscle Stimulation) 논문 분석(1) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/web-crawling-by-beautifulsoup-2/";
+    this.page.identifier = "web-crawling-by-beautifulsoup-2/";
+    this.page.title = "Web crawling by BeautifulSoup(2)";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

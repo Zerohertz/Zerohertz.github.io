@@ -1,0 +1,2278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Introduction Optimization - 시험   Define manufacturing and describe the technical and economic consideration : A kind of optimization Relationship among product design(functionality &amp; costs) and en">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Manufacturing Process">
+<meta property="og:url" content="https://zerohertz.github.io/manufacturing-process/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction Optimization - 시험   Define manufacturing and describe the technical and economic consideration : A kind of optimization Relationship among product design(functionality &amp; costs) and en">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/77715304-9935ef80-701e-11ea-8ff7-bd19b70150ce.jpeg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/77715817-f8e0ca80-701f-11ea-9c35-c6a6b8b1ea35.jpeg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/77717068-df8d4d80-7022-11ea-8336-ec8adfad8438.jpeg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/77886641-348bc680-72a4-11ea-9175-aaee0357e6c9.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/78210678-d6e6bc80-74e5-11ea-9739-ba320fb72a1b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/78211546-3d6cda00-74e8-11ea-8783-6a871fdc149e.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/78212801-c20d2780-74eb-11ea-89c6-b23737ef4fb2.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/78214676-c5ef7880-74f0-11ea-96d9-788dc8afa979.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/78218322-8d539d00-74f8-11ea-8ac7-074136573aca.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/78218635-1539a700-74f9-11ea-9765-6d418b0375b2.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/78338314-83e83480-75cd-11ea-8f14-ac513a025ffc.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/78339647-c3178500-75cf-11ea-8617-f83f93ad67a9.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/78340078-6ff20200-75d0-11ea-8d00-8fc460a4e646.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/79044675-60626100-7c41-11ea-8028-81fc71618482.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/79044885-f5b22500-7c42-11ea-9649-7e1309a3be87.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/79045200-cd2b2a80-7c44-11ea-891d-83a43cf154d9.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/79067999-797d1780-7cfe-11ea-8d8e-35d770c89fec.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/79755717-84febd00-8354-11ea-9a98-d7770f80199f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/79757319-e889ea00-8356-11ea-9603-d979738d3f79.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/79780965-b6d54b00-8377-11ea-8d44-682d30c0bdfd.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/82438159-906c1200-9ad3-11ea-8da8-54ac892e1abb.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/82439224-43893b00-9ad5-11ea-943e-a925f5a59089.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/82439585-e5a92300-9ad5-11ea-9e46-b5cb88e3820d.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/83268654-e55d0600-a200-11ea-99c7-770c4f12a744.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/83729376-752c0580-a682-11ea-9043-da16f15e8164.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/83752771-0790d100-a6a4-11ea-8791-22f45a2dd92f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/83737781-6e0af480-a68e-11ea-9676-f376cb8e437b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/83738246-030ded80-a68f-11ea-97c2-dcea7ae8a880.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/83738483-52ecb480-a68f-11ea-9028-5217ace1a246.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/83738601-76affa80-a68f-11ea-94c5-cd8b94544586.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/83738860-cbec0c00-a68f-11ea-9996-dc3293796eba.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/83739023-02c22200-a690-11ea-8229-604240f535bc.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/83746590-43269d80-a69a-11ea-8b42-417fecc90ad5.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/84660790-52d49a80-af54-11ea-9f17-ec89f4df1ece.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/84661487-65030880-af55-11ea-8017-0aea3136291a.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/84751158-33427e00-aff7-11ea-8591-91d6a357da10.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/84751688-d0051b80-aff7-11ea-9c92-b6fe8e02f5e1.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/85018688-945d8380-b1a8-11ea-9d62-0b7df8045562.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/85107678-52384e80-b249-11ea-88f6-cd85b89b5a7b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/85107975-d12d8700-b249-11ea-81d2-6483198208d9.png">
+<meta property="article:published_time" content="2020-03-27T02:12:34.000Z">
+<meta property="article:modified_time" content="2020-07-01T04:33:38.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Mechanical Engineering">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/77715304-9935ef80-701e-11ea-8ff7-bd19b70150ce.jpeg">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/manufacturing-process/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Manufacturing Process | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Manufacturing-production"><span class="nav-number">1.1.</span> <span class="nav-text">Manufacturing(production)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Product-Design-amp-Concurrent-Engineering"><span class="nav-number">1.2.</span> <span class="nav-text">Product Design &amp; Concurrent Engineering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Design-for-manufacture-assembly"><span class="nav-number">1.3.</span> <span class="nav-text">Design for manufacture, assembly</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Enviromental-issues"><span class="nav-number">1.4.</span> <span class="nav-text">Enviromental issues</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Manufacturing-processes"><span class="nav-number">1.5.</span> <span class="nav-text">Manufacturing processes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Traditional-manufacturing-processes"><span class="nav-number">1.6.</span> <span class="nav-text">Traditional manufacturing processes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Advanced-manufacturing-processes"><span class="nav-number">1.7.</span> <span class="nav-text">Advanced manufacturing processes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CIM-Computer-Integrated-Manufacturing"><span class="nav-number">1.8.</span> <span class="nav-text">CIM(Computer Integrated Manufacturing)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fundamentals-of-the-Mechanical-Behavior-of-Materials"><span class="nav-number">2.</span> <span class="nav-text">Fundamentals of the Mechanical Behavior of Materials</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Review-of-Eng-Materials"><span class="nav-number">2.1.</span> <span class="nav-text">Review of Eng. Materials</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tension-test"><span class="nav-number">2.2.</span> <span class="nav-text">Tension test</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ductility-%EC%97%B0%EC%84%B1"><span class="nav-number">2.3.</span> <span class="nav-text">Ductility(연성)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Effect-of-temperature-in-manufacturing-process"><span class="nav-number">2.4.</span> <span class="nav-text">Effect of temperature in manufacturing process</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bauschinger-effect"><span class="nav-number">2.5.</span> <span class="nav-text">Bauschinger effect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fatigue-amp-Creep"><span class="nav-number">2.6.</span> <span class="nav-text">Fatigue &amp; Creep</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Residual-stresses"><span class="nav-number">2.7.</span> <span class="nav-text">Residual stresses</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Structure-and-Manufacturing-Properties-of-Metals"><span class="nav-number">3.</span> <span class="nav-text">Structure and Manufacturing Properties of Metals</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#The-crystal-structure-of-Metals"><span class="nav-number">3.1.</span> <span class="nav-text">The crystal structure of Metals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deformation-and-Strength-of-Single-Crystals"><span class="nav-number">3.2.</span> <span class="nav-text">Deformation and Strength of Single Crystals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mechanical-fibering"><span class="nav-number">3.3.</span> <span class="nav-text">Mechanical fibering</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Plastic-deformation-due-to-shear-stress"><span class="nav-number">3.4.</span> <span class="nav-text">Plastic deformation due to shear stress</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Correlation-between-temperature-and-mechanical-properties"><span class="nav-number">3.5.</span> <span class="nav-text">Correlation between temperature and mechanical properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cold-Warm-and-Hot-working"><span class="nav-number">3.6.</span> <span class="nav-text">Cold, Warm, and Hot working</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Annealing-process-for-Metals"><span class="nav-number">3.7.</span> <span class="nav-text">Annealing process for Metals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Transition-temperature"><span class="nav-number">3.8.</span> <span class="nav-text">Transition temperature</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Physical-properties"><span class="nav-number">3.9.</span> <span class="nav-text">Physical properties</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Surface-Tribology-Dimensional-characteristics-Inspection-and-Product-quality-assurance"><span class="nav-number">4.</span> <span class="nav-text">Surface, Tribology, Dimensional characteristics, Inspection, and Product quality assurance</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Objectives-of-this-chapter"><span class="nav-number">4.1.</span> <span class="nav-text">Objectives of this chapter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Introduction-1"><span class="nav-number">4.2.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Surface-structure-of-metals"><span class="nav-number">4.3.</span> <span class="nav-text">Surface structure of metals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Surface-texture"><span class="nav-number">4.4.</span> <span class="nav-text">Surface texture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tribology-Friction-Wear-and-Lubrication"><span class="nav-number">4.5.</span> <span class="nav-text">Tribology : Friction, Wear, and Lubrication</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Surface-treatment"><span class="nav-number">4.6.</span> <span class="nav-text">Surface treatment</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Dimensional-tolerances-%EC%B9%98%EC%88%98-%EA%B3%B5%EC%B0%A8"><span class="nav-number">4.7.</span> <span class="nav-text">Dimensional tolerances(치수 공차)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Metal-Casting-Processes-and-Equipment-Heat-Treatment"><span class="nav-number">5.</span> <span class="nav-text">Metal-Casting Processes and Equipment; Heat Treatment</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Important-Factor-%EC%A3%BC%EC%9A%94-%EC%9D%B8%EC%9E%90"><span class="nav-number">5.1.</span> <span class="nav-text">Important Factor(주요 인자)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Casting-examples"><span class="nav-number">5.2.</span> <span class="nav-text">Casting examples</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solidification-of-Metals"><span class="nav-number">5.3.</span> <span class="nav-text">Solidification of Metals</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cast-Structure"><span class="nav-number">5.4.</span> <span class="nav-text">Cast Structure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Alloy"><span class="nav-number">5.4.1.</span> <span class="nav-text">Alloy</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fluid-Flow-and-Heat-Transfer"><span class="nav-number">5.5.</span> <span class="nav-text">Fluid Flow and Heat Transfer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flow-chracteristics"><span class="nav-number">5.5.1.</span> <span class="nav-text">Flow chracteristics</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fluidity-of-Molten-Metal"><span class="nav-number">5.5.2.</span> <span class="nav-text">Fluidity of Molten Metal</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Casting-parameters"><span class="nav-number">5.6.</span> <span class="nav-text">Casting parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Casting-Processes"><span class="nav-number">5.7.</span> <span class="nav-text">Casting Processes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Post-processes"><span class="nav-number">5.8.</span> <span class="nav-text">Post processes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Defects-in-castings"><span class="nav-number">5.9.</span> <span class="nav-text">Defects in castings</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bulk-Deformation-Processes"><span class="nav-number">6.</span> <span class="nav-text">Bulk Deformation Processes</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Forging-%EB%8B%A8%EC%A1%B0"><span class="nav-number">6.1.</span> <span class="nav-text">Forging(단조)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Forging-defects"><span class="nav-number">6.1.1.</span> <span class="nav-text">Forging defects</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forgeability"><span class="nav-number">6.1.2.</span> <span class="nav-text">Forgeability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Die-design-parameters"><span class="nav-number">6.1.3.</span> <span class="nav-text">Die design parameters</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rolling-%EC%95%95%EC%97%B0"><span class="nav-number">6.2.</span> <span class="nav-text">Rolling(압연)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mechanics-of-Flat-Rolling"><span class="nav-number">6.2.1.</span> <span class="nav-text">Mechanics of Flat Rolling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Defects-in-Rolling"><span class="nav-number">6.2.2.</span> <span class="nav-text">Defects in Rolling</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Roll-arrangement"><span class="nav-number">6.2.3.</span> <span class="nav-text">Roll arrangement</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Miscellaneous-rolling-operations"><span class="nav-number">6.2.4.</span> <span class="nav-text">Miscellaneous rolling operations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Extrusion-%EC%95%95%EC%B6%9C"><span class="nav-number">6.3.</span> <span class="nav-text">Extrusion(압출)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Metal-flow-in-extrusion"><span class="nav-number">6.3.1.</span> <span class="nav-text">Metal flow in extrusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cold-extrusion"><span class="nav-number">6.3.2.</span> <span class="nav-text">Cold extrusion</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Defects-in-extrusion"><span class="nav-number">6.3.3.</span> <span class="nav-text">Defects in extrusion</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Drawing-%EC%9D%B8%EB%B0%9C"><span class="nav-number">6.4.</span> <span class="nav-text">Drawing(인발)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Defects-in-drawing"><span class="nav-number">6.4.1.</span> <span class="nav-text">Defects in drawing</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Sheet-Metal-Forming-Process"><span class="nav-number">7.</span> <span class="nav-text">Sheet-Metal Forming Process</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Shearing-%ED%8C%90%EC%9E%AC%EC%9D%98-%EC%A0%84%EB%8B%A8%EC%9E%91%EC%97%85"><span class="nav-number">7.1.</span> <span class="nav-text">Shearing(판재의 전단작업)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Die-Cutting"><span class="nav-number">7.1.1.</span> <span class="nav-text">Die Cutting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fine-Blanking"><span class="nav-number">7.1.2.</span> <span class="nav-text">Fine Blanking</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Slitting"><span class="nav-number">7.1.3.</span> <span class="nav-text">Slitting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Shearing-Die"><span class="nav-number">7.1.4.</span> <span class="nav-text">Shearing Die</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bending-of-Sheet-and-Plate-%ED%8C%90%EC%9E%AC%EC%9D%98-%EA%B5%BD%ED%9E%98%EC%9E%91%EC%97%85"><span class="nav-number">7.2.</span> <span class="nav-text">Bending of Sheet and Plate(판재의 굽힘작업)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bendability"><span class="nav-number">7.2.1.</span> <span class="nav-text">Bendability</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Springback"><span class="nav-number">7.2.2.</span> <span class="nav-text">Springback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Compensation-for-Springback"><span class="nav-number">7.2.3.</span> <span class="nav-text">Compensation for Springback</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Common-bending-operations"><span class="nav-number">7.2.4.</span> <span class="nav-text">Common bending operations</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Miscellaneous-Forming-Processes"><span class="nav-number">7.3.</span> <span class="nav-text">Miscellaneous Forming Processes</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Spinning"><span class="nav-number">7.3.1.</span> <span class="nav-text">Spinning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Peen-forming"><span class="nav-number">7.3.2.</span> <span class="nav-text">Peen forming</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Drawing"><span class="nav-number">7.4.</span> <span class="nav-text">Deep Drawing</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ironing"><span class="nav-number">7.4.1.</span> <span class="nav-text">Ironing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deep-Drawing-Practice"><span class="nav-number">7.4.2.</span> <span class="nav-text">Deep Drawing Practice</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Material-Removal-Process-Cutting"><span class="nav-number">8.</span> <span class="nav-text">Material-Removal Process : Cutting</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Machining-processes-in-manufacturing"><span class="nav-number">8.1.</span> <span class="nav-text">Machining processes in manufacturing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mechanics-of-Chip-Formation-%EC%B9%A9-%ED%98%95%EC%84%B1%EC%97%AD%ED%95%99"><span class="nav-number">8.2.</span> <span class="nav-text">Mechanics of Chip Formation(칩 형성역학)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chip-Morphology"><span class="nav-number">8.2.1.</span> <span class="nav-text">Chip Morphology</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Temperature"><span class="nav-number">8.2.2.</span> <span class="nav-text">Temperature</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tool-Wear-and-Failure"><span class="nav-number">8.3.</span> <span class="nav-text">Tool Wear and Failure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Flank-Wear"><span class="nav-number">8.3.1.</span> <span class="nav-text">Flank Wear</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Crater-Wear"><span class="nav-number">8.3.2.</span> <span class="nav-text">Crater Wear</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chipping"><span class="nav-number">8.3.3.</span> <span class="nav-text">Chipping</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Surface-Finish-and-Surface-Integrity"><span class="nav-number">8.4.</span> <span class="nav-text">Surface Finish and Surface Integrity</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Dull-Tool-in-Orthogonal-Cutting-and-Feed-Marks"><span class="nav-number">8.4.1.</span> <span class="nav-text">Dull Tool in Orthogonal Cutting and Feed Marks</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Machinability"><span class="nav-number">8.5.</span> <span class="nav-text">Machinability</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cutting-Tool-Material"><span class="nav-number">8.6.</span> <span class="nav-text">Cutting-Tool Material</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Carbon-steels"><span class="nav-number">8.6.1.</span> <span class="nav-text">Carbon steels</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#High-speed-steels-HSS"><span class="nav-number">8.6.2.</span> <span class="nav-text">High-speed steels(HSS)</span></a></li></ol></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/manufacturing-process/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Manufacturing Process
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-27 11:12:34" itemprop="dateCreated datePublished" datetime="2020-03-27T11:12:34+09:00">2020-03-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-07-01 13:33:38" itemprop="dateModified" datetime="2020-07-01T13:33:38+09:00">2020-07-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/mechanical-engineering/" itemprop="url" rel="index"><span itemprop="name">Mechanical Engineering</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/manufacturing-process/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="manufacturing-process/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>33k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>30 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>Optimization - <strong>시험</strong></p>
+</blockquote>
+<ul>
+<li>Define manufacturing and describe the technical and economic consideration : A kind of <strong>optimization</strong></li>
+<li>Relationship among product design(<strong>functionality &amp; costs</strong>) and engineering(<strong>processes</strong>) and factors(<strong>materials</strong>)</li>
+<li>Important trends in modern manufacturing and minimizing of production costs(<strong>optimization</strong>)</li>
+</ul>
+<h2 id="Manufacturing-production"><a href="#Manufacturing-production" class="headerlink" title="Manufacturing(production)"></a>Manufacturing(production)</h2><ul>
+<li>The process of converting raw materials into <strong>products</strong><ul>
+<li>Design of desires</li>
+<li>Realization of goods</li>
+<li>Through various production methods</li>
+</ul>
+</li>
+<li>Raw material became a useful product : Maximizing <strong>Added value</strong></li>
+</ul>
+<h2 id="Product-Design-amp-Concurrent-Engineering"><a href="#Product-Design-amp-Concurrent-Engineering" class="headerlink" title="Product Design &amp; Concurrent Engineering"></a>Product Design &amp; Concurrent Engineering</h2><ul>
+<li>Product design(제품 설계)<ul>
+<li>70~80%의 개발 비용</li>
+<li>제품에 대한 기능 및 성능의 이해 필요</li>
+<li>CAD, CAM, CIM을 통해 설계와 제작이 순차적으로 이루어짐</li>
+<li>하지만 현대는 즉각적으로 이뤄짐 : 동시 공학</li>
+</ul>
+</li>
+<li>Concurrent engineering(동시 공학)<ul>
+<li>설계 및 제조를 통합하는 즉각적이고 체계적인 접근</li>
+<li>제품의 수명주기와 관련된 모든 요소 최적화</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="Design-for-manufacture-assembly"><a href="#Design-for-manufacture-assembly" class="headerlink" title="Design for manufacture, assembly"></a>Design for manufacture, assembly</h2><blockquote>
+<p><strong>시험</strong></p>
+</blockquote>
+<ul>
+<li><strong>D</strong>esign <strong>F</strong>or <strong>M</strong>anufacture(DFM)<ul>
+<li>제품 설계 공정을 재료와 통합</li>
+<li>Manufacturing methods</li>
+<li>Process planning</li>
+<li>Assembly, testing, and quality assurance</li>
+</ul>
+</li>
+<li><strong>D</strong>esign <strong>F</strong>or <strong>A</strong>ssembly(DFA)<ul>
+<li>전반적인 제조 운영</li>
+<li>특히, 주요 부품 간의 조립 공차 관리</li>
+</ul>
+</li>
+<li><strong>Design principle</strong><ul>
+<li>Simple design</li>
+<li>Appropriate material</li>
+<li>Permissible accuracy</li>
+<li>Optimized manufacturing processes considering cost down</li>
+</ul>
+</li>
+</ul>
+<h2 id="Enviromental-issues"><a href="#Enviromental-issues" class="headerlink" title="Enviromental issues"></a>Enviromental issues</h2><ul>
+<li><strong>D</strong>esign <strong>F</strong>or <strong>R</strong>ecycling(DFR) &amp; <strong>D</strong>esign <strong>F</strong>or <strong>E</strong>nviroment(DFE)<ul>
+<li>버려지는 재료 감소</li>
+<li>위험한 재료 사용의 감소</li>
+<li>모든 폐기물의 적절한 처분</li>
+<li>폐기물 처리 및 재활용의 개선</li>
+</ul>
+</li>
+<li><strong>P</strong>roduct <strong>L</strong>ife <strong>C</strong>ycle(PLC) - <strong>시험</strong><ul>
+<li>설계, 개발, 제작, 판매, 사용, 처분, 재활용 모두 포함 - 설계자가 고려</li>
+</ul>
+</li>
+<li><strong>P</strong>roduct <strong>L</strong>ife <strong>C</strong>ycle <strong>M</strong>anagement(PLCM) - <strong>시험</strong><ul>
+<li>설계, 개발, 제작, 판매, 사용, 처분, 재활용 모두 고려한 제작 전략 - 경영자가 고려</li>
+</ul>
+</li>
+</ul>
+<h2 id="Manufacturing-processes"><a href="#Manufacturing-processes" class="headerlink" title="Manufacturing processes"></a>Manufacturing processes</h2><ul>
+<li>Casting(주조)</li>
+<li>Forging(단조)</li>
+<li>Extrusion(압축)</li>
+<li>Cutting(절삭)</li>
+<li>Welding(용접)</li>
+</ul>
+<h2 id="Traditional-manufacturing-processes"><a href="#Traditional-manufacturing-processes" class="headerlink" title="Traditional manufacturing processes"></a>Traditional manufacturing processes</h2><ul>
+<li>Casting(주조)</li>
+<li>Forming(성형) : Forging and Extrusion</li>
+<li>Machining : Turning and Drilling and Milling</li>
+</ul>
+<h2 id="Advanced-manufacturing-processes"><a href="#Advanced-manufacturing-processes" class="headerlink" title="Advanced manufacturing processes"></a>Advanced manufacturing processes</h2><ul>
+<li>Laser beam cutting</li>
+<li>MEMS(Micro Electro Mechanical Systems)</li>
+</ul>
+<h2 id="CIM-Computer-Integrated-Manufacturing"><a href="#CIM-Computer-Integrated-Manufacturing" class="headerlink" title="CIM(Computer Integrated Manufacturing)"></a>CIM(<strong>C</strong>omputer <strong>I</strong>ntegrated <strong>M</strong>anufacturing)</h2><ul>
+<li>Computer Numerical Control</li>
+<li>Adaptive Control</li>
+<li>Computer-Aided Process Planning</li>
+<li>Group Technology</li>
+<li>Just-In-Time production : Inventory management</li>
+</ul>
+<hr>
+<h1 id="Fundamentals-of-the-Mechanical-Behavior-of-Materials"><a href="#Fundamentals-of-the-Mechanical-Behavior-of-Materials" class="headerlink" title="Fundamentals of the Mechanical Behavior of Materials"></a>Fundamentals of the Mechanical Behavior of Materials</h1><h2 id="Review-of-Eng-Materials"><a href="#Review-of-Eng-Materials" class="headerlink" title="Review of Eng. Materials"></a>Review of Eng. Materials</h2><ul>
+<li>Deformation($\delta$) : 변형</li>
+<li>Displacement : 변위</li>
+<li>Force($F$)</li>
+<li>Stress($\sigma$)</li>
+<li>Strain($\epsilon$)</li>
+</ul>
+<blockquote>
+<p><strong>Thermal deformation</strong> - <strong>시험</strong></p>
+</blockquote>
+<p>$$<br>E=\frac{\sigma}{\epsilon}<br>$$</p>
+<p><img src="https://user-images.githubusercontent.com/42334717/77715304-9935ef80-701e-11ea-8ff7-bd19b70150ce.jpeg" alt="Introduction"></p>
+<h2 id="Tension-test"><a href="#Tension-test" class="headerlink" title="Tension test"></a>Tension test</h2><blockquote>
+<p><strong>아래 그림 시험</strong></p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/42334717/77715817-f8e0ca80-701f-11ea-9c35-c6a6b8b1ea35.jpeg" alt="Tension test"></p>
+<ul>
+<li>강도-변형의 특성 확인</li>
+<li>실험적인(경험적인) Data</li>
+<li>load cell로 힘 측정</li>
+<li>Specimen(시편) 사용 - Dog bone</li>
+<li>Instron gauge</li>
+</ul>
+<blockquote>
+<p><strong>시험</strong></p>
+</blockquote>
+<ul>
+<li><strong>E는 탄성구간의 기울기</strong></li>
+<li><strong>E가 크면 동일한 힘에 대해서 변형율 작음</strong></li>
+<li><strong>E가 작으면 동일한 힘에 대해서 변형율 큼</strong></li>
+</ul>
+<p>$$<br>Poisson’s\ ratio\ :\ \nu=-\frac{\epsilon(lateral)}{\epsilon(longitudinal)}=-\frac{\epsilon_y}{\epsilon_z}<br>$$</p>
+<ul>
+<li>분모는 힘이 가해지는 방향(길이 방향)</li>
+<li>$\nu&lt;0.5$ : Elastic(탄성)</li>
+<li>$\nu=0.5$ : <strong>Plastic(소성)</strong></li>
+<li>소성을 주로 다룸</li>
+</ul>
+<h2 id="Ductility-연성"><a href="#Ductility-연성" class="headerlink" title="Ductility(연성)"></a>Ductility(연성)</h2><blockquote>
+<p>How large a strain the material withstands before fracture</p>
+</blockquote>
+<ul>
+<li>Ductile material<ul>
+<li>Most metals</li>
+<li>Elastic and plastic region</li>
+<li>Same performance in tensile / compressive force</li>
+<li>Deformation due to tension(normal) and torsion(shear)</li>
+</ul>
+</li>
+<li>Brittle(취성) material<ul>
+<li>Glass, chalk, etc</li>
+<li>Elastic region(without plastic region)</li>
+<li>Good performance in compressive force comparing with tensile force</li>
+</ul>
+</li>
+</ul>
+<h2 id="Effect-of-temperature-in-manufacturing-process"><a href="#Effect-of-temperature-in-manufacturing-process" class="headerlink" title="Effect of temperature in manufacturing process"></a>Effect of temperature in manufacturing process</h2><p><img src="https://user-images.githubusercontent.com/42334717/77717068-df8d4d80-7022-11ea-8336-ec8adfad8438.jpeg" alt="Temperature"></p>
+<blockquote>
+<p><strong>Temperature</strong> : Major parameter in Manufacturing</p>
+</blockquote>
+<ul>
+<li>온도가 오른다면<ul>
+<li>Elastic(Young’s) modulus - Decreasing</li>
+<li>Tensile strength(UTS) - Decreasing</li>
+<li>Yield strength - Decreasing</li>
+<li>Elongation(연신율), Ductility(연성) - Increasing</li>
+<li>하지만 연신율이 약 60퍼 이상의 온도일 경우 보통 액체 상태로 존재</li>
+</ul>
+</li>
+</ul>
+<h2 id="Bauschinger-effect"><a href="#Bauschinger-effect" class="headerlink" title="Bauschinger effect"></a>Bauschinger effect</h2><ul>
+<li>Tension and then compression or vice versa; <strong>Yield stress decrease</strong></li>
+<li>Strain softening(변형연화)</li>
+<li>Work softening(가공연화)</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/77886641-348bc680-72a4-11ea-9175-aaee0357e6c9.png" alt="Bauschinger effect"></p>
+<h2 id="Fatigue-amp-Creep"><a href="#Fatigue-amp-Creep" class="headerlink" title="Fatigue &amp; Creep"></a>Fatigue &amp; Creep</h2><ul>
+<li>Fatigue(피로)<ul>
+<li>S-N curve(Stress - Number of cycles)</li>
+<li>Cycle or Periodic stress<ul>
+<li>Fluctuating mechanical loads</li>
+<li>Thermal stresses</li>
+</ul>
+</li>
+<li>Aluminum better regarding vibration/chattering</li>
+</ul>
+</li>
+<li>Creep<ul>
+<li>Permanent elogation of material</li>
+<li>Static load maintained for a period of time</li>
+<li>High temperature application(Ex. Turbine blade)</li>
+<li>A kind of inertia effect</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/78210678-d6e6bc80-74e5-11ea-9739-ba320fb72a1b.png" alt="Fatigue &amp; Creep"></p>
+<h2 id="Residual-stresses"><a href="#Residual-stresses" class="headerlink" title="Residual stresses"></a>Residual stresses</h2><ul>
+<li>잔류응력</li>
+<li>Remaining stresses after material deformation</li>
+<li>Critical reason of an instability of dimensions and shapes</li>
+<li>Annealing process(온도를 천천히 올리고 내림, 풀림 공정) for stress-relief</li>
+</ul>
+<hr>
+<h1 id="Structure-and-Manufacturing-Properties-of-Metals"><a href="#Structure-and-Manufacturing-Properties-of-Metals" class="headerlink" title="Structure and Manufacturing Properties of Metals"></a>Structure and Manufacturing Properties of Metals</h1><h2 id="The-crystal-structure-of-Metals"><a href="#The-crystal-structure-of-Metals" class="headerlink" title="The crystal structure of Metals"></a>The crystal structure of Metals</h2><ul>
+<li>Structure greatly influences their properties and behavior</li>
+<li>Normal casting(a), Directionally solidified(b), Single crystal(c)</li>
+<li>Single crystal(단결정) : 고온에서 강도 유지</li>
+<li>밀도가 높을수록 강도가 높지만 연성이 낮아짐</li>
+<li>밀도가 낮을수록 강도가 낮지만 연성이 높아짐</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/78211546-3d6cda00-74e8-11ea-8783-6a871fdc149e.png" alt="Manufacturing properties"></p>
+<h2 id="Deformation-and-Strength-of-Single-Crystals"><a href="#Deformation-and-Strength-of-Single-Crystals" class="headerlink" title="Deformation and Strength of Single Crystals"></a>Deformation and Strength of Single Crystals</h2><blockquote>
+<p>Two basic mechanisms of plastic deformation(소성영역은 Slip과 Twinning이 발생하는 영역)</p>
+</blockquote>
+<ul>
+<li>(a) Slip : One plane of atoms slips over an adjacent plane under shear stress<ul>
+<li>임계전단응력 : 소재에 영구변형을 발생시키는 전단응력</li>
+</ul>
+</li>
+<li>(b) Twinning : Portion of the crystal forms a mirror image of itself across the plane of twinning</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/78212801-c20d2780-74eb-11ea-89c6-b23737ef4fb2.png" alt="Slip and Twinning"></p>
+<h2 id="Mechanical-fibering"><a href="#Mechanical-fibering" class="headerlink" title="Mechanical fibering"></a>Mechanical fibering</h2><blockquote>
+<p><strong>시험</strong></p>
+</blockquote>
+<ul>
+<li>기계적 섬유화 : 특정한 방향으로 강도나 연성이 낮아져 발생하는 현상</li>
+<li>Anisotropy(이방성) (&lt;-&gt; 등방성 : 균일한 성질)</li>
+<li>Preferred orientation(선택적 방향성) : strength, hardness, etc.</li>
+<li>Example : Plywood - strong in planar direction but weak in thinkness direction</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/78214676-c5ef7880-74f0-11ea-96d9-788dc8afa979.png" alt="Rolling"></p>
+<ul>
+<li>Rolling<ul>
+<li>소재의 강도를 높임(밀도 증가)</li>
+<li>얇은 두께의 고강도 철판 제작</li>
+<li>기계적 섬유화 발생</li>
+</ul>
+</li>
+</ul>
+<h2 id="Plastic-deformation-due-to-shear-stress"><a href="#Plastic-deformation-due-to-shear-stress" class="headerlink" title="Plastic deformation due to shear stress"></a>Plastic deformation due to shear stress</h2><ul>
+<li>Slip under critical shear stress</li>
+<li>Generation of Slipband(소성변형) in single crystal</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/78218322-8d539d00-74f8-11ea-8ac7-074136573aca.png" alt="Slipband"></p>
+<h2 id="Correlation-between-temperature-and-mechanical-properties"><a href="#Correlation-between-temperature-and-mechanical-properties" class="headerlink" title="Correlation between temperature and mechanical properties"></a>Correlation between temperature and mechanical properties</h2><blockquote>
+<p><strong>시험</strong></p>
+</blockquote>
+<ul>
+<li>In plastic deformation : <strong>Temp &amp; Time</strong>(소성변형의 주요한 두 제어변수)<ul>
+<li>Recovery(&lt; recrystallization temp.)<ul>
+<li>기계적 성질은 큰 변화 없음</li>
+<li>연성 약간 증가</li>
+</ul>
+</li>
+<li><strong>Recrystallization</strong>(= 0.3 ~ 0.5$T_m$)<ul>
+<li>$T_m$은 Melting temp.</li>
+<li>기계적 성질 변화</li>
+<li>새로운 결정 생성</li>
+<li>강도 감소</li>
+<li>경도 감소</li>
+<li>연성 증가</li>
+<li>소재내의 저장된 에너지가 많으면 recrystallization temp. 감소</li>
+</ul>
+</li>
+<li>Grain growth(&gt; recrystallization temp.)<ul>
+<li><strong>Orange-peel effect</strong> - Grain이 커지므로 표면이 거칠어지는 현상</li>
+<li>Grain size가 커지면 등방성이 아닌 이방성에 가까워지며 일반적으로 기계적 성질에 좋지 않음</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>High temperature and cooling slowly<ul>
+<li>Decrease : <strong>Residual stresses, Strength, Hardness</strong></li>
+<li>Increase : <strong>Ductility, Grain growth</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/78218635-1539a700-74f9-11ea-9765-6d418b0375b2.png" alt="Correlation between temperature and mechanical properties"></p>
+<h2 id="Cold-Warm-and-Hot-working"><a href="#Cold-Warm-and-Hot-working" class="headerlink" title="Cold, Warm, and Hot working"></a>Cold, Warm, and Hot working</h2><ul>
+<li>Homologous temperature(상사온도) : $T/T_m$<ul>
+<li>$T_m$ : 용융온도</li>
+</ul>
+</li>
+<li>Plastic deformation : Hot working<ul>
+<li>Less dimensional accuracy due to thermal expansion</li>
+<li>Rough surface due to oxide layer</li>
+<li>작은 힘으로 성형할 수 있음</li>
+</ul>
+</li>
+<li>온도변화가 잦으면 산화층에 의해 금속표면 부식</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">Process</th>
+<th align="center">$T/T_m$</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Cold working(냉간가공)</td>
+<td align="center">&lt; 0.3</td>
+</tr>
+<tr>
+<td align="center">Warm working(온간가공)</td>
+<td align="center">0.3 to 0.5</td>
+</tr>
+<tr>
+<td align="center">Hot working(열간가공)</td>
+<td align="center">&gt; 0.5</td>
+</tr>
+</tbody></table>
+<h2 id="Annealing-process-for-Metals"><a href="#Annealing-process-for-Metals" class="headerlink" title="Annealing process for Metals"></a>Annealing process for Metals</h2><blockquote>
+<p><strong>시험</strong></p>
+</blockquote>
+<ul>
+<li>풀림 공정</li>
+<li>Totally structure and characteristic are changed</li>
+<li>Control porperties of metals<ul>
+<li>탄성계수(크면 덜 변형, 작으면 잘 변형)</li>
+<li>포아송비</li>
+<li>강도</li>
+<li>경도</li>
+<li>강성</li>
+<li>연성</li>
+<li>인성</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/78338314-83e83480-75cd-11ea-8f14-ac513a025ffc.png" alt="Annealing"></p>
+<ul>
+<li>일반적으로 온도 증가 :<ul>
+<li>Increasing of ductility(연성 증가)</li>
+<li>Decreasing of tensile strength(강성 감소)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/78339647-c3178500-75cf-11ea-8617-f83f93ad67a9.png" alt="Temperature"></p>
+<h2 id="Transition-temperature"><a href="#Transition-temperature" class="headerlink" title="Transition temperature"></a>Transition temperature</h2><ul>
+<li>천이 온도</li>
+<li>Sharp change in ductility and toughness across a narrow temperature(소재의 특성이 아주 급격하게 변하는 온도)</li>
+<li>Transition temperature is increased<ul>
+<li>High rate(fast deformation)</li>
+<li>Abrupt change in shape</li>
+<li>Surface notch - 결함(표면 가공 필요)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/78340078-6ff20200-75d0-11ea-8d00-8fc460a4e646.png" alt="Transition temperature"></p>
+<h2 id="Physical-properties"><a href="#Physical-properties" class="headerlink" title="Physical properties"></a>Physical properties</h2><ul>
+<li>경도(Hardness)<ul>
+<li>물체의 단단한 정도</li>
+</ul>
+</li>
+<li>강도(Strength)<ul>
+<li>끊어지지 않고 버티는 정도</li>
+</ul>
+</li>
+<li>인성(Toughness)<ul>
+<li>소재나 재료가 지닌 점성의 강도</li>
+</ul>
+</li>
+<li>소성(Plastic)<ul>
+<li>재료에 외력을 가하면 원형으로 복귀되지 않는 성질</li>
+</ul>
+</li>
+<li>탄성(Elastic)<ul>
+<li>재료에 외력을 가하면 원형으로 복귀되는 성질</li>
+</ul>
+</li>
+<li>취성(Brittle)<ul>
+<li>재료에 외력을 가하면 변형되지 않고 부서지는 성질</li>
+</ul>
+</li>
+<li>연성(Ductility)<ul>
+<li>재료를 늘일 때 파괴되지 않고 계속 늘어나는 성질</li>
+</ul>
+</li>
+<li><strong>Example</strong> - <strong>시험</strong><ul>
+<li>유리 - 경도는 높고 강도는 낮음</li>
+<li>나무 - 경도는 낮고 강도는 높음</li>
+<li>꿀 - 인성(점도)이 높음 : 충격에 가해졌을 때 파단이 아닌 휘어짐<ul>
+<li>물의 점도는 1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Density(밀도)<ul>
+<li>Density depends on weight, radius and packing of the atoms</li>
+<li>Lower density is important for air craft or aerospace structure, automobiles and high speed equipment(minimizing inertia effect)</li>
+</ul>
+</li>
+<li>Melting point(용융점)<ul>
+<li>Depends on the energy required to separate all atoms</li>
+<li>Tool wear in machine tools(frictional heat)</li>
+<li>Apparently important in casting process</li>
+</ul>
+</li>
+<li>Specific heat(비열)<ul>
+<li>Specific heat is the energy required to raise the temperature of a unit mass(단위질량) of a material by 1’C</li>
+</ul>
+</li>
+<li>Thermal conductivity(열전도도)<ul>
+<li>The rate at which heat flows within and through the material</li>
+</ul>
+</li>
+<li>Thermal stress(열응력)<ul>
+<li>Thermal deformation(열변형)</li>
+<li>Shrink fit(열박음, using thermal expansion phenomenon)</li>
+</ul>
+</li>
+<li>Thermal fatigue(열피로)<ul>
+<li>Fatigue - 주기적인, 반복적인 무언가</li>
+<li>Results from thermal cycling repetitive heating and cooling</li>
+<li>Particularly important in Forging / Cutting process</li>
+</ul>
+</li>
+<li>Thermal shock(열충격)<ul>
+<li>Development of cracks after a single thermal cycle</li>
+</ul>
+</li>
+<li>Superconductivity(초전도성)<ul>
+<li>Zero resistivity below critical temperature</li>
+</ul>
+</li>
+<li>Piezoelectric effect(압전효과)<ul>
+<li>Reversible interaction between an elastic strain and an electric field used in making transducers(mechanical strain &lt;-&gt; electric current)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Surface-Tribology-Dimensional-characteristics-Inspection-and-Product-quality-assurance"><a href="#Surface-Tribology-Dimensional-characteristics-Inspection-and-Product-quality-assurance" class="headerlink" title="Surface, Tribology, Dimensional characteristics, Inspection, and Product quality assurance"></a>Surface, Tribology, Dimensional characteristics, Inspection, and Product quality assurance</h1><h2 id="Objectives-of-this-chapter"><a href="#Objectives-of-this-chapter" class="headerlink" title="Objectives of this chapter"></a>Objectives of this chapter</h2><ul>
+<li>Important considerations<ul>
+<li>Surface structure(표면 구조), texture(표면 조직), and surface properties(표면 특성)</li>
+<li>Friction(마찰), Wear(마멸), and lubrication(윤활) - tribology(윤활공학)</li>
+<li>Surface treatment(표면 가공)</li>
+<li>Inspection methods(destructive(파괴검사) / nondestructive(비파괴검사))</li>
+<li>Statistical techniques for quality assurance of products</li>
+</ul>
+</li>
+</ul>
+<h2 id="Introduction-1"><a href="#Introduction-1" class="headerlink" title="Introduction"></a>Introduction</h2><ul>
+<li>Surface directly influences several important properties:<ul>
+<li>Friction(마찰) and wear(마멸) properties</li>
+<li>Effectiveness of lubrication(윤활)</li>
+<li>Appearance and geometric features</li>
+<li>Initiation of cracks due to surface defect</li>
+<li>Thermal and electrical conductivity of contacting bodies</li>
+</ul>
+</li>
+<li>Tribology : Surface phenomena of friction, wear and lubrication</li>
+<li>Surface treatment(표면 처리) : Method to improve surface properties (mechanical, thermal, electrical, chemical, etc.)</li>
+</ul>
+<h2 id="Surface-structure-of-metals"><a href="#Surface-structure-of-metals" class="headerlink" title="Surface structure of metals"></a>Surface structure of metals</h2><ul>
+<li>Depending on the composition and processing history</li>
+<li><strong>Oxide layer</strong>(산화층) : Harder than the base metal(brittle &amp; abrasive)</li>
+<li>Beilby(amorphous) layer : Melting, surface flow and rapid quenching(급속 냉각 담금질)</li>
+<li>Work-hardened layer(가공-경화층) : Processing and extent of frictional sliding(잔류응력 존재)</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/79044675-60626100-7c41-11ea-8028-81fc71618482.png" alt="Surface structure of metals"></p>
+<h2 id="Surface-texture"><a href="#Surface-texture" class="headerlink" title="Surface texture"></a>Surface texture</h2><ul>
+<li>Waviness(파상도) : Low frequency - recurrent deviation from a flat surface<ul>
+<li>Deflection of tools, dies, and of the workpiece</li>
+<li>Warping from forces or temperature</li>
+<li>Uneven lubrication</li>
+<li>Periodic vibration(mechanical &amp; thermal)</li>
+</ul>
+</li>
+<li>Surface roughness(표면 거칠기) : High frequency irregular deviation<ul>
+<li>Arithmetic mean value : $R_a$</li>
+<li>Root-mean-square : $R_{rms}$</li>
+<li>Maximum roughness height : $R_t$(peak-valley)</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/79044885-f5b22500-7c42-11ea-9649-7e1309a3be87.png" alt="Surface texture"></p>
+<h2 id="Tribology-Friction-Wear-and-Lubrication"><a href="#Tribology-Friction-Wear-and-Lubrication" class="headerlink" title="Tribology : Friction, Wear, and Lubrication"></a>Tribology : Friction, Wear, and Lubrication</h2><blockquote>
+<p>Tribology : Science and technology of interacting surfaces</p>
+</blockquote>
+<ul>
+<li>Friction : Resistance to relative sliding between two contacting bodies under normal load(thermal deformation can be induced)<ul>
+<li>Coefficient of friction(friction force = uN)</li>
+</ul>
+</li>
+<li>Wear : Progressive loss or undesired removal of material from a surface<ul>
+<li>Surface damage(loss)</li>
+<li>Reducing surface roughness(benefit)</li>
+</ul>
+</li>
+<li>Adhesive wear(응착 마멸) : Shearing of the junctions takes takes at the original interface between two bodies under tangential force<ul>
+<li>Scuffing defects</li>
+<li>Smearing defects</li>
+<li>Tearing defects</li>
+<li>Galling defects</li>
+</ul>
+</li>
+<li>Lubrication : Interface between tools, dies, molds, and workpieces is subjected to a wide range of variables<ul>
+<li>Contact pressure(elastic to plastic deformation)</li>
+<li>Speed</li>
+<li>Temperature</li>
+<li>Friction and wear will be increased under high pressure, high speed, and high temperature : Minimization of friction, wear with lubrication</li>
+</ul>
+</li>
+<li>Functions of metal working fluids(금속 가공용 윤활제)<ul>
+<li>Reduce friction : Reduction of force or energy requirement(production cost)</li>
+<li>Reduce wear</li>
+<li>Improve material flow</li>
+<li>Act as thermal barrier : Prevention of cool-down of workpiece in hot working process</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/79045200-cd2b2a80-7c44-11ea-891d-83a43cf154d9.png" alt="Tribology"></p>
+<h2 id="Surface-treatment"><a href="#Surface-treatment" class="headerlink" title="Surface treatment"></a>Surface treatment</h2><ul>
+<li>Improve resistance to wear, corrosion, oxidation, and indentation</li>
+<li>Control friction</li>
+<li>Reduce adhension(응착)</li>
+<li>Improve lubrication</li>
+<li>Improve fatigue resistance</li>
+<li>Rebuild surfaces on components</li>
+<li>Improve surface roughness</li>
+</ul>
+<h2 id="Dimensional-tolerances-치수-공차"><a href="#Dimensional-tolerances-치수-공차" class="headerlink" title="Dimensional tolerances(치수 공차)"></a>Dimensional tolerances(치수 공차)</h2><ul>
+<li>Tolerance is the acceptable variation in the dimensions of a part<ul>
+<li>height</li>
+<li>width</li>
+<li>depth</li>
+<li>diameter</li>
+<li>angles</li>
+<li>etc.</li>
+</ul>
+</li>
+<li>Tolerance is unavoidable and important when parts are to be assembled</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/79067999-797d1780-7cfe-11ea-8d8e-35d770c89fec.png" alt="Dimensional tolerances"></p>
+<hr>
+<h1 id="Metal-Casting-Processes-and-Equipment-Heat-Treatment"><a href="#Metal-Casting-Processes-and-Equipment-Heat-Treatment" class="headerlink" title="Metal-Casting Processes and Equipment; Heat Treatment"></a>Metal-Casting Processes and Equipment; Heat Treatment</h1><blockquote>
+<p>냉각 속도 중요 - 금속의 성질이 다르지 않게</p>
+</blockquote>
+<h2 id="Important-Factor-주요-인자"><a href="#Important-Factor-주요-인자" class="headerlink" title="Important Factor(주요 인자)"></a>Important Factor(주요 인자)</h2><ul>
+<li>Solidification(응고)<ul>
+<li>치수의 변화 주의</li>
+</ul>
+</li>
+<li>Flow of molten metal into the mold cavity(용탕의 주형으로의 유입)<ul>
+<li>용탕이 얼마나 잘 내부 공간을 채우는지 - 사형 가열로 해결</li>
+</ul>
+</li>
+<li>주형(Mold)에서 금속의 응고 및 냉각 시 발생하는 열전달(Heat transfer) 정도</li>
+<li>Mold material</li>
+</ul>
+<h2 id="Casting-examples"><a href="#Casting-examples" class="headerlink" title="Casting examples"></a>Casting examples</h2><ul>
+<li>Typical gray cast iron castings<ul>
+<li>Transmission valve body, hub rotor with disk-brake cylinder in automobile</li>
+</ul>
+</li>
+</ul>
+<h2 id="Solidification-of-Metals"><a href="#Solidification-of-Metals" class="headerlink" title="Solidification of Metals"></a>Solidification of Metals</h2><ul>
+<li>Pure metals have defined melting points and solidification takes place at a constant temperature</li>
+<li>When temperature is reduced to the freezing point, latent heat(잠열) of fusion is given off<ul>
+<li>A -&gt; B</li>
+</ul>
+</li>
+<li>Alloys(합금) solidify over a range of temperatures<ul>
+<li>Solidification begins below liquidus and is completed at solidus</li>
+<li>Two phases are co-exicst between solidus and liquidus</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/79755717-84febd00-8354-11ea-9a98-d7770f80199f.png" alt="Solidification"></p>
+<h2 id="Cast-Structure"><a href="#Cast-Structure" class="headerlink" title="Cast Structure"></a>Cast Structure</h2><ul>
+<li><strong>Solid solution</strong>(고용체) - <strong>시험</strong><ul>
+<li>Solute(용질, Minor) is added to the solvent(용매, Major) to form a solution</li>
+</ul>
+</li>
+<li>Cast structure developed during solidification of metals and alloys depends on<ul>
+<li>Composition rate</li>
+<li>Heat transfer rate</li>
+<li>Flow of the liquid metal</li>
+</ul>
+</li>
+<li>Pure metals<ul>
+<li>Chill zone(칠영역)</li>
+<li>Columnar zone(주상정영역)</li>
+</ul>
+</li>
+<li>Alloys<ul>
+<li>Chill zone(칠영역)</li>
+<li>Columnar zone(주상정영역)</li>
+<li>Equiaxed zone</li>
+</ul>
+</li>
+</ul>
+<h3 id="Alloy"><a href="#Alloy" class="headerlink" title="Alloy"></a>Alloy</h3><blockquote>
+<p><strong>시험</strong></p>
+</blockquote>
+<ul>
+<li>Solidification begins when temperature drops below the liquidus($T_L$), and is completed at solidus($T_S$)</li>
+<li>Freezing rage(응고범위) : $T_L-T_S$<ul>
+<li>Determines with of murshy zone</li>
+</ul>
+</li>
+<li>Columnar dendrite(주상수지상정)</li>
+<li>Mushy zone<ul>
+<li>고상과 액상이 공존하는 영역</li>
+<li>합금은 응고범위가 존재하기 때문에 존재</li>
+<li>응고범위가 작으면 Mushy zone 작음</li>
+<li>응고범위가 크면 Mushy zone 큼</li>
+</ul>
+</li>
+<li>냉각 속도 빠르면<ul>
+<li>조직이 미세해짐</li>
+<li>가지사이의 간격이 좁아짐 - 잘 휘지 않음</li>
+<li>강도 증가</li>
+</ul>
+</li>
+<li>냉각 속도 느리면<ul>
+<li>조직이 커짐(조대입자)</li>
+<li>가지사이의 간격이 넓어짐</li>
+<li>연성 증가</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/79757319-e889ea00-8356-11ea-9603-d979738d3f79.png" alt="Alloy"></p>
+<h2 id="Fluid-Flow-and-Heat-Transfer"><a href="#Fluid-Flow-and-Heat-Transfer" class="headerlink" title="Fluid Flow and Heat Transfer"></a>Fluid Flow and Heat Transfer</h2><ul>
+<li>Bernoulli’s theorem : Conservation of energy in a fluid system<ul>
+<li>$h_1+\frac{p_1}{\rho g}+\frac{v_1^2}{2g}=h_2+\frac{p_2}{\rho g}+\frac{v_2^2}{2g}+f$</li>
+</ul>
+</li>
+<li>Law of mass continuity : The rate of flow is constant for an incompressible liquid<ul>
+<li>$Q=A_1v_1=A_2v_2$</li>
+</ul>
+</li>
+</ul>
+<h3 id="Flow-chracteristics"><a href="#Flow-chracteristics" class="headerlink" title="Flow chracteristics"></a>Flow chracteristics</h3><ul>
+<li>Reynolds number($R_e$)<ul>
+<li>Prescence of turbulence is an important consideration in fluid flow</li>
+<li>Reynolds number, $R_e$, is used to characterize this aspect</li>
+<li>$R_e&lt;2000$ : Laminar flow</li>
+<li>$2000&lt;R_e&lt;20000$ : Mixture of laminar and turbulence</li>
+<li>$R_e&gt;20000$ : Severe turbulence<ul>
+<li>Erosion of mold</li>
+<li>Air entrainment</li>
+<li>Dross formation(Undesirable aspects in casting system)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>$$<br>R_e=\frac{intertia}{friction}=\frac{vD\rho}{\eta}<br>$$</p>
+<ul>
+<li>$v=velocity\ of\ the\ liquid$</li>
+<li>$D=diameter\ of\ the\ channel$</li>
+<li>$\rho=density$</li>
+<li>$\eta=dynamic\ viscosity\ of\ the\ liquid(Ns/m^2)$</li>
+</ul>
+<h3 id="Fluidity-of-Molten-Metal"><a href="#Fluidity-of-Molten-Metal" class="headerlink" title="Fluidity of Molten Metal"></a>Fluidity of Molten Metal</h3><ul>
+<li>Fluidity : The ability of molten metal to fill the mold cavities<ul>
+<li>Characteristics of molten metal</li>
+<li>Casting parameters</li>
+</ul>
+</li>
+<li>Characteristics of molten metal<ul>
+<li>Viscosity(점도)</li>
+<li>Surface tension(표면장력)</li>
+<li>Inclusions(개재물)</li>
+<li>Solidification pattern of the alloy : Inversely proportional to the freezing range</li>
+</ul>
+</li>
+</ul>
+<h2 id="Casting-parameters"><a href="#Casting-parameters" class="headerlink" title="Casting parameters"></a>Casting parameters</h2><ul>
+<li>Mold design(주형설계)</li>
+<li>Mold material and its surface characteristics : The higher thermal conductivity of the mold and the rougher its surface, the lower the fluidity</li>
+<li>Superheat improves fluidity</li>
+<li>Rate of pouring : The lower it is, the lower fluidity because of high cooling rate</li>
+<li>Heat transfer</li>
+<li>Regarding metal shirink(Dimensional changes and cracking) during solidification and cooling</li>
+</ul>
+<h2 id="Casting-Processes"><a href="#Casting-Processes" class="headerlink" title="Casting Processes"></a>Casting Processes</h2><ul>
+<li>Ingot casting<ul>
+<li>Ingot : 초기의 후속 가공을 위해 만들어지는 금속 부품</li>
+</ul>
+</li>
+<li>Continusous casting</li>
+<li>Sand casting(사형주조) : Expendable mold(소모성 주형)<ul>
+<li>Sand mold<ul>
+<li>Inexpensive and resistance to high temperatures</li>
+<li>Silica($SiO_2$) sand is used</li>
+<li>Sand with fine and round grain is closely packed and forms a smooth mold surface(High strength and low permeability)</li>
+<li>A good permeability allows gases and steam evolved during casting to escape easily</li>
+</ul>
+</li>
+<li>Pattern<ul>
+<li>Shape of the casting</li>
+<li>Material selection depends on size and shape, dimensional accuracy, accuracy, quantity of casting</li>
+<li>Draft angle 고려</li>
+</ul>
+</li>
+<li>미세한 주물사를 사용한 주형을 통해 만들어진 금속<ul>
+<li>주형 강도 증가(결합 면적 증가) - 형태 잘 유지(좋은 표면)</li>
+<li>통기도 감소(가스 배출 어려움) - 금속 내부 공간(균일하지 않은 강도)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Shell-mold casting : Expendable mold(소모성 주형)<ul>
+<li>Close dimensional tolerances and good surface finish at low cost</li>
+<li>Light and thin(usually 5~10mm) : Thin shell allow gases to escape during solidification of the metal</li>
+<li>Smooth wall of the mold wall : Low resistance to molten metal flow - shaper corner, thinner sections, and smaller projections</li>
+</ul>
+</li>
+<li>Precision(정밀) casting : Expendable mold(소모성 주형)<ul>
+<li>Plaster-mold casting<ul>
+<li>Precision casting method : High dimensional accuracy, good surface finish</li>
+<li>Low thermal conductivity(Slow cooling) : Uniform grain structure, Less warpage, Better mechanical properties</li>
+</ul>
+</li>
+<li>Ceramic-mold casting<ul>
+<li>Somewhat expensive</li>
+<li>Good dimensional accuracy and surface finish</li>
+<li>Wide range of size, intricate shapes</li>
+<li>Suitable for high-temperature application(Stainless steel, tool steels, etc.)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Investment casting : Expendable mold(소모성 주형)<ul>
+<li>Labor and materials are costly but no finishing is required</li>
+<li>Suitable for casting high-melting-point alloys with good surface finish and close dimensional tolerances<ul>
+<li>Mecahnical components : Gears, Cams, Valves, ratchet, etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Permanent mold casting processes<ul>
+<li>Molds are used repeatedly and are designed so that the casting can easily be removed</li>
+<li>Metal molds<ul>
+<li>Better heat conductor - High rate of cooling - Microstructure and grain size</li>
+<li>Maintain strength under high temperature</li>
+<li>Expensive</li>
+</ul>
+</li>
+<li>Controlling of the rate of cooling speed with graphite(흑연) / refractory(내화액)<ul>
+<li>코팅 두께로 조절</li>
+</ul>
+</li>
+<li>Good mechanical properties and surface finish</li>
+</ul>
+</li>
+<li>Die casting : Permanent mold<ul>
+<li>Molten metal is forced into the die cavity at high pressures(~ 700MPa)</li>
+<li>The machines are large comparing with the size of the product</li>
+<li>Dies are cooled by circulating water or oil to improve die life and rapid cooling : Maximizing productivity</li>
+<li>Mass production thorough automation</li>
+</ul>
+</li>
+<li>Centrifugal / Squeeze casting : Permanent mold<ul>
+<li>Centrifugal casting(원심주조법)<ul>
+<li>Force the molten metal into the mold cavities by the inertial force(Rotation)</li>
+<li>Good dimensional tolerance and surface</li>
+<li>By centrifugal force : Inner surface of the casting remains cylindrical, Lighter elements(Dross, Impurities) on the inner surface</li>
+</ul>
+</li>
+<li>Squeeze casting<ul>
+<li>Combination of forging and casting</li>
+<li>The higher cooling rate results in fine microstructure and good mechanical properties</li>
+<li>Minimization of microporosity</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>표 5.8 - <strong>시험</strong></p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/42334717/79780965-b6d54b00-8377-11ea-8d44-682d30c0bdfd.png" alt="Casting"></p>
+<h2 id="Post-processes"><a href="#Post-processes" class="headerlink" title="Post processes"></a>Post processes</h2><ul>
+<li>Annealing<ul>
+<li>Reduce hardness and strength</li>
+<li>Modify its microstructure</li>
+<li>Relieve resiual stress</li>
+<li>Improve dimensional stability and machinability</li>
+<li>Annealing sequence<ul>
+<li>Heating the workpiece to a specific range of temperature</li>
+<li>Holding it at that temperature for a period of time</li>
+<li>Cooling it slowly(Minimization of surface oxidation)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Tempering<ul>
+<li>Increase ductility and toughness</li>
+<li>Reduce residual stress and brittleness</li>
+<li>Heating a specific temperature and cooled at a prescribed rate</li>
+</ul>
+</li>
+</ul>
+<h2 id="Defects-in-castings"><a href="#Defects-in-castings" class="headerlink" title="Defects in castings"></a>Defects in castings</h2><blockquote>
+<p>Seven basic categories</p>
+</blockquote>
+<ul>
+<li>Metallic projections(금속돌출)<ul>
+<li>Ex) Rough surface or massive projection such as swell</li>
+</ul>
+</li>
+<li>Cavities(기공)<ul>
+<li>Ex) Blow hold, Pin hold</li>
+</ul>
+</li>
+<li>Discontinuities<ul>
+<li>Ex) Crack, Tearing, Coldshut</li>
+</ul>
+</li>
+<li>Defective surface<ul>
+<li>Ex) Surface fold, Laps, Scars</li>
+</ul>
+</li>
+<li>Incomplete casting<ul>
+<li>Ex) Misruns(Premature solidification), Runout(Due to loss of metal after pouring)</li>
+</ul>
+</li>
+<li>Incorrect dimensions of shape<ul>
+<li>Ex) Improper shrinkage allowance, Uneven contraction</li>
+</ul>
+</li>
+<li>Inclusion(개재물)<ul>
+<li>Stress raisers and reduce the strength of the casting, break tools during machining operation</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Porosity(기공)</p>
+</blockquote>
+<ul>
+<li>Detrimental to the ductility and surface finish</li>
+<li>Develop when the liquid metal solidifies and shrinks between dendrites</li>
+<li>Microporosity is from gases expelling</li>
+<li>Macroporosity(Shrinkage cavities) is from shirinkage</li>
+<li>Chills(냉각쇠) are used in castings to eliminate macroporosity caused by shrinkage</li>
+<li>Porosity due to gases(Microporosity)<ul>
+<li>Spherical and smooth walls(Normally)</li>
+</ul>
+</li>
+<li>Porosity due to shrinkage(Macroporosity)<ul>
+<li>Rough and angular(Normally)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Bulk-Deformation-Processes"><a href="#Bulk-Deformation-Processes" class="headerlink" title="Bulk Deformation Processes"></a>Bulk Deformation Processes</h1><ul>
+<li>Metal forming process<ul>
+<li>Bulk deformation(팽창 변형) : Involves the plastic deformation of materials under various force / power conditions<ul>
+<li>Forging(단조)</li>
+<li>Rolling(압연)</li>
+<li>Extrusion(압출)</li>
+<li>Drawing(인발)</li>
+<li>Swaging</li>
+</ul>
+</li>
+<li>Sheet-metal forming</li>
+</ul>
+</li>
+</ul>
+<h2 id="Forging-단조"><a href="#Forging-단조" class="headerlink" title="Forging(단조)"></a>Forging(단조)</h2><blockquote>
+<p>강성 증가</p>
+</blockquote>
+<ul>
+<li>Forging is the manufactruing process where plastic deformation of material takes place by compressive forces</li>
+<li>Cold or hot working : can be carried out at room or at elevated temperature</li>
+<li>Open-die forging(자유 단조)<ul>
+<li>Involves placing a solid cylindrical workpiece between two flat dies and reducing its height by compressive force(it’s called “upsetting”)</li>
+<li>Die : may be flat or have cavities of various shape</li>
+<li>Barreling(배부름) -  <strong>시험</strong><ul>
+<li>Caused by frictional forces at the die-workpiece interfaces and upsetting of hot workpieces between cool dies</li>
+<li>Non-uniform deformation</li>
+<li>Minimized by lubricant or ultrasonic vibration of the platens</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Impression-die(Closed-die forging)<ul>
+<li>형 단조</li>
+<li>Workpiece acquires the shape of the die cavity while deformed between the closing dies</li>
+<li>Flash : high frction encourages the filling of the die cavities - <strong>시험</strong></li>
+<li>Qualities depending on operational performance and control</li>
+</ul>
+</li>
+<li>Precision forging(정밀 단조) : Near net shape with Aluminum, Magnesium</li>
+<li>Closed-die forging(폐쇄 단조) : No flash, completely filled</li>
+<li>Isothermal forging(등온 단조) : Hot die forging, same Temp. workpiece-die, expensive</li>
+<li>Incremental forging(점진 단조) : Several small steps(Incremental), low force-low noise</li>
+<li>Coining : Closed-die forging coin / medal, no lubricant, improving qualities</li>
+<li>Heading : Upsetting operation</li>
+<li>Cogging : Drawing out, thickness is reduced by sucessive steps</li>
+<li>Roll forging(압연 단조) : Passing workpiece through set of grooved rolls</li>
+</ul>
+<h3 id="Forging-defects"><a href="#Forging-defects" class="headerlink" title="Forging defects"></a>Forging defects</h3><blockquote>
+<p><strong>시험</strong></p>
+</blockquote>
+<ul>
+<li>Due to improper the material flow patterns in the die cavity</li>
+<li>Buckling defect(겹침 결함) : The excess material in the web</li>
+<li>Internal crack(내부 크랙) : Due to oversized billet</li>
+<li>Effect of radius<ul>
+<li>Die radius(다이의 모서리 형상) significantly affect formation of forging defects</li>
+<li>Material flows better around large radius</li>
+<li>Cold shut : Material can fold over itself with smaller radius</li>
+<li>These defects can lead to fatigue failure during the service life of the forged component</li>
+<li>설계변수 : 다이의 모서리 형상</li>
+</ul>
+</li>
+</ul>
+<h3 id="Forgeability"><a href="#Forgeability" class="headerlink" title="Forgeability"></a>Forgeability</h3><blockquote>
+<p>Capability to be shaped without cracking and requiring low forces</p>
+</blockquote>
+<ul>
+<li>Upsetting test<ul>
+<li>Upset of cylindrical specimen<ul>
+<li>Measure reduction in height prior to cracking</li>
+</ul>
+</li>
+<li>The higher reduction, the greater the forgeability of the metal</li>
+<li>As the friction increases, the specimen cracks at a lower reduction in height</li>
+</ul>
+</li>
+<li>Hot-twist test<ul>
+<li>A torsion test of a long and round specimen<ul>
+<li>Twisted continuously until it fails</li>
+</ul>
+</li>
+<li>Performed at various temperatures and the number of turns in observed</li>
+<li>Useful for determining the forgeability of steel</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>단조성이 높다 : 균열 없이 크게 변형, 동일한 변형량을 유지할 때 소요되는 하중 작음</p>
+</blockquote>
+<h3 id="Die-design-parameters"><a href="#Die-design-parameters" class="headerlink" title="Die design parameters"></a>Die design parameters</h3><blockquote>
+<p>General considerations for die design</p>
+</blockquote>
+<ul>
+<li>Parting line : Two dies meet</li>
+<li>Flash : 3% of the maximum thickness of the forging</li>
+<li>Draft angles : Removal of the part from the die(Internal &gt; External)</li>
+<li>Die radius for conrners and fillets<ul>
+<li>Smooth flow of the metal in the die cavity</li>
+<li>Improvement of die life</li>
+<li>Small radius : Stress concentration</li>
+<li>Small radius in fillets : Fatigue cracking</li>
+</ul>
+</li>
+<li>Land의 길이는 Falsh 두께의 5배</li>
+</ul>
+<img width="831" alt="단조 명칭" src="https://user-images.githubusercontent.com/42334717/82438159-906c1200-9ad3-11ea-8da8-54ac892e1abb.png">
+
+<h2 id="Rolling-압연"><a href="#Rolling-압연" class="headerlink" title="Rolling(압연)"></a>Rolling(압연)</h2><ul>
+<li>Process of reducing the thickness of long workpiece by compressive forces applied through a set of rolls</li>
+<li>Good strength and ductility : Reduce grain size and refine the microstructure - <strong>시험</strong></li>
+<li>90% of all metals produced by metalworking processes</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/82439224-43893b00-9ad5-11ea-943e-a925f5a59089.png" alt="Rolling"></p>
+<h3 id="Mechanics-of-Flat-Rolling"><a href="#Mechanics-of-Flat-Rolling" class="headerlink" title="Mechanics of Flat Rolling"></a>Mechanics of Flat Rolling</h3><ul>
+<li>For constant volume rate of metal, velocity of strip must increase as it moves through roll gap</li>
+<li>No slip point : The two velocities (Strip / Roll) are the same</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/82439585-e5a92300-9ad5-11ea-9e46-b5cb88e3820d.png" alt="Mechanics of Flat Rolling"></p>
+<ul>
+<li>Roll forces in hot rolling<ul>
+<li>Two difficulties in calculation of forces and torque<ul>
+<li>Proper estimation of the coefficient of friction at elevated temperature(Generally 0.2 ~ 0.7)</li>
+<li>Strain-rate sensitivity of materials at elevated temperature</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Roll deflections and roll flateening<ul>
+<li>Roll forces will bend the rolls and results in a strip that is thicker at its center than at its edges(Crown)</li>
+<li>Flattening of roll with camber<ul>
+<li>Camber : Curvature in diameter variation, typically less than 0.5mm on the roll diameter - <strong>시험</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Spreading<ul>
+<li>Rolling plates and sheets with high strip width-to-thickness ratios is essentially a process of plane strain</li>
+<li>Width increases during rolling, known as spreading</li>
+<li>Spreading decrease with<ul>
+<li>Increasing width-to-thickness ratios of the strip</li>
+<li>Increasing of friction</li>
+<li>Increasing ratios of roll radius to strip thickness</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Defects-in-Rolling"><a href="#Defects-in-Rolling" class="headerlink" title="Defects in Rolling"></a>Defects in Rolling</h3><ul>
+<li>Structural defects(구조적 결함)<ul>
+<li>Wavy edges(파도형 결함)<ul>
+<li>Roll의 손상</li>
+</ul>
+</li>
+<li>Zipper cracks in the center of strip(중앙부 터짐)<ul>
+<li>Ingot 내부의 기공</li>
+<li>연성 부족</li>
+<li>과한 Camber</li>
+</ul>
+</li>
+<li>Edge cracks(측면 터짐)<ul>
+<li>연성 부족</li>
+<li>적은 Camber</li>
+</ul>
+</li>
+<li>Alligatoring<ul>
+<li>넓은 기공</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Residual stresses<ul>
+<li>Due to inhomogeneous plastic deformation<ul>
+<li>Small rolls / Small reduction in thickness<ul>
+<li>소재의 표면만 소성변형</li>
+<li>표면 : 압축잔류응력 </li>
+<li>중앙부 : 인장잔류응력</li>
+</ul>
+</li>
+<li>Large rolls / Large reduction in thickness<ul>
+<li>소재의 내부 위주의 소성변형</li>
+<li>표면 : 인장잔류응력</li>
+<li>중앙부 : 압축잔류응력</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Roll-arrangement"><a href="#Roll-arrangement" class="headerlink" title="Roll arrangement"></a>Roll arrangement</h3><p><img src="https://user-images.githubusercontent.com/42334717/83268654-e55d0600-a200-11ea-99c7-770c4f12a744.png" alt="Roll arrangement"></p>
+<h3 id="Miscellaneous-rolling-operations"><a href="#Miscellaneous-rolling-operations" class="headerlink" title="Miscellaneous rolling operations"></a>Miscellaneous rolling operations</h3><ul>
+<li>Shape rolling</li>
+<li>Ring rolling</li>
+<li>Thread rolling<ul>
+<li>Cold-froming process</li>
+<li>Good strength</li>
+<li>Requested sufficient ductility</li>
+<li>Requested good lubrication</li>
+</ul>
+</li>
+</ul>
+<h2 id="Extrusion-압출"><a href="#Extrusion-압출" class="headerlink" title="Extrusion(압출)"></a>Extrusion(압출)</h2><ul>
+<li>Cold and hot working process</li>
+<li>Four basic types of extrusion<ul>
+<li>Direct extrusion(직접, 전방 압출)</li>
+<li>Indirect extrusion(간접, 후방 압출)</li>
+<li>Hydrostatic extrusion(정수압 압출)</li>
+<li>Impact extrusion</li>
+</ul>
+</li>
+</ul>
+<h3 id="Metal-flow-in-extrusion"><a href="#Metal-flow-in-extrusion" class="headerlink" title="Metal flow in extrusion"></a>Metal flow in extrusion</h3><ul>
+<li>Main factors in metal flow<ul>
+<li>Friction at billet-container and billet-die interface</li>
+<li>Thermal gradients within the billet<ul>
+<li>The most homogeneous flow pattern under no friction at the interfaces</li>
+<li>Dead-metal zone develops under high friction</li>
+<li>High-shear zone extends farther back(“Pipe defect” - 내부에 공간 존재)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Cold-extrusion"><a href="#Cold-extrusion" class="headerlink" title="Cold extrusion"></a>Cold extrusion</h3><ul>
+<li>Combination of processes particularly extrusion combined with forging</li>
+<li>Cold extrusion advantages<ul>
+<li>Improved mechanical properties(Minimize thermal defects)</li>
+<li>Good control of dimensional tolerances</li>
+<li>Improved surface finish</li>
+<li>High production rates and low cost</li>
+</ul>
+</li>
+</ul>
+<h3 id="Defects-in-extrusion"><a href="#Defects-in-extrusion" class="headerlink" title="Defects in extrusion"></a>Defects in extrusion</h3><ul>
+<li>Surface cracking(표면균열)<ul>
+<li>High extrusion temperature under high speed and friction</li>
+<li>Cracks are inter-granular</li>
+<li>Cracks are the results of hot shortness(적열취성)</li>
+<li>Minimization of surface cracking by using lower temperature and low speed</li>
+</ul>
+</li>
+<li>Extrusion defect(= Pipe defect = Tailpipe = Fishtailing)<ul>
+<li>Type of metal flow will draw surface oxides and impurities toward the center of billet</li>
+<li>Minimization of pipe defect by modifiying the flow pattern, machining the billet surface</li>
+</ul>
+</li>
+<li>Internal cracking(= Chevron cracking)<ul>
+<li>Develop at the center of an extruded product</li>
+<li>Major factors are die angle, extrusion ratio, friction</li>
+</ul>
+</li>
+</ul>
+<h2 id="Drawing-인발"><a href="#Drawing-인발" class="headerlink" title="Drawing(인발)"></a>Drawing(인발)</h2><ul>
+<li>A bar or tube is reduced or changed in shape by pulling through a converging die under tension(Extrusion is carried out with compressive force)</li>
+<li>Rod and wire drawings are finishing processes and are further processed into other shapes</li>
+</ul>
+<h3 id="Defects-in-drawing"><a href="#Defects-in-drawing" class="headerlink" title="Defects in drawing"></a>Defects in drawing</h3><ul>
+<li>Internal defects increases with increasing<ul>
+<li>Die angle</li>
+<li>Friction</li>
+<li>The presence of inclusion in the material</li>
+</ul>
+</li>
+<li>Seam defect(솔기결함)<ul>
+<li>A type of surface defect in only drawing</li>
+<li>Longitudinal scratches or folds in the material</li>
+<li>Major reason of alligatoring defect</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Sheet-Metal-Forming-Process"><a href="#Sheet-Metal-Forming-Process" class="headerlink" title="Sheet-Metal Forming Process"></a>Sheet-Metal Forming Process</h1><ul>
+<li>Sheet metal forming involves the workpiece with high ratio of surface area to thickness<ul>
+<li>Plate(후판) : Thicker than 6mm</li>
+<li>Sheet(박판) : Less than 6mm</li>
+</ul>
+</li>
+<li>Sheet metal is produced by rolling process<ul>
+<li>If thin : Coiled after rolling(Wound roll form)</li>
+<li>If thick : Available as sheet or plate</li>
+</ul>
+</li>
+<li>Forming of sheet metals is carried out by tensile forces in the plane of the sheet<ul>
+<li>Compressive force -&gt; Buckling, Folding and Wrinkling of the sheet</li>
+<li>Thickness change due only to Poisson’s effect unlike bulk deformation</li>
+</ul>
+</li>
+</ul>
+<h2 id="Shearing-판재의-전단작업"><a href="#Shearing-판재의-전단작업" class="headerlink" title="Shearing(판재의 전단작업)"></a>Shearing(판재의 전단작업)</h2><ul>
+<li>Cutting sheet metal, plates, bars, and tubing into pieces using punch and die</li>
+<li>Workpiece is subjected to shear stress</li>
+<li>Important variables are punch force, speed, edge condition of the sheet, materials, corner radii of punch and die, punch-die clearance(간극) and lubrication</li>
+<li>As clearance increases, edges become rougher and deformation zone is larger : Generally 2-8% of sheet thickness, and 1% of it for fine blanking</li>
+<li>The ratio of the burnished-to-rough area on the sheared edge increases with increasing ductility of the sheet metal and decreases with increasing sheet thickness and clearance</li>
+<li>As clearance increases, the material tends to be pulled into the die, rather than being sheared</li>
+<li>Burr height increases with increasing clearance and increasing ductility of the metal</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/83729376-752c0580-a682-11ea-9043-da16f15e8164.png" alt="Shearing"><br><img src="https://user-images.githubusercontent.com/42334717/83752771-0790d100-a6a4-11ea-8791-22f45a2dd92f.png" alt="Shearing"></p>
+<h3 id="Die-Cutting"><a href="#Die-Cutting" class="headerlink" title="Die Cutting"></a>Die Cutting</h3><ul>
+<li>Punching : The sheared slug is discarded</li>
+<li>Blanking : The slug is the part itself, and the rest is scrap</li>
+<li>Parts produced have various uses<ul>
+<li>Perforating : Punching holes</li>
+<li>Parting : Shear into two or more pieces</li>
+<li>Notching : Remove the material at edge</li>
+<li>Slitting</li>
+<li>Lancing : Leave a tap without removing material</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/83737781-6e0af480-a68e-11ea-9676-f376cb8e437b.png" alt="Die cutting"></p>
+<h3 id="Fine-Blanking"><a href="#Fine-Blanking" class="headerlink" title="Fine Blanking"></a>Fine Blanking</h3><ul>
+<li>Very smooth and square edges</li>
+<li>V-shaped impingement(Stinger) grabs the sheet tightly in place</li>
+<li>Clearances on the order of 1% of the sheet thickness with sheet thickness of 0.5 ~ 13mm(8% in ordinary shearing operation)</li>
+<li>Suitable sheet hardness : 50 ~ 90HRB</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/83738246-030ded80-a68f-11ea-97c2-dcea7ae8a880.png" alt="Fine Blanking"></p>
+<h3 id="Slitting"><a href="#Slitting" class="headerlink" title="Slitting"></a>Slitting</h3><ul>
+<li>Carried out with a pair of circular blades</li>
+<li>Two types of slitting equipment<ul>
+<li>Driven type : The blades are powered</li>
+<li>Pull-through type : The strip is pulled through idling blades</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/83738483-52ecb480-a68f-11ea-9028-5217ace1a246.png" alt="Slitting"></p>
+<h3 id="Shearing-Die"><a href="#Shearing-Die" class="headerlink" title="Shearing Die"></a>Shearing Die</h3><ul>
+<li>Qualities of a sheared part can be directly influenced by clearance</li>
+<li>The smaller the clearance, the better is the quality of the sheared edge</li>
+<li>Shaving : Extra material from a rough sheared edge is trimmed by cutting<ul>
+<li>Part requiring multiple operations such as punching, bending, and blanking are made at high production rate using progressive dies</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/83738601-76affa80-a68f-11ea-94c5-cd8b94544586.png" alt="Shearing Die"></p>
+<h2 id="Bending-of-Sheet-and-Plate-판재의-굽힘작업"><a href="#Bending-of-Sheet-and-Plate-판재의-굽힘작업" class="headerlink" title="Bending of Sheet and Plate(판재의 굽힘작업)"></a>Bending of Sheet and Plate(판재의 굽힘작업)</h2><ul>
+<li>Bending : One of the most common metalworking operations</li>
+<li>Bending force is a function of the material’s strength, legnth and thickness of the part, and the width of the die opening</li>
+<li>Bend allowance($L_b$, 굽힘허용부) : The length of the neutral axis in the bend area and is used to determine the blank length for a bent part</li>
+<li>Bend radius($R$, 굽힘반경) is measured to the inner surface of the band</li>
+<li>Length of bend($L$, 굽힘길이) is the width of the sheet</li>
+<li>Minimum band radius : Crack appears on the outer surface of the band</li>
+</ul>
+<img width="500" alt="Bending of Sheet and Plate" src="https://user-images.githubusercontent.com/42334717/83738860-cbec0c00-a68f-11ea-9996-dc3293796eba.png">
+
+<h3 id="Bendability"><a href="#Bendability" class="headerlink" title="Bendability"></a>Bendability</h3><blockquote>
+<p>Factors affecting bendability</p>
+</blockquote>
+<ul>
+<li>Bendability increases by increasing its tensile reduction of area</li>
+<li>As length($L$) increases, minimum bend radius increases(under 10t)</li>
+<li>Bendability decreases as edge roughness increases</li>
+<li>Cold rolling direction : Anisotropy because of the alignment of impurities, inclusions, and voids(It is called “mechanical fibering”)</li>
+</ul>
+<img width="600" alt="Bendability" src="https://user-images.githubusercontent.com/42334717/83739023-02c22200-a690-11ea-8229-604240f535bc.png">
+
+<h3 id="Springback"><a href="#Springback" class="headerlink" title="Springback"></a>Springback</h3><ul>
+<li>In bending, elastic recovery is called springback<ul>
+<li>Plastic deformation is always followed by elastic recovery upon removal of the load</li>
+</ul>
+</li>
+<li>A quantity characterizing springback is the springback factor $K_s$(ex : $K_s=1$ is no springback and $K_s=0$ is full springback)</li>
+</ul>
+<h3 id="Compensation-for-Springback"><a href="#Compensation-for-Springback" class="headerlink" title="Compensation for Springback"></a>Compensation for Springback</h3><ul>
+<li>Springback is usually compensated by using<ul>
+<li>Overbending</li>
+<li>Coining : High localized compressive forces between the tip of the punch and the die surface</li>
+<li>Strength bending : Applying tension while being bent</li>
+<li>Bending in high temperature : Springback decreases as yield stress decreases(Elastic region decreases)</li>
+</ul>
+</li>
+</ul>
+<img width="500" alt="Springback" src="https://user-images.githubusercontent.com/42334717/83746590-43269d80-a69a-11ea-8b42-417fecc90ad5.png">
+
+<h3 id="Common-bending-operations"><a href="#Common-bending-operations" class="headerlink" title="Common bending operations"></a>Common bending operations</h3><ul>
+<li>Bending : The edge of the sheet is bent into the cavity of a die</li>
+<li>Flanging : Bending the edges of sheet metal, typically to 90 degree</li>
+<li>Dimpling : Hole is first punched and then expanded into a flange</li>
+<li>Hemming : Edge of the sheet is folded over</li>
+<li>Roll forming : Bending continuous lengths of sheet metal</li>
+<li>Tube bending<ul>
+<li>Method is to pack the inside with loose particles(Typically sand)</li>
+<li>Prevent the tube from buckling inward</li>
+</ul>
+</li>
+</ul>
+<h2 id="Miscellaneous-Forming-Processes"><a href="#Miscellaneous-Forming-Processes" class="headerlink" title="Miscellaneous Forming Processes"></a>Miscellaneous Forming Processes</h2><ul>
+<li>Stretch forming<ul>
+<li>Sheet metal is clamped around it edges and stretched over a die or form block</li>
+<li>Aircraft - wing skin panels, automobile door panels</li>
+</ul>
+</li>
+<li>Bulging<ul>
+<li>Expanding it with a rubber or polyurethane</li>
+<li>Embossing</li>
+</ul>
+</li>
+</ul>
+<h3 id="Spinning"><a href="#Spinning" class="headerlink" title="Spinning"></a>Spinning</h3><blockquote>
+<p>Forming of axisymmetric parts over a rotating mandrel, using ride tools or rollers</p>
+</blockquote>
+<ul>
+<li>Conbentional spinning<ul>
+<li>Circular blank of flat or preformed sheet metal is held against the rotating mandrel</li>
+<li>Suitable for conical or curvilinear shape</li>
+</ul>
+</li>
+<li>Shear spinning<ul>
+<li>Basically the same as conventional spinning except for that the diameter keeps constant</li>
+</ul>
+</li>
+<li>Tube spinning<ul>
+<li>Tubes or pipes are reduced in thickness by spinning them on a cylindrical mandrel using rollers</li>
+<li>External or internal spinning</li>
+</ul>
+</li>
+</ul>
+<h3 id="Peen-forming"><a href="#Peen-forming" class="headerlink" title="Peen forming"></a>Peen forming</h3><ul>
+<li>Produce curvatures on thin sheet metals by shot peening</li>
+<li>Induced compressive surface residual stresses, thus improving the fatigue strength of the sheet</li>
+</ul>
+<h2 id="Deep-Drawing"><a href="#Deep-Drawing" class="headerlink" title="Deep Drawing"></a>Deep Drawing</h2><blockquote>
+<p>Flat sheet-metal blank is formed into a cylindrical or box-shaped part by means of a punch that presses the blank into the die cavity</p>
+</blockquote>
+<ul>
+<li>Variables in deep drawing<ul>
+<li>Properties of the sheet metal</li>
+<li>Ratio of the blank diameter to the punch diameter</li>
+<li>Sheet thickness</li>
+<li>Clearance between the punch and the die</li>
+<li>Corner radius of the punch and die</li>
+<li>Blankholder force</li>
+<li>Speed of the punch</li>
+<li>Friction at the punch, die and workpiece interfaces</li>
+</ul>
+</li>
+</ul>
+<h3 id="Ironing"><a href="#Ironing" class="headerlink" title="Ironing"></a>Ironing</h3><ul>
+<li>Thickness has to be reduced by a defromation when the thickness of the sheet as it enters the die cavity is more than the clearance between the punch and the die : It is called Ironing<ul>
+<li>Producing a cup with constant wall thickness</li>
+<li>Correcting earing defect</li>
+</ul>
+</li>
+</ul>
+<h3 id="Deep-Drawing-Practice"><a href="#Deep-Drawing-Practice" class="headerlink" title="Deep Drawing Practice"></a>Deep Drawing Practice</h3><ul>
+<li>Clearances and radius<ul>
+<li>Clearances are 7 - 14% greater than the original thickness of the sheet</li>
+<li>Ironing increases as clearance decreases</li>
+<li>Radius is too small -&gt; Fracture</li>
+<li>Radius is too large -&gt; Wrinkle</li>
+</ul>
+</li>
+<li>Draw beads<ul>
+<li>Draw bead diameters may range from 13 to 20mm</li>
+<li>Draw bead help in reducing the blank holder forces</li>
+</ul>
+</li>
+<li>Blankholder pressure<ul>
+<li>0.7 to 1.0% of the sum of the yield and the UTS of the sheet metal</li>
+<li>Too high pressure -&gt; Tearing of the cup wall</li>
+<li>Too low pressure -&gt; Wrinkle in the flange</li>
+</ul>
+</li>
+<li>Equipment<ul>
+<li>Punch speed : 0.1 ~ 0.3m/s(Punch speed in not important in drawability)</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Material-Removal-Process-Cutting"><a href="#Material-Removal-Process-Cutting" class="headerlink" title="Material-Removal Process : Cutting"></a>Material-Removal Process : Cutting</h1><blockquote>
+<p>Machining(Cutting) is a general term to describe material removal on a workpiece and modification of its surfaces</p>
+</blockquote>
+<h2 id="Machining-processes-in-manufacturing"><a href="#Machining-processes-in-manufacturing" class="headerlink" title="Machining processes in manufacturing"></a>Machining processes in manufacturing</h2><ul>
+<li>Advantage of machining<ul>
+<li>Closer dimensional accuracy</li>
+<li>External and internal geometric features</li>
+<li>Special surface characteristics or textures</li>
+<li>Economical when the number of final product is low</li>
+</ul>
+</li>
+<li>Disadvantage of machining<ul>
+<li>Waste material</li>
+<li>Need more time to make something</li>
+</ul>
+</li>
+</ul>
+<h2 id="Mechanics-of-Chip-Formation-칩-형성역학"><a href="#Mechanics-of-Chip-Formation-칩-형성역학" class="headerlink" title="Mechanics of Chip Formation(칩 형성역학)"></a>Mechanics of Chip Formation(칩 형성역학)</h2><ul>
+<li>Material removal -&gt; Chip production</li>
+<li>A chip is produced ahead of tool by shearing along the shear plane</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/84660790-52d49a80-af54-11ea-9f17-ec89f4df1ece.png" alt="Mechanics of Chip Formation"></p>
+<table>
+<thead>
+<tr>
+<th align="center">Input(Independent) variables(Controllable parameters)</th>
+<th align="center">Output(Dependent) variables</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Type of cutting tool</td>
+<td align="center">Types of chip produced</td>
+</tr>
+<tr>
+<td align="center">Tool shape</td>
+<td align="center">Force and energy required</td>
+</tr>
+<tr>
+<td align="center">Workpiece material</td>
+<td align="center">Temperature rise</td>
+</tr>
+<tr>
+<td align="center">Cutting condition(Speed, Feed, Depth of cut)</td>
+<td align="center">Wear, chipping and failure of tool</td>
+</tr>
+<tr>
+<td align="center">Type of cutting fluid</td>
+<td align="center">Surface finish of workpiece</td>
+</tr>
+</tbody></table>
+<img width="498" alt="Input and Output" src="https://user-images.githubusercontent.com/42334717/84661487-65030880-af55-11ea-8017-0aea3136291a.png">
+
+<ul>
+<li>Orthogonal cutting(Two dimensional model)<ul>
+<li>Two-dimensional orthonogonal cutting : The edge of tool is perpendicular(Orthogonal) to cutting direction</li>
+<li>Tool has a rake angle, relief of clearance angle</li>
+</ul>
+</li>
+</ul>
+<img width="565" alt="3D" src="https://user-images.githubusercontent.com/42334717/84751158-33427e00-aff7-11ea-8591-91d6a357da10.png">
+
+<img width="838" alt="2D" src="https://user-images.githubusercontent.com/42334717/84751688-d0051b80-aff7-11ea-9c92-b6fe8e02f5e1.png">
+
+<h3 id="Chip-Morphology"><a href="#Chip-Morphology" class="headerlink" title="Chip Morphology"></a>Chip Morphology</h3><ul>
+<li>Type of chips produced influences surface finish, integrity and machining operation</li>
+<li>Actual chips are significantly different from the ideal model shown on previous slides</li>
+<li>The tool side of the chip surface is shiny(Burnished), which was caused by rubbing of the chip</li>
+<li>The other side of the chip surface has a jagged and steplike appearance</li>
+<li>Continuous chip<ul>
+<li>Typically formed at high cutting speeds and high rake angles</li>
+<li>Generally produce good surface</li>
+<li>Chip usually becomes harder and stronger and less ductile than the original workpiece</li>
+<li>But continuous chips tend to get tangled around the tool</li>
+<li>Chip breaker can be used to solve this problem</li>
+</ul>
+</li>
+<li>Built-up-edge(BUE) chip, 구성인선 - <strong>시험</strong><ul>
+<li>Forms at the tip of the tool during cutting</li>
+<li>Built-up(구성) : material from the workpiece that are gradually deposited on the tool</li>
+<li>BUE has 3 times higher hardness than bulk workpiece</li>
+<li>BUE affects surface finish and integrity in machining</li>
+<li>BUE generally undesirable, but a thin stable BUE is regarded as desirable(It protects the tool surface)</li>
+</ul>
+</li>
+<li>Major factors(BUE)<ul>
+<li>Adhension of the workpiece material to the rake face of the tool</li>
+<li>Ceramic cutting tool have much lower affinity to form BUE</li>
+<li>Growth of the successive layers of adhenred metal on the tool</li>
+<li>Tendency of the workpiece material for strain hardening</li>
+</ul>
+</li>
+<li>Build-up Edge decreases as<ul>
+<li>the cutting speed($V$) increases</li>
+<li>the depth of cut($t_0$) decreases</li>
+<li>the rake angle($\alpha$) increases</li>
+<li>tip radius of the tool decreases</li>
+<li>an effective cutting fluid is applied</li>
+</ul>
+</li>
+<li>Chip curl<ul>
+<li>Possible factors contributing to chip curl<ul>
+<li>Stresses distribution in shear zone</li>
+<li>Thermal gradients</li>
+<li>Work-hardening characteristics of the workpiece</li>
+<li>Geometry of rake face of the tool</li>
+</ul>
+</li>
+<li>The radius of curvature decreases(The chip becomes curlier) with decreasing depth of cut, increasing rake angle, and decreasing frcition at the tool-chip interface -&gt; Chip curl increases</li>
+</ul>
+</li>
+<li>Chip breaker<ul>
+<li>Long chips needs to be broken since they tend to be entangled and interfere with machining operation</li>
+<li>It is troublesome in high speed automated machinery</li>
+</ul>
+</li>
+</ul>
+<h3 id="Temperature"><a href="#Temperature" class="headerlink" title="Temperature"></a>Temperature</h3><ul>
+<li>As temperature increases, it will<ul>
+<li>adversely affect the properties(Strength, Hardness, Wear resistance of the cutting tool) of the cutting tool</li>
+<li>adversely affect dimensional accuracy</li>
+<li>induce thermal damage to the machined surface, its properties and service life</li>
+<li>adversely affect dimensional control(distortion of the machine itself due to temperature gradients)</li>
+</ul>
+</li>
+<li>Heat generation<ul>
+<li>Shearing on the tool - chip interface</li>
+<li>Overcoming friction on the rake face of the tool - chip interface</li>
+<li>Tool tip rubbing against the machined surface when the tool is worn</li>
+</ul>
+</li>
+</ul>
+<img width="506" alt="Temperature" src="https://user-images.githubusercontent.com/42334717/85018688-945d8380-b1a8-11ea-9d62-0b7df8045562.png">
+
+<ul>
+<li>Max temperature is away from the tool tip</li>
+<li>temperature increases with cutting speed</li>
+<li>The chip plays a role of good heat sink in that it absorbs and carries away most of heat generated</li>
+<li>Large proportion of the heat generated is carried away by the chip(In the form of heat), as cutting speed</li>
+</ul>
+<img width="542" alt="Temperature" src="https://user-images.githubusercontent.com/42334717/85107678-52384e80-b249-11ea-88f6-cd85b89b5a7b.png">
+
+<h2 id="Tool-Wear-and-Failure"><a href="#Tool-Wear-and-Failure" class="headerlink" title="Tool Wear and Failure"></a>Tool Wear and Failure</h2><ul>
+<li>Cutting tools are subjected to high force, elevated temerature and sliding; all these conditions induce wear of the cutting tools</li>
+<li>Tool wear is one of the most important aspects of machining operations; because of its effect on the quality of the machined surface and the economics of machining</li>
+<li>The war behavior of cutting tools are flank wear, crater wear, nose wear, and chipping of the cutting edge; wear is generally a gradual process, chipping of the tool is a kind of catastrophic failure</li>
+</ul>
+<img width="585" alt="Tool Wear ad Failure" src="https://user-images.githubusercontent.com/42334717/85107975-d12d8700-b249-11ea-81d2-6483198208d9.png">
+
+<h3 id="Flank-Wear"><a href="#Flank-Wear" class="headerlink" title="Flank Wear"></a>Flank Wear</h3><ul>
+<li>Flank wear is due to<ul>
+<li>sliding of the tool along the machined surface(depanding on materials involved)</li>
+<li>temperature rise(adverse effects on the tool material properties)</li>
+</ul>
+</li>
+<li>Tool-life curves<ul>
+<li>A tool life decreases as cutting speed increases</li>
+<li>The workpiece material influences the tool life</li>
+<li>The microstructures of the workpiece</li>
+</ul>
+</li>
+</ul>
+<h3 id="Crater-Wear"><a href="#Crater-Wear" class="headerlink" title="Crater Wear"></a>Crater Wear</h3><ul>
+<li>Most significant factors are temperature and the degree of chemical affinity between the tool and the workpiece(The factor affecting flank wear also influence crater wear)</li>
+<li>The location of maximum depth of crater wear coincides with the location of maximum temperature at the tool - Chip interface</li>
+<li>Abrupt increase in crater wear rate above certain temperature is observed</li>
+</ul>
+<h3 id="Chipping"><a href="#Chipping" class="headerlink" title="Chipping"></a>Chipping</h3><ul>
+<li>Chipping is a phenomenon that results in sudden loss of tool material</li>
+<li>The breaking away of a piece from the cutting edge of the tool<ul>
+<li>Microchipping : Chipped pieces are very small</li>
+<li>Gross chipping : Chipped pieces are large fragment</li>
+</ul>
+</li>
+</ul>
+<h2 id="Surface-Finish-and-Surface-Integrity"><a href="#Surface-Finish-and-Surface-Integrity" class="headerlink" title="Surface Finish and Surface Integrity"></a>Surface Finish and Surface Integrity</h2><ul>
+<li>Surface influences a dimensional accuracy of machined parts as well as properties of the parts such as fatigue strength</li>
+<li>Surface finish describes the geometric features of surface</li>
+<li>Surface integrity pertains to properties such as fatigue life and corrosion resistance<ul>
+<li>Major factors that influence surface integrity<ul>
+<li>Temperatures generated during processing</li>
+<li>Residual stresses</li>
+<li>Metallurgical transformations</li>
+<li>Plastic deformation, tearing, and cracking of the surface</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Dull-Tool-in-Orthogonal-Cutting-and-Feed-Marks"><a href="#Dull-Tool-in-Orthogonal-Cutting-and-Feed-Marks" class="headerlink" title="Dull Tool in Orthogonal Cutting and Feed Marks"></a>Dull Tool in Orthogonal Cutting and Feed Marks</h3><ul>
+<li>Dull tool : Lacks sharpness has a large radius along its edges<ul>
+<li>Large radius along its edges</li>
+<li>Rake angle becomes negative</li>
+<li>Dull tool rub over the machine surface<ul>
+<li>Friction heat</li>
+<li>Surface residual stresses</li>
+<li>Surface damages : Cracking, Tearing, etc.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Feed mark : The tool leaves a spiral profile<ul>
+<li>The higher feed rate and the smaller the radius(R), the more significant feed marks</li>
+</ul>
+</li>
+</ul>
+<h2 id="Machinability"><a href="#Machinability" class="headerlink" title="Machinability"></a>Machinability</h2><ul>
+<li>One of material properties but difficult to express quantitatively<ul>
+<li>Surface finish and integrity of the machined part</li>
+<li>Tool life</li>
+<li>Force and power requirements</li>
+<li>Chip contorl</li>
+</ul>
+</li>
+<li>Good machinability<ul>
+<li>Good surface finish and integrity</li>
+<li>Long tool life</li>
+<li>Low force and power</li>
+<li>Good elimination of the chip</li>
+</ul>
+</li>
+</ul>
+<h2 id="Cutting-Tool-Material"><a href="#Cutting-Tool-Material" class="headerlink" title="Cutting-Tool Material"></a>Cutting-Tool Material</h2><ul>
+<li>Tool material is one of most important consideration in machining process</li>
+<li>A cutting tool must have the following characteristics<ul>
+<li>Hot hardness</li>
+<li>Toughness</li>
+<li>Wear resistance</li>
+<li>Chemical stability or inertness</li>
+</ul>
+</li>
+</ul>
+<h3 id="Carbon-steels"><a href="#Carbon-steels" class="headerlink" title="Carbon steels"></a>Carbon steels</h3><ul>
+<li>The oldest of tool materials since 1880s</li>
+<li>Inexpensive and easily shaped and sharpened</li>
+<li>Insufficient hot hardness for machining at high cutting speed</li>
+<li>Insufficient wear resistance for machining at high cutting speed</li>
+</ul>
+<h3 id="High-speed-steels-HSS"><a href="#High-speed-steels-HSS" class="headerlink" title="High-speed steels(HSS)"></a>High-speed steels(HSS)</h3><ul>
+<li>Developed to machine at speeds higher than previously possible</li>
+<li>The largest number of tool materials</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/catia/" rel="bookmark">Catia</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/manufacturing-process-laboratory/" rel="bookmark">Manufacturing process laboratory</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/product-design-for-manufacturing/" rel="bookmark">제품공학설계</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/cam-and-cnc/" rel="bookmark">CAM and CNC</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/manufacturing-process/" title="Manufacturing Process">https://zerohertz.github.io/manufacturing-process/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/mechanical-engineering/" rel="tag"><i class="fa fa-tag"></i> Mechanical Engineering</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/matlab-source-for-data-visualization/" rel="prev" title="Matlab source for data visualization">
+                  <i class="fa fa-chevron-left"></i> Matlab source for data visualization
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/economics/" rel="next" title="Economics">
+                  Economics <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/manufacturing-process/";
+    this.page.identifier = "manufacturing-process/";
+    this.page.title = "Manufacturing Process";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

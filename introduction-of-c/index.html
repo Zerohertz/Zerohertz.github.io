@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="C++? C언어에 객체 지향 프로그래밍 기능을 추가하여 만든 언어 C언어만큼 효율적이고 속도가 빠르며 이식성이 좋은 절차적 프로그래밍(Procedural programming) 가능 복잡한 프로그램을 작성하는데 매우 효과적인 방법으로 알려진 객체 지향 프로그래밍(Object-oriented programming) 가능 템플릿을 이용하는 일반화 프로그래밍(G">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Introduction of C++">
+<meta property="og:url" content="https://zerohertz.github.io/introduction-of-c/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="C++? C언어에 객체 지향 프로그래밍 기능을 추가하여 만든 언어 C언어만큼 효율적이고 속도가 빠르며 이식성이 좋은 절차적 프로그래밍(Procedural programming) 가능 복잡한 프로그램을 작성하는데 매우 효과적인 방법으로 알려진 객체 지향 프로그래밍(Object-oriented programming) 가능 템플릿을 이용하는 일반화 프로그래밍(G">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-01T04:32:51.000Z">
+<meta property="article:modified_time" content="2020-07-01T07:23:29.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="C, C++">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/introduction-of-c/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Introduction of C++ | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C"><span class="nav-number">1.</span> <span class="nav-text">C++?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D-%EA%B8%B0%EB%B2%95%EC%9D%98-%EB%B0%9C%EC%A0%84"><span class="nav-number">2.</span> <span class="nav-text">프로그래밍 기법의 발전</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%88%EC%B0%A8%EC%A0%81-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D"><span class="nav-number">2.1.</span> <span class="nav-text">절차적 프로그래밍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4-%EC%A7%80%ED%96%A5-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D"><span class="nav-number">2.2.</span> <span class="nav-text">객체 지향 프로그래밍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%BC%EB%B0%98%ED%99%94-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D"><span class="nav-number">2.3.</span> <span class="nav-text">일반화 프로그래밍</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8-%EC%9E%91%EC%84%B1-%EA%B3%BC%EC%A0%95"><span class="nav-number">3.</span> <span class="nav-text">프로그램 작성 과정</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%8E%B8%EC%A7%91-%EB%8B%A8%EA%B3%84-Edit"><span class="nav-number">3.1.</span> <span class="nav-text">편집 단계(Edit)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%BB%B4%ED%8C%8C%EC%9D%BC-%EB%8B%A8%EA%B3%84-Compile"><span class="nav-number">3.2.</span> <span class="nav-text">컴파일 단계(Compile)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%A7%81%ED%81%AC-%EB%8B%A8%EA%B2%8C-Link"><span class="nav-number">3.3.</span> <span class="nav-text">링크 단게(Link)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%8B%A4%ED%96%89-%EB%8B%A8%EA%B2%8C-Execute"><span class="nav-number">3.4.</span> <span class="nav-text">실행 단게(Execute)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Example"><span class="nav-number">4.</span> <span class="nav-text">Example</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/introduction-of-c/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Introduction of C++
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2020-07-01 13:32:51 / Modified: 16:23:29" itemprop="dateCreated datePublished" datetime="2020-07-01T13:32:51+09:00">2020-07-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">C, C++</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/basic/" itemprop="url" rel="index"><span itemprop="name">Basic</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/introduction-of-c/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="introduction-of-c/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="C"><a href="#C" class="headerlink" title="C++?"></a>C++?</h1><ul>
+<li>C언어에 객체 지향 프로그래밍 기능을 추가하여 만든 언어</li>
+<li>C언어만큼 효율적이고 속도가 빠르며 이식성이 좋은 절차적 프로그래밍(Procedural programming) 가능</li>
+<li>복잡한 프로그램을 작성하는데 매우 효과적인 방법으로 알려진 객체 지향 프로그래밍(Object-oriented programming) 가능</li>
+<li>템플릿을 이용하는 일반화 프로그래밍(Generic programming) 가능</li>
+</ul>
+<a id="more"></a>
+
+<hr>
+<h1 id="프로그래밍-기법의-발전"><a href="#프로그래밍-기법의-발전" class="headerlink" title="프로그래밍 기법의 발전"></a>프로그래밍 기법의 발전</h1><h2 id="절차적-프로그래밍"><a href="#절차적-프로그래밍" class="headerlink" title="절차적 프로그래밍"></a>절차적 프로그래밍</h2><ul>
+<li>프로그램은 흔히 데이터와 알고리즘으로 이루어져 있다고 말함<ul>
+<li>데이터 : 프로그램에서 사용하는 정보</li>
+<li>알고리즘(Algorithm) : 컴퓨터로 문제를 해결하는 절차</li>
+</ul>
+</li>
+<li>초기의 프로그래밍은 데이터보다 알고리즘(절차)의 작성에 치중</li>
+<li>절차를 중시하는 프로그래밍 기법 - 절차적 프로그래밍(Procedural programming)</li>
+<li>GOTO문과 같이 무조건 특정한 위치로 점프하는 문장 난해</li>
+<li>이것을 해결하기 위해 1970년대 구조화 프로그래밍(Structural programming) 개발<ul>
+<li>순차, 반복, 선택만을 이용하여 순차적으로 프로그램하는 방식</li>
+<li>명확하고 검사와 오류 수정이 쉬운 프로그램 작성 가능</li>
+<li>독립적인 모듈(Module)이라는 단위로 나누어 작성하는 기법으로 발전</li>
+<li>하향식(Top-down) 설계 : 큰 문제를 작은 문제들로 계속 나누어가는 것</li>
+<li>데이터보다는 주로 문제를 해결하는 알고리즘(절차)에 집중 - 프로그램 규모가 커지면 역부족</li>
+</ul>
+</li>
+</ul>
+<h2 id="객체-지향-프로그래밍"><a href="#객체-지향-프로그래밍" class="headerlink" title="객체 지향 프로그래밍"></a>객체 지향 프로그래밍</h2><ul>
+<li>절차적 프로그래밍의 문제점을 해결하기 위해 객체 지향 프로그래밍 등장</li>
+<li>절차적 프로그래밍에서 알고리즘을 중요시했던 것과는 반대로 객체 지향에서는 데이터를 중요시함<ul>
+<li>문제에서 필요한 데이터를 먼저 설계</li>
+</ul>
+</li>
+<li>클래스 : 데이터를 나타낼 때 사용하는 도구<ul>
+<li>클래스에는 데이터 외에 데이터를 처리하는 함수(알고리즘) 포함</li>
+</ul>
+</li>
+<li>상향식(Bottom-up) 설계 : 낮은 수준의 클래스를 먼저 설계하고 높은 수준의 클래스 설계로 진행</li>
+<li>캡슐화 : 데이터와 알고리즘을 하나의 단위(클래스)로 묶는 것<ul>
+<li>데이터에 대한 불필요한 접근 차단</li>
+<li>데이터 보호</li>
+<li>각 클래스들을 서로 독립적으로 작성 가능</li>
+</ul>
+</li>
+<li>상속 : 비슷한 클래스가 이미 존재하고 있다면 그 클래스를 가져다가 사용하는 것<ul>
+<li>그 클래스 중 바꿔야할 부분이 있다면 변경 가능</li>
+</ul>
+</li>
+<li>다형성 : 같은 이름의 함수나 연산자를 중복 정의하여 상황에 따라 가장 적절한 함수나 연산자를 프로그램이 자동적으로 선택하도록 하는 것</li>
+<li>객체 지향의 개념에서 공통적 목표 : 코드의 재사용(Reuse)<ul>
+<li>캡슐화, 상속, 다형성</li>
+<li>지금까지의 프로그램 개발이 힘들었던 이유 : 다른 사람들의 유용하고 좋은 코드 재사용 X</li>
+</ul>
+</li>
+</ul>
+<h2 id="일반화-프로그래밍"><a href="#일반화-프로그래밍" class="headerlink" title="일반화 프로그래밍"></a>일반화 프로그래밍</h2><ul>
+<li>하나의 코드로 다양한 데이터를 처리할 수 있음</li>
+<li>데이터의 타입과 무관한 일반적인 코드를 작성하는 기법</li>
+<li>알고리즘이 타입 매개 변수(Type parameter)를 이용하여 작성</li>
+<li>1983년 에이다(Ada) 프로그래밍 언어에 의해 처음 시작</li>
+<li>동일한 작업을 여러 가지 타입에 대하여 실행하는 함수를 작성하는데 유용</li>
+<li>결과적으로 코드의 중복을 막을 수 있음</li>
+<li>특정한 데이터 타입을 지정하지 않는 일반적인 코드를 작성하고 그 코드를 여러 가지 데이터 타입에 널리 사용할 수 있도록 함</li>
+</ul>
+<hr>
+<h1 id="프로그램-작성-과정"><a href="#프로그램-작성-과정" class="headerlink" title="프로그램 작성 과정"></a>프로그램 작성 과정</h1><ol>
+<li>프로그래머<ul>
+<li>에디터(Editor)</li>
+</ul>
+</li>
+<li>소스파일 - <code>test.cpp</code><ul>
+<li>컴파일러(Compiler)</li>
+</ul>
+</li>
+<li>오브젝트 파일 - <code>test.obj</code><ul>
+<li>링커(Linker)</li>
+</ul>
+</li>
+<li>실행파일 - <code>test.exe</code><ul>
+<li>실행(Execution)</li>
+</ul>
+</li>
+<li>사용자</li>
+</ol>
+<h2 id="편집-단계-Edit"><a href="#편집-단계-Edit" class="headerlink" title="편집 단계(Edit)"></a>편집 단계(Edit)</h2><ul>
+<li>소스 코드(Source code) : C++ 언어를 이용하여 원하는 작업의 내용을 기술하는 것 <ul>
+<li>에디터를 이용하여 입력되어서 텍스트 파일로 저장되어야 함</li>
+</ul>
+</li>
+<li>소스 파일(Source file) : 소스 코드가 들어 있는 파일<ul>
+<li>확장자 : <code>.cpp</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="컴파일-단계-Compile"><a href="#컴파일-단계-Compile" class="headerlink" title="컴파일 단계(Compile)"></a>컴파일 단계(Compile)</h2><ul>
+<li>컴파일러 : 소스 파일을 분석하여 특정한 컴퓨터에서 수행이 가능하도록 기계어로 변환<ul>
+<li>소스 파일의 문장을 분석하여 문법에 맞도록 작성되었는지 체크</li>
+<li>만약 오류가 발견되면 사용자에게 오류 통보 및 컴파일 종료<ul>
+<li>프로그래머는 편집 단계로 되돌아가서 소스 파일 수정</li>
+</ul>
+</li>
+<li>만약 오류가 없다면 컴파일러는 각 문장들을 어셈블리 언어로 변환<ul>
+<li>다시 어셈블리 언어는 어셈블러에 의해 기계어로 변환</li>
+<li>이 기계어로 되어 있는 파일은 오브젝트 파일(Object file)이라고 불림 - <code>.obj</code> 확장자</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="링크-단게-Link"><a href="#링크-단게-Link" class="headerlink" title="링크 단게(Link)"></a>링크 단게(Link)</h2><ul>
+<li>링크(Link) : 서로 연관된 오브젝트 파일들을 라이브러리 파일들과 연결하여 하나의 실행 파일(Execute file)을 만드는 절차</li>
+<li>Windows에서는 링크가 끝나면 실행가능한 파일 <code>.exe</code> 생성</li>
+<li>컴파일과 링크 두 단계로 분리시켜 실행 파일을 만드는 이유<ul>
+<li>여러 개의 파일로 구성된 프로그램의 경우 각각의 파일을 따로 컴파일한 후에 링커를 통하여 결합</li>
+<li>만약 하나의 소스 파일만 변경되었다면 변경된 소스 파일만 다시 컴파일하고 나머지 파일들의 오브젝트 파일은 다시 컴파일하지 않고 사용 가능</li>
+</ul>
+</li>
+</ul>
+<h2 id="실행-단게-Execute"><a href="#실행-단게-Execute" class="headerlink" title="실행 단게(Execute)"></a>실행 단게(Execute)</h2><ul>
+<li>프로그램을 실행하려면 Windows에서는 <code>.exe</code>를 클릭하거나 실행 메뉴를 사용</li>
+<li>유닉스에서는 파일명을 입력하고 엔터를 눌러 사용</li>
+<li>만약 실행 도중 오류가 발생하거나 실행 결과가 잘못되면 실행을 중단하고 다시 편집 단계로 돌아가서 소스 파일 수정</li>
+</ul>
+<hr>
+<h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><blockquote>
+<p>test.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Hello, World!\n&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;end&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Output</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hello, World!</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>대문자와 소문자 구별</li>
+<li>주석은 <code>//</code> 혹은 <code>/* */</code>와 같이 사용<ul>
+<li>주석 : 프로그램이 하는 일을 설명하는 설명 글</li>
+<li>프로그램의 실행 결과에 영향을 끼치지 않음</li>
+<li>컴퓨터를 위한 것이 아니고 프로그램을 읽는 사람을 위한 것</li>
+<li>프로그램의 가독성을 높임</li>
+</ul>
+</li>
+<li><code>#include &lt;iostream&gt;</code>은 전처리기 지시어<ul>
+<li>전처리기(Preprocessor) : 본격적으로 컴파일 하기 전에 미리 어떤 처리를 하는 프로그램</li>
+<li>전처리기는 보통 컴파일러의 일부분으로 자동적으로 호출</li>
+<li>모든 전처리 지시어는 <code>#</code> 기호로 시작</li>
+<li><code>#include</code> : 특정한 파일을 소스 코드 안에 포함시킬 때 사용</li>
+<li><code>iostream</code> : 입출력에 필요한 클래스와 객체들이 정의되어 있음</li>
+</ul>
+</li>
+<li><code>using namespace std;</code><ul>
+<li><code>using</code> : 이름 공간을 지정하는 지시어</li>
+<li>프로그램에서는 많은 이름(식별자)들이 사용되고 이 이름들은 효율성을 위하여 이름 공간(Name space)이라고 하는 몇 개의 영역으로 구성되어 있음</li>
+<li>이름 공간(Name space)은 동일한 이름을 여러 소프트웨어 개발자들이 사용할 수 있도록 함</li>
+<li>만약 <code>std</code>를 이름 공간으로 설정하지 않는다면 <code>std::cout &lt;&lt; Hello, World!\n;</code>으로 사용</li>
+</ul>
+</li>
+<li><code>main()</code> 함수의 정의<ul>
+<li>함수(Function) : 입력이 주어지면 이것을 처리하여서 출력을 만들어내는 가상적인 상자, 특정한 작업을 수행하는 코드들을 모아놓은 상자</li>
+<li>함수 정의는 함수 헤더와 함수 몸체로 나눌 수 있음<ul>
+<li><code>int main()</code> - 함수 헤더 : 함수의 입력과 출력을 나타내는 부분으로 함수와 외부를 연결시키는 역할</li>
+<li><code>&#123; ... &#125;</code> - 함수 몸체 : 함수가 수행하는 작업을 기술하는 문장(Statement)들이 들어감(각각의 문장은 <code>;</code>으로 종료되어야 함)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>함수 헤더<ul>
+<li>함수 헤더(Function header) : 외부와 함수 사이의 인터페이스 역할을 함</li>
+<li>함수는 외부의 함수로부터 호출될 수 있음</li>
+<li>함수는 호출 시 입력을 받을 수 있고 호출이 종료되면 자신을 호출한 함수에게 값을 반환할 수 있음</li>
+<li><code>main()</code> 앞의 <code>int</code>는 함수가 반환하는 값의 타입이 정수임을 표시</li>
+<li>함수 이름 뒤에 붙이는 괄호 안은 외부로부터 전달 받는 데이터를 나타냄</li>
+<li>빈 괄호만 있다는 것은 아무런 데이터도 받지 않음을 나타냄</li>
+<li>결론적으로 <code>main()</code> 함수는 자신을 호출한 함수로부터는 값을 ㅂ다지 않지만 정수값을 반환한다는 것을 의미</li>
+<li>모든 C++ 프로그램에서는 반드시 <code>main()</code> 함수가 하나 있어야 함<ul>
+<li><code>main()</code> 함수는 프로그램에서 가장 먼저 실행되는 부분</li>
+<li>만약 프로그램에서 <code>main()</code> 함수가 정의되지 않으면 컴파일 단계에서 오류 발생</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/inverse-kinematics-in-unreal-engine-1/" rel="bookmark">Inverse Kinematics in Unreal engine(1)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/face-recognition-by-raspberrypi/" rel="bookmark">Face recognition by RaspberryPi</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/source-code-obstructive-sleep-apnea/" rel="bookmark">Source Code(Obstructive Sleep Apnea)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/line-detection/" rel="bookmark">Line Detection</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/c-basic-1/" rel="bookmark">C++ Basic(1)</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/introduction-of-c/" title="Introduction of C++">https://zerohertz.github.io/introduction-of-c/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> C, C++</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/web-crawler-for-ecampus-by-selenium/" rel="prev" title="Web Crawler for eCampus by Selenium">
+                  <i class="fa fa-chevron-left"></i> Web Crawler for eCampus by Selenium
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/data-types-and-operations/" rel="next" title="Data Types and Operations">
+                  Data Types and Operations <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/introduction-of-c/";
+    this.page.identifier = "introduction-of-c/";
+    this.page.title = "Introduction of C++";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

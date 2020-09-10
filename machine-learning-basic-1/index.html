@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="머신러닝의 분류 지도학습(레이블이 있는 경우)   사람으로 부터 지도를 받음 분류(classification), 예측(prediction) 모델  레이블이란 학습 데이터의 속성을 분석하고자 하는 관점에서 정의하는 것  비지도학습(레이블이 없는 경우)   사람으로 지도를 받지 않음 군집(clustering) 모델">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine Learning Basic(1)">
+<meta property="og:url" content="https://zerohertz.github.io/machine-learning-basic-1/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="머신러닝의 분류 지도학습(레이블이 있는 경우)   사람으로 부터 지도를 받음 분류(classification), 예측(prediction) 모델  레이블이란 학습 데이터의 속성을 분석하고자 하는 관점에서 정의하는 것  비지도학습(레이블이 없는 경우)   사람으로 지도를 받지 않음 군집(clustering) 모델">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2019-08-02T08:45:52.000Z">
+<meta property="article:modified_time" content="2020-02-25T06:36:25.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Machine Learning">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/machine-learning-basic-1/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Machine Learning Basic(1) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%A8%B8%EC%8B%A0%EB%9F%AC%EB%8B%9D%EC%9D%98-%EB%B6%84%EB%A5%98"><span class="nav-number">1.</span> <span class="nav-text">머신러닝의 분류</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%A7%80%EB%8F%84%ED%95%99%EC%8A%B5"><span class="nav-number">2.</span> <span class="nav-text">지도학습</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%83%81%EA%B4%80%EB%B6%84%EC%84%9D%EA%B3%BC-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D"><span class="nav-number">3.</span> <span class="nav-text">상관분석과 회귀분석</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80"><span class="nav-number">4.</span> <span class="nav-text">선형 회귀</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%A1%9C%EC%A7%80%EC%8A%A4%ED%8B%B1-%ED%9A%8C%EA%B7%80"><span class="nav-number">5.</span> <span class="nav-text">로지스틱 회귀</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B9%88%EB%8F%84%EB%A1%A0"><span class="nav-number">6.</span> <span class="nav-text">빈도론</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B2%A0%EC%9D%B4%EC%A7%80%EC%95%88%EB%A1%A0"><span class="nav-number">7.</span> <span class="nav-text">베이지안론</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/machine-learning-basic-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Machine Learning Basic(1)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-02 17:45:52" itemprop="dateCreated datePublished" datetime="2019-08-02T17:45:52+09:00">2019-08-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-02-25 15:36:25" itemprop="dateModified" datetime="2020-02-25T15:36:25+09:00">2020-02-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/research/machine-learning/" itemprop="url" rel="index"><span itemprop="name">Machine Learning</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/machine-learning-basic-1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="machine-learning-basic-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="머신러닝의-분류"><a href="#머신러닝의-분류" class="headerlink" title="머신러닝의 분류"></a>머신러닝의 분류</h1><blockquote>
+<p>지도학습(레이블이 있는 경우)</p>
+</blockquote>
+<ul>
+<li>사람으로 부터 지도를 받음</li>
+<li>분류(classification), 예측(prediction) 모델</li>
+</ul>
+<p><code>레이블이란 학습 데이터의 속성을 분석하고자 하는 관점에서 정의하는 것</code></p>
+<blockquote>
+<p>비지도학습(레이블이 없는 경우)</p>
+</blockquote>
+<ul>
+<li>사람으로 지도를 받지 않음</li>
+<li>군집(clustering) 모델</li>
+</ul>
+<a id="more"></a>
+
+<blockquote>
+<p>강화학습</p>
+</blockquote>
+<ul>
+<li>경우에 따라 지도학습 중 하나로 분류 또는 독립적으로 세 번째 머신러닝 모델로 분류(보통 세 번째 머신러닝으로 분류)</li>
+</ul>
+<hr>
+<h1 id="지도학습"><a href="#지도학습" class="headerlink" title="지도학습"></a>지도학습</h1><blockquote>
+<p>분류 모델</p>
+</blockquote>
+<ul>
+<li>kNN(k nearest neighbor)</li>
+<li>Support Vector Machine</li>
+<li>Decision Tree(의사결정 트리)</li>
+</ul>
+<blockquote>
+<p>예측 모델</p>
+</blockquote>
+<ul>
+<li>Regression(회귀)</li>
+</ul>
+<p><code>예측 모델은 일반적으로 회귀 모델을 사용하므로 회귀 모델을 흔히 예측 모델로 인지</code></p>
+<blockquote>
+<p>분류 vs 예측</p>
+</blockquote>
+<ul>
+<li>결괏값이 데이터세트에 포함된 레이블 중 하나의 값 vs 결괏값이 데이터세트로 결정된 함수식(회귀식)으로 계산한 임의의 값</li>
+</ul>
+<hr>
+<h1 id="상관분석과-회귀분석"><a href="#상관분석과-회귀분석" class="headerlink" title="상관분석과 회귀분석"></a>상관분석과 회귀분석</h1><blockquote>
+<p>상관분석</p>
+</blockquote>
+<ul>
+<li>독립변수와 종속변수 간의 관계의 강도</li>
+<li>얼마만큼 밀접하게 관련돼있는지를 분석</li>
+<li>변수들 간 상관성 유무만 확인, 인과관계는 분석하지 않음</li>
+</ul>
+<blockquote>
+<p>회귀분석</p>
+</blockquote>
+<ul>
+<li>관측된 사건을 정량화해서 여러 독립변수와 종속변수의 관계를 함수식으로 설명</li>
+<li>종속변수 : 알고 싶어하는 결괏값, 기댓값, 예상값</li>
+<li>독립변수 : 결괏값에 영향을 주는 입력값</li>
+<li>상관계수(r), 결정계수(r^2)</li>
+<li>일반적으로 <code>r^2 &gt;= 0.65</code>이면 의미 있는 회귀식</li>
+</ul>
+<hr>
+<h1 id="선형-회귀"><a href="#선형-회귀" class="headerlink" title="선형 회귀"></a>선형 회귀</h1><ul>
+<li>선형 : 독립변수가 1차항으로 됨</li>
+<li>기하학 관점에서 입력값(독립변수)과 예상값(종속변수)의 관계가 2차원에서는 직선 형태로, 3차원 공간에서는 평면으로 나타남</li>
+<li>임의의 변수 x, y 그리고 상수 a에 대해 표현된 함수에서 다음을 만족하면 선형</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">f(x+y)&#x3D;f(x)+f(y)</span><br><span class="line">f(ax)&#x3D;a*f(x)</span><br></pre></td></tr></table></figure>
+<p><a href="https://zerohertz.github.io/2018/11/18/Numerical%20analysis(4)/">최소제곱법을 이용한 선형회귀식 구하기(Least squares regression for a straight line)</a></p>
+<hr>
+<h1 id="로지스틱-회귀"><a href="#로지스틱-회귀" class="headerlink" title="로지스틱 회귀"></a>로지스틱 회귀</h1><ul>
+<li>종속변수가 yes/no과 같은 범주형(categorical)으로 표현될 경우 선형회귀분석 대신 로지스틱 회귀(logistic regression) 분석 방법을 사용</li>
+<li>출력값이 [0, 1]을 경계로 결정되는 로지스틱 함수를 회귀식으로 사용</li>
+<li>실제로는 예측을 의미하는 회귀분석보다는 분류 모델에 가까움</li>
+<li>b0, b1을 구하기 위해 최소제곱법 대신 최대가능도법(maximum likelihood method)을 사용</li>
+</ul>
+<p><code>최대가능도법은 최대가능도추정(MLE; maximum likelihood estimation)이라고도 함</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g(z)&#x3D;z&#x2F;(1+z) 로지스틱(시그모이드) 함수</span><br><span class="line">z&#x3D;exp(b0+b1*x)</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="빈도론"><a href="#빈도론" class="headerlink" title="빈도론"></a>빈도론</h1><p><code>확률은 그 사건이 일어난 횟수의 장기적인 비율이다. - John Venn</code></p>
+<ul>
+<li>확률이론을 바탕으로 얼만큼 빈번하게 특정한 사건이 반복되어 발생하는가를 관찰하고 이를 기반으로 가설을 검증</li>
+<li>경험적 사실만을 가지고 판단</li>
+</ul>
+<p><code>데이터</code> - <code>확률 모델</code> - <code>가설 검증</code></p>
+<hr>
+<h1 id="베이지안론"><a href="#베이지안론" class="headerlink" title="베이지안론"></a>베이지안론</h1><ul>
+<li>Bayes’ Rule 또는 Bayes’ Theorem을 기반으로 확률을 추론하는 이론</li>
+<li>베이지안 확률론에 의한 추론 모델링 방법은 어떤 가설의 확률을 평가하기 위해 주관적으로 또는 임의적으로 사전 확률을 먼저 정하고 관찰된 데이터를 기반으로 하는 가능도를 계산해서 처음에 설정된 주관적 확률을 보정하는 방법</li>
+</ul>
+<blockquote>
+<p>Bayes’ Rule</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P(H|E)&#x3D;(P(H)*P(E|H))&#x2F;P(E)</span><br></pre></td></tr></table></figure>
+<p><code>H는 Hypothesis(가설), E는 Evidence(증거)</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">P(H|E)&#x3D;사후확률(posteriori)</span><br><span class="line">P(H)&#x3D;사전확률(priori)</span><br><span class="line">P(E|H)&#x3D;가능도(likelihood)</span><br><span class="line">P(E)&#x3D;에비던스 모델 또는 정규화 상수(evidence model or normalized constant)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>추론된 가설에 대한 확률(사후확률)을 구하기 위해서는 사전에 주관적 지식으로 예상한 가설에 대한 확률(사전확률)에 관찰된 데이터로 계산한 가능성 정도(가능도 확률)를 곱하고 모든 가설에 대해 증거가 발생될 확률(정규화 상수)로 나누면 됨</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/matlab-11/" rel="bookmark">Matlab(11)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/motion-capture-technology-using-stereo-camera/" rel="bookmark">Motion capture technology using stereo camera</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a-fault-diagnosis-on-the-rotating-machinery-using-mahalanobis-distance/" rel="bookmark">A Fault Diagnosis on the Rotating Machinery Using Mahalanobis Distance</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/domain-knowledge-based-data-preprocessing-technology-for-industrial-applications-of-deep-learning/" rel="bookmark">Domain Knowledge Based Data Preprocessing Technology for Industrial Applications of Deep Learning</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/machine-learning-basic-1/" title="Machine Learning Basic(1)">https://zerohertz.github.io/machine-learning-basic-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/motion-capture-technology-using-stereo-camera/" rel="prev" title="Motion capture technology using stereo camera">
+                  <i class="fa fa-chevron-left"></i> Motion capture technology using stereo camera
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/machine-learning-basic-2/" rel="next" title="Machine Learning Basic(2)">
+                  Machine Learning Basic(2) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/machine-learning-basic-1/";
+    this.page.identifier = "machine-learning-basic-1/";
+    this.page.title = "Machine Learning Basic(1)";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

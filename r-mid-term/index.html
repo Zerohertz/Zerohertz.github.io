@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="setwd(), getwd()12setwd(&quot;C:&#x2F;Users&#x2F;SW05&#x2F;Downloads&quot;)getwd()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R mid-term">
+<meta property="og:url" content="https://zerohertz.github.io/r-mid-term/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="setwd(), getwd()12setwd(&quot;C:&#x2F;Users&#x2F;SW05&#x2F;Downloads&quot;)getwd()">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-01-05T16:06:20.000Z">
+<meta property="article:modified_time" content="2020-02-25T07:16:11.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="Statistics">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/r-mid-term/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>R mid-term | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#setwd-getwd"><span class="nav-number">1.</span> <span class="nav-text">setwd(), getwd()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#summary-str"><span class="nav-number">2.</span> <span class="nav-text">summary(), str()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-%EC%B7%A8%EC%82%AC-%EC%84%A0%ED%83%9D"><span class="nav-number">3.</span> <span class="nav-text">Data 취사 선택</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sort-order"><span class="nav-number">4.</span> <span class="nav-text">sort(), order()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#read-table-read-csv"><span class="nav-number">5.</span> <span class="nav-text">read.table(), read.csv()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#factor"><span class="nav-number">6.</span> <span class="nav-text">factor()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-handling-rbind-case-%EC%B6%94%EA%B0%80-cbind-%EB%B3%80%EC%88%98-%EC%B6%94%EA%B0%80"><span class="nav-number">7.</span> <span class="nav-text">Data handling - rbind(case 추가) &#x2F; cbind(변수 추가)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B3%80%EC%88%98%EA%B3%84%EC%82%B0"><span class="nav-number">8.</span> <span class="nav-text">변수계산</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#head-tail"><span class="nav-number">9.</span> <span class="nav-text">head(), tail()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%BD%94%EB%94%A9%EB%B3%80%EA%B2%BD-%EB%85%BC%EB%A6%AC%EC%97%B0%EC%82%B0-cut"><span class="nav-number">10.</span> <span class="nav-text">코딩변경 - 논리연산, cut()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%A0%9C%EC%96%B4%EB%AC%B8-for-while-if-else-if-ifelse-%EA%B2%B0%EA%B3%BC-%EB%8B%A8-2%EA%B0%9C"><span class="nav-number">11.</span> <span class="nav-text">제어문 - for, while, if~else if, ifelse(결과 단 2개)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%82%AC%EC%9A%A9%EC%9E%90%EC%A0%95%EC%9D%98%ED%95%A8%EC%88%98-return"><span class="nav-number">12.</span> <span class="nav-text">사용자정의함수, return()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B8%B0%EC%88%A0%ED%86%B5%EA%B3%84%ED%95%99"><span class="nav-number">13.</span> <span class="nav-text">기술통계학</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Etc"><span class="nav-number">14.</span> <span class="nav-text">Etc.</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/r-mid-term/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          R mid-term
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-06 01:06:20" itemprop="dateCreated datePublished" datetime="2020-01-06T01:06:20+09:00">2020-01-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-02-25 16:16:11" itemprop="dateModified" datetime="2020-02-25T16:16:11+09:00">2020-02-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/r/" itemprop="url" rel="index"><span itemprop="name">R</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/r-mid-term/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="r-mid-term/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>9 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="setwd-getwd"><a href="#setwd-getwd" class="headerlink" title="setwd(), getwd()"></a>setwd(), getwd()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setwd(<span class="string">&quot;C:/Users/SW05/Downloads&quot;</span>)</span><br><span class="line">getwd()</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<hr>
+<h1 id="summary-str"><a href="#summary-str" class="headerlink" title="summary(), str()"></a>summary(), str()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; summary(air)</span><br><span class="line">     Ozone           Solar.R           Wind             Temp           Month            Day      </span><br><span class="line"> Min.   :  <span class="number">1.00</span>   Min.   :  <span class="number">7.0</span>   Min.   : <span class="number">1.700</span>   Min.   :<span class="number">56.00</span>   Min.   :<span class="number">5.000</span>   Min.   : <span class="number">1.0</span>  </span><br><span class="line"> 1st Qu.: <span class="number">18.00</span>   1st Qu.:<span class="number">115.8</span>   1st Qu.: <span class="number">7.400</span>   1st Qu.:<span class="number">72.00</span>   1st Qu.:<span class="number">6.000</span>   1st Qu.: <span class="number">8.0</span>  </span><br><span class="line"> Median : <span class="number">31.50</span>   Median :<span class="number">205.0</span>   Median : <span class="number">9.700</span>   Median :<span class="number">79.00</span>   Median :<span class="number">7.000</span>   Median :<span class="number">16.0</span>  </span><br><span class="line"> Mean   : <span class="number">42.13</span>   Mean   :<span class="number">185.9</span>   Mean   : <span class="number">9.958</span>   Mean   :<span class="number">77.88</span>   Mean   :<span class="number">6.993</span>   Mean   :<span class="number">15.8</span>  </span><br><span class="line"> 3rd Qu.: <span class="number">63.25</span>   3rd Qu.:<span class="number">258.8</span>   3rd Qu.:<span class="number">11.500</span>   3rd Qu.:<span class="number">85.00</span>   3rd Qu.:<span class="number">8.000</span>   3rd Qu.:<span class="number">23.0</span>  </span><br><span class="line"> Max.   :<span class="number">168.00</span>   Max.   :<span class="number">334.0</span>   Max.   :<span class="number">20.700</span>   Max.   :<span class="number">97.00</span>   Max.   :<span class="number">9.000</span>   Max.   :<span class="number">31.0</span>  </span><br><span class="line"> <span class="literal">NA</span><span class="string">&#x27;s   :37       NA&#x27;</span>s   :<span class="number">7</span>          </span><br><span class="line">&gt; str(air)</span><br><span class="line"><span class="string">&#x27;data.frame&#x27;</span>:	<span class="number">153</span> obs. of  <span class="number">6</span> variables:</span><br><span class="line"> $ Ozone  : int  <span class="number">41</span> <span class="number">36</span> <span class="number">12</span> <span class="number">18</span> <span class="literal">NA</span> <span class="number">28</span> <span class="number">23</span> <span class="number">19</span> <span class="number">8</span> <span class="literal">NA</span> <span class="keyword">...</span></span><br><span class="line"> $ Solar.R: int  <span class="number">190</span> <span class="number">118</span> <span class="number">149</span> <span class="number">313</span> <span class="literal">NA</span> <span class="literal">NA</span> <span class="number">299</span> <span class="number">99</span> <span class="number">19</span> <span class="number">194</span> <span class="keyword">...</span></span><br><span class="line"> $ Wind   : num  <span class="number">7.4</span> <span class="number">8</span> <span class="number">12.6</span> <span class="number">11.5</span> <span class="number">14.3</span> <span class="number">14.9</span> <span class="number">8.6</span> <span class="number">13.8</span> <span class="number">20.1</span> <span class="number">8.6</span> <span class="keyword">...</span></span><br><span class="line"> $ Temp   : int  <span class="number">67</span> <span class="number">72</span> <span class="number">74</span> <span class="number">62</span> <span class="number">56</span> <span class="number">66</span> <span class="number">65</span> <span class="number">59</span> <span class="number">61</span> <span class="number">69</span> <span class="keyword">...</span></span><br><span class="line"> $ Month  : int  <span class="number">5</span> <span class="number">5</span> <span class="number">5</span> <span class="number">5</span> <span class="number">5</span> <span class="number">5</span> <span class="number">5</span> <span class="number">5</span> <span class="number">5</span> <span class="number">5</span> <span class="keyword">...</span></span><br><span class="line"> $ Day    : int  <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Data-취사-선택"><a href="#Data-취사-선택" class="headerlink" title="Data 취사 선택"></a>Data 취사 선택</h1><blockquote>
+<p>indexing - []</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name[which(조건식),c(<span class="string">&#x27;name1&#x27;</span>,<span class="string">&#x27;name2&#x27;</span>,<span class="keyword">...</span>)]</span><br><span class="line"><span class="comment"># which는 생략 가능</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&gt; Cars93[which(MPG.city&gt;<span class="number">30</span>),c(<span class="string">&#x27;Model&#x27;</span>,<span class="string">&#x27;Origin&#x27;</span>)]</span><br><span class="line">     Model  Origin</span><br><span class="line"><span class="number">31</span> Festiva     USA</span><br><span class="line"><span class="number">39</span>   Metro non-USA</span><br><span class="line"><span class="number">42</span>   Civic non-USA</span><br><span class="line"><span class="number">73</span>  LeMans     USA</span><br><span class="line"><span class="number">80</span>   Justy non-USA</span><br><span class="line"><span class="number">83</span>   Swift non-USA</span><br><span class="line"><span class="number">84</span>  Tercel non-USA</span><br><span class="line">&gt; Cars93[MPG.city&gt;<span class="number">30</span>,c(<span class="string">&#x27;Model&#x27;</span>,<span class="string">&#x27;Origin&#x27;</span>)]</span><br><span class="line">     Model  Origin</span><br><span class="line"><span class="number">31</span> Festiva     USA</span><br><span class="line"><span class="number">39</span>   Metro non-USA</span><br><span class="line"><span class="number">42</span>   Civic non-USA</span><br><span class="line"><span class="number">73</span>  LeMans     USA</span><br><span class="line"><span class="number">80</span>   Justy non-USA</span><br><span class="line"><span class="number">83</span>   Swift non-USA</span><br><span class="line"><span class="number">84</span>  Tercel non-USA</span><br><span class="line">&gt; Cars93[which(Cylinders==<span class="number">4</span>&amp;Manufacturer==<span class="string">&#x27;Hyundai&#x27;</span>),c(<span class="string">&#x27;Model&#x27;</span>,<span class="string">&#x27;Min.Price&#x27;</span>,<span class="string">&#x27;Max.Price&#x27;</span>)]</span><br><span class="line">     Model Min.Price Max.Price</span><br><span class="line"><span class="number">44</span>   Excel       <span class="number">6.8</span>       <span class="number">9.2</span></span><br><span class="line"><span class="number">45</span> Elantra       <span class="number">9.0</span>      <span class="number">11.0</span></span><br><span class="line"><span class="number">46</span>  Scoupe       <span class="number">9.1</span>      <span class="number">11.0</span></span><br><span class="line"><span class="number">47</span>  Sonata      <span class="number">12.4</span>      <span class="number">15.3</span></span><br><span class="line">&gt; Cars93[Cylinders==<span class="number">4</span>&amp;Manufacturer==<span class="string">&#x27;Hyundai&#x27;</span>,c(<span class="string">&#x27;Model&#x27;</span>,<span class="string">&#x27;Min.Price&#x27;</span>,<span class="string">&#x27;Max.Price&#x27;</span>)]</span><br><span class="line">     Model Min.Price Max.Price</span><br><span class="line"><span class="number">44</span>   Excel       <span class="number">6.8</span>       <span class="number">9.2</span></span><br><span class="line"><span class="number">45</span> Elantra       <span class="number">9.0</span>      <span class="number">11.0</span></span><br><span class="line"><span class="number">46</span>  Scoupe       <span class="number">9.1</span>      <span class="number">11.0</span></span><br><span class="line"><span class="number">47</span>  Sonata      <span class="number">12.4</span>      <span class="number">15.3</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>subset(select=, subset=)</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">subset(name,select=c(name1,name2,<span class="keyword">...</span>),subset=(조건식))</span><br><span class="line"><span class="comment"># parameter의 select or subset은 하나만 생략 가능</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt; subset(Cars93,select=Model,subset=(MPG.city&gt;<span class="number">30</span>))</span><br><span class="line">     Model</span><br><span class="line"><span class="number">31</span> Festiva</span><br><span class="line"><span class="number">39</span>   Metro</span><br><span class="line"><span class="number">42</span>   Civic</span><br><span class="line"><span class="number">73</span>  LeMans</span><br><span class="line"><span class="number">80</span>   Justy</span><br><span class="line"><span class="number">83</span>   Swift</span><br><span class="line"><span class="number">84</span>  Tercel</span><br><span class="line">&gt; subset(Cars93,select=Model,MPG.city&gt;<span class="number">30</span>)</span><br><span class="line">     Model</span><br><span class="line"><span class="number">31</span> Festiva</span><br><span class="line"><span class="number">39</span>   Metro</span><br><span class="line"><span class="number">42</span>   Civic</span><br><span class="line"><span class="number">73</span>  LeMans</span><br><span class="line"><span class="number">80</span>   Justy</span><br><span class="line"><span class="number">83</span>   Swift</span><br><span class="line"><span class="number">84</span>  Tercel</span><br><span class="line">&gt; subset(Cars93,Model,subset=MPG.city&gt;<span class="number">30</span>)</span><br><span class="line">     Model</span><br><span class="line"><span class="number">31</span> Festiva</span><br><span class="line"><span class="number">39</span>   Metro</span><br><span class="line"><span class="number">42</span>   Civic</span><br><span class="line"><span class="number">73</span>  LeMans</span><br><span class="line"><span class="number">80</span>   Justy</span><br><span class="line"><span class="number">83</span>   Swift</span><br><span class="line"><span class="number">84</span>  Tercel</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="sort-order"><a href="#sort-order" class="headerlink" title="sort(), order()"></a>sort(), order()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&gt; Temp</span><br><span class="line">  [<span class="number">1</span>] <span class="number">67</span> <span class="number">72</span> <span class="number">74</span> <span class="number">62</span> <span class="number">56</span> <span class="number">66</span> <span class="number">65</span> <span class="number">59</span> <span class="number">61</span> <span class="number">69</span> <span class="number">74</span> <span class="number">69</span> <span class="number">66</span> <span class="number">68</span> <span class="number">58</span> <span class="number">64</span> <span class="number">66</span> <span class="number">57</span> <span class="number">68</span> <span class="number">62</span> <span class="number">59</span> <span class="number">73</span> <span class="number">61</span> <span class="number">61</span> <span class="number">57</span> <span class="number">58</span> <span class="number">57</span> <span class="number">67</span> <span class="number">81</span> <span class="number">79</span> <span class="number">76</span> <span class="number">78</span></span><br><span class="line"> [<span class="number">33</span>] <span class="number">74</span> <span class="number">67</span> <span class="number">84</span> <span class="number">85</span> <span class="number">79</span> <span class="number">82</span> <span class="number">87</span> <span class="number">90</span> <span class="number">87</span> <span class="number">93</span> <span class="number">92</span> <span class="number">82</span> <span class="number">80</span> <span class="number">79</span> <span class="number">77</span> <span class="number">72</span> <span class="number">65</span> <span class="number">73</span> <span class="number">76</span> <span class="number">77</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">75</span> <span class="number">78</span> <span class="number">73</span> <span class="number">80</span> <span class="number">77</span> <span class="number">83</span> <span class="number">84</span> <span class="number">85</span> <span class="number">81</span></span><br><span class="line"> [<span class="number">65</span>] <span class="number">84</span> <span class="number">83</span> <span class="number">83</span> <span class="number">88</span> <span class="number">92</span> <span class="number">92</span> <span class="number">89</span> <span class="number">82</span> <span class="number">73</span> <span class="number">81</span> <span class="number">91</span> <span class="number">80</span> <span class="number">81</span> <span class="number">82</span> <span class="number">84</span> <span class="number">87</span> <span class="number">85</span> <span class="number">74</span> <span class="number">81</span> <span class="number">82</span> <span class="number">86</span> <span class="number">85</span> <span class="number">82</span> <span class="number">86</span> <span class="number">88</span> <span class="number">86</span> <span class="number">83</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">82</span> <span class="number">86</span></span><br><span class="line"> [<span class="number">97</span>] <span class="number">85</span> <span class="number">87</span> <span class="number">89</span> <span class="number">90</span> <span class="number">90</span> <span class="number">92</span> <span class="number">86</span> <span class="number">86</span> <span class="number">82</span> <span class="number">80</span> <span class="number">79</span> <span class="number">77</span> <span class="number">79</span> <span class="number">76</span> <span class="number">78</span> <span class="number">78</span> <span class="number">77</span> <span class="number">72</span> <span class="number">75</span> <span class="number">79</span> <span class="number">81</span> <span class="number">86</span> <span class="number">88</span> <span class="number">97</span> <span class="number">94</span> <span class="number">96</span> <span class="number">94</span> <span class="number">91</span> <span class="number">92</span> <span class="number">93</span> <span class="number">93</span> <span class="number">87</span></span><br><span class="line">[<span class="number">129</span>] <span class="number">84</span> <span class="number">80</span> <span class="number">78</span> <span class="number">75</span> <span class="number">73</span> <span class="number">81</span> <span class="number">76</span> <span class="number">77</span> <span class="number">71</span> <span class="number">71</span> <span class="number">78</span> <span class="number">67</span> <span class="number">76</span> <span class="number">68</span> <span class="number">82</span> <span class="number">64</span> <span class="number">71</span> <span class="number">81</span> <span class="number">69</span> <span class="number">63</span> <span class="number">70</span> <span class="number">77</span> <span class="number">75</span> <span class="number">76</span> <span class="number">68</span></span><br><span class="line">&gt; sort(Temp)</span><br><span class="line">  [<span class="number">1</span>] <span class="number">56</span> <span class="number">57</span> <span class="number">57</span> <span class="number">57</span> <span class="number">58</span> <span class="number">58</span> <span class="number">59</span> <span class="number">59</span> <span class="number">61</span> <span class="number">61</span> <span class="number">61</span> <span class="number">62</span> <span class="number">62</span> <span class="number">63</span> <span class="number">64</span> <span class="number">64</span> <span class="number">65</span> <span class="number">65</span> <span class="number">66</span> <span class="number">66</span> <span class="number">66</span> <span class="number">67</span> <span class="number">67</span> <span class="number">67</span> <span class="number">67</span> <span class="number">68</span> <span class="number">68</span> <span class="number">68</span> <span class="number">68</span> <span class="number">69</span> <span class="number">69</span> <span class="number">69</span></span><br><span class="line"> [<span class="number">33</span>] <span class="number">70</span> <span class="number">71</span> <span class="number">71</span> <span class="number">71</span> <span class="number">72</span> <span class="number">72</span> <span class="number">72</span> <span class="number">73</span> <span class="number">73</span> <span class="number">73</span> <span class="number">73</span> <span class="number">73</span> <span class="number">74</span> <span class="number">74</span> <span class="number">74</span> <span class="number">74</span> <span class="number">75</span> <span class="number">75</span> <span class="number">75</span> <span class="number">75</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">77</span> <span class="number">77</span> <span class="number">77</span></span><br><span class="line"> [<span class="number">65</span>] <span class="number">77</span> <span class="number">77</span> <span class="number">77</span> <span class="number">77</span> <span class="number">78</span> <span class="number">78</span> <span class="number">78</span> <span class="number">78</span> <span class="number">78</span> <span class="number">78</span> <span class="number">79</span> <span class="number">79</span> <span class="number">79</span> <span class="number">79</span> <span class="number">79</span> <span class="number">79</span> <span class="number">80</span> <span class="number">80</span> <span class="number">80</span> <span class="number">80</span> <span class="number">80</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span></span><br><span class="line"> [<span class="number">97</span>] <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">83</span> <span class="number">83</span> <span class="number">83</span> <span class="number">83</span> <span class="number">84</span> <span class="number">84</span> <span class="number">84</span> <span class="number">84</span> <span class="number">84</span> <span class="number">85</span> <span class="number">85</span> <span class="number">85</span> <span class="number">85</span> <span class="number">85</span> <span class="number">86</span> <span class="number">86</span> <span class="number">86</span> <span class="number">86</span> <span class="number">86</span> <span class="number">86</span> <span class="number">86</span> <span class="number">87</span> <span class="number">87</span></span><br><span class="line">[<span class="number">129</span>] <span class="number">87</span> <span class="number">87</span> <span class="number">87</span> <span class="number">88</span> <span class="number">88</span> <span class="number">88</span> <span class="number">89</span> <span class="number">89</span> <span class="number">90</span> <span class="number">90</span> <span class="number">90</span> <span class="number">91</span> <span class="number">91</span> <span class="number">92</span> <span class="number">92</span> <span class="number">92</span> <span class="number">92</span> <span class="number">92</span> <span class="number">93</span> <span class="number">93</span> <span class="number">93</span> <span class="number">94</span> <span class="number">94</span> <span class="number">96</span> <span class="number">97</span></span><br><span class="line">&gt; sort(Temp,decreasing=<span class="literal">T</span>)</span><br><span class="line">  [<span class="number">1</span>] <span class="number">97</span> <span class="number">96</span> <span class="number">94</span> <span class="number">94</span> <span class="number">93</span> <span class="number">93</span> <span class="number">93</span> <span class="number">92</span> <span class="number">92</span> <span class="number">92</span> <span class="number">92</span> <span class="number">92</span> <span class="number">91</span> <span class="number">91</span> <span class="number">90</span> <span class="number">90</span> <span class="number">90</span> <span class="number">89</span> <span class="number">89</span> <span class="number">88</span> <span class="number">88</span> <span class="number">88</span> <span class="number">87</span> <span class="number">87</span> <span class="number">87</span> <span class="number">87</span> <span class="number">87</span> <span class="number">86</span> <span class="number">86</span> <span class="number">86</span> <span class="number">86</span> <span class="number">86</span></span><br><span class="line"> [<span class="number">33</span>] <span class="number">86</span> <span class="number">86</span> <span class="number">85</span> <span class="number">85</span> <span class="number">85</span> <span class="number">85</span> <span class="number">85</span> <span class="number">84</span> <span class="number">84</span> <span class="number">84</span> <span class="number">84</span> <span class="number">84</span> <span class="number">83</span> <span class="number">83</span> <span class="number">83</span> <span class="number">83</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">82</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span></span><br><span class="line"> [<span class="number">65</span>] <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">81</span> <span class="number">80</span> <span class="number">80</span> <span class="number">80</span> <span class="number">80</span> <span class="number">80</span> <span class="number">79</span> <span class="number">79</span> <span class="number">79</span> <span class="number">79</span> <span class="number">79</span> <span class="number">79</span> <span class="number">78</span> <span class="number">78</span> <span class="number">78</span> <span class="number">78</span> <span class="number">78</span> <span class="number">78</span> <span class="number">77</span> <span class="number">77</span> <span class="number">77</span> <span class="number">77</span> <span class="number">77</span> <span class="number">77</span> <span class="number">77</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span></span><br><span class="line"> [<span class="number">97</span>] <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">76</span> <span class="number">75</span> <span class="number">75</span> <span class="number">75</span> <span class="number">75</span> <span class="number">74</span> <span class="number">74</span> <span class="number">74</span> <span class="number">74</span> <span class="number">73</span> <span class="number">73</span> <span class="number">73</span> <span class="number">73</span> <span class="number">73</span> <span class="number">72</span> <span class="number">72</span> <span class="number">72</span> <span class="number">71</span> <span class="number">71</span> <span class="number">71</span> <span class="number">70</span> <span class="number">69</span> <span class="number">69</span> <span class="number">69</span> <span class="number">68</span> <span class="number">68</span> <span class="number">68</span> <span class="number">68</span></span><br><span class="line">[<span class="number">129</span>] <span class="number">67</span> <span class="number">67</span> <span class="number">67</span> <span class="number">67</span> <span class="number">66</span> <span class="number">66</span> <span class="number">66</span> <span class="number">65</span> <span class="number">65</span> <span class="number">64</span> <span class="number">64</span> <span class="number">63</span> <span class="number">62</span> <span class="number">62</span> <span class="number">61</span> <span class="number">61</span> <span class="number">61</span> <span class="number">59</span> <span class="number">59</span> <span class="number">58</span> <span class="number">58</span> <span class="number">57</span> <span class="number">57</span> <span class="number">57</span> <span class="number">56</span></span><br><span class="line">&gt; order(Temp)</span><br><span class="line">  [<span class="number">1</span>]   <span class="number">5</span>  <span class="number">18</span>  <span class="number">25</span>  <span class="number">27</span>  <span class="number">15</span>  <span class="number">26</span>   <span class="number">8</span>  <span class="number">21</span>   <span class="number">9</span>  <span class="number">23</span>  <span class="number">24</span>   <span class="number">4</span>  <span class="number">20</span> <span class="number">148</span>  <span class="number">16</span> <span class="number">144</span>   <span class="number">7</span>  <span class="number">49</span>   <span class="number">6</span>  <span class="number">13</span>  <span class="number">17</span>   <span class="number">1</span>  <span class="number">28</span>  <span class="number">34</span></span><br><span class="line"> [<span class="number">25</span>] <span class="number">140</span>  <span class="number">14</span>  <span class="number">19</span> <span class="number">142</span> <span class="number">153</span>  <span class="number">10</span>  <span class="number">12</span> <span class="number">147</span> <span class="number">149</span> <span class="number">137</span> <span class="number">138</span> <span class="number">145</span>   <span class="number">2</span>  <span class="number">48</span> <span class="number">114</span>  <span class="number">22</span>  <span class="number">50</span>  <span class="number">58</span>  <span class="number">73</span> <span class="number">133</span>   <span class="number">3</span>  <span class="number">11</span>  <span class="number">33</span>  <span class="number">82</span></span><br><span class="line"> [<span class="number">49</span>]  <span class="number">56</span> <span class="number">115</span> <span class="number">132</span> <span class="number">151</span>  <span class="number">31</span>  <span class="number">51</span>  <span class="number">53</span>  <span class="number">54</span>  <span class="number">55</span> <span class="number">110</span> <span class="number">135</span> <span class="number">141</span> <span class="number">152</span>  <span class="number">47</span>  <span class="number">52</span>  <span class="number">60</span> <span class="number">108</span> <span class="number">113</span> <span class="number">136</span> <span class="number">150</span>  <span class="number">32</span>  <span class="number">57</span> <span class="number">111</span> <span class="number">112</span></span><br><span class="line"> [<span class="number">73</span>] <span class="number">131</span> <span class="number">139</span>  <span class="number">30</span>  <span class="number">37</span>  <span class="number">46</span> <span class="number">107</span> <span class="number">109</span> <span class="number">116</span>  <span class="number">45</span>  <span class="number">59</span>  <span class="number">76</span> <span class="number">106</span> <span class="number">130</span>  <span class="number">29</span>  <span class="number">64</span>  <span class="number">74</span>  <span class="number">77</span>  <span class="number">83</span>  <span class="number">92</span>  <span class="number">93</span>  <span class="number">94</span> <span class="number">117</span> <span class="number">134</span> <span class="number">146</span></span><br><span class="line"> [<span class="number">97</span>]  <span class="number">38</span>  <span class="number">44</span>  <span class="number">72</span>  <span class="number">78</span>  <span class="number">84</span>  <span class="number">87</span>  <span class="number">95</span> <span class="number">105</span> <span class="number">143</span>  <span class="number">61</span>  <span class="number">66</span>  <span class="number">67</span>  <span class="number">91</span>  <span class="number">35</span>  <span class="number">62</span>  <span class="number">65</span>  <span class="number">79</span> <span class="number">129</span>  <span class="number">36</span>  <span class="number">63</span>  <span class="number">81</span>  <span class="number">86</span>  <span class="number">97</span>  <span class="number">85</span></span><br><span class="line">[<span class="number">121</span>]  <span class="number">88</span>  <span class="number">90</span>  <span class="number">96</span> <span class="number">103</span> <span class="number">104</span> <span class="number">118</span>  <span class="number">39</span>  <span class="number">41</span>  <span class="number">80</span>  <span class="number">98</span> <span class="number">128</span>  <span class="number">68</span>  <span class="number">89</span> <span class="number">119</span>  <span class="number">71</span>  <span class="number">99</span>  <span class="number">40</span> <span class="number">100</span> <span class="number">101</span>  <span class="number">75</span> <span class="number">124</span>  <span class="number">43</span>  <span class="number">69</span>  <span class="number">70</span></span><br><span class="line">[<span class="number">145</span>] <span class="number">102</span> <span class="number">125</span>  <span class="number">42</span> <span class="number">126</span> <span class="number">127</span> <span class="number">121</span> <span class="number">123</span> <span class="number">122</span> <span class="number">120</span></span><br><span class="line">&gt; airquality[order(Temp),]</span><br><span class="line">    Ozone Solar.R Wind Temp Month Day</span><br><span class="line"><span class="number">5</span>      <span class="literal">NA</span>      <span class="literal">NA</span> <span class="number">14.3</span>   <span class="number">56</span>     <span class="number">5</span>   <span class="number">5</span></span><br><span class="line"><span class="number">18</span>      <span class="number">6</span>      <span class="number">78</span> <span class="number">18.4</span>   <span class="number">57</span>     <span class="number">5</span>  <span class="number">18</span></span><br><span class="line"><span class="number">25</span>     <span class="literal">NA</span>      <span class="number">66</span> <span class="number">16.6</span>   <span class="number">57</span>     <span class="number">5</span>  <span class="number">25</span></span><br><span class="line"><span class="keyword">...</span></span><br><span class="line"><span class="number">123</span>    <span class="number">85</span>     <span class="number">188</span>  <span class="number">6.3</span>   <span class="number">94</span>     <span class="number">8</span>  <span class="number">31</span></span><br><span class="line"><span class="number">122</span>    <span class="number">84</span>     <span class="number">237</span>  <span class="number">6.3</span>   <span class="number">96</span>     <span class="number">8</span>  <span class="number">30</span></span><br><span class="line"><span class="number">120</span>    <span class="number">76</span>     <span class="number">203</span>  <span class="number">9.7</span>   <span class="number">97</span>     <span class="number">8</span>  <span class="number">28</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>indexing 안에 <code>order()</code></li>
+</ul>
+<hr>
+<h1 id="read-table-read-csv"><a href="#read-table-read-csv" class="headerlink" title="read.table(), read.csv()"></a>read.table(), read.csv()</h1><ul>
+<li><code>.txt</code>를 열어서 Data 확인</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">text1=read.table(<span class="string">&#x27;Data.txt&#x27;</span>,header=<span class="literal">T</span>,na.strings=<span class="string">&#x27;.&#x27;</span>)</span><br><span class="line">text2=read.csv(<span class="string">&#x27;Data.txt&#x27;</span>,header=<span class="literal">T</span>,na.strings=<span class="string">&#x27;.&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>결측값 처리 - <code>na.strings=&#39;.&#39;</code></li>
+<li>문자형 변수 <code>factor</code>로 읽게 - <code>header=T</code></li>
+</ul>
+<hr>
+<h1 id="factor"><a href="#factor" class="headerlink" title="factor()"></a>factor()</h1><ul>
+<li>성별이 1, 2로 되어 있으면 factor로 변환</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&gt; a=read.table(<span class="string">&#x27;women.txt&#x27;</span>)</span><br><span class="line">&gt; a</span><br><span class="line">   qwer asdf gender</span><br><span class="line"><span class="number">1</span>    <span class="number">58</span>  <span class="number">115</span>      <span class="number">1</span></span><br><span class="line"><span class="number">2</span>    <span class="number">59</span>  <span class="number">117</span>      <span class="number">1</span></span><br><span class="line"><span class="number">3</span>    <span class="number">60</span>  <span class="number">120</span>      <span class="number">2</span></span><br><span class="line"><span class="number">4</span>    <span class="number">61</span>  <span class="number">123</span>      <span class="number">2</span></span><br><span class="line"><span class="number">5</span>    <span class="number">62</span>  <span class="number">126</span>      <span class="number">1</span></span><br><span class="line"><span class="number">6</span>    <span class="number">63</span>  <span class="number">129</span>      <span class="number">1</span></span><br><span class="line"><span class="number">7</span>    <span class="number">64</span>  <span class="number">132</span>      <span class="number">2</span></span><br><span class="line"><span class="number">8</span>    <span class="number">65</span>  <span class="number">135</span>      <span class="number">2</span></span><br><span class="line"><span class="number">9</span>    <span class="number">66</span>  <span class="number">139</span>      <span class="number">2</span></span><br><span class="line"><span class="number">10</span>   <span class="number">67</span>  <span class="number">142</span>      <span class="number">2</span></span><br><span class="line"><span class="number">11</span>   <span class="number">68</span>  <span class="number">146</span>      <span class="number">1</span></span><br><span class="line"><span class="number">12</span>   <span class="number">69</span>  <span class="number">150</span>      <span class="number">1</span></span><br><span class="line"><span class="number">13</span>   <span class="number">70</span>  <span class="number">154</span>      <span class="number">2</span></span><br><span class="line"><span class="number">14</span>   <span class="number">71</span>  <span class="number">159</span>      <span class="number">1</span></span><br><span class="line"><span class="number">15</span>   <span class="number">72</span>  <span class="number">164</span>      <span class="number">1</span></span><br><span class="line">&gt; str(a)</span><br><span class="line"><span class="string">&#x27;data.frame&#x27;</span>:	<span class="number">15</span> obs. of  <span class="number">3</span> variables:</span><br><span class="line"> $ qwer  : int  <span class="number">58</span> <span class="number">59</span> <span class="number">60</span> <span class="number">61</span> <span class="number">62</span> <span class="number">63</span> <span class="number">64</span> <span class="number">65</span> <span class="number">66</span> <span class="number">67</span> <span class="keyword">...</span></span><br><span class="line"> $ asdf  : int  <span class="number">115</span> <span class="number">117</span> <span class="number">120</span> <span class="number">123</span> <span class="number">126</span> <span class="number">129</span> <span class="number">132</span> <span class="number">135</span> <span class="number">139</span> <span class="number">142</span> <span class="keyword">...</span></span><br><span class="line"> $ gender: int  <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="keyword">...</span></span><br><span class="line">&gt; a$gender=factor(a$gender,labels=c(<span class="string">&#x27;m&#x27;</span>,<span class="string">&#x27;f&#x27;</span>))</span><br><span class="line">&gt; a</span><br><span class="line">   qwer asdf gender</span><br><span class="line"><span class="number">1</span>    <span class="number">58</span>  <span class="number">115</span>      m</span><br><span class="line"><span class="number">2</span>    <span class="number">59</span>  <span class="number">117</span>      m</span><br><span class="line"><span class="number">3</span>    <span class="number">60</span>  <span class="number">120</span>      f</span><br><span class="line"><span class="number">4</span>    <span class="number">61</span>  <span class="number">123</span>      f</span><br><span class="line"><span class="number">5</span>    <span class="number">62</span>  <span class="number">126</span>      m</span><br><span class="line"><span class="number">6</span>    <span class="number">63</span>  <span class="number">129</span>      m</span><br><span class="line"><span class="number">7</span>    <span class="number">64</span>  <span class="number">132</span>      f</span><br><span class="line"><span class="number">8</span>    <span class="number">65</span>  <span class="number">135</span>      f</span><br><span class="line"><span class="number">9</span>    <span class="number">66</span>  <span class="number">139</span>      f</span><br><span class="line"><span class="number">10</span>   <span class="number">67</span>  <span class="number">142</span>      f</span><br><span class="line"><span class="number">11</span>   <span class="number">68</span>  <span class="number">146</span>      m</span><br><span class="line"><span class="number">12</span>   <span class="number">69</span>  <span class="number">150</span>      m</span><br><span class="line"><span class="number">13</span>   <span class="number">70</span>  <span class="number">154</span>      f</span><br><span class="line"><span class="number">14</span>   <span class="number">71</span>  <span class="number">159</span>      m</span><br><span class="line"><span class="number">15</span>   <span class="number">72</span>  <span class="number">164</span>      m</span><br><span class="line">&gt; str(a)</span><br><span class="line"><span class="string">&#x27;data.frame&#x27;</span>:	<span class="number">15</span> obs. of  <span class="number">3</span> variables:</span><br><span class="line"> $ qwer  : int  <span class="number">58</span> <span class="number">59</span> <span class="number">60</span> <span class="number">61</span> <span class="number">62</span> <span class="number">63</span> <span class="number">64</span> <span class="number">65</span> <span class="number">66</span> <span class="number">67</span> <span class="keyword">...</span></span><br><span class="line"> $ asdf  : int  <span class="number">115</span> <span class="number">117</span> <span class="number">120</span> <span class="number">123</span> <span class="number">126</span> <span class="number">129</span> <span class="number">132</span> <span class="number">135</span> <span class="number">139</span> <span class="number">142</span> <span class="keyword">...</span></span><br><span class="line"> $ gender: Factor w/ <span class="number">2</span> levels <span class="string">&quot;m&quot;</span>,<span class="string">&quot;f&quot;</span>: <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>labels</code> 활용</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br></pre></td><td class="code"><pre><span class="line">&gt; a=read.table(<span class="string">&#x27;women.txt&#x27;</span>)</span><br><span class="line">&gt; a</span><br><span class="line">   height weight gender</span><br><span class="line"><span class="number">1</span>      <span class="number">58</span>    <span class="number">115</span>      <span class="number">1</span></span><br><span class="line"><span class="number">2</span>      <span class="number">59</span>    <span class="number">117</span>      <span class="number">2</span></span><br><span class="line"><span class="number">3</span>      <span class="number">60</span>    <span class="number">120</span>      <span class="number">2</span></span><br><span class="line"><span class="number">4</span>      <span class="number">61</span>    <span class="number">123</span>      <span class="number">1</span></span><br><span class="line"><span class="number">5</span>      <span class="number">62</span>    <span class="number">126</span>      <span class="number">2</span></span><br><span class="line"><span class="number">6</span>      <span class="number">63</span>    <span class="number">129</span>      <span class="number">2</span></span><br><span class="line"><span class="number">7</span>      <span class="number">64</span>    <span class="number">132</span>      <span class="number">1</span></span><br><span class="line"><span class="number">8</span>      <span class="number">65</span>    <span class="number">135</span>      <span class="number">2</span></span><br><span class="line"><span class="number">9</span>      <span class="number">66</span>    <span class="number">139</span>      <span class="number">2</span></span><br><span class="line"><span class="number">10</span>     <span class="number">67</span>    <span class="number">142</span>      <span class="number">2</span></span><br><span class="line"><span class="number">11</span>     <span class="number">68</span>    <span class="number">146</span>      <span class="number">1</span></span><br><span class="line"><span class="number">12</span>     <span class="number">69</span>    <span class="number">150</span>      <span class="number">2</span></span><br><span class="line"><span class="number">13</span>     <span class="number">70</span>    <span class="number">154</span>      <span class="number">2</span></span><br><span class="line"><span class="number">14</span>     <span class="number">71</span>    <span class="number">159</span>      <span class="number">2</span></span><br><span class="line"><span class="number">15</span>     <span class="number">72</span>    <span class="number">164</span>      <span class="number">2</span></span><br><span class="line">&gt; str(a)</span><br><span class="line"><span class="string">&#x27;data.frame&#x27;</span>:	<span class="number">15</span> obs. of  <span class="number">3</span> variables:</span><br><span class="line"> $ height: int  <span class="number">58</span> <span class="number">59</span> <span class="number">60</span> <span class="number">61</span> <span class="number">62</span> <span class="number">63</span> <span class="number">64</span> <span class="number">65</span> <span class="number">66</span> <span class="number">67</span> <span class="keyword">...</span></span><br><span class="line"> $ weight: int  <span class="number">115</span> <span class="number">117</span> <span class="number">120</span> <span class="number">123</span> <span class="number">126</span> <span class="number">129</span> <span class="number">132</span> <span class="number">135</span> <span class="number">139</span> <span class="number">142</span> <span class="keyword">...</span></span><br><span class="line"> $ gender: int  <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="keyword">...</span></span><br><span class="line">&gt; a$gender[which(a$gender==<span class="number">1</span>)]=<span class="string">&#x27;m&#x27;</span></span><br><span class="line">&gt; a$gender[which(a$gender==<span class="number">2</span>)]=<span class="string">&#x27;f&#x27;</span></span><br><span class="line">&gt; a</span><br><span class="line">   height weight gender</span><br><span class="line"><span class="number">1</span>      <span class="number">58</span>    <span class="number">115</span>      m</span><br><span class="line"><span class="number">2</span>      <span class="number">59</span>    <span class="number">117</span>      f</span><br><span class="line"><span class="number">3</span>      <span class="number">60</span>    <span class="number">120</span>      f</span><br><span class="line"><span class="number">4</span>      <span class="number">61</span>    <span class="number">123</span>      m</span><br><span class="line"><span class="number">5</span>      <span class="number">62</span>    <span class="number">126</span>      f</span><br><span class="line"><span class="number">6</span>      <span class="number">63</span>    <span class="number">129</span>      f</span><br><span class="line"><span class="number">7</span>      <span class="number">64</span>    <span class="number">132</span>      m</span><br><span class="line"><span class="number">8</span>      <span class="number">65</span>    <span class="number">135</span>      f</span><br><span class="line"><span class="number">9</span>      <span class="number">66</span>    <span class="number">139</span>      f</span><br><span class="line"><span class="number">10</span>     <span class="number">67</span>    <span class="number">142</span>      f</span><br><span class="line"><span class="number">11</span>     <span class="number">68</span>    <span class="number">146</span>      m</span><br><span class="line"><span class="number">12</span>     <span class="number">69</span>    <span class="number">150</span>      f</span><br><span class="line"><span class="number">13</span>     <span class="number">70</span>    <span class="number">154</span>      f</span><br><span class="line"><span class="number">14</span>     <span class="number">71</span>    <span class="number">159</span>      f</span><br><span class="line"><span class="number">15</span>     <span class="number">72</span>    <span class="number">164</span>      f</span><br><span class="line">&gt; b=a</span><br><span class="line">&gt; b</span><br><span class="line">   height weight gender</span><br><span class="line"><span class="number">1</span>      <span class="number">58</span>    <span class="number">115</span>      m</span><br><span class="line"><span class="number">2</span>      <span class="number">59</span>    <span class="number">117</span>      f</span><br><span class="line"><span class="number">3</span>      <span class="number">60</span>    <span class="number">120</span>      f</span><br><span class="line"><span class="number">4</span>      <span class="number">61</span>    <span class="number">123</span>      m</span><br><span class="line"><span class="number">5</span>      <span class="number">62</span>    <span class="number">126</span>      f</span><br><span class="line"><span class="number">6</span>      <span class="number">63</span>    <span class="number">129</span>      f</span><br><span class="line"><span class="number">7</span>      <span class="number">64</span>    <span class="number">132</span>      m</span><br><span class="line"><span class="number">8</span>      <span class="number">65</span>    <span class="number">135</span>      f</span><br><span class="line"><span class="number">9</span>      <span class="number">66</span>    <span class="number">139</span>      f</span><br><span class="line"><span class="number">10</span>     <span class="number">67</span>    <span class="number">142</span>      f</span><br><span class="line"><span class="number">11</span>     <span class="number">68</span>    <span class="number">146</span>      m</span><br><span class="line"><span class="number">12</span>     <span class="number">69</span>    <span class="number">150</span>      f</span><br><span class="line"><span class="number">13</span>     <span class="number">70</span>    <span class="number">154</span>      f</span><br><span class="line"><span class="number">14</span>     <span class="number">71</span>    <span class="number">159</span>      f</span><br><span class="line"><span class="number">15</span>     <span class="number">72</span>    <span class="number">164</span>      f</span><br><span class="line">&gt; a$gender=factor(a$gender,order=<span class="literal">T</span>,level=c(<span class="string">&#x27;m&#x27;</span>,<span class="string">&#x27;f&#x27;</span>))</span><br><span class="line">&gt; b$gender=factor(b$gender,order=<span class="literal">F</span>,level=c(<span class="string">&#x27;m&#x27;</span>,<span class="string">&#x27;f&#x27;</span>))</span><br><span class="line">&gt; a</span><br><span class="line">   height weight gender</span><br><span class="line"><span class="number">1</span>      <span class="number">58</span>    <span class="number">115</span>      m</span><br><span class="line"><span class="number">2</span>      <span class="number">59</span>    <span class="number">117</span>      f</span><br><span class="line"><span class="number">3</span>      <span class="number">60</span>    <span class="number">120</span>      f</span><br><span class="line"><span class="number">4</span>      <span class="number">61</span>    <span class="number">123</span>      m</span><br><span class="line"><span class="number">5</span>      <span class="number">62</span>    <span class="number">126</span>      f</span><br><span class="line"><span class="number">6</span>      <span class="number">63</span>    <span class="number">129</span>      f</span><br><span class="line"><span class="number">7</span>      <span class="number">64</span>    <span class="number">132</span>      m</span><br><span class="line"><span class="number">8</span>      <span class="number">65</span>    <span class="number">135</span>      f</span><br><span class="line"><span class="number">9</span>      <span class="number">66</span>    <span class="number">139</span>      f</span><br><span class="line"><span class="number">10</span>     <span class="number">67</span>    <span class="number">142</span>      f</span><br><span class="line"><span class="number">11</span>     <span class="number">68</span>    <span class="number">146</span>      m</span><br><span class="line"><span class="number">12</span>     <span class="number">69</span>    <span class="number">150</span>      f</span><br><span class="line"><span class="number">13</span>     <span class="number">70</span>    <span class="number">154</span>      f</span><br><span class="line"><span class="number">14</span>     <span class="number">71</span>    <span class="number">159</span>      f</span><br><span class="line"><span class="number">15</span>     <span class="number">72</span>    <span class="number">164</span>      f</span><br><span class="line">&gt; b</span><br><span class="line">   height weight gender</span><br><span class="line"><span class="number">1</span>      <span class="number">58</span>    <span class="number">115</span>      m</span><br><span class="line"><span class="number">2</span>      <span class="number">59</span>    <span class="number">117</span>      f</span><br><span class="line"><span class="number">3</span>      <span class="number">60</span>    <span class="number">120</span>      f</span><br><span class="line"><span class="number">4</span>      <span class="number">61</span>    <span class="number">123</span>      m</span><br><span class="line"><span class="number">5</span>      <span class="number">62</span>    <span class="number">126</span>      f</span><br><span class="line"><span class="number">6</span>      <span class="number">63</span>    <span class="number">129</span>      f</span><br><span class="line"><span class="number">7</span>      <span class="number">64</span>    <span class="number">132</span>      m</span><br><span class="line"><span class="number">8</span>      <span class="number">65</span>    <span class="number">135</span>      f</span><br><span class="line"><span class="number">9</span>      <span class="number">66</span>    <span class="number">139</span>      f</span><br><span class="line"><span class="number">10</span>     <span class="number">67</span>    <span class="number">142</span>      f</span><br><span class="line"><span class="number">11</span>     <span class="number">68</span>    <span class="number">146</span>      m</span><br><span class="line"><span class="number">12</span>     <span class="number">69</span>    <span class="number">150</span>      f</span><br><span class="line"><span class="number">13</span>     <span class="number">70</span>    <span class="number">154</span>      f</span><br><span class="line"><span class="number">14</span>     <span class="number">71</span>    <span class="number">159</span>      f</span><br><span class="line"><span class="number">15</span>     <span class="number">72</span>    <span class="number">164</span>      f</span><br><span class="line">&gt; str(a)</span><br><span class="line"><span class="string">&#x27;data.frame&#x27;</span>:	<span class="number">15</span> obs. of  <span class="number">3</span> variables:</span><br><span class="line"> $ height: int  <span class="number">58</span> <span class="number">59</span> <span class="number">60</span> <span class="number">61</span> <span class="number">62</span> <span class="number">63</span> <span class="number">64</span> <span class="number">65</span> <span class="number">66</span> <span class="number">67</span> <span class="keyword">...</span></span><br><span class="line"> $ weight: int  <span class="number">115</span> <span class="number">117</span> <span class="number">120</span> <span class="number">123</span> <span class="number">126</span> <span class="number">129</span> <span class="number">132</span> <span class="number">135</span> <span class="number">139</span> <span class="number">142</span> <span class="keyword">...</span></span><br><span class="line"> $ gender: Ord.factor w/ <span class="number">2</span> levels <span class="string">&quot;m&quot;</span>&lt;<span class="string">&quot;f&quot;</span>: <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="keyword">...</span></span><br><span class="line">&gt; str(b)</span><br><span class="line"><span class="string">&#x27;data.frame&#x27;</span>:	<span class="number">15</span> obs. of  <span class="number">3</span> variables:</span><br><span class="line"> $ height: int  <span class="number">58</span> <span class="number">59</span> <span class="number">60</span> <span class="number">61</span> <span class="number">62</span> <span class="number">63</span> <span class="number">64</span> <span class="number">65</span> <span class="number">66</span> <span class="number">67</span> <span class="keyword">...</span></span><br><span class="line"> $ weight: int  <span class="number">115</span> <span class="number">117</span> <span class="number">120</span> <span class="number">123</span> <span class="number">126</span> <span class="number">129</span> <span class="number">132</span> <span class="number">135</span> <span class="number">139</span> <span class="number">142</span> <span class="keyword">...</span></span><br><span class="line"> $ gender: Factor w/ <span class="number">2</span> levels <span class="string">&quot;m&quot;</span>,<span class="string">&quot;f&quot;</span>: <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">2</span> <span class="number">2</span> <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Data-handling-rbind-case-추가-cbind-변수-추가"><a href="#Data-handling-rbind-case-추가-cbind-변수-추가" class="headerlink" title="Data handling - rbind(case 추가) / cbind(변수 추가)"></a>Data handling - rbind(case 추가) / cbind(변수 추가)</h1><ul>
+<li>하나는 .txt 하나는 .csv 어떻게 붙일지 판단하고 Data 병합</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&gt; data1=read.table(<span class="string">&#x27;women.txt&#x27;</span>,header=<span class="literal">T</span>)</span><br><span class="line">&gt; data2=read.csv(<span class="string">&#x27;women.csv&#x27;</span>,header=<span class="literal">T</span>)</span><br><span class="line">&gt; data1</span><br><span class="line">   qwer asdf gender</span><br><span class="line"><span class="number">1</span>    <span class="number">58</span>  <span class="number">115</span>      m</span><br><span class="line"><span class="number">2</span>    <span class="number">59</span>  <span class="number">117</span>      f</span><br><span class="line"><span class="number">3</span>    <span class="number">60</span>  <span class="number">120</span>      f</span><br><span class="line"><span class="number">4</span>    <span class="number">61</span>  <span class="number">123</span>      f</span><br><span class="line"><span class="number">5</span>    <span class="number">62</span>  <span class="number">126</span>      f</span><br><span class="line"><span class="number">6</span>    <span class="number">63</span>  <span class="number">129</span>      f</span><br><span class="line"><span class="number">7</span>    <span class="number">64</span>  <span class="number">132</span>      m</span><br><span class="line"><span class="number">8</span>    <span class="number">65</span>  <span class="number">135</span>      m</span><br><span class="line"><span class="number">9</span>    <span class="number">66</span>  <span class="number">139</span>      m</span><br><span class="line"><span class="number">10</span>   <span class="number">67</span>  <span class="number">142</span>      m</span><br><span class="line"><span class="number">11</span>   <span class="number">68</span>  <span class="number">146</span>      m</span><br><span class="line"><span class="number">12</span>   <span class="number">69</span>  <span class="number">150</span>      m</span><br><span class="line"><span class="number">13</span>   <span class="number">70</span>  <span class="number">154</span>      f</span><br><span class="line"><span class="number">14</span>   <span class="number">71</span>  <span class="number">159</span>      f</span><br><span class="line"><span class="number">15</span>   <span class="number">72</span>  <span class="number">164</span>      f</span><br><span class="line">&gt; data2</span><br><span class="line">   height weight</span><br><span class="line"><span class="number">1</span>      <span class="number">58</span>    <span class="number">115</span></span><br><span class="line"><span class="number">2</span>      <span class="number">59</span>    <span class="number">117</span></span><br><span class="line"><span class="number">3</span>      <span class="number">60</span>    <span class="number">120</span></span><br><span class="line"><span class="number">4</span>      <span class="number">61</span>    <span class="number">123</span></span><br><span class="line"><span class="number">5</span>      <span class="number">62</span>    <span class="number">126</span></span><br><span class="line"><span class="number">6</span>      <span class="number">63</span>    <span class="number">129</span></span><br><span class="line"><span class="number">7</span>      <span class="number">64</span>    <span class="number">132</span></span><br><span class="line"><span class="number">8</span>      <span class="number">65</span>    <span class="number">135</span></span><br><span class="line"><span class="number">9</span>      <span class="number">66</span>    <span class="number">139</span></span><br><span class="line"><span class="number">10</span>     <span class="number">67</span>    <span class="number">142</span></span><br><span class="line"><span class="number">11</span>     <span class="number">68</span>    <span class="number">146</span></span><br><span class="line"><span class="number">12</span>     <span class="number">69</span>    <span class="number">150</span></span><br><span class="line"><span class="number">13</span>     <span class="number">70</span>    <span class="number">154</span></span><br><span class="line"><span class="number">14</span>     <span class="number">71</span>    <span class="number">159</span></span><br><span class="line"><span class="number">15</span>     <span class="number">72</span>    <span class="number">164</span></span><br><span class="line">&gt; data=cbind(data1,data2)</span><br><span class="line">&gt; data</span><br><span class="line">   qwer asdf gender height weight</span><br><span class="line"><span class="number">1</span>    <span class="number">58</span>  <span class="number">115</span>      m     <span class="number">58</span>    <span class="number">115</span></span><br><span class="line"><span class="number">2</span>    <span class="number">59</span>  <span class="number">117</span>      f     <span class="number">59</span>    <span class="number">117</span></span><br><span class="line"><span class="number">3</span>    <span class="number">60</span>  <span class="number">120</span>      f     <span class="number">60</span>    <span class="number">120</span></span><br><span class="line"><span class="number">4</span>    <span class="number">61</span>  <span class="number">123</span>      f     <span class="number">61</span>    <span class="number">123</span></span><br><span class="line"><span class="number">5</span>    <span class="number">62</span>  <span class="number">126</span>      f     <span class="number">62</span>    <span class="number">126</span></span><br><span class="line"><span class="number">6</span>    <span class="number">63</span>  <span class="number">129</span>      f     <span class="number">63</span>    <span class="number">129</span></span><br><span class="line"><span class="number">7</span>    <span class="number">64</span>  <span class="number">132</span>      m     <span class="number">64</span>    <span class="number">132</span></span><br><span class="line"><span class="number">8</span>    <span class="number">65</span>  <span class="number">135</span>      m     <span class="number">65</span>    <span class="number">135</span></span><br><span class="line"><span class="number">9</span>    <span class="number">66</span>  <span class="number">139</span>      m     <span class="number">66</span>    <span class="number">139</span></span><br><span class="line"><span class="number">10</span>   <span class="number">67</span>  <span class="number">142</span>      m     <span class="number">67</span>    <span class="number">142</span></span><br><span class="line"><span class="number">11</span>   <span class="number">68</span>  <span class="number">146</span>      m     <span class="number">68</span>    <span class="number">146</span></span><br><span class="line"><span class="number">12</span>   <span class="number">69</span>  <span class="number">150</span>      m     <span class="number">69</span>    <span class="number">150</span></span><br><span class="line"><span class="number">13</span>   <span class="number">70</span>  <span class="number">154</span>      f     <span class="number">70</span>    <span class="number">154</span></span><br><span class="line"><span class="number">14</span>   <span class="number">71</span>  <span class="number">159</span>      f     <span class="number">71</span>    <span class="number">159</span></span><br><span class="line"><span class="number">15</span>   <span class="number">72</span>  <span class="number">164</span>      f     <span class="number">72</span>    <span class="number">164</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="변수계산"><a href="#변수계산" class="headerlink" title="변수계산"></a>변수계산</h1><ul>
+<li>exp(), log(), sqrt(), 사칙연산</li>
+</ul>
+<hr>
+<h1 id="head-tail"><a href="#head-tail" class="headerlink" title="head(), tail()"></a>head(), tail()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt; head(airquality)</span><br><span class="line">  Ozone Solar.R Wind Temp Month Day</span><br><span class="line"><span class="number">1</span>    <span class="number">41</span>     <span class="number">190</span>  <span class="number">7.4</span>   <span class="number">67</span>     <span class="number">5</span>   <span class="number">1</span></span><br><span class="line"><span class="number">2</span>    <span class="number">36</span>     <span class="number">118</span>  <span class="number">8.0</span>   <span class="number">72</span>     <span class="number">5</span>   <span class="number">2</span></span><br><span class="line"><span class="number">3</span>    <span class="number">12</span>     <span class="number">149</span> <span class="number">12.6</span>   <span class="number">74</span>     <span class="number">5</span>   <span class="number">3</span></span><br><span class="line"><span class="number">4</span>    <span class="number">18</span>     <span class="number">313</span> <span class="number">11.5</span>   <span class="number">62</span>     <span class="number">5</span>   <span class="number">4</span></span><br><span class="line"><span class="number">5</span>    <span class="literal">NA</span>      <span class="literal">NA</span> <span class="number">14.3</span>   <span class="number">56</span>     <span class="number">5</span>   <span class="number">5</span></span><br><span class="line"><span class="number">6</span>    <span class="number">28</span>      <span class="literal">NA</span> <span class="number">14.9</span>   <span class="number">66</span>     <span class="number">5</span>   <span class="number">6</span></span><br><span class="line">&gt; tail(airquality)</span><br><span class="line">    Ozone Solar.R Wind Temp Month Day</span><br><span class="line"><span class="number">148</span>    <span class="number">14</span>      <span class="number">20</span> <span class="number">16.6</span>   <span class="number">63</span>     <span class="number">9</span>  <span class="number">25</span></span><br><span class="line"><span class="number">149</span>    <span class="number">30</span>     <span class="number">193</span>  <span class="number">6.9</span>   <span class="number">70</span>     <span class="number">9</span>  <span class="number">26</span></span><br><span class="line"><span class="number">150</span>    <span class="literal">NA</span>     <span class="number">145</span> <span class="number">13.2</span>   <span class="number">77</span>     <span class="number">9</span>  <span class="number">27</span></span><br><span class="line"><span class="number">151</span>    <span class="number">14</span>     <span class="number">191</span> <span class="number">14.3</span>   <span class="number">75</span>     <span class="number">9</span>  <span class="number">28</span></span><br><span class="line"><span class="number">152</span>    <span class="number">18</span>     <span class="number">131</span>  <span class="number">8.0</span>   <span class="number">76</span>     <span class="number">9</span>  <span class="number">29</span></span><br><span class="line"><span class="number">153</span>    <span class="number">20</span>     <span class="number">223</span> <span class="number">11.5</span>   <span class="number">68</span>     <span class="number">9</span>  <span class="number">30</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="코딩변경-논리연산-cut"><a href="#코딩변경-논리연산-cut" class="headerlink" title="코딩변경 - 논리연산, cut()"></a>코딩변경 - 논리연산, cut()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">factor(name,labels=c(<span class="keyword">...</span>))</span><br><span class="line">cut(name,breaks=c(<span class="keyword">...</span>),include.lowest=<span class="literal">T</span>/<span class="literal">F</span>,labels=c(<span class="keyword">...</span>))</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&gt; x = c(<span class="number">80</span>, <span class="number">88</span>, <span class="number">90</span>, <span class="number">93</span>, <span class="number">95</span>, <span class="number">94</span>, <span class="number">99</span>, <span class="number">78</span>, <span class="number">65</span>)</span><br><span class="line">&gt; cat.x = (x &gt;= <span class="number">100</span>) + (x &lt; <span class="number">90</span>) + (x &lt; <span class="number">80</span>)</span><br><span class="line">&gt; cat.x</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line">&gt; cat.x1 = factor(cat.x, labels = c(<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>))</span><br><span class="line">&gt; cat.x1 <span class="comment">#0~79/80~89/90~</span></span><br><span class="line">[<span class="number">1</span>] B B A A A A A C C</span><br><span class="line">Levels: A B C</span><br><span class="line">&gt; cat.x2 = (x &lt;= <span class="number">100</span>) + (x &lt; <span class="number">90</span>) + (x &lt; <span class="number">80</span>)</span><br><span class="line">&gt; cat.x2</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">3</span> <span class="number">3</span></span><br><span class="line">&gt; cat.x3 = factor(cat.x2, labels = c(<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>))</span><br><span class="line">&gt; cat.x3</span><br><span class="line">[<span class="number">1</span>] B B A A A A A C C</span><br><span class="line">Levels: A B C</span><br><span class="line">&gt; cat.x4 = cut(x, breaks = c(<span class="number">0</span>, <span class="number">80</span>, <span class="number">90</span>, <span class="number">100</span>), include.lowest = <span class="literal">T</span>, right = <span class="literal">F</span>, labels = c(<span class="string">&quot;C&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;A&quot;</span>))</span><br><span class="line">&gt; cat.x4</span><br><span class="line">[<span class="number">1</span>] B B A A A A A C C</span><br><span class="line">Levels: C B A</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="제어문-for-while-if-else-if-ifelse-결과-단-2개"><a href="#제어문-for-while-if-else-if-ifelse-결과-단-2개" class="headerlink" title="제어문 - for, while, if~else if, ifelse(결과 단 2개)"></a>제어문 - for, while, if~else if, ifelse(결과 단 2개)</h1><blockquote>
+<p>for</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(i <span class="keyword">in</span> num)&#123;</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>while</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(i&lt;=num)&#123;</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>if</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(case1)&#123;</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(case2)&#123;</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>if else</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(x&lt;y) x <span class="keyword">else</span> y</span><br><span class="line">ifelse(x&lt;y,x,y)</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="사용자정의함수-return"><a href="#사용자정의함수-return" class="headerlink" title="사용자정의함수, return()"></a>사용자정의함수, return()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name=<span class="keyword">function</span>(par1,par2,<span class="keyword">...</span>)&#123;</span><br><span class="line">    <span class="keyword">...</span></span><br><span class="line">    <span class="keyword">return</span>(<span class="keyword">...</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">skew=<span class="keyword">function</span>(x)&#123;</span><br><span class="line">	sk=sum(((x-mean(x))^<span class="number">3</span>)/sd(x)^<span class="number">3</span>)*(<span class="number">1</span>/(length(x)-<span class="number">1</span>))</span><br><span class="line">	<span class="keyword">return</span>(sk)</span><br><span class="line">&#125;</span><br><span class="line">kur=<span class="keyword">function</span>(x)&#123;</span><br><span class="line">	ku=sum(((x-mean(x))^<span class="number">4</span>)/sd(x)^<span class="number">4</span>)*(<span class="number">1</span>/(length(x)-<span class="number">1</span>))</span><br><span class="line">	<span class="keyword">return</span>(ku)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="기술통계학"><a href="#기술통계학" class="headerlink" title="기술통계학"></a>기술통계학</h1><ul>
+<li><p>자료 요약 및 정리 : 표(도수분포표)와 그래프()</p>
+</li>
+<li><p>범주형 - 도수분포표(빈도를 그래프로 할 수 있긴 함)</p>
+</li>
+<li><p>수치형 - 기술통계량(분포의 특성)</p>
+<ul>
+<li>대표값(중심위치)<ul>
+<li>산술평균</li>
+<li>중위수</li>
+<li>최빈수(보통 범주형에서 사용, 수치형에선 이산형에서 가끔)</li>
+</ul>
+</li>
+<li>산포도(흩어진 정도)<ul>
+<li>표준편차(기존단위가 같음)</li>
+<li>분산(단위^2)</li>
+<li>변이(변동)계수(CV) : <code>sd()/mean()</code></li>
+<li>사분위수범위(Q3-Q1) : <code>boxplot()</code>, <code>IQR()</code></li>
+</ul>
+</li>
+<li>비대칭도<ul>
+<li>왜도</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>오류데이터 찾기</p>
+<ul>
+<li>최소값</li>
+<li>최대값</li>
+<li>도수분포표</li>
+<li><code>summary()</code></li>
+</ul>
+</li>
+<li><p>관련된 변수 2개</p>
+<ul>
+<li>수치형 2개 : <code>cor(name1,name2)</code></li>
+<li>범주형 2개 : 교차표(분할표)</li>
+</ul>
+</li>
+<li><p>외부파일 읽기(<code>.txt</code>) - <code>read.table()</code> / <code>read.csv()</code> - <code>str()</code> - <code>summary()</code></p>
+<ul>
+<li>Data 여러개 - Data handling<ul>
+<li>병합<ul>
+<li><code>rbind</code> - 행(Case) 추가</li>
+<li><code>cbind</code> - 열(변수) 추가</li>
+</ul>
+</li>
+<li>새로운 변수 생성<ul>
+<li>변수계산 : 기존 변수를 가지고 계산을 통해 새로운 변수 생성</li>
+<li>코딩변경 : 기존 변수를 가지고 새로운 변수 생성(Ex. 학점 예제) - 보통 범주형</li>
+</ul>
+</li>
+<li>데이터 취사선택 : <code>indexing - []</code>, <code>subset()</code></li>
+<li>정렬 : <code>sort()</code>, <code>order()</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Slicing : <code>substr()</code></p>
+</li>
+<li><p>NA : <code>mean(name,na.rm=T)</code></p>
+</li>
+<li><p>출력 : <code>cat()</code>, <code>sink()</code>, <code>pdf()</code>, <code>dev.off()</code></p>
+</li>
+<li><p>연산자, 제어문(반복문, 조건문), 함수</p>
+</li>
+</ul>
+<blockquote>
+<p>단위계산은 <code>*</code>, <code>/</code>만 계산</p>
+</blockquote>
+<blockquote>
+<p>변동계수</p>
+<ul>
+<li>평균의 차가 많은 집단끼리의 산포도 비교시 사용</li>
+<li>단위가 다른 변수에 대한 산포도 비교 - 무차원수</li>
+<li>극심한 비대칭일때 사용</li>
+</ul>
+</blockquote>
+<hr>
+<h1 id="Etc"><a href="#Etc" class="headerlink" title="Etc."></a>Etc.</h1><ul>
+<li>한 사람이나 한 개체의 데이터는 한 행으로 표시해야 한다</li>
+<li>범주형, 문자형 : factor</li>
+<li>수치형 : 정수(int), 실수(num)</li>
+<li>함수 : 내장 함수(R에 내장된 대부분의 함수명은 소문자), 외장 함수(사용자정의함수)</li>
+<li>boxplot(), hist()</li>
+<li>attach()</li>
+<li>조건 : 산술연산자, 비교연산자, 논리연산자 - ^ 제일 우선 () 활용으로 우선 순위 만들기</li>
+<li>시험지 안에 정보 다 있음 / read.table()과 비교</li>
+<li>cbind() == data.frame() 상관 없음</li>
+<li>새로운 변수 생성 : 변수계산, 코딩변경</li>
+<li>return() 2개는 전역변수로 조지기 or c()</li>
+<li>왜도, 첨도 : 3, 4 승 n-1로 함수</li>
+<li>switch() - X</li>
+<li>sample(), substr(), IQR(), abs(), signif(), dim(), ncol(), nrow(), seq(), rep(), sink(), pdf()~dev.off()</li>
+<li>프 / 결 - 프로그램 / 결과 : 결과가 없을 수도 있음 - 수기로 작성, 다 프로그램</li>
+<li>기말은 서술도 나왕</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-3/" rel="bookmark">R(3)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-2/" rel="bookmark">R(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-6/" rel="bookmark">R(6)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/statistics/" rel="bookmark">Statistics</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/r-mid-term/" title="R mid-term">https://zerohertz.github.io/r-mid-term/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/r/" rel="tag"><i class="fa fa-tag"></i> R</a>
+              <a href="/tags/statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/r-6/" rel="prev" title="R(6)">
+                  <i class="fa fa-chevron-left"></i> R(6)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/statistics/" rel="next" title="Statistics">
+                  Statistics <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/r-mid-term/";
+    this.page.identifier = "r-mid-term/";
+    this.page.title = "R mid-term";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="YouTube에서 JTBC로 가기 제목을 따와서 JTBC에 검색하자  12345678910111213141516from selenium import webdriverimport timebrowser &#x3D; webdriver.Chrome(&amp;#x27;C:&#x2F;Users&#x2F;OHG&#x2F;Downloads&#x2F;chromedriver_win32&#x2F;chromedriver&amp;#x27;) #D">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Web Crawler for NLP(3)">
+<meta property="og:url" content="https://zerohertz.github.io/web-crawler-for-nlp-3/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="YouTube에서 JTBC로 가기 제목을 따와서 JTBC에 검색하자  12345678910111213141516from selenium import webdriverimport timebrowser &#x3D; webdriver.Chrome(&amp;#x27;C:&#x2F;Users&#x2F;OHG&#x2F;Downloads&#x2F;chromedriver_win32&#x2F;chromedriver&amp;#x27;) #D">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/45914919-d0a26980-be86-11e8-9a79-83596d3f83bc.png">
+<meta property="article:published_time" content="2018-09-20T06:01:38.000Z">
+<meta property="article:modified_time" content="2020-02-25T07:22:42.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Web crawling">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="Selenium">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/45914919-d0a26980-be86-11e8-9a79-83596d3f83bc.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/web-crawler-for-nlp-3/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Web Crawler for NLP(3) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#YouTube%EC%97%90%EC%84%9C-JTBC%EB%A1%9C-%EA%B0%80%EA%B8%B0"><span class="nav-number">1.</span> <span class="nav-text">YouTube에서 JTBC로 가기</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JTBC%EC%97%90%EC%84%9C-%EB%8C%80%EC%82%AC-%EB%94%B0%EC%98%A4%EA%B8%B0"><span class="nav-number">2.</span> <span class="nav-text">JTBC에서 대사 따오기</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%A7%88%EB%AC%B4%EB%A6%AC-%EC%BD%94%EB%93%9C"><span class="nav-number">3.</span> <span class="nav-text">마무리 코드</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/web-crawler-for-nlp-3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Web Crawler for NLP(3)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2018-09-20 15:01:38" itemprop="dateCreated datePublished" datetime="2018-09-20T15:01:38+09:00">2018-09-20</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-02-25 16:22:42" itemprop="dateModified" datetime="2020-02-25T16:22:42+09:00">2020-02-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/web-crawling/" itemprop="url" rel="index"><span itemprop="name">Web crawling</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/web-crawler-for-nlp-3/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="web-crawler-for-nlp-3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>6.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="YouTube에서-JTBC로-가기"><a href="#YouTube에서-JTBC로-가기" class="headerlink" title="YouTube에서 JTBC로 가기"></a>YouTube에서 JTBC로 가기</h1><blockquote>
+<p>제목을 따와서 JTBC에 검색하자</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome(<span class="string">&#x27;C:/Users/OHG/Downloads/chromedriver_win32/chromedriver&#x27;</span>) <span class="comment">#Directory지정</span></span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>) <span class="comment">#암묵적으로 3초 딜레이</span></span><br><span class="line">url = <span class="string">&quot;https://www.youtube.com/watch?v=C7qr7-NlNw8&amp;index=1&amp;list=PL3Eb1N33oAXijqFKrO83hDEN0HPwaecV3&quot;</span></span><br><span class="line">ser = <span class="string">&quot;http://jtbc.joins.com/search?term=&quot;</span></span><br><span class="line"></span><br><span class="line">browser.get(url)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>): <span class="comment">#url의 개수</span></span><br><span class="line">    products = browser.find_elements_by_css_selector(<span class="string">&#x27;#container &gt; h1 &gt; yt-formatted-string&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> product <span class="keyword">in</span> products:</span><br><span class="line">        Z = product.text</span><br><span class="line">    print(Z[<span class="number">13</span>:])</span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">browser.quit()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>실행결과</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;One sweet dream&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>제목 따오고 <code>ser</code>에 붙여서 검색하자</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome(<span class="string">&#x27;C:/Users/OHG/Downloads/chromedriver_win32/chromedriver&#x27;</span>) <span class="comment">#Directory지정</span></span><br><span class="line">driver = webdriver.Chrome(<span class="string">&#x27;C:/Users/OHG/Downloads/chromedriver_win32/chromedriver&#x27;</span>)</span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>) <span class="comment">#암묵적으로 3초 딜레이</span></span><br><span class="line">url = <span class="string">&quot;https://www.youtube.com/watch?v=C7qr7-NlNw8&amp;index=1&amp;list=PL3Eb1N33oAXijqFKrO83hDEN0HPwaecV3&quot;</span></span><br><span class="line">ser = <span class="string">&quot;http://jtbc.joins.com/search?term=&quot;</span></span><br><span class="line"></span><br><span class="line">browser.get(url)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>): <span class="comment">#url의 개수</span></span><br><span class="line">    products = browser.find_elements_by_css_selector(<span class="string">&#x27;#container &gt; h1 &gt; yt-formatted-string&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> product <span class="keyword">in</span> products:</span><br><span class="line">        Z = product.text</span><br><span class="line">    S = Z[<span class="number">13</span>:]</span><br><span class="line">    driver.get(ser+S)</span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">browser.quit()</span><br></pre></td></tr></table></figure>
+
+<h1 id="JTBC에서-대사-따오기"><a href="#JTBC에서-대사-따오기" class="headerlink" title="JTBC에서 대사 따오기"></a>JTBC에서 대사 따오기</h1><blockquote>
+<p>기사 원문 들어가기</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome(<span class="string">&#x27;C:/Users/OHG/Downloads/chromedriver_win32/chromedriver&#x27;</span>) <span class="comment">#Directory지정, 유튜브</span></span><br><span class="line">driver = webdriver.Chrome(<span class="string">&#x27;C:/Users/OHG/Downloads/chromedriver_win32/chromedriver&#x27;</span>) <span class="comment">#검색</span></span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>) <span class="comment">#암묵적으로 3초 딜레이</span></span><br><span class="line">url = <span class="string">&quot;https://www.youtube.com/watch?v=C7qr7-NlNw8&amp;index=1&amp;list=PL3Eb1N33oAXijqFKrO83hDEN0HPwaecV3&quot;</span> <span class="comment">#유튜브</span></span><br><span class="line">ser = <span class="string">&quot;http://jtbc.joins.com/search?term=&quot;</span> <span class="comment">#검색</span></span><br><span class="line"></span><br><span class="line">browser.get(url)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>): <span class="comment">#url의 개수</span></span><br><span class="line">    products = browser.find_elements_by_css_selector(<span class="string">&#x27;#container &gt; h1 &gt; yt-formatted-string&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> product <span class="keyword">in</span> products:</span><br><span class="line">        Z = product.text</span><br><span class="line">    S = Z[<span class="number">13</span>:]</span><br><span class="line">    driver.get(ser+S)<span class="comment"># content &gt; div.wrap_result.clfix &gt; div.wrap_sch_area &gt; div.area_sch_section.last &gt; div &gt; div &gt; ul &gt; li &gt; div &gt; a</span></span><br><span class="line">    driver.find_element_by_css_selector(<span class="string">&#x27;#content &gt; div.wrap_result.clfix &gt; div.wrap_sch_area &gt; div.area_sch_section.last &gt; div &gt; div &gt; ul &gt; li &gt; div &gt; a&#x27;</span>).click()</span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">browser.quit()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>최종 기사 따오기</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome(<span class="string">&#x27;C:/Users/OHG/Downloads/chromedriver_win32/chromedriver&#x27;</span>) <span class="comment">#Directory지정, 유튜브</span></span><br><span class="line">driver = webdriver.Chrome(<span class="string">&#x27;C:/Users/OHG/Downloads/chromedriver_win32/chromedriver&#x27;</span>) <span class="comment">#검색</span></span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>) <span class="comment">#암묵적으로 3초 딜레이</span></span><br><span class="line">url = <span class="string">&quot;https://www.youtube.com/watch?v=C7qr7-NlNw8&amp;index=1&amp;list=PL3Eb1N33oAXijqFKrO83hDEN0HPwaecV3&quot;</span> <span class="comment">#유튜브</span></span><br><span class="line">ser = <span class="string">&quot;http://jtbc.joins.com/search?term=&quot;</span> <span class="comment">#검색</span></span><br><span class="line"></span><br><span class="line">browser.get(url)</span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>): <span class="comment">#url의 개수</span></span><br><span class="line">    titles = browser.find_elements_by_css_selector(<span class="string">&#x27;#container &gt; h1 &gt; yt-formatted-string&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> title <span class="keyword">in</span> titles:</span><br><span class="line">        Z = title.text</span><br><span class="line">    S = Z[<span class="number">13</span>:]</span><br><span class="line">    driver.get(ser+S)<span class="comment"># content &gt; div.wrap_result.clfix &gt; div.wrap_sch_area &gt; div.area_sch_section.last &gt; div &gt; div &gt; ul &gt; li &gt; div &gt; a</span></span><br><span class="line">    driver.find_element_by_css_selector(<span class="string">&#x27;#content &gt; div.wrap_result.clfix &gt; div.wrap_sch_area &gt; div.area_sch_section.last &gt; div &gt; div &gt; ul &gt; li &gt; div &gt; a&#x27;</span>).click()</span><br><span class="line">    abc = driver.find_elements_by_css_selector(<span class="string">&#x27;#articlebody &gt; div:nth-child(1)&#x27;</span>)</span><br><span class="line">    <span class="keyword">for</span> tex <span class="keyword">in</span> abc:</span><br><span class="line">        print(tex.text)</span><br><span class="line">    time.sleep(<span class="number">3</span>)</span><br><span class="line">browser.quit()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>실행결과</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\OHG\AppData\Local\Programs\Python\Python37\python.exe C:&#x2F;Users&#x2F;OHG&#x2F;PycharmProjects&#x2F;WCFNtest&#x2F;Main.py</span><br><span class="line">뉴스룸의 앵커브리핑을 시작하겠습니다.</span><br><span class="line"></span><br><span class="line">석달 전에 북미 정상회담 중계를 위해서 싱가포르에 갔을 때 점심을 먹었던 한 식당에서 틀어놓은 노래가 유독 귀를 잡아끌었습니다.</span><br><span class="line"></span><br><span class="line">&quot; Is it getting better or do you feel the same</span><br><span class="line">기분이 나아지고 있나요 아니면 같나요?&quot;</span><br><span class="line">- U2의 &lt; One &gt;</span><br><span class="line"></span><br><span class="line">그룹 U2 의 명곡 &lt; One &gt; 이었습니다.</span><br><span class="line"></span><br><span class="line">노래를 고른 식당의 주인은 무언가를 알고 있었을까.</span><br><span class="line"></span><br><span class="line">아니면 그저 우연의 일치일까…</span><br><span class="line"></span><br><span class="line">91년 발표된 이 곡이 녹음된 시기는 1990년 10월.</span><br><span class="line"></span><br><span class="line">장소는 독일 베를린의 한자 스튜디오였습니다.</span><br><span class="line"></span><br><span class="line">당시 U2의 멤버들은 해체를 고민할 정도로 갈등이 심했다고 전해지죠.</span><br><span class="line"></span><br><span class="line">정통 록을 고집할 것인가.</span><br><span class="line"></span><br><span class="line">실험적인 전자음을 강조할 것인가를 두고 급기야 주먹다짐까지 벌일 정도로 갈등은 심각했지만.</span><br><span class="line"></span><br><span class="line">그곳 베를린에서는 정반대의 일이 진행되고 있었습니다.</span><br><span class="line"></span><br><span class="line">같은 시기 견고했던 동·서독 간의 장벽은 무너져서 사람들은 미움 대신 통일을 이야기하고 있었던 것입니다.</span><br><span class="line"></span><br><span class="line">&quot;그러나 우리는 같은 것은 아니죠</span><br><span class="line">우리는 가까이 가까이 서로에게 다가갑니다.&quot;</span><br><span class="line">- U2의 &lt; One &gt;</span><br><span class="line"></span><br><span class="line">U2의 명곡 &lt; One &gt; 은 바로 그 자리에서 30분 만에 곡조가 만들어졌고 보컬이자 리더인 보노가 가사를 붙여서 완성되었습니다.</span><br><span class="line"></span><br><span class="line">&quot;한국에서 가장 부르고 싶은 노래가 바로 One 이다&quot;</span><br><span class="line"></span><br><span class="line">그들 역시 대부분, 분단과 전쟁의 아픔을 겪은 아일랜드사람이니까요.</span><br><span class="line"></span><br><span class="line">물론 돌파해야 할 난관은 앞으로도 많겠지만 오늘의 결과물은 달라진 서로의 관계를 실감하게 하고 있습니다.</span><br><span class="line"></span><br><span class="line">역사적 소명이라든가 민족의 대장정 같은 무거운 단어들을 동원하지 않고서도 그저 별일 없이 서로 돕고, 그래서 함께 윤택해질 수 있는 지극히 평범한 세상.</span><br><span class="line"></span><br><span class="line">철조망이 거둬진 철새의 땅과 다시 만나게 될 헤어진 사람들 그리고 기차를 타고 대륙으로 향하는 아득한 꿈같은 것들 말입니다.</span><br><span class="line"></span><br><span class="line">그룹 U2의 &lt; One &gt; 을 듣고 나온 식당의 바로 옆 가게는 아이스크림 등을 파는 디저트 가게였는데 그 가게의 선전 문구는 공교롭게도 이랬습니다.</span><br><span class="line"></span><br><span class="line">&quot;Sweet dreams are made of this!</span><br><span class="line">달콤한 꿈은 이것으로 만들어진다네&quot;</span><br><span class="line">- Eurythmics &lt; Sweet  Dreams &gt;</span><br><span class="line"></span><br><span class="line">Eurythmics의 명곡이었습니다.</span><br><span class="line"></span><br><span class="line">오늘의 앵커브리핑이었습니다.</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="마무리-코드"><a href="#마무리-코드" class="headerlink" title="마무리 코드"></a>마무리 코드</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> pytube</span><br><span class="line"></span><br><span class="line">browser = webdriver.Chrome(<span class="string">&#x27;C:/Users/OHG/Downloads/chromedriver_win32/chromedriver&#x27;</span>) <span class="comment">#Directory지정, 유튜브</span></span><br><span class="line">driver = webdriver.Chrome(<span class="string">&#x27;C:/Users/OHG/Downloads/chromedriver_win32/chromedriver&#x27;</span>) <span class="comment">#검색</span></span><br><span class="line">browser.implicitly_wait(<span class="number">5</span>) <span class="comment">#암묵적으로 3초 딜레이</span></span><br><span class="line">url = <span class="string">&quot;https://www.youtube.com/watch?v=C7qr7-NlNw8&amp;index=1&amp;list=PL3Eb1N33oAXijqFKrO83hDEN0HPwaecV3&quot;</span> <span class="comment">#유튜브</span></span><br><span class="line">ser = <span class="string">&quot;http://jtbc.joins.com/search?term=&quot;</span> <span class="comment">#검색</span></span><br><span class="line"></span><br><span class="line">browser.get(url)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">100</span>): <span class="comment">#url의 개수</span></span><br><span class="line">        b = str(a)</span><br><span class="line">        os.mkdir(b + <span class="string">&quot;번째 기사&quot;</span>)</span><br><span class="line">        os.chdir(b + <span class="string">&quot;번째 기사&quot;</span>)</span><br><span class="line">        print(a, <span class="string">&quot;번째 url open&quot;</span>)</span><br><span class="line">        titles = browser.find_elements_by_css_selector(<span class="string">&#x27;#container &gt; h1 &gt; yt-formatted-string&#x27;</span>)</span><br><span class="line">        f = open(<span class="string">&quot;기사 대본.txt&quot;</span>, <span class="string">&#x27;w&#x27;</span>)  <span class="comment">#txt적기</span></span><br><span class="line">        <span class="keyword">for</span> title <span class="keyword">in</span> titles:</span><br><span class="line">                Z = title.text</span><br><span class="line">        S = Z[<span class="number">13</span>:]</span><br><span class="line">        driver.get(ser + S)  <span class="comment"># content &gt; div.wrap_result.clfix &gt; div.wrap_sch_area &gt; div.area_sch_section.last &gt; div &gt; div &gt; ul &gt; li &gt; div &gt; a</span></span><br><span class="line">        driver.find_element_by_css_selector(<span class="string">&#x27;#content &gt; div.wrap_result.clfix &gt; div.wrap_sch_area &gt; div.area_sch_section.last &gt; div &gt; div &gt; ul &gt; li &gt; div &gt; a&#x27;</span>).click()</span><br><span class="line">        abc = driver.find_elements_by_css_selector(<span class="string">&#x27;#articlebody &gt; div:nth-child(1)&#x27;</span>)</span><br><span class="line">        <span class="keyword">for</span> tex <span class="keyword">in</span> abc:</span><br><span class="line">                f.write(tex.text)</span><br><span class="line">        yt = browser.current_url</span><br><span class="line">        yt = pytube.YouTube(yt)</span><br><span class="line">        stream = yt.streams.all()</span><br><span class="line">        stream[<span class="number">15</span>].download(os.getcwd(), <span class="string">&quot;내용&quot;</span>)</span><br><span class="line">        browser.save_screenshot(<span class="string">&quot;Website.png&quot;</span>)</span><br><span class="line">        browser.find_element_by_css_selector(<span class="string">&#x27;#movie_player &gt; div.ytp-chrome-bottom &gt; div.ytp-chrome-controls &gt; div.ytp-left-controls &gt; a.ytp-next-button.ytp-button&#x27;</span>).click()</span><br><span class="line">        os.chdir(<span class="string">&quot;..&quot;</span>)</span><br><span class="line">        time.sleep(<span class="number">3</span>)</span><br><span class="line">browser.quit()</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/42334717/45914919-d0a26980-be86-11e8-9a79-83596d3f83bc.png" alt="실행결과"></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/web-crawling-by-selenium-2/" rel="bookmark">Web crawling by Selenium(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/web-crawler-for-ecampus-by-selenium/" rel="bookmark">Web Crawler for eCampus by Selenium</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/web-crawler-for-nlp-2/" rel="bookmark">Web Crawler for NLP(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/web-crawler-for-nlp-1/" rel="bookmark">Web Crawler for NLP(1)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/web-crawling-by-selenium-1/" rel="bookmark">Web crawling by Selenium(1)</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/web-crawler-for-nlp-3/" title="Web Crawler for NLP(3)">https://zerohertz.github.io/web-crawler-for-nlp-3/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/web-crawling/" rel="tag"><i class="fa fa-tag"></i> Web crawling</a>
+              <a href="/tags/html/" rel="tag"><i class="fa fa-tag"></i> HTML</a>
+              <a href="/tags/selenium/" rel="tag"><i class="fa fa-tag"></i> Selenium</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/web-crawler-for-nlp-2/" rel="prev" title="Web Crawler for NLP(2)">
+                  <i class="fa fa-chevron-left"></i> Web Crawler for NLP(2)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/numerical-analysis-2/" rel="next" title="Numerical analysis(2)">
+                  Numerical analysis(2) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/web-crawler-for-nlp-3/";
+    this.page.identifier = "web-crawler-for-nlp-3/";
+    this.page.title = "Web Crawler for NLP(3)";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

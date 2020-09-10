@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="결측값 X  read.table12setwd(&quot;&#x2F;Users&#x2F;zerohertz&quot;)text&#x3D;read.table(&amp;#x27;Data.txt&amp;#x27;,header&#x3D;T)  Data 취사 선택 indexing - []">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R final-term">
+<meta property="og:url" content="https://zerohertz.github.io/r-final-term/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="결측값 X  read.table12setwd(&quot;&#x2F;Users&#x2F;zerohertz&quot;)text&#x3D;read.table(&amp;#x27;Data.txt&amp;#x27;,header&#x3D;T)  Data 취사 선택 indexing - []">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/72525344-41a13800-38a7-11ea-884b-48fa5c504313.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/72526135-0ef83f00-38a9-11ea-96e7-6cd49d28c45c.png">
+<meta property="article:published_time" content="2020-01-16T03:36:15.000Z">
+<meta property="article:modified_time" content="2020-01-17T01:57:32.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="Statistics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/72525344-41a13800-38a7-11ea-884b-48fa5c504313.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/r-final-term/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>R final-term | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#read-table"><span class="nav-number">1.</span> <span class="nav-text">read.table</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-%EC%B7%A8%EC%82%AC-%EC%84%A0%ED%83%9D"><span class="nav-number">2.</span> <span class="nav-text">Data 취사 선택</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%9D%B4%EC%82%B0%ED%98%95-%EB%B6%84%ED%8F%AC"><span class="nav-number">3.</span> <span class="nav-text">이산형 분포</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%B4%ED%95%AD%EB%B6%84%ED%8F%AC"><span class="nav-number">3.1.</span> <span class="nav-text">이항분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%ED%95%98%EB%B6%84%ED%8F%AC"><span class="nav-number">3.2.</span> <span class="nav-text">기하분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%8C%EC%9D%B4%ED%95%AD%EB%B6%84%ED%8F%AC"><span class="nav-number">3.3.</span> <span class="nav-text">음이항분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%8F%AC%EC%95%84%EC%86%A1%EB%B6%84%ED%8F%AC"><span class="nav-number">3.4.</span> <span class="nav-text">포아송분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B4%88%EA%B8%B0%ED%95%98%EB%B6%84%ED%8F%AC"><span class="nav-number">3.5.</span> <span class="nav-text">초기하분포</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#R"><span class="nav-number">4.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%91%9C"><span class="nav-number">4.1.</span> <span class="nav-text">표</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R-source"><span class="nav-number">4.2.</span> <span class="nav-text">R source</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B2%94%EC%A3%BC%EC%9E%90%EB%A3%8C"><span class="nav-number">5.</span> <span class="nav-text">범주자료</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%88%98%EC%B9%98%EC%9E%90%EB%A3%8C"><span class="nav-number">6.</span> <span class="nav-text">수치자료</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%88%98%EC%B9%98%EC%9E%90%EB%A3%8C-%EB%B2%94%EC%A3%BC%ED%99%94"><span class="nav-number">7.</span> <span class="nav-text">수치자료 범주화</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B5%90%EC%B0%A8%EB%B6%84%EC%84%9D"><span class="nav-number">8.</span> <span class="nav-text">교차분석</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%80%EC%A0%95%ED%86%B5%EA%B3%84%EB%9F%89"><span class="nav-number">8.1.</span> <span class="nav-text">검정통계량</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%84%A4"><span class="nav-number">8.2.</span> <span class="nav-text">가설</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%EB%8C%80%EB%B9%88%EB%8F%84"><span class="nav-number">8.3.</span> <span class="nav-text">기대빈도</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1"><span class="nav-number">8.4.</span> <span class="nav-text">Example 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-2"><span class="nav-number">8.5.</span> <span class="nav-text">Example 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%83%81%EA%B4%80%EB%B6%84%EC%84%9D"><span class="nav-number">9.</span> <span class="nav-text">상관분석</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%80%EC%A0%95%ED%86%B5%EA%B3%84%EB%9F%89-1"><span class="nav-number">9.1.</span> <span class="nav-text">검정통계량</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%84%A4-1"><span class="nav-number">9.2.</span> <span class="nav-text">가설</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%83%81%EA%B4%80%EA%B3%84%EC%88%98"><span class="nav-number">9.3.</span> <span class="nav-text">상관계수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">9.4.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%9D%BC%ED%91%9C%EB%B3%B8-T-%EA%B2%80%EC%A0%95"><span class="nav-number">10.</span> <span class="nav-text">일표본 T-검정</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%80%EC%A0%95%ED%86%B5%EA%B3%84%EB%9F%89-2"><span class="nav-number">10.1.</span> <span class="nav-text">검정통계량</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%84%A4-2"><span class="nav-number">10.2.</span> <span class="nav-text">가설</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1"><span class="nav-number">10.3.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%8F%85%EB%A6%BD%ED%91%9C%EB%B3%B8-T-%EA%B2%80%EC%A0%95"><span class="nav-number">11.</span> <span class="nav-text">독립표본 T-검정</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%80%EC%A0%95%ED%86%B5%EA%B3%84%EB%9F%89-3"><span class="nav-number">11.1.</span> <span class="nav-text">검정통계량</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%84%A4-3"><span class="nav-number">11.2.</span> <span class="nav-text">가설</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%93%B1%EB%B6%84%EC%82%B0-%EA%B2%80%EC%A0%95"><span class="nav-number">11.3.</span> <span class="nav-text">등분산 검정</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B0%80%EC%84%A4-4"><span class="nav-number">11.3.1.</span> <span class="nav-text">가설</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1-1"><span class="nav-number">11.4.</span> <span class="nav-text">Example 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-2-1"><span class="nav-number">11.5.</span> <span class="nav-text">Example 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-3"><span class="nav-number">11.6.</span> <span class="nav-text">Example 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%8C%80%EC%9D%91%ED%91%9C%EB%B3%B8-T-%EA%B2%80%EC%A0%95"><span class="nav-number">12.</span> <span class="nav-text">대응표본 T-검정</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%80%EC%A0%95%ED%86%B5%EA%B3%84%EB%9F%89-4"><span class="nav-number">12.1.</span> <span class="nav-text">검정통계량</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%84%A4-5"><span class="nav-number">12.2.</span> <span class="nav-text">가설</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-2"><span class="nav-number">12.3.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%9D%BC%EC%9B%90%EB%B0%B0%EC%B9%98-%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D"><span class="nav-number">13.</span> <span class="nav-text">일원배치 분산분석</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%80%EC%A0%95%ED%86%B5%EA%B3%84%EB%9F%89-5"><span class="nav-number">13.1.</span> <span class="nav-text">검정통계량</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%84%A4-6"><span class="nav-number">13.2.</span> <span class="nav-text">가설</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B6%84%EC%82%B0"><span class="nav-number">13.3.</span> <span class="nav-text">분산</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%8B%A4%EC%A4%91%EB%B9%84%EA%B5%90"><span class="nav-number">13.4.</span> <span class="nav-text">다중비교</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D%ED%91%9C-%EB%B6%84%EC%84%9D"><span class="nav-number">13.5.</span> <span class="nav-text">분산분석표 분석</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-3"><span class="nav-number">13.6.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D"><span class="nav-number">14.</span> <span class="nav-text">회귀분석</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B2%80%EC%A0%95%ED%86%B5%EA%B3%84%EB%9F%89-6"><span class="nav-number">14.1.</span> <span class="nav-text">검정통계량</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#F-%EA%B2%80%EC%A0%95"><span class="nav-number">14.1.1.</span> <span class="nav-text">F-검정</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T-%EA%B2%80%EC%A0%95"><span class="nav-number">14.1.2.</span> <span class="nav-text">T-검정</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%84%A4-7"><span class="nav-number">14.2.</span> <span class="nav-text">가설</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#F-%EA%B2%80%EC%A0%95-1"><span class="nav-number">14.2.1.</span> <span class="nav-text">F-검정</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#T-%EA%B2%80%EC%A0%95-1"><span class="nav-number">14.2.2.</span> <span class="nav-text">T-검정</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Least-squares-regression"><span class="nav-number">14.3.</span> <span class="nav-text">Least squares regression</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hat-beta-0-hat-beta-1-%EC%9D%98-%EB%B6%84%ED%8F%AC"><span class="nav-number">14.4.</span> <span class="nav-text">$\hat \beta_0,\ \hat \beta_1$의 분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B6%84%EC%82%B0%EB%B6%84%EC%84%9D"><span class="nav-number">14.5.</span> <span class="nav-text">분산분석</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R-2-%EA%B2%B0%EC%A0%95%EA%B3%84%EC%88%98"><span class="nav-number">14.6.</span> <span class="nav-text">$R^2$ - 결정계수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A7%84%ED%96%89-%EC%88%9C%EC%84%9C"><span class="nav-number">14.7.</span> <span class="nav-text">진행 순서</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-1-2"><span class="nav-number">14.8.</span> <span class="nav-text">Example 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-2-2"><span class="nav-number">14.9.</span> <span class="nav-text">Example 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example-3-1"><span class="nav-number">14.10.</span> <span class="nav-text">Example 3</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Finale"><span class="nav-number">15.</span> <span class="nav-text">Finale</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/r-final-term/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          R final-term
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-16 12:36:15" itemprop="dateCreated datePublished" datetime="2020-01-16T12:36:15+09:00">2020-01-16</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-01-17 10:57:32" itemprop="dateModified" datetime="2020-01-17T10:57:32+09:00">2020-01-17</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/r/" itemprop="url" rel="index"><span itemprop="name">R</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/r-final-term/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="r-final-term/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>25k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>23 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>결측값 X</p>
+</blockquote>
+<h1 id="read-table"><a href="#read-table" class="headerlink" title="read.table"></a>read.table</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">setwd(<span class="string">&quot;/Users/zerohertz&quot;</span>)</span><br><span class="line">text=read.table(<span class="string">&#x27;Data.txt&#x27;</span>,header=<span class="literal">T</span>)</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Data-취사-선택"><a href="#Data-취사-선택" class="headerlink" title="Data 취사 선택"></a>Data 취사 선택</h1><blockquote>
+<p>indexing - []</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">name[which(조건식),c(<span class="string">&#x27;name1&#x27;</span>,<span class="string">&#x27;name2&#x27;</span>,<span class="keyword">...</span>)]</span><br><span class="line"><span class="comment"># which는 생략 가능</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">&gt; Cars93[which(MPG.city&gt;<span class="number">30</span>),c(<span class="string">&#x27;Model&#x27;</span>,<span class="string">&#x27;Origin&#x27;</span>)]</span><br><span class="line">     Model  Origin</span><br><span class="line"><span class="number">31</span> Festiva     USA</span><br><span class="line"><span class="number">39</span>   Metro non-USA</span><br><span class="line"><span class="number">42</span>   Civic non-USA</span><br><span class="line"><span class="number">73</span>  LeMans     USA</span><br><span class="line"><span class="number">80</span>   Justy non-USA</span><br><span class="line"><span class="number">83</span>   Swift non-USA</span><br><span class="line"><span class="number">84</span>  Tercel non-USA</span><br><span class="line">&gt; Cars93[MPG.city&gt;<span class="number">30</span>,c(<span class="string">&#x27;Model&#x27;</span>,<span class="string">&#x27;Origin&#x27;</span>)]</span><br><span class="line">     Model  Origin</span><br><span class="line"><span class="number">31</span> Festiva     USA</span><br><span class="line"><span class="number">39</span>   Metro non-USA</span><br><span class="line"><span class="number">42</span>   Civic non-USA</span><br><span class="line"><span class="number">73</span>  LeMans     USA</span><br><span class="line"><span class="number">80</span>   Justy non-USA</span><br><span class="line"><span class="number">83</span>   Swift non-USA</span><br><span class="line"><span class="number">84</span>  Tercel non-USA</span><br><span class="line">&gt; Cars93[which(Cylinders==<span class="number">4</span>&amp;Manufacturer==<span class="string">&#x27;Hyundai&#x27;</span>),c(<span class="string">&#x27;Model&#x27;</span>,<span class="string">&#x27;Min.Price&#x27;</span>,<span class="string">&#x27;Max.Price&#x27;</span>)]</span><br><span class="line">     Model Min.Price Max.Price</span><br><span class="line"><span class="number">44</span>   Excel       <span class="number">6.8</span>       <span class="number">9.2</span></span><br><span class="line"><span class="number">45</span> Elantra       <span class="number">9.0</span>      <span class="number">11.0</span></span><br><span class="line"><span class="number">46</span>  Scoupe       <span class="number">9.1</span>      <span class="number">11.0</span></span><br><span class="line"><span class="number">47</span>  Sonata      <span class="number">12.4</span>      <span class="number">15.3</span></span><br><span class="line">&gt; Cars93[Cylinders==<span class="number">4</span>&amp;Manufacturer==<span class="string">&#x27;Hyundai&#x27;</span>,c(<span class="string">&#x27;Model&#x27;</span>,<span class="string">&#x27;Min.Price&#x27;</span>,<span class="string">&#x27;Max.Price&#x27;</span>)]</span><br><span class="line">     Model Min.Price Max.Price</span><br><span class="line"><span class="number">44</span>   Excel       <span class="number">6.8</span>       <span class="number">9.2</span></span><br><span class="line"><span class="number">45</span> Elantra       <span class="number">9.0</span>      <span class="number">11.0</span></span><br><span class="line"><span class="number">46</span>  Scoupe       <span class="number">9.1</span>      <span class="number">11.0</span></span><br><span class="line"><span class="number">47</span>  Sonata      <span class="number">12.4</span>      <span class="number">15.3</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>subset(select=, subset=)</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">subset(name,select=c(name1,name2,<span class="keyword">...</span>),subset=(조건식))</span><br><span class="line"><span class="comment"># parameter의 select or subset은 하나만 생략 가능</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt; subset(Cars93,select=Model,subset=(MPG.city&gt;<span class="number">30</span>))</span><br><span class="line">     Model</span><br><span class="line"><span class="number">31</span> Festiva</span><br><span class="line"><span class="number">39</span>   Metro</span><br><span class="line"><span class="number">42</span>   Civic</span><br><span class="line"><span class="number">73</span>  LeMans</span><br><span class="line"><span class="number">80</span>   Justy</span><br><span class="line"><span class="number">83</span>   Swift</span><br><span class="line"><span class="number">84</span>  Tercel</span><br><span class="line">&gt; subset(Cars93,select=Model,MPG.city&gt;<span class="number">30</span>)</span><br><span class="line">     Model</span><br><span class="line"><span class="number">31</span> Festiva</span><br><span class="line"><span class="number">39</span>   Metro</span><br><span class="line"><span class="number">42</span>   Civic</span><br><span class="line"><span class="number">73</span>  LeMans</span><br><span class="line"><span class="number">80</span>   Justy</span><br><span class="line"><span class="number">83</span>   Swift</span><br><span class="line"><span class="number">84</span>  Tercel</span><br><span class="line">&gt; subset(Cars93,Model,subset=MPG.city&gt;<span class="number">30</span>)</span><br><span class="line">     Model</span><br><span class="line"><span class="number">31</span> Festiva</span><br><span class="line"><span class="number">39</span>   Metro</span><br><span class="line"><span class="number">42</span>   Civic</span><br><span class="line"><span class="number">73</span>  LeMans</span><br><span class="line"><span class="number">80</span>   Justy</span><br><span class="line"><span class="number">83</span>   Swift</span><br><span class="line"><span class="number">84</span>  Tercel</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="이산형-분포"><a href="#이산형-분포" class="headerlink" title="이산형 분포"></a>이산형 분포</h1><table>
+<thead>
+<tr>
+<th align="center">분포</th>
+<th align="center">?의 횟수</th>
+<th align="center">베르누이 시행</th>
+<th align="center">기호(X~)</th>
+<th align="center">X</th>
+<th align="center">p(X=x)</th>
+<th align="center">R</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">베르누이</td>
+<td align="center">성공</td>
+<td align="center">O</td>
+<td align="center">Be(p)</td>
+<td align="center">1번의 베르누이 시행 성공횟수</td>
+<td align="center">$\displaystyle{p^x\times(1-p)^{1-x}}$</td>
+<td align="center"><code>binom()</code></td>
+</tr>
+<tr>
+<td align="center">이항</td>
+<td align="center">성공</td>
+<td align="center">O</td>
+<td align="center">B(n,p)</td>
+<td align="center">n번의 베르누이 시행 성공횟수</td>
+<td align="center">${}_n \mathrm{C}_x\times p^x\times(1-p)^{n-x}$</td>
+<td align="center"><code>binom()</code></td>
+</tr>
+<tr>
+<td align="center">기하</td>
+<td align="center">시행</td>
+<td align="center">O</td>
+<td align="center">G(p)</td>
+<td align="center">처음 성공까지의 시행횟수</td>
+<td align="center">$\displaystyle{q^{x-1}\times p}$</td>
+<td align="center"><code>geom()</code></td>
+</tr>
+<tr>
+<td align="center">음이항</td>
+<td align="center">시행</td>
+<td align="center">O</td>
+<td align="center">NB(k,p)</td>
+<td align="center">k번 성공까지의 시행횟수</td>
+<td align="center">$(x-1)C(k-1) \times p^{k-1} \times (1-p)^{x-k}\times p$</td>
+<td align="center"><code>nbinom()</code></td>
+</tr>
+<tr>
+<td align="center">포아송</td>
+<td align="center">성공</td>
+<td align="center">O</td>
+<td align="center">$\displaystyle{P_0(\lambda)}$</td>
+<td align="center">단위(시간, 면적, …) 성공횟수</td>
+<td align="center">$\displaystyle{e^{-\lambda} \times \lambda^x\over x!}$</td>
+<td align="center"><code>pois()</code></td>
+</tr>
+<tr>
+<td align="center">초기하</td>
+<td align="center">성공</td>
+<td align="center">X</td>
+<td align="center">HG(N,n,D)</td>
+<td align="center">성공횟수</td>
+<td align="center">${}_DC_x \times (N-D)C(n-x) \over {}_N C_n$</td>
+<td align="center"><code>hyper()</code></td>
+</tr>
+</tbody></table>
+<h2 id="이항분포"><a href="#이항분포" class="headerlink" title="이항분포"></a>이항분포</h2><ul>
+<li>E(X)=np - 평균(성공횟수)</li>
+<li>V(X)=npq</li>
+</ul>
+<h2 id="기하분포"><a href="#기하분포" class="headerlink" title="기하분포"></a>기하분포</h2><ul>
+<li>무한하게 시행시 무조건 성공(<code>p/(1-q)=1</code> by 무한등비급수)</li>
+<li>E(X)=1/p - 평균(시행횟수)</li>
+<li>V(X)=q/(p^2)</li>
+</ul>
+<h2 id="음이항분포"><a href="#음이항분포" class="headerlink" title="음이항분포"></a>음이항분포</h2><ul>
+<li>이항분포의 반대(<code>시행횟수</code> &lt;-&gt; <code>성공횟수</code>)</li>
+<li>E(X)=k/p - 평균(시행횟수)</li>
+<li>V(X)=k*q/(p^2)</li>
+</ul>
+<h2 id="포아송분포"><a href="#포아송분포" class="headerlink" title="포아송분포"></a>포아송분포</h2><ul>
+<li><code>n-&gt;inf</code>, <code>p-&gt;0</code> 근사</li>
+<li><code>ex</code>) p=0.001, n=3000<ul>
+<li>p(X=5)=3000C5((0.001)^5)*(0.999)^2995</li>
+<li>p(X=x)=(e^(-lambda)*lambda^x)/(x!)<ul>
+<li>lambda=np</li>
+<li>p=(lambda)/n</li>
+<li>이항분포에 근사하여 대입 후 증명</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>lambda</code>- 평균성공횟수</li>
+<li>E(X)=lambda</li>
+</ul>
+<h2 id="초기하분포"><a href="#초기하분포" class="headerlink" title="초기하분포"></a>초기하분포</h2><ul>
+<li>독립시행 X - 베르누이 시행을 따르지 않음</li>
+<li>단순 확률 구하기와 Similar</li>
+<li>변수<ul>
+<li>N - 전체집단 개수</li>
+<li>n - 추출대상 개수</li>
+<li>D - 성공집단 개수</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="표"><a href="#표" class="headerlink" title="표"></a>표</h2><table>
+<thead>
+<tr>
+<th align="center">mean</th>
+<th align="center">R</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">이항분포</td>
+<td align="center">binom()</td>
+</tr>
+<tr>
+<td align="center">기하분포</td>
+<td align="center">geom()</td>
+</tr>
+<tr>
+<td align="center">음이항분포</td>
+<td align="center">nbinom()</td>
+</tr>
+<tr>
+<td align="center">포아송분포</td>
+<td align="center">pois()</td>
+</tr>
+<tr>
+<td align="center">초기하분포</td>
+<td align="center">hyper()</td>
+</tr>
+<tr>
+<td align="center">표본추출 - 이항</td>
+<td align="center"><code>rbinom(표본수,평균,분산)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X=n)</code> - 이항</td>
+<td align="center"><code>dbinom(성공횟수,시행횟수,성공확률)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X&lt;=n)</code> - 이항</td>
+<td align="center"><code>pbinom(성공횟수,시행횟수,성공확률)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X=n)</code> - 기하</td>
+<td align="center"><code>dgeom(실패횟수,성공확률)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X=n)</code> - 음이항</td>
+<td align="center"><code>dnbinom(실패횟수,성공횟수,성공확률)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X=n)</code> - 포아송</td>
+<td align="center"><code>dpois(성공횟수,lambda)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X&lt;=n)</code>- 포아송</td>
+<td align="center"><code>ppois(성공횟수,lambda)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X=n)</code>- 초기하</td>
+<td align="center"><code>dhyper(성공횟수(x),성공표본수(D),다른표본수(N-D),추출개수(n))</code></td>
+</tr>
+<tr>
+<td align="center">t 분포</td>
+<td align="center">t()</td>
+</tr>
+<tr>
+<td align="center">F 분포</td>
+<td align="center">f()</td>
+</tr>
+<tr>
+<td align="center">정규분포</td>
+<td align="center">norm()</td>
+</tr>
+<tr>
+<td align="center">정규분포 함숫값</td>
+<td align="center"><code>dnorm()</code></td>
+</tr>
+<tr>
+<td align="center">정규분포 누적</td>
+<td align="center"><code>pnorm()</code></td>
+</tr>
+<tr>
+<td align="center">정규분포 x,z값(분위수)</td>
+<td align="center"><code>qnorm(누적확률값)</code></td>
+</tr>
+<tr>
+<td align="center">지수분포</td>
+<td align="center"><code>exp()</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>r</code> - 추출</li>
+<li><code>d</code> - 확률</li>
+<li><code>p</code> - 누적 확률</li>
+<li><code>q</code> - 분위수</li>
+</ul>
+<h2 id="R-source"><a href="#R-source" class="headerlink" title="R source"></a>R source</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">### 이산형 ###</span></span><br><span class="line">&gt; dbinom(<span class="number">1</span>,<span class="number">3</span>,<span class="number">0.5</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.375</span></span><br><span class="line">&gt; pbinom(<span class="number">2</span>,<span class="number">3</span>,<span class="number">0.5</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.875</span></span><br><span class="line">&gt; dbinom(<span class="number">0</span>,<span class="number">3</span>,<span class="number">0.5</span>)+dbinom(<span class="number">1</span>,<span class="number">3</span>,<span class="number">0.5</span>)+dbinom(<span class="number">2</span>,<span class="number">3</span>,<span class="number">0.5</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.875</span></span><br><span class="line">&gt; dgeom(<span class="number">2</span>,<span class="number">0.4</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.144</span></span><br><span class="line">&gt; dnbinom(<span class="number">1</span>,<span class="number">2</span>,<span class="number">0.4</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.192</span></span><br><span class="line">&gt; dpois(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.2240418</span></span><br><span class="line">&gt; dpois(<span class="number">0</span>,<span class="number">3</span>)+dpois(<span class="number">1</span>,<span class="number">3</span>)+dpois(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.4231901</span></span><br><span class="line">&gt; ppois(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.4231901</span></span><br><span class="line">&gt; dhyper(<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment"># B=3, W=2 3개 추출, B=2, W=1</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.6</span></span><br><span class="line">&gt; <span class="comment">### 연속형 ###</span></span><br><span class="line">&gt; x=seq(-<span class="number">3</span>,<span class="number">3</span>,length=<span class="number">100</span>)</span><br><span class="line">&gt; x</span><br><span class="line">  [<span class="number">1</span>] -<span class="number">3.00000000</span> -<span class="number">2.93939394</span> -<span class="number">2.87878788</span> -<span class="number">2.81818182</span> -<span class="number">2.75757576</span> -<span class="number">2.69696970</span> -<span class="number">2.63636364</span> -<span class="number">2.57575758</span></span><br><span class="line"><span class="keyword">...</span></span><br><span class="line"> [<span class="number">97</span>]  <span class="number">2.81818182</span>  <span class="number">2.87878788</span>  <span class="number">2.93939394</span>  <span class="number">3.00000000</span></span><br><span class="line">&gt; plot(x,dnorm(x)) <span class="comment"># 표준정규분포 확률밀도함수</span></span><br><span class="line">&gt; plot(x,dnorm(x),type=<span class="string">&#x27;l&#x27;</span>) <span class="comment"># type = line</span></span><br><span class="line">&gt; x=rnorm(<span class="number">100000000</span>)<span class="comment"># 랜덤생성</span></span><br><span class="line">&gt; mean(x);sd(x)</span><br><span class="line">[<span class="number">1</span>] -<span class="number">7.529876e-05</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1.000055</span></span><br><span class="line">&gt; y=rnorm(<span class="number">100000000</span>,<span class="number">2000</span>,<span class="number">10</span>)</span><br><span class="line">&gt; mean(y);sd(y)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2000</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">10.00069</span></span><br><span class="line">&gt; hist(x)</span><br><span class="line">&gt; pnorm(<span class="number">0</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.5</span></span><br><span class="line">&gt; pnorm(<span class="number">0</span>)-pnorm(-<span class="number">1.96</span>) <span class="comment"># p(-1.96&lt;X&lt;0)</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.4750021</span></span><br><span class="line">&gt; pnorm(<span class="number">110</span>,<span class="number">100</span>,<span class="number">5</span>)-pnorm(<span class="number">90</span>,<span class="number">100</span>,<span class="number">5</span>) <span class="comment"># p(90&lt;X&lt;110)</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.9544997</span></span><br><span class="line">&gt; qnorm(<span class="number">0.975</span>) <span class="comment">############</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1.959964</span></span><br><span class="line">&gt; qnorm(<span class="number">0.5</span>,<span class="number">175</span>,<span class="number">10</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">175</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="범주자료"><a href="#범주자료" class="headerlink" title="범주자료"></a>범주자료</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">&gt; summary(Cars93$AirBags)</span><br><span class="line">Driver &amp; Passenger        Driver only               None </span><br><span class="line">                <span class="number">16</span>                 <span class="number">43</span>                 <span class="number">34</span> </span><br><span class="line">&gt; table(Origin,AirBags)</span><br><span class="line">         AirBags</span><br><span class="line">Origin    Driver &amp; Passenger Driver only None</span><br><span class="line">  USA                      <span class="number">9</span>          <span class="number">23</span>   <span class="number">16</span></span><br><span class="line">  non-USA                  <span class="number">7</span>          <span class="number">20</span>   <span class="number">18</span></span><br><span class="line">&gt; t2=with(Cars93,table(Origin,Type));t2</span><br><span class="line">         Type</span><br><span class="line">Origin    Compact Large Midsize Small Sporty Van</span><br><span class="line">  USA           <span class="number">7</span>    <span class="number">11</span>      <span class="number">10</span>     <span class="number">7</span>      <span class="number">8</span>   <span class="number">5</span></span><br><span class="line">  non-USA       <span class="number">9</span>     <span class="number">0</span>      <span class="number">12</span>    <span class="number">14</span>      <span class="number">6</span>   <span class="number">4</span></span><br><span class="line">&gt; t3=xtabs(~Origin+Type,Cars93);t3</span><br><span class="line">         Type</span><br><span class="line">Origin    Compact Large Midsize Small Sporty Van</span><br><span class="line">  USA           <span class="number">7</span>    <span class="number">11</span>      <span class="number">10</span>     <span class="number">7</span>      <span class="number">8</span>   <span class="number">5</span></span><br><span class="line">  non-USA       <span class="number">9</span>     <span class="number">0</span>      <span class="number">12</span>    <span class="number">14</span>      <span class="number">6</span>   <span class="number">4</span></span><br><span class="line">&gt; prop.table(t2)</span><br><span class="line">         Type</span><br><span class="line">Origin    Compact  Large Midsize  Small Sporty    Van</span><br><span class="line">  USA      <span class="number">0.0753</span> <span class="number">0.1183</span>  <span class="number">0.1075</span> <span class="number">0.0753</span> <span class="number">0.0860</span> <span class="number">0.0538</span></span><br><span class="line">  non-USA  <span class="number">0.0968</span> <span class="number">0.0000</span>  <span class="number">0.1290</span> <span class="number">0.1505</span> <span class="number">0.0645</span> <span class="number">0.0430</span></span><br><span class="line">&gt; margin.table(t3,<span class="number">1</span>) <span class="comment">#행</span></span><br><span class="line">Origin</span><br><span class="line">    USA non-USA </span><br><span class="line">     <span class="number">48</span>      <span class="number">45</span> </span><br><span class="line">&gt; margin.table(t3,<span class="number">2</span>) <span class="comment">#열</span></span><br><span class="line">Type</span><br><span class="line">Compact   Large Midsize   Small  Sporty     Van </span><br><span class="line">     <span class="number">16</span>      <span class="number">11</span>      <span class="number">22</span>      <span class="number">21</span>      <span class="number">14</span>       <span class="number">9</span> </span><br><span class="line">&gt; prop.table(t3)</span><br><span class="line">         Type</span><br><span class="line">Origin    Compact  Large Midsize  Small Sporty    Van</span><br><span class="line">  USA      <span class="number">0.0753</span> <span class="number">0.1183</span>  <span class="number">0.1075</span> <span class="number">0.0753</span> <span class="number">0.0860</span> <span class="number">0.0538</span></span><br><span class="line">  non-USA  <span class="number">0.0968</span> <span class="number">0.0000</span>  <span class="number">0.1290</span> <span class="number">0.1505</span> <span class="number">0.0645</span> <span class="number">0.0430</span></span><br><span class="line">&gt; addmargins(t3)</span><br><span class="line">         Type</span><br><span class="line">Origin    Compact Large Midsize Small Sporty Van Sum</span><br><span class="line">  USA           <span class="number">7</span>    <span class="number">11</span>      <span class="number">10</span>     <span class="number">7</span>      <span class="number">8</span>   <span class="number">5</span>  <span class="number">48</span></span><br><span class="line">  non-USA       <span class="number">9</span>     <span class="number">0</span>      <span class="number">12</span>    <span class="number">14</span>      <span class="number">6</span>   <span class="number">4</span>  <span class="number">45</span></span><br><span class="line">  Sum          <span class="number">16</span>    <span class="number">11</span>      <span class="number">22</span>    <span class="number">21</span>     <span class="number">14</span>   <span class="number">9</span>  <span class="number">93</span></span><br><span class="line">&gt; addmargins(prop.table(t3))</span><br><span class="line">         Type</span><br><span class="line">Origin    Compact  Large Midsize  Small Sporty    Van    Sum</span><br><span class="line">  USA      <span class="number">0.0753</span> <span class="number">0.1183</span>  <span class="number">0.1075</span> <span class="number">0.0753</span> <span class="number">0.0860</span> <span class="number">0.0538</span> <span class="number">0.5161</span></span><br><span class="line">  non-USA  <span class="number">0.0968</span> <span class="number">0.0000</span>  <span class="number">0.1290</span> <span class="number">0.1505</span> <span class="number">0.0645</span> <span class="number">0.0430</span> <span class="number">0.4839</span></span><br><span class="line">  Sum      <span class="number">0.1720</span> <span class="number">0.1183</span>  <span class="number">0.2366</span> <span class="number">0.2258</span> <span class="number">0.1505</span> <span class="number">0.0968</span> <span class="number">1.0000</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>빈도</li>
+</ul>
+<hr>
+<h1 id="수치자료"><a href="#수치자료" class="headerlink" title="수치자료"></a>수치자료</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; summary(Length)</span><br><span class="line">   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span><br><span class="line">  <span class="number">141.0</span>   <span class="number">174.0</span>   <span class="number">183.0</span>   <span class="number">183.2</span>   <span class="number">192.0</span>   <span class="number">219.0</span> </span><br><span class="line">&gt; sd(Length)</span><br><span class="line">[<span class="number">1</span>] <span class="number">14.60238</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>평균</li>
+<li>표준편차</li>
+<li>중위수</li>
+</ul>
+<hr>
+<h1 id="수치자료-범주화"><a href="#수치자료-범주화" class="headerlink" title="수치자료 범주화"></a>수치자료 범주화</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&gt; grade=ifelse(airquality$Temp&gt;=<span class="number">60</span>,<span class="string">&#x27;상&#x27;</span>,<span class="string">&#x27;하&#x27;</span>);grade</span><br><span class="line">  [<span class="number">1</span>] <span class="string">&quot;상&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;하&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;하&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;하&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;상&quot;</span> <span class="string">&quot;하&quot;</span> <span class="string">&quot;상&quot;</span></span><br><span class="line"><span class="keyword">...</span></span><br><span class="line">[<span class="number">153</span>] <span class="string">&quot;상&quot;</span></span><br><span class="line">&gt; air0=data.frame(airquality,grade);air0</span><br><span class="line">    Ozone Solar.R Wind Temp Month Day grade</span><br><span class="line"><span class="number">1</span>      <span class="number">41</span>     <span class="number">190</span>  <span class="number">7.4</span>   <span class="number">67</span>     <span class="number">5</span>   <span class="number">1</span>    상</span><br><span class="line"><span class="number">2</span>      <span class="number">36</span>     <span class="number">118</span>  <span class="number">8.0</span>   <span class="number">72</span>     <span class="number">5</span>   <span class="number">2</span>    상</span><br><span class="line"><span class="number">3</span>      <span class="number">12</span>     <span class="number">149</span> <span class="number">12.6</span>   <span class="number">74</span>     <span class="number">5</span>   <span class="number">3</span>    상</span><br><span class="line"><span class="number">4</span>      <span class="number">18</span>     <span class="number">313</span> <span class="number">11.5</span>   <span class="number">62</span>     <span class="number">5</span>   <span class="number">4</span>    상</span><br><span class="line"><span class="number">5</span>      <span class="literal">NA</span>      <span class="literal">NA</span> <span class="number">14.3</span>   <span class="number">56</span>     <span class="number">5</span>   <span class="number">5</span>    하</span><br><span class="line"><span class="number">6</span>      <span class="number">28</span>      <span class="literal">NA</span> <span class="number">14.9</span>   <span class="number">66</span>     <span class="number">5</span>   <span class="number">6</span>    상</span><br><span class="line"><span class="number">7</span>      <span class="number">23</span>     <span class="number">299</span>  <span class="number">8.6</span>   <span class="number">65</span>     <span class="number">5</span>   <span class="number">7</span>    상</span><br><span class="line"><span class="number">8</span>      <span class="number">19</span>      <span class="number">99</span> <span class="number">13.8</span>   <span class="number">59</span>     <span class="number">5</span>   <span class="number">8</span>    하</span><br><span class="line"><span class="number">9</span>       <span class="number">8</span>      <span class="number">19</span> <span class="number">20.1</span>   <span class="number">61</span>     <span class="number">5</span>   <span class="number">9</span>    상</span><br><span class="line"><span class="number">10</span>     <span class="literal">NA</span>     <span class="number">194</span>  <span class="number">8.6</span>   <span class="number">69</span>     <span class="number">5</span>  <span class="number">10</span>    상</span><br><span class="line"><span class="keyword">...</span></span><br><span class="line">&gt; airquality$grade=ifelse(airquality$Temp&gt;=<span class="number">60</span>,<span class="string">&#x27;상&#x27;</span>,<span class="string">&#x27;하&#x27;</span>);airquality</span><br><span class="line">    Ozone Solar.R Wind Temp Month Day grade</span><br><span class="line"><span class="number">1</span>      <span class="number">41</span>     <span class="number">190</span>  <span class="number">7.4</span>   <span class="number">67</span>     <span class="number">5</span>   <span class="number">1</span>    상</span><br><span class="line"><span class="number">2</span>      <span class="number">36</span>     <span class="number">118</span>  <span class="number">8.0</span>   <span class="number">72</span>     <span class="number">5</span>   <span class="number">2</span>    상</span><br><span class="line"><span class="number">3</span>      <span class="number">12</span>     <span class="number">149</span> <span class="number">12.6</span>   <span class="number">74</span>     <span class="number">5</span>   <span class="number">3</span>    상</span><br><span class="line"><span class="number">4</span>      <span class="number">18</span>     <span class="number">313</span> <span class="number">11.5</span>   <span class="number">62</span>     <span class="number">5</span>   <span class="number">4</span>    상</span><br><span class="line"><span class="number">5</span>      <span class="literal">NA</span>      <span class="literal">NA</span> <span class="number">14.3</span>   <span class="number">56</span>     <span class="number">5</span>   <span class="number">5</span>    하</span><br><span class="line"><span class="number">6</span>      <span class="number">28</span>      <span class="literal">NA</span> <span class="number">14.9</span>   <span class="number">66</span>     <span class="number">5</span>   <span class="number">6</span>    상</span><br><span class="line"><span class="number">7</span>      <span class="number">23</span>     <span class="number">299</span>  <span class="number">8.6</span>   <span class="number">65</span>     <span class="number">5</span>   <span class="number">7</span>    상</span><br><span class="line"><span class="number">8</span>      <span class="number">19</span>      <span class="number">99</span> <span class="number">13.8</span>   <span class="number">59</span>     <span class="number">5</span>   <span class="number">8</span>    하</span><br><span class="line"><span class="number">9</span>       <span class="number">8</span>      <span class="number">19</span> <span class="number">20.1</span>   <span class="number">61</span>     <span class="number">5</span>   <span class="number">9</span>    상</span><br><span class="line"><span class="number">10</span>     <span class="literal">NA</span>     <span class="number">194</span>  <span class="number">8.6</span>   <span class="number">69</span>     <span class="number">5</span>  <span class="number">10</span>    상</span><br><span class="line"><span class="keyword">...</span></span><br><span class="line">&gt; x = c(<span class="number">80</span>, <span class="number">88</span>, <span class="number">90</span>, <span class="number">93</span>, <span class="number">95</span>, <span class="number">94</span>, <span class="number">99</span>, <span class="number">78</span>, <span class="number">65</span>)</span><br><span class="line">&gt; cat.x = (x &gt;= <span class="number">100</span>) + (x &lt; <span class="number">90</span>) + (x &lt; <span class="number">80</span>)</span><br><span class="line">&gt; cat.x</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">1</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">0</span> <span class="number">2</span> <span class="number">2</span></span><br><span class="line">&gt; cat.x1 = factor(cat.x, labels = c(<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>))</span><br><span class="line">&gt; cat.x1 <span class="comment">#0~79/80~89/90~</span></span><br><span class="line">[<span class="number">1</span>] B B A A A A A C C</span><br><span class="line">Levels: A B C</span><br><span class="line">&gt; cat.x2 = (x &lt;= <span class="number">100</span>) + (x &lt; <span class="number">90</span>) + (x &lt; <span class="number">80</span>)</span><br><span class="line">&gt; cat.x2</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span> <span class="number">2</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">1</span> <span class="number">3</span> <span class="number">3</span></span><br><span class="line">&gt; cat.x3 = factor(cat.x2, labels = c(<span class="string">&quot;A&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;C&quot;</span>))</span><br><span class="line">&gt; cat.x3</span><br><span class="line">[<span class="number">1</span>] B B A A A A A C C</span><br><span class="line">Levels: A B C</span><br><span class="line">&gt; cat.x4 = cut(x, breaks = c(<span class="number">0</span>, <span class="number">80</span>, <span class="number">90</span>, <span class="number">100</span>), include.lowest = <span class="literal">T</span>, right = <span class="literal">F</span>, labels = c(<span class="string">&quot;C&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;A&quot;</span>))</span><br><span class="line">&gt; cat.x4</span><br><span class="line">[<span class="number">1</span>] B B A A A A A C C</span><br><span class="line">Levels: C B A</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="교차분석"><a href="#교차분석" class="headerlink" title="교차분석"></a>교차분석</h1><blockquote>
+<p>범주자료 2개 - 두 범주형 자료간에 상호 관련성</p>
+</blockquote>
+<h2 id="검정통계량"><a href="#검정통계량" class="headerlink" title="검정통계량"></a>검정통계량</h2><blockquote>
+<p>$$\chi^2=\sum_{i}\sum_{j}\frac{(O_{ij}-E_{ij})^2}{E_{ij}} \sim \chi^2_{(a-1)(b-1)}$$</p>
+</blockquote>
+<ul>
+<li>a, b - 범주수</li>
+</ul>
+<h2 id="가설"><a href="#가설" class="headerlink" title="가설"></a>가설</h2><blockquote>
+<p>$$H_0 : 두\ 변수\ 독립$$</p>
+</blockquote>
+<h2 id="기대빈도"><a href="#기대빈도" class="headerlink" title="기대빈도"></a>기대빈도</h2><blockquote>
+<p>독립이게끔 하는 빈도, 차이가 없게끔 하는 빈도 - $E_{ij}$</p>
+</blockquote>
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h2><blockquote>
+<p>$$H_0 : Origin과\ AirBags는\ 독립이다.$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br></pre></td><td class="code"><pre><span class="line">&gt; table(Origin,AirBags)</span><br><span class="line">         AirBags</span><br><span class="line">Origin    Driver &amp; Passenger Driver only None</span><br><span class="line">  USA                      <span class="number">9</span>          <span class="number">23</span>   <span class="number">16</span></span><br><span class="line">  non-USA                  <span class="number">7</span>          <span class="number">20</span>   <span class="number">18</span></span><br><span class="line">&gt; t=xtabs(~Origin+AirBags,Cars93);t</span><br><span class="line">         AirBags</span><br><span class="line">Origin    Driver &amp; Passenger Driver only None</span><br><span class="line">  USA                      <span class="number">9</span>          <span class="number">23</span>   <span class="number">16</span></span><br><span class="line">  non-USA                  <span class="number">7</span>          <span class="number">20</span>   <span class="number">18</span></span><br><span class="line">&gt; prop.table(t)</span><br><span class="line">         AirBags</span><br><span class="line">Origin    Driver &amp; Passenger Driver only       None</span><br><span class="line">  USA             <span class="number">0.09677419</span>  <span class="number">0.24731183</span> <span class="number">0.17204301</span></span><br><span class="line">  non-USA         <span class="number">0.07526882</span>  <span class="number">0.21505376</span> <span class="number">0.19354839</span></span><br><span class="line">&gt; addmargins(t)</span><br><span class="line">         AirBags</span><br><span class="line">Origin    Driver &amp; Passenger Driver only None Sum</span><br><span class="line">  USA                      <span class="number">9</span>          <span class="number">23</span>   <span class="number">16</span>  <span class="number">48</span></span><br><span class="line">  non-USA                  <span class="number">7</span>          <span class="number">20</span>   <span class="number">18</span>  <span class="number">45</span></span><br><span class="line">  Sum                     <span class="number">16</span>          <span class="number">43</span>   <span class="number">34</span>  <span class="number">93</span></span><br><span class="line">&gt; addmargins(prop.table(t))</span><br><span class="line">         AirBags</span><br><span class="line">Origin    Driver &amp; Passenger Driver only       None        Sum</span><br><span class="line">  USA             <span class="number">0.09677419</span>  <span class="number">0.24731183</span> <span class="number">0.17204301</span> <span class="number">0.51612903</span></span><br><span class="line">  non-USA         <span class="number">0.07526882</span>  <span class="number">0.21505376</span> <span class="number">0.19354839</span> <span class="number">0.48387097</span></span><br><span class="line">  Sum             <span class="number">0.17204301</span>  <span class="number">0.46236559</span> <span class="number">0.36559140</span> <span class="number">1.00000000</span></span><br><span class="line">&gt; <span class="keyword">library</span>(gmodels)</span><br><span class="line">&gt; CrossTable(Origin,AirBags,expected=<span class="literal">T</span>,chisq=<span class="literal">T</span>)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">   Cell Contents</span><br><span class="line">|-------------------------|</span><br><span class="line">|                       N |</span><br><span class="line">|              Expected N |</span><br><span class="line">| Chi-square contribution |</span><br><span class="line">|           N / Row Total |</span><br><span class="line">|           N / Col Total |</span><br><span class="line">|         N / Table Total |</span><br><span class="line">|-------------------------|</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">Total Observations <span class="keyword">in</span> Table:  <span class="number">93</span> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">             | AirBags </span><br><span class="line">      Origin | Driver &amp; Passenger |        Driver only |               None |          Row Total | </span><br><span class="line">-------------|--------------------|--------------------|--------------------|--------------------|</span><br><span class="line">         USA |                  <span class="number">9</span> |                 <span class="number">23</span> |                 <span class="number">16</span> |                 <span class="number">48</span> | </span><br><span class="line">             |              <span class="number">8.258</span> |             <span class="number">22.194</span> |             <span class="number">17.548</span> |                    | </span><br><span class="line">             |              <span class="number">0.067</span> |              <span class="number">0.029</span> |              <span class="number">0.137</span> |                    | </span><br><span class="line">             |              <span class="number">0.188</span> |              <span class="number">0.479</span> |              <span class="number">0.333</span> |              <span class="number">0.516</span> | </span><br><span class="line">             |              <span class="number">0.562</span> |              <span class="number">0.535</span> |              <span class="number">0.471</span> |                    | </span><br><span class="line">             |              <span class="number">0.097</span> |              <span class="number">0.247</span> |              <span class="number">0.172</span> |                    | </span><br><span class="line">-------------|--------------------|--------------------|--------------------|--------------------|</span><br><span class="line">     non-USA |                  <span class="number">7</span> |                 <span class="number">20</span> |                 <span class="number">18</span> |                 <span class="number">45</span> | </span><br><span class="line">             |              <span class="number">7.742</span> |             <span class="number">20.806</span> |             <span class="number">16.452</span> |                    | </span><br><span class="line">             |              <span class="number">0.071</span> |              <span class="number">0.031</span> |              <span class="number">0.146</span> |                    | </span><br><span class="line">             |              <span class="number">0.156</span> |              <span class="number">0.444</span> |              <span class="number">0.400</span> |              <span class="number">0.484</span> | </span><br><span class="line">             |              <span class="number">0.438</span> |              <span class="number">0.465</span> |              <span class="number">0.529</span> |                    | </span><br><span class="line">             |              <span class="number">0.075</span> |              <span class="number">0.215</span> |              <span class="number">0.194</span> |                    | </span><br><span class="line">-------------|--------------------|--------------------|--------------------|--------------------|</span><br><span class="line">Column Total |                 <span class="number">16</span> |                 <span class="number">43</span> |                 <span class="number">34</span> |                 <span class="number">93</span> | </span><br><span class="line">             |              <span class="number">0.172</span> |              <span class="number">0.462</span> |              <span class="number">0.366</span> |                    | </span><br><span class="line">-------------|--------------------|--------------------|--------------------|--------------------|</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">Statistics <span class="keyword">for</span> All Table Factors</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Pearson<span class="string">&#x27;s Chi-squared test </span></span><br><span class="line"><span class="string">------------------------------------------------------------</span></span><br><span class="line"><span class="string">Chi^2 =  0.4806754     d.f. =  2     p =  0.7863623 </span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$p=0.786 \geq 0.05$이므로 $H_0$ 채택 - 독립</li>
+</ul>
+<h2 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h2><blockquote>
+<p>$$H_0 : Origin과\ Type은\ 독립이다.$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">&gt; CrossTable(Origin,Type,expected=<span class="literal">T</span>,chisq=<span class="literal">T</span>)</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">   Cell Contents</span><br><span class="line">|-------------------------|</span><br><span class="line">|                       N |</span><br><span class="line">|              Expected N |</span><br><span class="line">| Chi-square contribution |</span><br><span class="line">|           N / Row Total |</span><br><span class="line">|           N / Col Total |</span><br><span class="line">|         N / Table Total |</span><br><span class="line">|-------------------------|</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">Total Observations <span class="keyword">in</span> Table:  <span class="number">93</span> </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">             | Type </span><br><span class="line">      Origin |   Compact |     Large |   Midsize |     Small |    Sporty |       Van | Row Total | </span><br><span class="line">-------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|</span><br><span class="line">         USA |         <span class="number">7</span> |        <span class="number">11</span> |        <span class="number">10</span> |         <span class="number">7</span> |         <span class="number">8</span> |         <span class="number">5</span> |        <span class="number">48</span> | </span><br><span class="line">             |     <span class="number">8.258</span> |     <span class="number">5.677</span> |    <span class="number">11.355</span> |    <span class="number">10.839</span> |     <span class="number">7.226</span> |     <span class="number">4.645</span> |           | </span><br><span class="line">             |     <span class="number">0.192</span> |     <span class="number">4.990</span> |     <span class="number">0.162</span> |     <span class="number">1.360</span> |     <span class="number">0.083</span> |     <span class="number">0.027</span> |           | </span><br><span class="line">             |     <span class="number">0.146</span> |     <span class="number">0.229</span> |     <span class="number">0.208</span> |     <span class="number">0.146</span> |     <span class="number">0.167</span> |     <span class="number">0.104</span> |     <span class="number">0.516</span> | </span><br><span class="line">             |     <span class="number">0.438</span> |     <span class="number">1.000</span> |     <span class="number">0.455</span> |     <span class="number">0.333</span> |     <span class="number">0.571</span> |     <span class="number">0.556</span> |           | </span><br><span class="line">             |     <span class="number">0.075</span> |     <span class="number">0.118</span> |     <span class="number">0.108</span> |     <span class="number">0.075</span> |     <span class="number">0.086</span> |     <span class="number">0.054</span> |           | </span><br><span class="line">-------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|</span><br><span class="line">     non-USA |         <span class="number">9</span> |         <span class="number">0</span> |        <span class="number">12</span> |        <span class="number">14</span> |         <span class="number">6</span> |         <span class="number">4</span> |        <span class="number">45</span> | </span><br><span class="line">             |     <span class="number">7.742</span> |     <span class="number">5.323</span> |    <span class="number">10.645</span> |    <span class="number">10.161</span> |     <span class="number">6.774</span> |     <span class="number">4.355</span> |           | </span><br><span class="line">             |     <span class="number">0.204</span> |     <span class="number">5.323</span> |     <span class="number">0.172</span> |     <span class="number">1.450</span> |     <span class="number">0.088</span> |     <span class="number">0.029</span> |           | </span><br><span class="line">             |     <span class="number">0.200</span> |     <span class="number">0.000</span> |     <span class="number">0.267</span> |     <span class="number">0.311</span> |     <span class="number">0.133</span> |     <span class="number">0.089</span> |     <span class="number">0.484</span> | </span><br><span class="line">             |     <span class="number">0.562</span> |     <span class="number">0.000</span> |     <span class="number">0.545</span> |     <span class="number">0.667</span> |     <span class="number">0.429</span> |     <span class="number">0.444</span> |           | </span><br><span class="line">             |     <span class="number">0.097</span> |     <span class="number">0.000</span> |     <span class="number">0.129</span> |     <span class="number">0.151</span> |     <span class="number">0.065</span> |     <span class="number">0.043</span> |           | </span><br><span class="line">-------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|</span><br><span class="line">Column Total |        <span class="number">16</span> |        <span class="number">11</span> |        <span class="number">22</span> |        <span class="number">21</span> |        <span class="number">14</span> |         <span class="number">9</span> |        <span class="number">93</span> | </span><br><span class="line">             |     <span class="number">0.172</span> |     <span class="number">0.118</span> |     <span class="number">0.237</span> |     <span class="number">0.226</span> |     <span class="number">0.151</span> |     <span class="number">0.097</span> |           | </span><br><span class="line">-------------|-----------|-----------|-----------|-----------|-----------|-----------|-----------|</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">Statistics <span class="keyword">for</span> All Table Factors</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Pearson<span class="string">&#x27;s Chi-squared test </span></span><br><span class="line"><span class="string">------------------------------------------------------------</span></span><br><span class="line"><span class="string">Chi^2 =  14.07985     d.f. =  5     p =  0.01511005 </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"> </span></span><br><span class="line"><span class="string">Warning message:</span></span><br><span class="line"><span class="string">In chisq.test(t, correct = FALSE, ...) :</span></span><br><span class="line"><span class="string">  Chi-squared approximation may be incorrect</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$p=0.01511 \leq 0.05$이므로 $H_0$ 기각 - 독립 X</li>
+<li><code>Large</code> 항목의 경우 기대빈도와 5~6 정도 차이가 나는 것을 볼 수 있음</li>
+<li>$\frac{Column\ Total\ N \times Row\ Total\ N}{Total\ N} = Expected\ N$</li>
+<li>$\frac{(N-Expected\ N)^2}{Expected\ N} = Chi-square\ contribution$</li>
+<li>검정통계량 : $\chi^2=14.08$</li>
+</ul>
+<hr>
+<h1 id="상관분석"><a href="#상관분석" class="headerlink" title="상관분석"></a>상관분석</h1><blockquote>
+<p>수치자료 2개</p>
+</blockquote>
+<h2 id="검정통계량-1"><a href="#검정통계량-1" class="headerlink" title="검정통계량"></a>검정통계량</h2><blockquote>
+<p>$$T=r\sqrt{\frac{n-2}{1-r^2}}\sim t(n-2)$$</p>
+</blockquote>
+<h2 id="가설-1"><a href="#가설-1" class="headerlink" title="가설"></a>가설</h2><blockquote>
+<p>$$H_0 : \rho_{xy}=0$$</p>
+</blockquote>
+<h2 id="상관계수"><a href="#상관계수" class="headerlink" title="상관계수"></a>상관계수</h2><blockquote>
+<p>$$r_{xy}=\frac{\sum(x_i-\bar x)(y_i-\bar y)}{\sqrt{\sum(x_i-\bar x)^2\sum(y_i-\bar y)^2}}$$</p>
+</blockquote>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><blockquote>
+<p>$$H_0 : \rho_{xy}=0$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&gt; plot(Weight,EngineSize)</span><br><span class="line">&gt; r=cor(Weight,EngineSize);r</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.8450753</span></span><br><span class="line">&gt; t=r*sqrt((length(Weight)-<span class="number">2</span>)/(<span class="number">1</span>-r^<span class="number">2</span>));t</span><br><span class="line">[<span class="number">1</span>] <span class="number">15.07818</span></span><br><span class="line">&gt; (<span class="number">1</span>-pt(t,length(Weight)-<span class="number">2</span>))*<span class="number">2</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$p=0 \leq 0.05$이므로 $H_0$ 기각 - $\rho_{xy}\neq0$</li>
+</ul>
+<hr>
+<h1 id="일표본-T-검정"><a href="#일표본-T-검정" class="headerlink" title="일표본 T-검정"></a>일표본 T-검정</h1><blockquote>
+<p>수치자료 1개</p>
+</blockquote>
+<h2 id="검정통계량-2"><a href="#검정통계량-2" class="headerlink" title="검정통계량"></a>검정통계량</h2><blockquote>
+<p>$$T=\frac{\bar{X}-\mu_0}{s/\sqrt{n}}\sim t(n-1)$$</p>
+</blockquote>
+<h2 id="가설-2"><a href="#가설-2" class="headerlink" title="가설"></a>가설</h2><blockquote>
+<p>$$H_0:\mu=\mu_0$$</p>
+</blockquote>
+<ul>
+<li><code>t.test()</code></li>
+<li>문제에 맞게 양측 단측</li>
+</ul>
+<h2 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&gt; mean(Price)</span><br><span class="line">[<span class="number">1</span>] <span class="number">19.50968</span></span><br><span class="line">&gt; t.test(Price,mu=<span class="number">19</span>,conf.level=<span class="number">0.95</span>)</span><br><span class="line"></span><br><span class="line">	One Sample t-test</span><br><span class="line"></span><br><span class="line">data:  Price</span><br><span class="line">t = <span class="number">0.50884</span>, df = <span class="number">92</span>, p-value = <span class="number">0.6121</span></span><br><span class="line">alternative hypothesis: true mean is not equal to <span class="number">19</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line"> <span class="number">17.52034</span> <span class="number">21.49901</span></span><br><span class="line">sample estimates:</span><br><span class="line">mean of x </span><br><span class="line"> <span class="number">19.50968</span> </span><br><span class="line"></span><br><span class="line">&gt; t.test(Price,mu=<span class="number">25</span>,conf.level=<span class="number">0.95</span>)</span><br><span class="line"></span><br><span class="line">	One Sample t-test</span><br><span class="line"></span><br><span class="line">data:  Price</span><br><span class="line">t = -<span class="number">5.4814</span>, df = <span class="number">92</span>, p-value = <span class="number">3.667e-07</span></span><br><span class="line">alternative hypothesis: true mean is not equal to <span class="number">25</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line"> <span class="number">17.52034</span> <span class="number">21.49901</span></span><br><span class="line">sample estimates:</span><br><span class="line">mean of x </span><br><span class="line"> <span class="number">19.50968</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$\mu=19$ - 귀무가설 채택($0.6121\geq 0.05$)</li>
+<li>$\mu=25$ - 귀무가설 기각($3.667\times 10^-{7}\leq 0.05$)</li>
+</ul>
+<hr>
+<h1 id="독립표본-T-검정"><a href="#독립표본-T-검정" class="headerlink" title="독립표본 T-검정"></a>독립표본 T-검정</h1><blockquote>
+<p>집단 2개, 수치자료 1개 - 두 집단 평균비교</p>
+</blockquote>
+<h2 id="검정통계량-3"><a href="#검정통계량-3" class="headerlink" title="검정통계량"></a>검정통계량</h2><blockquote>
+<p>$$\sigma_1^2=\sigma_2^2\ -\ T=\frac{(\bar X_1 - \bar X_2)-(\mu_1 - \mu_2)}{\sqrt{S_p^2(1/n_1 + 1/n_2)}} \sim t(n_1+n_2-2)$$<br>$$\sigma_1^2\neq\sigma_2^2\ -\ T=\frac{(\bar X_1 - \bar X_2)-(\mu_1 - \mu_2)}{\sqrt{S_1^2/n_1 + S_2^2/n_2}} \sim t(u^*)$$</p>
+</blockquote>
+<ul>
+<li>가중평균 : 집단의 개수가 다르면 가중치를 대입하여 평균 - $n_1 \bar x_1 + n_2 \bar x_2 \over n_1 + n_2$</li>
+<li>합동분산 $S_p^2 = \frac{(n_1-1)S_1^2+(n_2-1)S_2^2}{(n_1-1)+(n_2-1)}$ - S는 자유도가 1</li>
+<li>$u^*$는 실수</li>
+</ul>
+<h2 id="가설-3"><a href="#가설-3" class="headerlink" title="가설"></a>가설</h2><blockquote>
+<p>$$H_0 : \mu_1-\mu_2=0$$</p>
+</blockquote>
+<h2 id="등분산-검정"><a href="#등분산-검정" class="headerlink" title="등분산 검정"></a>등분산 검정</h2><h3 id="가설-4"><a href="#가설-4" class="headerlink" title="가설"></a>가설</h3><blockquote>
+<p>$$H_0 : \frac{\sigma_1^2}{\sigma_2^2}=1,\ \sigma_1^2=\sigma_2^2$$</p>
+</blockquote>
+<ul>
+<li>분산의 비는 F분포</li>
+<li>우단측 검정만 실행</li>
+<li>큰 $\sigma$를 위에</li>
+</ul>
+<h2 id="Example-1-1"><a href="#Example-1-1" class="headerlink" title="Example 1"></a>Example 1</h2><blockquote>
+<p>등분산 검정<br>$$H_0 : \frac{\sigma_1^2}{\sigma_2^2}=1$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; var.test(mpg~am,mtcars)</span><br><span class="line"></span><br><span class="line">	<span class="literal">F</span> test to compare two variances</span><br><span class="line"></span><br><span class="line">data:  mpg by am</span><br><span class="line"><span class="literal">F</span> = <span class="number">0.38656</span>, num df = <span class="number">18</span>, denom df = <span class="number">12</span>, p-value = <span class="number">0.06691</span></span><br><span class="line">alternative hypothesis: true ratio of variances is not equal to <span class="number">1</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line"> <span class="number">0.1243721</span> <span class="number">1.0703429</span></span><br><span class="line">sample estimates:</span><br><span class="line">ratio of variances </span><br><span class="line">         <span class="number">0.3865615</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>var.test(수치~범주,Data)</code></li>
+<li>$p=0.06691 \geq 0.05$이므로 귀무가설 채택</li>
+<li>$\sigma_1^2=\sigma_2^2$</li>
+</ul>
+<blockquote>
+<p>독립표본 T-검정(등분산)<br>$$H_0 : \mu_1-\mu_2=0$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; t.test(mpg~am,mtcars,var.equal=<span class="literal">T</span>)</span><br><span class="line"></span><br><span class="line">	Two Sample t-test</span><br><span class="line"></span><br><span class="line">data:  mpg by am</span><br><span class="line">t = -<span class="number">4.1061</span>, df = <span class="number">30</span>, p-value = <span class="number">0.000285</span></span><br><span class="line">alternative hypothesis: true difference <span class="keyword">in</span> means is not equal to <span class="number">0</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line"> -<span class="number">10.84837</span>  -<span class="number">3.64151</span></span><br><span class="line">sample estimates:</span><br><span class="line">mean <span class="keyword">in</span> group <span class="number">0</span> mean <span class="keyword">in</span> group <span class="number">1</span> </span><br><span class="line">       <span class="number">17.14737</span>        <span class="number">24.39231</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$p=0.000285 \leq 0.05$이므로 귀무가설 기각</li>
+<li>$\mu_1 \neq \mu_2$</li>
+</ul>
+<blockquote>
+<p>해석</p>
+</blockquote>
+<ul>
+<li><code>group 1</code>의 평균은 24.39231, <code>group 0</code>의 평균은 17.14737으로 <code>group 1</code>의 평균이 더 크다.</li>
+</ul>
+<h2 id="Example-2-1"><a href="#Example-2-1" class="headerlink" title="Example 2"></a>Example 2</h2><blockquote>
+<p>등분산 검정<br>$$H_0 : \frac{\sigma_1^2}{\sigma_2^2}=1$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; var.test(Price~Origin,Cars93)</span><br><span class="line"></span><br><span class="line">	<span class="literal">F</span> test to compare two variances</span><br><span class="line"></span><br><span class="line">data:  Price by Origin</span><br><span class="line"><span class="literal">F</span> = <span class="number">0.47796</span>, num df = <span class="number">47</span>, denom df = <span class="number">44</span>, p-value = <span class="number">0.01387</span></span><br><span class="line">alternative hypothesis: true ratio of variances is not equal to <span class="number">1</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line"> <span class="number">0.2645004</span> <span class="number">0.8587304</span></span><br><span class="line">sample estimates:</span><br><span class="line">ratio of variances </span><br><span class="line">         <span class="number">0.4779637</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$p=0.01387 \leq 0.05$이므로 귀무가설 기각</li>
+<li>$\sigma_1^2 \neq \sigma_2^2$</li>
+</ul>
+<blockquote>
+<p>독립표본 T-검정(이분산)<br>$$H_0 : \mu_1-\mu_2=0$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; t.test(Price~Origin,Cars93,var.equal=<span class="literal">F</span>)</span><br><span class="line"></span><br><span class="line">	Welch Two Sample t-test</span><br><span class="line"></span><br><span class="line">data:  Price by Origin</span><br><span class="line">t = -<span class="number">0.95449</span>, df = <span class="number">77.667</span>, p-value = <span class="number">0.3428</span></span><br><span class="line">alternative hypothesis: true difference <span class="keyword">in</span> means is not equal to <span class="number">0</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line"> -<span class="number">5.974255</span>  <span class="number">2.102311</span></span><br><span class="line">sample estimates:</span><br><span class="line">    mean <span class="keyword">in</span> group USA mean <span class="keyword">in</span> group non-USA </span><br><span class="line">             <span class="number">18.57292</span>              <span class="number">20.50889</span> </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$p=0.3428 \geq 0.05$이므로 귀무가설 채택</li>
+<li>$\mu_1=\mu_2$</li>
+</ul>
+<blockquote>
+<p>해석</p>
+</blockquote>
+<ul>
+<li><code>USA</code>와 <code>non-USA</code>의 <code>Price</code>차이는 없다.</li>
+</ul>
+<h2 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3"></a>Example 3</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt; var.test(Weight~Origin,Cars93)</span><br><span class="line"></span><br><span class="line">	<span class="literal">F</span> test to compare two variances</span><br><span class="line"></span><br><span class="line">data:  Weight by Origin</span><br><span class="line"><span class="literal">F</span> = <span class="number">0.90622</span>, num df = <span class="number">47</span>, denom df = <span class="number">44</span>, p-value = <span class="number">0.7388</span></span><br><span class="line">alternative hypothesis: true ratio of variances is not equal to <span class="number">1</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line"> <span class="number">0.501495</span> <span class="number">1.628160</span></span><br><span class="line">sample estimates:</span><br><span class="line">ratio of variances </span><br><span class="line">         <span class="number">0.9062231</span> </span><br><span class="line"></span><br><span class="line">&gt; t.test(Weight~Origin,Cars93)</span><br><span class="line"></span><br><span class="line">	Welch Two Sample t-test</span><br><span class="line"></span><br><span class="line">data:  Weight by Origin</span><br><span class="line">t = <span class="number">2.1016</span>, df = <span class="number">89.825</span>, p-value = <span class="number">0.03839</span></span><br><span class="line">alternative hypothesis: true difference <span class="keyword">in</span> means is not equal to <span class="number">0</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line">  <span class="number">13.82668</span> <span class="number">492.13165</span></span><br><span class="line">sample estimates:</span><br><span class="line">    mean <span class="keyword">in</span> group USA mean <span class="keyword">in</span> group non-USA </span><br><span class="line">             <span class="number">3195.312</span>              <span class="number">2942.333</span> </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>해석</p>
+</blockquote>
+<ul>
+<li><code>USA</code>의 차가 <code>Weight</code> 즉, 무게가 <code>non-USA</code>의 차보다 더 나간다.</li>
+</ul>
+<hr>
+<h1 id="대응표본-T-검정"><a href="#대응표본-T-검정" class="headerlink" title="대응표본 T-검정"></a>대응표본 T-검정</h1><blockquote>
+<p>수치자료 2개 - 전후비교</p>
+</blockquote>
+<h2 id="검정통계량-4"><a href="#검정통계량-4" class="headerlink" title="검정통계량"></a>검정통계량</h2><blockquote>
+<p>$$T=\frac{\bar D - \mu_D}{S_D/\sqrt{n}} \sim t(n-1)$$</p>
+</blockquote>
+<h2 id="가설-5"><a href="#가설-5" class="headerlink" title="가설"></a>가설</h2><blockquote>
+<p>$$H_0 : \mu_{before}-\mu_{after}=\mu_D=0$$</p>
+</blockquote>
+<h2 id="Example-2"><a href="#Example-2" class="headerlink" title="Example"></a>Example</h2><blockquote>
+<p>$$H_0 : \mu_{before}-\mu_{after}=\mu_D=0$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="keyword">attach</span>(shoes)</span><br><span class="line">&gt; t.test(A,B,paired=<span class="literal">T</span>)</span><br><span class="line"></span><br><span class="line">	Paired t-test</span><br><span class="line"></span><br><span class="line">data:  A and B</span><br><span class="line">t = -<span class="number">3.3489</span>, df = <span class="number">9</span>, p-value = <span class="number">0.008539</span></span><br><span class="line">alternative hypothesis: true difference <span class="keyword">in</span> means is not equal to <span class="number">0</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line"> -<span class="number">0.6869539</span> -<span class="number">0.1330461</span></span><br><span class="line">sample estimates:</span><br><span class="line">mean of the differences </span><br><span class="line">                  -<span class="number">0.41</span> </span><br><span class="line"></span><br><span class="line">&gt; t.test(B,A,paired=<span class="literal">T</span>)</span><br><span class="line"></span><br><span class="line">	Paired t-test</span><br><span class="line"></span><br><span class="line">data:  B and A</span><br><span class="line">t = <span class="number">3.3489</span>, df = <span class="number">9</span>, p-value = <span class="number">0.008539</span></span><br><span class="line">alternative hypothesis: true difference <span class="keyword">in</span> means is not equal to <span class="number">0</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line"> <span class="number">0.1330461</span> <span class="number">0.6869539</span></span><br><span class="line">sample estimates:</span><br><span class="line">mean of the differences </span><br><span class="line">                   <span class="number">0.41</span> </span><br><span class="line"></span><br><span class="line">&gt; D=A-B</span><br><span class="line">&gt; t.test(D,mu=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">	One Sample t-test</span><br><span class="line"></span><br><span class="line">data:  D</span><br><span class="line">t = -<span class="number">3.3489</span>, df = <span class="number">9</span>, p-value = <span class="number">0.008539</span></span><br><span class="line">alternative hypothesis: true mean is not equal to <span class="number">0</span></span><br><span class="line"><span class="number">95</span> percent confidence interval:</span><br><span class="line"> -<span class="number">0.6869539</span> -<span class="number">0.1330461</span></span><br><span class="line">sample estimates:</span><br><span class="line">mean of x </span><br><span class="line">    -<span class="number">0.41</span></span><br><span class="line"> </span><br><span class="line">&gt; mean(A)</span><br><span class="line">[<span class="number">1</span>] <span class="number">10.63</span></span><br><span class="line">&gt; mean(B)</span><br><span class="line">[<span class="number">1</span>] <span class="number">11.04</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>$p=0.008539\leq0.05$이므로 귀무가설 기각</li>
+<li>$\mu_A\neq \mu_B$</li>
+</ul>
+<blockquote>
+<p>해석</p>
+</blockquote>
+<ul>
+<li>평균적으로 <code>A</code>가 <code>B</code>보다 0.41 작다.</li>
+</ul>
+<hr>
+<h1 id="일원배치-분산분석"><a href="#일원배치-분산분석" class="headerlink" title="일원배치 분산분석"></a>일원배치 분산분석</h1><blockquote>
+<p>집단 N개, 수치자료 1개 - N개 집단 평균비교($N \geq 3$)</p>
+</blockquote>
+<h2 id="검정통계량-5"><a href="#검정통계량-5" class="headerlink" title="검정통계량"></a>검정통계량</h2><blockquote>
+<p>$$F=\frac{S_1^2}{S_2^2}=\frac{MSB}{MSW}$$</p>
+</blockquote>
+<h2 id="가설-6"><a href="#가설-6" class="headerlink" title="가설"></a>가설</h2><blockquote>
+<p>$$H_0 : \mu_1 = \mu_2 = … = \mu_k$$<br>$$H_1 : \mu_j(적어도\ 하나)는\ 같지\ 않다$$</p>
+</blockquote>
+<h2 id="분산"><a href="#분산" class="headerlink" title="분산"></a>분산</h2><blockquote>
+<p>$$S^2=\frac{1}{n-1}\sum(x_i-\bar x)^2$$</p>
+</blockquote>
+<ul>
+<li>편차의 제곱합</li>
+<li>자유도로 나눔</li>
+<li>평균제곱합</li>
+</ul>
+<blockquote>
+<p>$$Y_{ij}$$</p>
+</blockquote>
+<ul>
+<li>i번째 집단 j번째 Data</li>
+</ul>
+<p>$$Y_{ij}-\bar Y=(\bar Y_i-\bar Y)+(Y_{ij}-\bar Y_i)$$<br>$$(Y_{ij}-\bar Y)^2=(\bar Y_i-\bar Y)^2+(Y_{ij}-\bar Y_i)^2$$<br>$$\sum_i \sum_j (Y_{ij}-\bar Y)^2=\sum_i \sum_j (\bar Y_i-\bar Y)^2+\sum_i \sum_j (Y_{ij}-\bar Y_i)^2$$<br>$$총제곱합(Sum\ of\ Square\ Total)=집단간\ 제곱합(Sum\ of\ Square\ Between)+집단내\ 제곱합(Sum\ of\ Square\ Within)$$<br>$$df : n-1=(k-1)+(n-k)$$</p>
+<ul>
+<li><code>k</code> - 집단수</li>
+</ul>
+<h2 id="다중비교"><a href="#다중비교" class="headerlink" title="다중비교"></a>다중비교</h2><ul>
+<li>귀무가설을 기각할때 차이가 있는지 여부만 알고 어떻게 차이가 있는지 알지 못함</li>
+<li>따라서 다중비교, 하지만 분산분석과는 별개</li>
+</ul>
+<blockquote>
+<p>Tukey - HSD(Honest Significant Difference) 방법</p>
+</blockquote>
+<ul>
+<li>가장 보수적</li>
+</ul>
+<h2 id="분산분석표-분석"><a href="#분산분석표-분석" class="headerlink" title="분산분석표 분석"></a>분산분석표 분석</h2><ul>
+<li>SSB</li>
+<li>SSW</li>
+<li>df</li>
+</ul>
+<h2 id="Example-3"><a href="#Example-3" class="headerlink" title="Example"></a>Example</h2><blockquote>
+<p>$$H_0 : \mu_1 = \mu_2 = … = \mu_k$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; a=lm(Price~DriveTrain,Cars93);a</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = Price ~ DriveTrain, data = Cars93)</span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">    (Intercept)  DriveTrainFront   DriveTrainRear  </span><br><span class="line">       <span class="number">17.63000</span>         -<span class="number">0.09418</span>         <span class="number">11.32000</span>  </span><br><span class="line"></span><br><span class="line">&gt; anova(a)</span><br><span class="line">Analysis of Variance Table</span><br><span class="line"></span><br><span class="line">Response: Price</span><br><span class="line">           Df Sum Sq Mean Sq <span class="literal">F</span> value    Pr(&gt;<span class="literal">F</span>)    </span><br><span class="line">DriveTrain  <span class="number">2</span> <span class="number">1722.3</span>  <span class="number">861.14</span>  <span class="number">11.295</span> <span class="number">4.202e-05</span> ***</span><br><span class="line">Residuals  <span class="number">90</span> <span class="number">6861.7</span>   <span class="number">76.24</span>                      </span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>DriveTrain</code> 집단간, <code>Residual</code> 집단내</li>
+<li>$p=4.202 \times 10^{-5} \leq 0.05$이므로 귀무가설 기각</li>
+<li>각 집단의 평균이 차이를 보임</li>
+</ul>
+<blockquote>
+<p>다중비교</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&gt; a1=aov(Price~DriveTrain,Cars93);a1</span><br><span class="line">Call:</span><br><span class="line">   aov(formula = Price ~ DriveTrain, data = Cars93)</span><br><span class="line"></span><br><span class="line">Terms:</span><br><span class="line">                DriveTrain Residuals</span><br><span class="line">Sum of Squares    <span class="number">1722.286</span>  <span class="number">6861.735</span></span><br><span class="line">Deg. of Freedom          <span class="number">2</span>        <span class="number">90</span></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">8.731638</span></span><br><span class="line">Estimated effects may be unbalanced</span><br><span class="line">&gt; TukeyHSD(a1)</span><br><span class="line">  Tukey multiple comparisons of means</span><br><span class="line">    <span class="number">95</span>% family-wise confidence level</span><br><span class="line"></span><br><span class="line">Fit: aov(formula = Price ~ DriveTrain, data = Cars93)</span><br><span class="line"></span><br><span class="line">$DriveTrain</span><br><span class="line">                 diff       lwr       upr     p adj</span><br><span class="line">Front-4WD  -<span class="number">0.0941791</span> -<span class="number">7.148353</span>  <span class="number">6.959995</span> <span class="number">0.9994421</span></span><br><span class="line">Rear-4WD   <span class="number">11.3200000</span>  <span class="number">2.931875</span> <span class="number">19.708125</span> <span class="number">0.0050886</span></span><br><span class="line">Rear-Front <span class="number">11.4141791</span>  <span class="number">5.624162</span> <span class="number">17.204197</span> <span class="number">0.0000278</span></span><br><span class="line"></span><br><span class="line">&gt; aggregate(Price,by=list(DriveTrain),mean)</span><br><span class="line">  Group.1        x</span><br><span class="line"><span class="number">1</span>     4WD <span class="number">17.63000</span></span><br><span class="line"><span class="number">2</span>   Front <span class="number">17.53582</span></span><br><span class="line"><span class="number">3</span>    Rear <span class="number">28.95000</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>해석</p>
+</blockquote>
+<ul>
+<li>후륜구동 자동차가 4륜, 전륜에 비해 비싼 가격을 가지는 경향을 보임</li>
+<li>4륜과 전륜 자동차는 비슷한 가격을 가지는 경향을 보임</li>
+</ul>
+<hr>
+<h1 id="회귀분석"><a href="#회귀분석" class="headerlink" title="회귀분석"></a>회귀분석</h1><blockquote>
+<p>$$Y_i(종속)=\beta_0+\beta_1x_i(독립)+\epsilon_i$$<br>$$\epsilon_i(오차항) \sim N(0,\sigma^2) - 확률변수$$</p>
+</blockquote>
+<ul>
+<li>오차항(회귀분석은 아래 가정을 따라야 함)<ul>
+<li>정규성</li>
+<li>독립성</li>
+<li>등분산성</li>
+</ul>
+</li>
+<li>독립변수 -&gt; 종속변수 영향력? - $\beta_1$</li>
+<li>$\beta_0, \beta_1$ - 모수(상수)</li>
+<li>$E(Y_i)=\beta_0+\beta_1x_i$</li>
+<li>$V(Y_i)=\sigma^2$</li>
+</ul>
+<blockquote>
+<p>$$Y_i \sim N(\beta_0+\beta_1x_i,\sigma^2)$$</p>
+</blockquote>
+<blockquote>
+<p>$$D=\sum_{i=1}^ne_i=\sum_{i=1}^n(Y_i-\hat{Y_i})^2=\sum_{i=1}^n(Y_i-y(x_i))^2$$</p>
+</blockquote>
+<ul>
+<li>$e_i$ - Residual(잔차)</li>
+<li>$\hat{Y_i}$ - 추정량(예측치)</li>
+</ul>
+<h2 id="검정통계량-6"><a href="#검정통계량-6" class="headerlink" title="검정통계량"></a>검정통계량</h2><h3 id="F-검정"><a href="#F-검정" class="headerlink" title="F-검정"></a>F-검정</h3><p>$$MSR=\frac{SSR}{k},\ MSE=\frac{SSE}{n-k-1}$$</p>
+<blockquote>
+<p>$$F=\frac{MSR}{MSE}$$</p>
+</blockquote>
+<h3 id="T-검정"><a href="#T-검정" class="headerlink" title="T-검정"></a>T-검정</h3><blockquote>
+<p>$$T=\frac{\hat{\beta_1}-\beta_1}{\sqrt{\frac{MSE}{\sum(x_i-\bar{x})^2}}} \sim t(n-2)$$</p>
+</blockquote>
+<ul>
+<li><code>F</code>는 모든 계수 검정, <code>T</code>는 $\beta_1$만 검정</li>
+</ul>
+<h2 id="가설-7"><a href="#가설-7" class="headerlink" title="가설"></a>가설</h2><h3 id="F-검정-1"><a href="#F-검정-1" class="headerlink" title="F-검정"></a>F-검정</h3><blockquote>
+<p>$$H_0 : \beta_1 = 0(회귀모형\ 적합\ X)$$</p>
+</blockquote>
+<h3 id="T-검정-1"><a href="#T-검정-1" class="headerlink" title="T-검정"></a>T-검정</h3><blockquote>
+<p>$$H_0 : \beta_0=0, T=\frac{\hat{\beta_0}-\beta_0}{\sqrt{MSE(\frac{1}{n}+\frac{\bar{x}^2}{\sum(x_i-\bar{x})^2})}}\sim t(n-2)$$<br>$$H_0 : \beta_1=0, T=\frac{\hat{\beta_1}-\beta_1}{\sqrt{\frac{MSE}{\sum(x_i-\bar{x})^2}}} \sim t(n-2)$$</p>
+</blockquote>
+<h2 id="Least-squares-regression"><a href="#Least-squares-regression" class="headerlink" title="Least squares regression"></a>Least squares regression</h2><blockquote>
+<p>$$\frac{\partial D}{\partial \hat \beta_0}=0$$<br>$$\frac{\partial D}{\partial \hat \beta_1}=0$$</p>
+</blockquote>
+<h2 id="hat-beta-0-hat-beta-1-의-분포"><a href="#hat-beta-0-hat-beta-1-의-분포" class="headerlink" title="$\hat \beta_0,\ \hat \beta_1$의 분포"></a>$\hat \beta_0,\ \hat \beta_1$의 분포</h2><blockquote>
+<p>$$\hat{\beta_0}=\bar{Y}-\hat{\beta_1}\bar{x} \sim N(\beta_0,\sigma^2(\frac{1}{n}+\frac{\bar{x}^2}{\sum(x_i-\bar{x})^2})$$<br>$$\hat{\beta_1}=\frac{\sum(x_i-\bar{x})(Y_i-\bar{Y})}{\sum(x_i-\bar{x})^2} \sim N(\beta_1,\frac{\sigma^2}{\sum(x_i-\bar{x})^2})$$</p>
+</blockquote>
+<h2 id="분산분석"><a href="#분산분석" class="headerlink" title="분산분석"></a>분산분석</h2><p>$$Y_{i}-\bar Y=(\hat Y_i-\bar Y)+(Y_{i}-\hat Y_i)$$<br>$$\sum (Y_{i}-\bar Y)^2=\sum (\hat Y_i-\bar Y)^2+\sum (Y_{i}-\hat Y_i)^2$$<br>$$총제곱합(SST)=회귀제곱합(SSR)+잔(오)차제곱합(SSE)$$<br>$$df : n-1=(k)+(n-k-1)$$</p>
+<ul>
+<li><code>SSR</code>은 크고 <code>SSE</code>는 작아야 유리</li>
+<li><code>k</code> - 독립변수 개수</li>
+</ul>
+<h2 id="R-2-결정계수"><a href="#R-2-결정계수" class="headerlink" title="$R^2$ - 결정계수"></a>$R^2$ - 결정계수</h2><blockquote>
+<p>$$R^2=\frac{SSR}{SST}$$</p>
+</blockquote>
+<ul>
+<li>설명력</li>
+<li>높을수록 좋음</li>
+</ul>
+<h2 id="진행-순서"><a href="#진행-순서" class="headerlink" title="진행 순서"></a>진행 순서</h2><ol>
+<li><code>plot(param1,param2)</code> - 산점도 확인</li>
+<li><code>name=lm(param2~param1,Data)</code> - Coefficient 확인</li>
+<li><code>anova(name)</code> - F, SSR, SSE(Residual) 확인</li>
+<li><code>summary(name)</code> - 결정계수, T 확인</li>
+</ol>
+<h2 id="Example-1-2"><a href="#Example-1-2" class="headerlink" title="Example 1"></a>Example 1</h2><blockquote>
+<p>$$H_0 : \beta_1 = 0(회귀모형\ 적합\ X)$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&gt; a=lm(Price~Length,Cars93);a</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = Price ~ Length, data = Cars93)</span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">(Intercept)       Length  </span><br><span class="line">   -<span class="number">41.5246</span>       <span class="number">0.3331</span>  </span><br><span class="line"></span><br><span class="line">&gt; anova(a)</span><br><span class="line">Analysis of Variance Table</span><br><span class="line"></span><br><span class="line">Response: Price</span><br><span class="line">          Df Sum Sq Mean Sq <span class="literal">F</span> value    Pr(&gt;<span class="literal">F</span>)    </span><br><span class="line">Length     <span class="number">1</span> <span class="number">2177.3</span>  <span class="number">2177.3</span>  <span class="number">30.925</span> <span class="number">2.663e-07</span> ***</span><br><span class="line">Residuals <span class="number">91</span> <span class="number">6406.8</span>    <span class="number">70.4</span>                      </span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line">&gt; summary(a)</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = Price ~ Length, data = Cars93)</span><br><span class="line"></span><br><span class="line">Residuals:</span><br><span class="line">    Min      1Q  Median      3Q     Max </span><br><span class="line">-<span class="number">10.969</span>  -<span class="number">5.708</span>  -<span class="number">2.674</span>   <span class="number">2.790</span>  <span class="number">41.126</span> </span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">             Estimate Std. Error t value Pr(&gt;|t|)    </span><br><span class="line">(Intercept) -<span class="number">41.52458</span>   <span class="number">11.00974</span>  -<span class="number">3.772</span> <span class="number">0.000288</span> ***</span><br><span class="line">Length        <span class="number">0.33315</span>    <span class="number">0.05991</span>   <span class="number">5.561</span> <span class="number">2.66e-07</span> ***</span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">8.391</span> on <span class="number">91</span> degrees of freedom</span><br><span class="line">Multiple R-squared:  <span class="number">0.2536</span>,	Adjusted R-squared:  <span class="number">0.2454</span> </span><br><span class="line"><span class="literal">F</span>-statistic: <span class="number">30.93</span> on <span class="number">1</span> and <span class="number">91</span> DF,  p-value: <span class="number">2.663e-07</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="number">2177</span>/(<span class="number">6406</span>+<span class="number">2177</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.2536409</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Length - <code>SSR</code></li>
+<li>Residual - <code>SSE</code></li>
+<li>$2.663 \times 10^{-7} \leq 0.05$이므로 귀무가설 기각</li>
+<li>$\beta_1 \neq 0$</li>
+<li><code>Length</code>의 <code>F value</code>를 제곱하면 <code>t vlue</code></li>
+<li>약 25% 설명</li>
+</ul>
+<h2 id="Example-2-2"><a href="#Example-2-2" class="headerlink" title="Example 2"></a>Example 2</h2><blockquote>
+<p>$$H_0 : \beta_1 = 0(회귀모형\ 적합\ X)$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&gt; plot(Price,Weight)</span><br><span class="line">&gt; a=lm(Weight~Price,Cars93);a</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = Weight ~ Price, data = Cars93)</span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">(Intercept)        Price  </span><br><span class="line">    <span class="number">2301.82</span>        <span class="number">39.52</span>  </span><br><span class="line"></span><br><span class="line">&gt; anova(a)</span><br><span class="line">Analysis of Variance Table</span><br><span class="line"></span><br><span class="line">Response: Weight</span><br><span class="line">          Df   Sum Sq  Mean Sq <span class="literal">F</span> value    Pr(&gt;<span class="literal">F</span>)    </span><br><span class="line">Price      <span class="number">1</span> <span class="number">13408751</span> <span class="number">13408751</span>  <span class="number">65.584</span> <span class="number">2.395e-12</span> ***</span><br><span class="line">Residuals <span class="number">91</span> <span class="number">18605215</span>   <span class="number">204453</span>                      </span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line">&gt; summary(a)</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = Weight ~ Price, data = Cars93)</span><br><span class="line"></span><br><span class="line">Residuals:</span><br><span class="line">     Min       1Q   Median       3Q      Max </span><br><span class="line">-<span class="number">1223.29</span>  -<span class="number">304.86</span>   -<span class="number">56.05</span>   <span class="number">238.62</span>  <span class="number">1067.10</span> </span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">            Estimate Std. Error t value Pr(&gt;|t|)    </span><br><span class="line">(Intercept)  <span class="number">2301.82</span>     <span class="number">106.13</span>  <span class="number">21.688</span>  &lt; <span class="number">2e-16</span> ***</span><br><span class="line">Price          <span class="number">39.52</span>       <span class="number">4.88</span>   <span class="number">8.098</span>  <span class="number">2.4e-12</span> ***</span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">452.2</span> on <span class="number">91</span> degrees of freedom</span><br><span class="line">Multiple R-squared:  <span class="number">0.4188</span>,	Adjusted R-squared:  <span class="number">0.4125</span> </span><br><span class="line"><span class="literal">F</span>-statistic: <span class="number">65.58</span> on <span class="number">1</span> and <span class="number">91</span> DF,  p-value: <span class="number">2.395e-12</span></span><br><span class="line"></span><br><span class="line">&gt; abline(a=<span class="number">2301</span>,b=<span class="number">39.5</span>,col=<span class="string">&#x27;Red&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Price - <code>SSR</code></li>
+<li>Residual - <code>SSE</code></li>
+<li>$2.395 \times 10^{-12} \leq 0.05$이므로 귀무가설 기각</li>
+<li>$\beta_1 \neq 0$</li>
+<li>약 42% 설명</li>
+</ul>
+<img width="1145" alt="plot()" src="https://user-images.githubusercontent.com/42334717/72525344-41a13800-38a7-11ea-884b-48fa5c504313.png">
+
+<h2 id="Example-3-1"><a href="#Example-3-1" class="headerlink" title="Example 3"></a>Example 3</h2><blockquote>
+<p>$$H_0 : \beta_1 = 0(회귀모형\ 적합\ X)$$</p>
+</blockquote>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">&gt; plot(Price,Max.Price)</span><br><span class="line">&gt; a=lm(Max.Price~Price,Cars93);a</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = Max.Price ~ Price, data = Cars93)</span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">(Intercept)        Price  </span><br><span class="line">    <span class="number">0.03048</span>      <span class="number">1.12090</span>  </span><br><span class="line"></span><br><span class="line">&gt; anova(a)</span><br><span class="line">Analysis of Variance Table</span><br><span class="line"></span><br><span class="line">Response: Max.Price</span><br><span class="line">          Df  Sum Sq Mean Sq <span class="literal">F</span> value    Pr(&gt;<span class="literal">F</span>)    </span><br><span class="line">Price      <span class="number">1</span> <span class="number">10785.2</span> <span class="number">10785.2</span>  <span class="number">2402.1</span> &lt; <span class="number">2.2e-16</span> ***</span><br><span class="line">Residuals <span class="number">91</span>   <span class="number">408.6</span>     <span class="number">4.5</span>                      </span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line">&gt; summary(a)</span><br><span class="line"></span><br><span class="line">Call:</span><br><span class="line">lm(formula = Max.Price ~ Price, data = Cars93)</span><br><span class="line"></span><br><span class="line">Residuals:</span><br><span class="line">    Min      1Q  Median      3Q     Max </span><br><span class="line">-<span class="number">3.9598</span> -<span class="number">1.1627</span> -<span class="number">0.1561</span>  <span class="number">0.8119</span> <span class="number">10.5857</span> </span><br><span class="line"></span><br><span class="line">Coefficients:</span><br><span class="line">            Estimate Std. Error t value Pr(&gt;|t|)    </span><br><span class="line">(Intercept)  <span class="number">0.03048</span>    <span class="number">0.49736</span>   <span class="number">0.061</span>    <span class="number">0.951</span>    </span><br><span class="line">Price        <span class="number">1.12090</span>    <span class="number">0.02287</span>  <span class="number">49.012</span>   &lt;<span class="number">2e-16</span> ***</span><br><span class="line">---</span><br><span class="line">Signif. codes:  <span class="number">0</span> ‘***’ <span class="number">0.001</span> ‘**’ <span class="number">0.01</span> ‘*’ <span class="number">0.05</span> ‘.’ <span class="number">0.1</span> ‘ ’ <span class="number">1</span></span><br><span class="line"></span><br><span class="line">Residual standard error: <span class="number">2.119</span> on <span class="number">91</span> degrees of freedom</span><br><span class="line">Multiple R-squared:  <span class="number">0.9635</span>,	Adjusted R-squared:  <span class="number">0.9631</span> </span><br><span class="line"><span class="literal">F</span>-statistic:  <span class="number">2402</span> on <span class="number">1</span> and <span class="number">91</span> DF,  p-value: &lt; <span class="number">2.2e-16</span></span><br><span class="line"></span><br><span class="line">&gt; abline(a,col=<span class="string">&#x27;red&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Price - <code>SSR</code></li>
+<li>Residual - <code>SSE</code></li>
+<li>$2.2 \times 10^{-16} \leq 0.05$이므로 귀무가설 기각</li>
+<li>$\beta_1 \neq 0$</li>
+<li>약 96% 설명</li>
+</ul>
+<img width="1145" alt="plot()" src="https://user-images.githubusercontent.com/42334717/72526135-0ef83f00-38a9-11ea-96e7-6cd49d28c45c.png">
+
+<h1 id="Finale"><a href="#Finale" class="headerlink" title="Finale"></a>Finale</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line">go=<span class="keyword">function</span>(a)&#123;</span><br><span class="line">	<span class="keyword">if</span>(a==<span class="number">1</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;gyocha, label 2&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;H_0 : var independent&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;gumjung : chi^2=sumsum(O-E)^2/E~chi^2(a-1)(b-1)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;library(gmodels)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;CrossTable(var1,var2,expected=T,chisq=T)&#x27;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">2</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;sanggwan, num 2&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;H_0 : rho_xy=0&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;r=sum(xi-xbar)(yi-ybar)/sqrt(sum(xi-xbar)^2*sum(yi-ybar)^2)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;gumjung : T=r*sqrt((length(var1)-2)/(1-r^2))~t(n-2)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;r=cor(var1,var2)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;t=r*sqrt((length(var1)-2)/(1-r^2))&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;(1-pt(t,length(var1)-2))*2&#x27;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">3</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;1pyobon T-gumjung, num 1&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;H_0 : mu=mu_0&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;gumjung : T=(Xbar-mu0)/(S/sqrt(n))~t(n-1)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;t.test(var1,mu=mu_0)&#x27;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">4</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;dokrib T-gumjung, num 1(label 2)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;H_0 : mu_1-mu_2=0&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;gumjung : daeeung, Normalize - eq~t(n1+n2-2), neq~t(u*)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;H_0 : sigma_1^2/sigma_2^2=1&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;var.test(num~lab,Data)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;t.test(num~lab,Data,var,equal=T or F)&#x27;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">5</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;daeeung T-gumjung, num 2(be af)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;H_0 : mu_before-mu_after=mu_D=0&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;gumjung : T=(Dbar-muD)/(S_D/sqrt(n))~t(n-1)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;t.test(var1,var2,paired=T)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;D=var1-var2&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;t.test(D,mu=0)&#x27;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">6</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;ilwonbatch bunsanbunsuck, num 1(label 3up)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;H_0=mu_1=mu_2=...=mu_k&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;gumjung : F=S1^2/S2^2=MSB/MSW&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;Yij-Ybar=Yibar-Ybar+Yij-Yibar&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;SST=SSB+SSW&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;n-1=k-1+n-k&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;name1=lm(num~lab,Data)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;anova(name1)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;name2=aov(num~lab,Data)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;TukeyHSD(name2)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;aggregate(num,by=list(lab),mean)&#x27;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">7</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;reg&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;H_0 : hatbeta1=0&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;gumjung : F=MSR/MSE, T=(beta1hat-beta1)/sqrt(MSE/sum(xi-xbar)^2)~t(n-2)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;Yi-Ybar=Yihat-Ybar+Yi-Yihat&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;SST=SSR+SSE&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;n-1=k+(n-k-1)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;R^2=SSR/SST&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;plot(var1,var2)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;name=lm(num~lab,Data)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;anova(name)&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;summary(name)&#x27;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">8</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;Data chisa&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;name[which(jogun),c()]&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;subset(name,select=(),subset=c())&#x27;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">9</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;r-chuchul,d-hwakrule,p-nujuk,q-bunwesu&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;binom,geom,nbinom,pois,hyper&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;dhyper(2,3,2,3) # B=3, W=2, 3gae chuchul, B=2, W=1&#x27;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">10</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;table,with,xtabs,prop.table,margin.table,addmargins&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;cut(x,breaks=c(),include.lowest=,right=,labels=c())&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;factor(x,labels=c())&#x27;</span>)</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span>(a==<span class="number">11</span>)&#123;</span><br><span class="line">		print(<span class="string">&#x27;beta0hat~N(beta0,sigma^2(1/n+xbar^2/sum(xi-xbar)))&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;beta1hat~N(beta1,sigma^2/sum(xi-xbar))&#x27;</span>)</span><br><span class="line">		print(<span class="string">&#x27;확률변수 - 표본공간의 각 사건을 수치로 대응시켜주는 함수&#x27;</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-3/" rel="bookmark">R(3)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-2/" rel="bookmark">R(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-6/" rel="bookmark">R(6)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-mid-term/" rel="bookmark">R mid-term</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/r-final-term/" title="R final-term">https://zerohertz.github.io/r-final-term/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/r/" rel="tag"><i class="fa fa-tag"></i> R</a>
+              <a href="/tags/statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="prev" title="Diagnosis Systems with Smart Data for 3D Printer(Introduction)">
+                  <i class="fa fa-chevron-left"></i> Diagnosis Systems with Smart Data for 3D Printer(Introduction)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/professional-signal-process-for-phm/" rel="next" title="Professional Signal Process for PHM">
+                  Professional Signal Process for PHM <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/r-final-term/";
+    this.page.identifier = "r-final-term/";
+    this.page.title = "R final-term";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

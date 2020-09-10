@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="TensorFlow를 이용한 간단한 곱셈 프로그램12345678910import tensorflow as tfa &#x3D; tf.placeholder(&quot;float&quot;)b &#x3D; tf.placeholder(&quot;float&quot;)y &#x3D; tf.multiply(a, b)sess &#x3D; tf.Session()print(sess.run(y, feed_di">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow(1)">
+<meta property="og:url" content="https://zerohertz.github.io/tensorflow-1/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="TensorFlow를 이용한 간단한 곱셈 프로그램12345678910import tensorflow as tfa &#x3D; tf.placeholder(&quot;float&quot;)b &#x3D; tf.placeholder(&quot;float&quot;)y &#x3D; tf.multiply(a, b)sess &#x3D; tf.Session()print(sess.run(y, feed_di">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62848344-32c1c280-bd16-11e9-9ec7-2cd2ae377074.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62849858-36584800-bd1c-11e9-9176-cbe4aa323eec.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62850969-913f6e80-bd1f-11e9-9fbb-314d20e6b1a2.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62851910-bb466000-bd22-11e9-86ea-1cee6bf850b5.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62851915-bda8ba00-bd22-11e9-861e-239d5f3a40e9.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62851930-c8fbe580-bd22-11e9-9d16-e36cef50e0ff.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62851932-cb5e3f80-bd22-11e9-981d-009fc20fbae2.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62851935-cdc09980-bd22-11e9-9849-08ce38e970f6.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62851937-cf8a5d00-bd22-11e9-882a-6b1bcfb8be1b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62851941-d1542080-bd22-11e9-9e33-5dd00e40fe5f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62851943-d3b67a80-bd22-11e9-9a9c-a884aee9ba85.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62852000-0eb8ae00-bd23-11e9-8e69-2479f6102af1.png">
+<meta property="article:published_time" content="2019-08-12T02:21:44.000Z">
+<meta property="article:modified_time" content="2020-02-25T07:09:08.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="DNN">
+<meta property="article:tag" content="TensorFlow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/62848344-32c1c280-bd16-11e9-9ec7-2cd2ae377074.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/tensorflow-1/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>TensorFlow(1) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TensorFlow%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EA%B0%84%EB%8B%A8%ED%95%9C-%EA%B3%B1%EC%85%88-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%A8"><span class="nav-number">1.</span> <span class="nav-text">TensorFlow를 이용한 간단한 곱셈 프로그램</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B0%84%EB%8B%A8%ED%95%9C-%EC%84%A0%ED%98%95-%ED%9A%8C%EA%B7%80%EB%B6%84%EC%84%9D-Linear-Regression"><span class="nav-number">2.</span> <span class="nav-text">간단한 선형 회귀분석(Linear Regression)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%BD%94%EC%8A%A4%ED%8A%B8-%ED%95%A8%EC%88%98"><span class="nav-number">2.1.</span> <span class="nav-text">코스트 함수</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B7%B8%EB%9E%98%EB%94%94%EC%96%B8%ED%8A%B8-%EB%94%94%EC%84%BC%ED%8A%B8"><span class="nav-number">2.2.</span> <span class="nav-text">그래디언트 디센트</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%B0%98%EB%B3%B5%EC%97%90-%EB%94%B0%EB%A5%B8-%EB%B3%80%ED%99%94"><span class="nav-number">2.3.</span> <span class="nav-text">반복에 따른 변화</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/tensorflow-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TensorFlow(1)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-12 11:21:44" itemprop="dateCreated datePublished" datetime="2019-08-12T11:21:44+09:00">2019-08-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-02-25 16:09:08" itemprop="dateModified" datetime="2020-02-25T16:09:08+09:00">2020-02-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/tensorflow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/tensorflow-1/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="tensorflow-1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="TensorFlow를-이용한-간단한-곱셈-프로그램"><a href="#TensorFlow를-이용한-간단한-곱셈-프로그램" class="headerlink" title="TensorFlow를 이용한 간단한 곱셈 프로그램"></a>TensorFlow를 이용한 간단한 곱셈 프로그램</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">a = tf.placeholder(<span class="string">&quot;float&quot;</span>)</span><br><span class="line">b = tf.placeholder(<span class="string">&quot;float&quot;</span>)</span><br><span class="line"></span><br><span class="line">y = tf.multiply(a, b)</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line">print(sess.run(y, feed_dict=&#123;a: <span class="number">3</span>, b: <span class="number">3</span>&#125;))</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<ul>
+<li>텐서플로우 파이썬 모듈 임포트</li>
+<li>프로그램 실행 중 값을 변경할 수 있는 <code>placeholder</code> 심볼릭 변수 정의</li>
+<li><code>tf.multiply</code>는 텐서를 조작하기 위해 텐서플로우가 제공하는 곱셈 함수</li>
+<li>텐서는 동적 사이즈를 갖는 다차원 데이터 배열</li>
+<li><code>Session()</code>함수를 통해 세션을 생성함으로써 프로그램이 텐서플로우 라이브러리와 상호작용</li>
+<li>세션을 정하여 <code>run()</code>메서드를 호출할 때 심볼릭 코드가 실제 실행</li>
+<li><code>run()</code>메서드에 feed_dict 인자로 변수의 값을 넘김</li>
+<li>입력된 수식이 계삭되면 곱의 결과 9를 프린트</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/62848344-32c1c280-bd16-11e9-9ec7-2cd2ae377074.png" alt="살행결과"></p>
+<blockquote>
+<p>텐서플로우 프로그램의 일반적인 구조 : 전체 알고리즘을 먼저 기술하고 세션을 생성하여 연산을 실행</p>
+</blockquote>
+<hr>
+<h1 id="간단한-선형-회귀분석-Linear-Regression"><a href="#간단한-선형-회귀분석-Linear-Regression" class="headerlink" title="간단한 선형 회귀분석(Linear Regression)"></a>간단한 선형 회귀분석(Linear Regression)</h1><ul>
+<li>변수들 사이의 관계를 분석</li>
+<li>알고리즘의 개념이 복잡하지 않고 다양한 문제에 폭 넓게 적용</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">num_points = <span class="number">1000</span></span><br><span class="line">vectors_set = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(num_points):</span><br><span class="line">         x1 = np.random.normal(<span class="number">0.0</span>, <span class="number">0.55</span>)</span><br><span class="line">         y1 = x1 * <span class="number">0.1</span> + <span class="number">0.3</span> + np.random.normal(<span class="number">0.0</span>, <span class="number">0.03</span>)</span><br><span class="line">         vectors_set.append([x1, y1])</span><br><span class="line"></span><br><span class="line">x_data = [v[<span class="number">0</span>] <span class="keyword">for</span> v <span class="keyword">in</span> vectors_set]</span><br><span class="line">y_data = [v[<span class="number">1</span>] <span class="keyword">for</span> v <span class="keyword">in</span> vectors_set]</span><br><span class="line"></span><br><span class="line">plt.plot(x_data, y_data, <span class="string">&#x27;ro&#x27;</span>, label=<span class="string">&#x27;Original data&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/62849858-36584800-bd1c-11e9-9176-cbe4aa323eec.png" alt="실행결과"></p>
+<ul>
+<li>코드에서 볼 수 있듯 <code>y=0.1*x+0.3</code> 관계를 가지는 데이터를 생성</li>
+<li>정규분포를 따라 약간의 편차를 두어 완전히 직선에 일치하지 않는 예시</li>
+<li>위 데이터를 모델을 만들기 위한 학습 데이터로 사용</li>
+</ul>
+<h2 id="코스트-함수"><a href="#코스트-함수" class="headerlink" title="코스트 함수"></a>코스트 함수</h2><ul>
+<li><code>x_data</code>를 이용해 출력 값 <code>y_data</code>를 예측할 수 있는 최적의 파라미터 <code>W</code>와 <code>b</code>를 찾도록 수정</li>
+<li>반복이 일어날 때 마다 개선되고 있는지 확인하기 위해 얼마나 좋은 직선인지를 측정하는 코스트 함수(혹은 에러 함수)를 정의</li>
+<li>코스트 함수로 평균제곱오차(mean square error) 사용</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">W = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line">y = W * x_data + b</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>Variable</code> 메소드를 호출하면 텐서플로우 내부의 그래프 데이터 구조에 만들어질 하나의 변수 정의</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">loss = tf.reduce_mean(tf.square(y - y_data))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>실제 값과 <code>y=W*x+b</code>로 계산된 값 간의 거리를 기반으로 코스트 함수 정의</li>
+<li>제곱을 하고 모두 더하여 평균</li>
+<li>이미 알고 있는 값 <code>y_data</code>와 입력 데이터 <code>x_data</code>로 계산된 y값 사이의 거리를 제곱한 것의 평균</li>
+</ul>
+<h2 id="그래디언트-디센트"><a href="#그래디언트-디센트" class="headerlink" title="그래디언트 디센트"></a>그래디언트 디센트</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">train = optimizer.minimize(loss)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>에러 함수를 최소화하면 데이터에 가장 최적화 된 모델</li>
+<li>일련의 파라미터로 된 함수가 주어지면 초기 시작점에서 함수의 값이 최소화 되는 방향으로 파라미터를 변경하는 것을 반복적으로 수행</li>
+<li>함수의 기울기가 음의 방향인 쪽으로 진행하면서 반복적으로 최적화를 수행</li>
+<li>보통 양의 값을 만들기 위해 거리 값을 제곱</li>
+<li>기울기를 계산해야 하므로 에러 함수는 미분 가능</li>
+</ul>
+<blockquote>
+<p>알고리즘 실행</p>
+</blockquote>
+<ul>
+<li>아직은 텐서플로우 라이브러리를 호출하는 코드는 단지 내부 그래프 구조에 정보를 추가시킨 것일 뿐 텐서플로우의 실행 모듈은 아직 아무런 알고리즘도 실행하지 않음</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>session</code>을 생성하고 <code>run()</code>메소드를 <code>train</code>파라미터와 함께 호출</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> xrange(<span class="number">8</span>):</span><br><span class="line">   sess.run(train)</span><br><span class="line">print(step+<span class="number">1</span>, sess.run(W), sess.run(b))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>입력 데이터에 최적화 된 직선의 <code>W</code>와 <code>b</code>를 찾기 위해 반복적인 프로세스 실행</li>
+</ul>
+<blockquote>
+<p>최종결과</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">num_points = <span class="number">1000</span></span><br><span class="line">vectors_set = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(num_points):</span><br><span class="line">         x1 = np.random.normal(<span class="number">0.0</span>, <span class="number">0.55</span>)</span><br><span class="line">         y1 = x1 * <span class="number">0.1</span> + <span class="number">0.3</span> + np.random.normal(<span class="number">0.0</span>, <span class="number">0.03</span>)</span><br><span class="line">         vectors_set.append([x1, y1])</span><br><span class="line"></span><br><span class="line">x_data = [v[<span class="number">0</span>] <span class="keyword">for</span> v <span class="keyword">in</span> vectors_set]</span><br><span class="line">y_data = [v[<span class="number">1</span>] <span class="keyword">for</span> v <span class="keyword">in</span> vectors_set]</span><br><span class="line"></span><br><span class="line">W = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line">y = W * x_data + b</span><br><span class="line"></span><br><span class="line">loss = tf.reduce_mean(tf.square(y - y_data))</span><br><span class="line"></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">   sess.run(train)</span><br><span class="line">print(step+<span class="number">1</span>, sess.run(W), sess.run(b))</span><br><span class="line"></span><br><span class="line">plt.plot(x_data, y_data, <span class="string">&#x27;ro&#x27;</span>, label=<span class="string">&#x27;Original data&#x27;</span>)</span><br><span class="line">plt.plot(x_data, sess.run(W) * x_data + sess.run(b))</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/62850969-913f6e80-bd1f-11e9-9fbb-314d20e6b1a2.png" alt="실행결과"></p>
+<h2 id="반복에-따른-변화"><a href="#반복에-따른-변화" class="headerlink" title="반복에 따른 변화"></a>반복에 따른 변화</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">num_points = <span class="number">1000</span></span><br><span class="line">vectors_set = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(num_points):</span><br><span class="line">         x1 = np.random.normal(<span class="number">0.0</span>, <span class="number">0.55</span>)</span><br><span class="line">         y1 = x1 * <span class="number">0.1</span> + <span class="number">0.3</span> + np.random.normal(<span class="number">0.0</span>, <span class="number">0.03</span>)</span><br><span class="line">         vectors_set.append([x1, y1])</span><br><span class="line"></span><br><span class="line">x_data = [v[<span class="number">0</span>] <span class="keyword">for</span> v <span class="keyword">in</span> vectors_set]</span><br><span class="line">y_data = [v[<span class="number">1</span>] <span class="keyword">for</span> v <span class="keyword">in</span> vectors_set]</span><br><span class="line"></span><br><span class="line">W = tf.Variable(tf.random_uniform([<span class="number">1</span>], <span class="number">-1.0</span>, <span class="number">1.0</span>))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">1</span>]))</span><br><span class="line">y = W * x_data + b</span><br><span class="line"></span><br><span class="line">loss = tf.reduce_mean(tf.square(y - y_data))</span><br><span class="line"></span><br><span class="line">optimizer = tf.train.GradientDescentOptimizer(<span class="number">0.5</span>)</span><br><span class="line">train = optimizer.minimize(loss)</span><br><span class="line"></span><br><span class="line">init = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> z <span class="keyword">in</span> [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">1000</span>]:</span><br><span class="line">    <span class="keyword">for</span> step <span class="keyword">in</span> range(z):</span><br><span class="line">        sess.run(train)</span><br><span class="line">    print(step + <span class="number">1</span>, sess.run(W), sess.run(b))</span><br><span class="line">    plt.plot(x_data, y_data, <span class="string">&#x27;ro&#x27;</span>, label=<span class="string">&#x27;Original data&#x27;</span>)</span><br><span class="line">    plt.plot(x_data, sess.run(W) * x_data + sess.run(b))</span><br><span class="line">    plt.legend()</span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> [<span class="number">-0.35690996</span>] [<span class="number">0.30064374</span>]</span><br><span class="line"><span class="number">2</span> [<span class="number">-0.12226558</span>] [<span class="number">0.3001456</span>]</span><br><span class="line"><span class="number">3</span> [<span class="number">0.02432493</span>] [<span class="number">0.299835</span>]</span><br><span class="line"><span class="number">4</span> [<span class="number">0.08164252</span>] [<span class="number">0.29971355</span>]</span><br><span class="line"><span class="number">5</span> [<span class="number">0.0964299</span>] [<span class="number">0.2996822</span>]</span><br><span class="line"><span class="number">6</span> [<span class="number">0.09900617</span>] [<span class="number">0.29967675</span>]</span><br><span class="line"><span class="number">7</span> [<span class="number">0.09931295</span>] [<span class="number">0.2996761</span>]</span><br><span class="line"><span class="number">8</span> [<span class="number">0.09933809</span>] [<span class="number">0.29967603</span>]</span><br><span class="line"><span class="number">1000</span> [<span class="number">0.09933957</span>] [<span class="number">0.29967603</span>]</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://user-images.githubusercontent.com/42334717/62851910-bb466000-bd22-11e9-86ea-1cee6bf850b5.png" alt="1회 반복"><br><img src="https://user-images.githubusercontent.com/42334717/62851915-bda8ba00-bd22-11e9-861e-239d5f3a40e9.png" alt="2회 반복"><br><img src="https://user-images.githubusercontent.com/42334717/62851930-c8fbe580-bd22-11e9-9d16-e36cef50e0ff.png" alt="3회 반복"><br><img src="https://user-images.githubusercontent.com/42334717/62851932-cb5e3f80-bd22-11e9-981d-009fc20fbae2.png" alt="4회 반복"><br><img src="https://user-images.githubusercontent.com/42334717/62851935-cdc09980-bd22-11e9-9849-08ce38e970f6.png" alt="5회 반복"><br><img src="https://user-images.githubusercontent.com/42334717/62851937-cf8a5d00-bd22-11e9-882a-6b1bcfb8be1b.png" alt="6회 반복"><br><img src="https://user-images.githubusercontent.com/42334717/62851941-d1542080-bd22-11e9-9e33-5dd00e40fe5f.png" alt="7회 반복"><br><img src="https://user-images.githubusercontent.com/42334717/62851943-d3b67a80-bd22-11e9-9a9c-a884aee9ba85.png" alt="8회 반복"><br><img src="https://user-images.githubusercontent.com/42334717/62852000-0eb8ae00-bd23-11e9-8e69-2479f6102af1.png" alt="1000회 반복"></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/tensorflow-2/" rel="bookmark">TensorFlow(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/tensorflow-3/" rel="bookmark">TensorFlow(3)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/motion-capture-technology-using-stereo-camera/" rel="bookmark">Motion capture technology using stereo camera</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/domain-knowledge-based-data-preprocessing-technology-for-industrial-applications-of-deep-learning/" rel="bookmark">Domain Knowledge Based Data Preprocessing Technology for Industrial Applications of Deep Learning</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/tensorflow-1/" title="TensorFlow(1)">https://zerohertz.github.io/tensorflow-1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+              <a href="/tags/dnn/" rel="tag"><i class="fa fa-tag"></i> DNN</a>
+              <a href="/tags/tensorflow/" rel="tag"><i class="fa fa-tag"></i> TensorFlow</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/machine-learning-basic-2/" rel="prev" title="Machine Learning Basic(2)">
+                  <i class="fa fa-chevron-left"></i> Machine Learning Basic(2)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/tensorflow-2/" rel="next" title="TensorFlow(2)">
+                  TensorFlow(2) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/tensorflow-1/";
+    this.page.identifier = "tensorflow-1/";
+    this.page.title = "TensorFlow(1)";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

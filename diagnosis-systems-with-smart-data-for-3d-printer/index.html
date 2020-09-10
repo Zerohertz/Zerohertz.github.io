@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Problem Definition Self diagnosis systems for unattended 3D printers   자동화된 다수의 3D printer들을 진단하는 System이 필요 가속도 센서를 이용, ML을 통한 Self diagnosis system 개발   Skills for project LabView MatLab Signal Proc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Diagnosis Systems with Smart Data for 3D Printer">
+<meta property="og:url" content="https://zerohertz.github.io/diagnosis-systems-with-smart-data-for-3d-printer/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Problem Definition Self diagnosis systems for unattended 3D printers   자동화된 다수의 3D printer들을 진단하는 System이 필요 가속도 센서를 이용, ML을 통한 Self diagnosis system 개발   Skills for project LabView MatLab Signal Proc">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/75875966-1d4dea80-5e58-11ea-8bab-79a0bac8e103.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/75888687-1aaabf80-5e6f-11ea-9e5a-56868ae7910b.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/75888743-30b88000-5e6f-11ea-86ae-e79dcec0a256.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/75889024-960c7100-5e6f-11ea-8619-bd2d76f1b58f.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76001793-fde2ba80-5f48-11ea-8595-85e04cc33b94.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76002712-5f575900-5f4a-11ea-99fe-0e8cbeb4a405.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76002703-5bc3d200-5f4a-11ea-8c92-817442bb34a0.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76012300-69348880-5f59-11ea-9ebd-dddbc490aaa5.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76012282-65086b00-5f59-11ea-8fb9-4f28acfb4971.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76012298-689bf200-5f59-11ea-8be6-6eb0e42e0e32.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76012295-68035b80-5f59-11ea-9f83-14d8d5b655de.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76012292-676ac500-5f59-11ea-9fed-9a36e97872e8.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76012289-66d22e80-5f59-11ea-98e9-40a883b0ed03.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76012299-689bf200-5f59-11ea-9cfb-5cff1b27158c.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76012297-68035b80-5f59-11ea-88a5-bd5a2642fa95.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76012294-676ac500-5f59-11ea-8d46-c79baff6d566.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76928008-a4ed2c00-6923-11ea-99c0-c3c4e2285516.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76928858-0e6e3a00-6926-11ea-8754-2169897e5daf.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76928864-10d09400-6926-11ea-8d9a-541514150acf.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76928868-1332ee00-6926-11ea-9f59-909ec11cdcfa.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76930088-08c62380-6929-11ea-81f9-9ebc230a4029.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76930095-0d8ad780-6929-11ea-9137-0b74338422d4.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76930097-0f549b00-6929-11ea-9ae6-a34b3ac9daa0.jpg">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76924261-212e4200-6919-11ea-8be4-3f90fb5573a7.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76932497-67da6700-692e-11ea-8a7e-44051653d906.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/77077309-5f6e5300-6a38-11ea-9569-033881277e97.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/77077180-3b127680-6a38-11ea-8be0-73659951400e.png">
+<meta property="article:published_time" content="2020-03-04T11:32:07.000Z">
+<meta property="article:modified_time" content="2020-08-06T05:08:00.059Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Matlab">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="DNN">
+<meta property="article:tag" content="Signal Processing">
+<meta property="article:tag" content="PHM">
+<meta property="article:tag" content="Smart data">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="Statistics">
+<meta property="article:tag" content="LabVIEW">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/75875966-1d4dea80-5e58-11ea-8bab-79a0bac8e103.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/diagnosis-systems-with-smart-data-for-3d-printer/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Diagnosis Systems with Smart Data for 3D Printer | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Problem-Definition"><span class="nav-number">1.</span> <span class="nav-text">Problem Definition</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Skills-for-project"><span class="nav-number">2.</span> <span class="nav-text">Skills for project</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1%EC%B0%A8-%EC%8B%9C%EB%8F%84-20200302-20200306"><span class="nav-number">3.</span> <span class="nav-text">1차 시도(20200302~20200306)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-Definition-1"><span class="nav-number">3.1.</span> <span class="nav-text">Problem Definition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#T-bar"><span class="nav-number">3.1.1.</span> <span class="nav-text">T-bar</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bolt"><span class="nav-number">3.1.2.</span> <span class="nav-text">Bolt</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Data-%EC%B8%A1%EC%A0%95"><span class="nav-number">3.2.</span> <span class="nav-text">Data 측정</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Feature-Extraction"><span class="nav-number">3.3.</span> <span class="nav-text">Feature Extraction</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%EC%B0%A8-%EC%8B%9C%EB%8F%84-20200309-20200320"><span class="nav-number">4.</span> <span class="nav-text">2차 시도(20200309~20200320)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Problem-Definition-2"><span class="nav-number">4.1.</span> <span class="nav-text">Problem Definition</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#T-bar-1"><span class="nav-number">4.1.1.</span> <span class="nav-text">T-bar</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Raw-data"><span class="nav-number">4.2.</span> <span class="nav-text">Raw data</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CIs"><span class="nav-number">4.3.</span> <span class="nav-text">CIs</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#FDR"><span class="nav-number">4.3.1.</span> <span class="nav-text">FDR</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%B5%9C%EC%A0%81%EC%9D%98-Condition-Indicator-%ED%8A%B9%EC%84%B1%EC%9D%B8%EC%9E%90-%EC%99%80-Window-size-%EC%84%A0%EC%A0%95"><span class="nav-number">4.3.2.</span> <span class="nav-text">최적의 Condition Indicator(특성인자)와 Window size 선정</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ML-SVM"><span class="nav-number">4.4.</span> <span class="nav-text">ML(SVM)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Error"><span class="nav-number">4.5.</span> <span class="nav-text">Error</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/diagnosis-systems-with-smart-data-for-3d-printer/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Diagnosis Systems with Smart Data for 3D Printer
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-04 20:32:07" itemprop="dateCreated datePublished" datetime="2020-03-04T20:32:07+09:00">2020-03-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-08-06 14:08:00" itemprop="dateModified" datetime="2020-08-06T14:08:00+09:00">2020-08-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/research/journal/" itemprop="url" rel="index"><span itemprop="name">Journal</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/diagnosis-systems-with-smart-data-for-3d-printer/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="diagnosis-systems-with-smart-data-for-3d-printer/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Problem-Definition"><a href="#Problem-Definition" class="headerlink" title="Problem Definition"></a>Problem Definition</h1><blockquote>
+<p>Self diagnosis systems for unattended 3D printers</p>
+</blockquote>
+<ul>
+<li>자동화된 다수의 3D printer들을 진단하는 System이 필요</li>
+<li>가속도 센서를 이용, ML을 통한 Self diagnosis system 개발</li>
+</ul>
+<hr>
+<h1 id="Skills-for-project"><a href="#Skills-for-project" class="headerlink" title="Skills for project"></a>Skills for project</h1><ul>
+<li>LabView</li>
+<li>MatLab</li>
+<li>Signal Processing</li>
+<li>Machine Learning</li>
+<li>Deep Learning</li>
+</ul>
+<a id="more"></a>
+
+<hr>
+<h1 id="1차-시도-20200302-20200306"><a href="#1차-시도-20200302-20200306" class="headerlink" title="1차 시도(20200302~20200306)"></a>1차 시도(20200302~20200306)</h1><h2 id="Problem-Definition-1"><a href="#Problem-Definition-1" class="headerlink" title="Problem Definition"></a>Problem Definition</h2><h3 id="T-bar"><a href="#T-bar" class="headerlink" title="T-bar"></a>T-bar</h3><blockquote>
+<p>T-bar의 마모를 가하려했지만 결과물에 지장이 없거나, 모터가 움직이지 못하는 현상 발견</p>
+</blockquote>
+<img width="500" alt="T-bar" src="https://user-images.githubusercontent.com/42334717/75875966-1d4dea80-5e58-11ea-8bab-79a0bac8e103.png">
+
+<p><strong>따라서 T-bar의 마모가 3D printer의 결함 원인으로는 적합하지 않다.</strong></p>
+<h3 id="Bolt"><a href="#Bolt" class="headerlink" title="Bolt"></a>Bolt</h3><blockquote>
+<p>3D Printer의 좌측, Belt를 지지해주는 Bolt를 통해 풀림을 생성</p>
+</blockquote>
+<img width="500" alt="Bolt" src="https://user-images.githubusercontent.com/42334717/75888687-1aaabf80-5e6f-11ea-9e5a-56868ae7910b.png">
+
+<blockquote>
+<p>좌측 : 정상, 우측 : Bolt 풀림</p>
+</blockquote>
+<img width="500" alt="Healthy and Faulty" src="https://user-images.githubusercontent.com/42334717/75888743-30b88000-5e6f-11ea-86ae-e79dcec0a256.png">
+
+<p><strong>그림과 같이 눈에 띄게 결과물이 손상됨을 알 수 있다.</strong><br><u><strong>따라서 Bolt의 풀림을 3D printer의 고장 원인으로 정한다.</strong></u></p>
+<h2 id="Data-측정"><a href="#Data-측정" class="headerlink" title="Data 측정"></a>Data 측정</h2><blockquote>
+<p>X-axis Acceleration Graph</p>
+</blockquote>
+<img width="1000" alt="acc_x" src="https://user-images.githubusercontent.com/42334717/75889024-960c7100-5e6f-11ea-8619-bd2d76f1b58f.png">
+
+<p><strong>확연한 차이를 보인다.</strong></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt; summary(health1)</span><br><span class="line">      time             accx               accy               accz         </span><br><span class="line"> Min.   : <span class="number">10.01</span>   Min.   :-<span class="number">1.83858</span>   Min.   :-<span class="number">1.03260</span>   Min.   :-<span class="number">0.98387</span>  </span><br><span class="line"> 1st Qu.:<span class="number">249.24</span>   1st Qu.:-<span class="number">0.12548</span>   1st Qu.:-<span class="number">0.02613</span>   1st Qu.:-<span class="number">0.28147</span>  </span><br><span class="line"> Median :<span class="number">488.47</span>   Median : <span class="number">0.01764</span>   Median : <span class="number">0.06829</span>   Median : <span class="number">0.02165</span>  </span><br><span class="line"> Mean   :<span class="number">488.47</span>   Mean   : <span class="number">0.01782</span>   Mean   : <span class="number">0.06824</span>   Mean   : <span class="number">0.03428</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">727.70</span>   3rd Qu.: <span class="number">0.16088</span>   3rd Qu.: <span class="number">0.16258</span>   3rd Qu.: <span class="number">0.33654</span>  </span><br><span class="line"> Max.   :<span class="number">966.93</span>   Max.   : <span class="number">1.75525</span>   Max.   : <span class="number">1.26659</span>   Max.   : <span class="number">1.00005</span>  </span><br><span class="line">&gt; summary(fault1)</span><br><span class="line">      time             accx               accy               accz         </span><br><span class="line"> Min.   : <span class="number">10.01</span>   Min.   :-<span class="number">1.30125</span>   Min.   :-<span class="number">1.70969</span>   Min.   :-<span class="number">0.96202</span>  </span><br><span class="line"> 1st Qu.:<span class="number">249.24</span>   1st Qu.:-<span class="number">0.06878</span>   1st Qu.:-<span class="number">0.00552</span>   1st Qu.:-<span class="number">0.28195</span>  </span><br><span class="line"> Median :<span class="number">488.47</span>   Median : <span class="number">0.01883</span>   Median : <span class="number">0.06278</span>   Median : <span class="number">0.02334</span>  </span><br><span class="line"> Mean   :<span class="number">488.47</span>   Mean   : <span class="number">0.01876</span>   Mean   : <span class="number">0.06267</span>   Mean   : <span class="number">0.03584</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">727.70</span>   3rd Qu.: <span class="number">0.10655</span>   3rd Qu.: <span class="number">0.13107</span>   3rd Qu.: <span class="number">0.34062</span>  </span><br><span class="line"> Max.   :<span class="number">966.93</span>   Max.   : <span class="number">1.34742</span>   Max.   : <span class="number">1.84255</span>   Max.   : <span class="number">1.00065</span></span><br><span class="line">&gt; sd(health1$accx)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.2419928</span></span><br><span class="line">&gt; sd(fault1$accx)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.1536977</span></span><br><span class="line">&gt; sd(health1$accy)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.1538164</span></span><br><span class="line">&gt; sd(fault1$accy)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.118694</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>X-axis 확률 밀도 함수</p>
+</blockquote>
+<img width="700" alt="X-axis 확률 밀도 함수" src="https://user-images.githubusercontent.com/42334717/76001793-fde2ba80-5f48-11ea-8595-85e04cc33b94.png">
+
+<blockquote>
+<p>Y-axis 확률 밀도 함수</p>
+</blockquote>
+<img width="700" alt="Y-axis 확률 밀도 함수" src="https://user-images.githubusercontent.com/42334717/76002712-5f575900-5f4a-11ea-99fe-0e8cbeb4a405.png">
+
+<blockquote>
+<p>Z-axis 확률 밀도 함수</p>
+</blockquote>
+<img width="700" alt="Z-axis 확률 밀도 함수" src="https://user-images.githubusercontent.com/42334717/76002703-5bc3d200-5f4a-11ea-8c92-817442bb34a0.png">
+
+<ul>
+<li><span style="color:rgb(10,10,255)">Healthy</span></li>
+<li><span style="color:rgb(225,10,10)">Faulty</span></li>
+</ul>
+<h2 id="Feature-Extraction"><a href="#Feature-Extraction" class="headerlink" title="Feature Extraction"></a>Feature Extraction</h2><p><u><strong>Z축의 데이터는 분포에 차이가 없으므로 무시</strong></u></p>
+<blockquote>
+<p>Skewness of X</p>
+</blockquote>
+<img width="700" alt="skofx" src="https://user-images.githubusercontent.com/42334717/76012300-69348880-5f59-11ea-9ebd-dddbc490aaa5.png">
+
+<blockquote>
+<p>Kurtosis of X</p>
+</blockquote>
+<img width="700" alt="kuofx" src="https://user-images.githubusercontent.com/42334717/76012282-65086b00-5f59-11ea-8fb9-4f28acfb4971.png">
+
+<blockquote>
+<p>Standard Deviation of X</p>
+</blockquote>
+<img width="700" alt="sdofx" src="https://user-images.githubusercontent.com/42334717/76012298-689bf200-5f59-11ea-8be6-6eb0e42e0e32.png">
+
+<blockquote>
+<p>RMS of X</p>
+</blockquote>
+<img width="700" alt="rmsofx" src="https://user-images.githubusercontent.com/42334717/76012295-68035b80-5f59-11ea-9f83-14d8d5b655de.png">
+
+<blockquote>
+<p>Peak to peak of X</p>
+</blockquote>
+<img width="700" alt="p2pofx" src="https://user-images.githubusercontent.com/42334717/76012292-676ac500-5f59-11ea-9fed-9a36e97872e8.png">
+
+<blockquote>
+<p>Kurtosis of Y</p>
+</blockquote>
+<img width="700" alt="kuofy" src="https://user-images.githubusercontent.com/42334717/76012289-66d22e80-5f59-11ea-98e9-40a883b0ed03.png">
+
+<blockquote>
+<p>Standard Deviation of Y</p>
+</blockquote>
+<img width="700" alt="sdofy" src="https://user-images.githubusercontent.com/42334717/76012299-689bf200-5f59-11ea-9cfb-5cff1b27158c.png">
+
+<blockquote>
+<p>RMS of Y</p>
+</blockquote>
+<img width="700" alt="rmsofy" src="https://user-images.githubusercontent.com/42334717/76012297-68035b80-5f59-11ea-88a5-bd5a2642fa95.png">
+
+<blockquote>
+<p>Peak to peak of Y</p>
+</blockquote>
+<img width="700" alt="p2pofy" src="https://user-images.githubusercontent.com/42334717/76012294-676ac500-5f59-11ea-8d46-c79baff6d566.png">
+
+<ul>
+<li>Skewness와 Kurtosis는 위의 그래프와 같이 분류에 적합하지 않으므로 배제<ul>
+<li>Raw data를 통해 Kurtosis가 높을거라 예측</li>
+<li>분포에서 큰 차이 없었음</li>
+</ul>
+</li>
+<li>오히려 Standard Deviation의 차이가 컸음</li>
+<li><strong>따라서 X, Y 데이터를 이용한 SD, RMS, P2P로 Feature extraction을 진행</strong></li>
+</ul>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Zerohertz/Zerohertz.github.io/files/4297116/20200306.SiM.Lab.Meeting.Presentation.-.pdf">20200306 SiM Lab. Meeting Presentation - 오효근.pdf</a></p>
+<hr>
+<h1 id="2차-시도-20200309-20200320"><a href="#2차-시도-20200309-20200320" class="headerlink" title="2차 시도(20200309~20200320)"></a>2차 시도(20200309~20200320)</h1><h2 id="Problem-Definition-2"><a href="#Problem-Definition-2" class="headerlink" title="Problem Definition"></a>Problem Definition</h2><h3 id="T-bar-1"><a href="#T-bar-1" class="headerlink" title="T-bar"></a>T-bar</h3><blockquote>
+<p>T-bar에 아래로 가해지는 하중이 크므로 마모가 일어날 수 있다</p>
+</blockquote>
+<img width="1920" alt="T-bar 마모" src="https://user-images.githubusercontent.com/42334717/76928008-a4ed2c00-6923-11ea-99c0-c3c4e2285516.png">
+
+<h2 id="Raw-data"><a href="#Raw-data" class="headerlink" title="Raw data"></a>Raw data</h2><p><img src="https://user-images.githubusercontent.com/42334717/76928858-0e6e3a00-6926-11ea-8754-2169897e5daf.jpg" alt="X"></p>
+<p><img src="https://user-images.githubusercontent.com/42334717/76928864-10d09400-6926-11ea-8d9a-541514150acf.jpg" alt="Y"></p>
+<p><img src="https://user-images.githubusercontent.com/42334717/76928868-1332ee00-6926-11ea-9f59-909ec11cdcfa.jpg" alt="Z"></p>
+<p><img src="https://user-images.githubusercontent.com/42334717/76930088-08c62380-6929-11ea-81f9-9ebc230a4029.jpg" alt="X"></p>
+<p><img src="https://user-images.githubusercontent.com/42334717/76930095-0d8ad780-6929-11ea-9137-0b74338422d4.jpg" alt="Y"></p>
+<p><img src="https://user-images.githubusercontent.com/42334717/76930097-0f549b00-6929-11ea-9ae6-a34b3ac9daa0.jpg" alt="Z"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&gt; fa=rbind(fault6,fault7,fault8,fault9)</span><br><span class="line">&gt; no=rbind(normal5,normal6,normal7,normal8)</span><br><span class="line">&gt; summary(fa)</span><br><span class="line">      time              X                  Y                  Z           </span><br><span class="line"> Min.   : <span class="number">181.6</span>   Min.   :-<span class="number">14.6193</span>   Min.   :-<span class="number">8.42605</span>   Min.   :-<span class="number">22.2520</span>  </span><br><span class="line"> 1st Qu.: <span class="number">408.7</span>   1st Qu.: -<span class="number">0.2369</span>   1st Qu.: <span class="number">0.02105</span>   1st Qu.: -<span class="number">0.7343</span>  </span><br><span class="line"> Median : <span class="number">635.7</span>   Median :  <span class="number">0.3680</span>   Median : <span class="number">0.59761</span>   Median :  <span class="number">0.3068</span>  </span><br><span class="line"> Mean   : <span class="number">635.7</span>   Mean   :  <span class="number">0.3716</span>   Mean   : <span class="number">0.58776</span>   Mean   :  <span class="number">0.3061</span>  </span><br><span class="line"> 3rd Qu.: <span class="number">862.8</span>   3rd Qu.:  <span class="number">0.9775</span>   3rd Qu.: <span class="number">1.16734</span>   3rd Qu.:  <span class="number">1.3467</span>  </span><br><span class="line"> Max.   :<span class="number">1089.8</span>   Max.   : <span class="number">13.8975</span>   Max.   :<span class="number">10.59470</span>   Max.   : <span class="number">22.2974</span>  </span><br><span class="line">&gt; summary(no)</span><br><span class="line">      time              X                  Y                  Z           </span><br><span class="line"> Min.   : <span class="number">181.6</span>   Min.   :-<span class="number">15.2587</span>   Min.   :-<span class="number">9.47796</span>   Min.   :-<span class="number">24.1539</span>  </span><br><span class="line"> 1st Qu.: <span class="number">408.7</span>   1st Qu.: -<span class="number">0.1979</span>   1st Qu.: <span class="number">0.02559</span>   1st Qu.: -<span class="number">0.4072</span>  </span><br><span class="line"> Median : <span class="number">635.7</span>   Median :  <span class="number">0.3737</span>   Median : <span class="number">0.61580</span>   Median :  <span class="number">0.3183</span>  </span><br><span class="line"> Mean   : <span class="number">635.7</span>   Mean   :  <span class="number">0.3777</span>   Mean   : <span class="number">0.60424</span>   Mean   :  <span class="number">0.3178</span>  </span><br><span class="line"> 3rd Qu.: <span class="number">862.8</span>   3rd Qu.:  <span class="number">0.9499</span>   3rd Qu.: <span class="number">1.19691</span>   3rd Qu.:  <span class="number">1.0425</span>  </span><br><span class="line"> Max.   :<span class="number">1089.8</span>   Max.   : <span class="number">14.9363</span>   Max.   :<span class="number">10.77779</span>   Max.   : <span class="number">25.8188</span>  </span><br><span class="line">&gt; IQR(fa$Z)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2.080954</span></span><br><span class="line">&gt; IQR(no$Z)</span><br><span class="line">[<span class="number">1</span>] <span class="number">1.449666</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>진동 데이터임에도 불구하고 평균이 0이 아님<ul>
+<li>FFT를 통해 노이즈 필터링 필요</li>
+</ul>
+</li>
+<li>Z축의 가속도에 차이<ul>
+<li>Kurtosis(첨도)가 Normal 상태에서 높게 나올 것이라 예상</li>
+<li>Fault 상태에 더 진폭이 큰 분포를 가짐</li>
+<li>따라서 RMS도 높게 나올 수 있음</li>
+<li>IQR도 수치적으로 다름</li>
+</ul>
+</li>
+<li>하지만 X, Y축의 가속도는 거의 유사</li>
+</ul>
+<h2 id="CIs"><a href="#CIs" class="headerlink" title="CIs"></a>CIs</h2><h3 id="FDR"><a href="#FDR" class="headerlink" title="FDR"></a>FDR</h3><p><img src="https://user-images.githubusercontent.com/42334717/76924261-212e4200-6919-11ea-8be4-3f90fb5573a7.png" alt="FDR"></p>
+<h3 id="최적의-Condition-Indicator-특성인자-와-Window-size-선정"><a href="#최적의-Condition-Indicator-특성인자-와-Window-size-선정" class="headerlink" title="최적의 Condition Indicator(특성인자)와 Window size 선정"></a>최적의 Condition Indicator(특성인자)와 Window size 선정</h3><p></p>
+<table>
+<thead>
+<tr>
+<th align="center">Window size</th>
+<th align="center">Z_sk</th>
+<th align="center"><span style="color:rgb(225,10,10)">Z_ku</span></th>
+<th align="center"><span style="color:rgb(225,10,10)">Z_rm</span></th>
+<th align="center">Z_p2p</th>
+<th align="center"><span style="color:rgb(225,10,10)">Z_iq</span></th>
+<th align="center"><span style="color:rgb(225,10,10)">Z_cf</span></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">1,000(0.6초)</td>
+<td align="center">0.0016</td>
+<td align="center">0.8548</td>
+<td align="center">9.5726</td>
+<td align="center">0.0663</td>
+<td align="center">8.8219</td>
+<td align="center">1.1792</td>
+</tr>
+<tr>
+<td align="center">5,000(3초)</td>
+<td align="center">0.0075</td>
+<td align="center">3.9295</td>
+<td align="center">15.095</td>
+<td align="center">0.2040</td>
+<td align="center">15.543</td>
+<td align="center">5.9002</td>
+</tr>
+<tr>
+<td align="center">10,000(6초)</td>
+<td align="center">0.0141</td>
+<td align="center">5.9023</td>
+<td align="center">16.238</td>
+<td align="center">0.3147</td>
+<td align="center">17.047</td>
+<td align="center">7.9695</td>
+</tr>
+<tr>
+<td align="center">100,000(60초)</td>
+<td align="center">0.1330</td>
+<td align="center">16.867</td>
+<td align="center">18.878</td>
+<td align="center">0.3652</td>
+<td align="center">19.921</td>
+<td align="center">13.088</td>
+</tr>
+</tbody></table>
+<img width="1024" alt="FDR for window size" src="https://user-images.githubusercontent.com/42334717/76932497-67da6700-692e-11ea-8a7e-44051653d906.png">
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; fdr(f5[,<span class="number">1</span>],h5[,<span class="number">1</span>])</span><br><span class="line">[<span class="number">1</span>] <span class="number">12.34253</span></span><br><span class="line">&gt; fdr(f5[,<span class="number">2</span>],h5[,<span class="number">2</span>])</span><br><span class="line">[<span class="number">1</span>] <span class="number">18.26443</span></span><br><span class="line">&gt; fdr(f5[,<span class="number">3</span>],h5[,<span class="number">3</span>])</span><br><span class="line">[<span class="number">1</span>] <span class="number">19.2982</span></span><br><span class="line">&gt; fdr(f5[,<span class="number">4</span>],h5[,<span class="number">4</span>])</span><br><span class="line">[<span class="number">1</span>] <span class="number">12.73563</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="ML-SVM"><a href="#ML-SVM" class="headerlink" title="ML(SVM)"></a>ML(SVM)</h2><img width="1920" alt="SVM" src="https://user-images.githubusercontent.com/42334717/77077309-5f6e5300-6a38-11ea-9569-033881277e97.png">
+
+<h2 id="Error"><a href="#Error" class="headerlink" title="Error"></a>Error</h2><img width="1920" alt="Error" src="https://user-images.githubusercontent.com/42334717/77077180-3b127680-6a38-11ea-8be0-73659951400e.png">
+
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Zerohertz/Zerohertz.github.io/files/4355057/20200313.SiM.Lab.Meeting.Presentation.-.pdf">20200313 SiM Lab. Meeting Presentation - 오효근.pdf</a><br><a target="_blank" rel="external nofollow noopener noreferrer" href="https://github.com/Zerohertz/Zerohertz.github.io/files/4355054/20200320.SiM.Lab.Meeting.Presentation.-.pdf">20200320 SiM Lab. Meeting Presentation - 오효근.pdf</a></p>
+<hr>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-for-ball-bearing-cage-defects-using-fisher-discriminant-ratio/" rel="bookmark">Diagnosis Systems for Ball Bearing Cage Defects using Fisher Discriminant Ratio</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/" rel="bookmark">Development of a Obstructive Sleep Apnea Diagnosis Algorithm Using HRV</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/source-code-obstructive-sleep-apnea/" rel="bookmark">Source Code(Obstructive Sleep Apnea)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/source-code-for-extracting-cis/" rel="bookmark">Source code for extracting CIs</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/diagnosis-systems-with-smart-data-for-3d-printer/" title="Diagnosis Systems with Smart Data for 3D Printer">https://zerohertz.github.io/diagnosis-systems-with-smart-data-for-3d-printer/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/matlab/" rel="tag"><i class="fa fa-tag"></i> Matlab</a>
+              <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+              <a href="/tags/dnn/" rel="tag"><i class="fa fa-tag"></i> DNN</a>
+              <a href="/tags/signal-processing/" rel="tag"><i class="fa fa-tag"></i> Signal Processing</a>
+              <a href="/tags/phm/" rel="tag"><i class="fa fa-tag"></i> PHM</a>
+              <a href="/tags/smart-data/" rel="tag"><i class="fa fa-tag"></i> Smart data</a>
+              <a href="/tags/r/" rel="tag"><i class="fa fa-tag"></i> R</a>
+              <a href="/tags/statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+              <a href="/tags/labview/" rel="tag"><i class="fa fa-tag"></i> LabVIEW</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/evaluation-of-datum-unit-for-diagnostics-of-journal-bearing-systems/" rel="prev" title="Evaluation of Datum Unit for Diagnostics of Journal-Bearing Systems">
+                  <i class="fa fa-chevron-left"></i> Evaluation of Datum Unit for Diagnostics of Journal-Bearing Systems
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/source-code-for-extracting-cis/" rel="next" title="Source code for extracting CIs">
+                  Source code for extracting CIs <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/diagnosis-systems-with-smart-data-for-3d-printer/";
+    this.page.identifier = "diagnosis-systems-with-smart-data-for-3d-printer/";
+    this.page.title = "Diagnosis Systems with Smart Data for 3D Printer";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

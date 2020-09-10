@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Unreal engine과 Inverse Kinematics의 차원이 달랐다 IKBPLibrary.cpp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Inverse Kinematics in Unreal engine(2)">
+<meta property="og:url" content="https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Unreal engine과 Inverse Kinematics의 차원이 달랐다 IKBPLibrary.cpp">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/60789463-220fb100-a19a-11e9-8743-e8543fbe595e.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/60789465-220fb100-a19a-11e9-9d8c-57d47a671b75.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/60789466-220fb100-a19a-11e9-95b4-11bd2fba7d9c.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/60789468-220fb100-a19a-11e9-9d64-82073fd75452.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/60789470-22a84780-a19a-11e9-92f0-19699fdd1075.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/60789471-22a84780-a19a-11e9-8a79-1fdeee85bd42.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/60789472-22a84780-a19a-11e9-83a4-8c9b6a61bb7a.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/60789473-22a84780-a19a-11e9-92e1-3c420f2c861c.png">
+<meta property="article:published_time" content="2019-06-02T06:55:01.000Z">
+<meta property="article:modified_time" content="2020-02-25T07:06:49.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="C, C++">
+<meta property="article:tag" content="Unreal Engine">
+<meta property="article:tag" content="VR Project">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/60789463-220fb100-a19a-11e9-8743-e8543fbe595e.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Inverse Kinematics in Unreal engine(2) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Unreal-engine%EA%B3%BC-Inverse-Kinematics%EC%9D%98-%EC%B0%A8%EC%9B%90%EC%9D%B4-%EB%8B%AC%EB%9E%90%EB%8B%A4"><span class="nav-number">1.</span> <span class="nav-text">Unreal engine과 Inverse Kinematics의 차원이 달랐다</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B3%80%EC%88%98-%EC%A7%81%EA%B4%80%EC%84%B1-fprintf-%EC%88%98%EC%A0%95"><span class="nav-number">2.</span> <span class="nav-text">변수 직관성, fprintf 수정</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Inverse Kinematics in Unreal engine(2)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-06-02 15:55:01" itemprop="dateCreated datePublished" datetime="2019-06-02T15:55:01+09:00">2019-06-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-02-25 16:06:49" itemprop="dateModified" datetime="2020-02-25T16:06:49+09:00">2020-02-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/" itemprop="url" rel="index"><span itemprop="name">C, C++</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/c-c/unreal-engine/" itemprop="url" rel="index"><span itemprop="name">Unreal Engine</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/inverse-kinematics-in-unreal-engine-2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="inverse-kinematics-in-unreal-engine-2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>13k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>12 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Unreal-engine과-Inverse-Kinematics의-차원이-달랐다"><a href="#Unreal-engine과-Inverse-Kinematics의-차원이-달랐다" class="headerlink" title="Unreal engine과 Inverse Kinematics의 차원이 달랐다"></a>Unreal engine과 Inverse Kinematics의 차원이 달랐다</h1><blockquote>
+<p>IKBPLibrary.cpp</p>
+</blockquote>
+<a id="more"></a>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;IKBPLibrary.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;IK.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">UIKBPLibrary::UIKBPLibrary(<span class="keyword">const</span> FObjectInitializer&amp; ObjectInitializer) : Super(ObjectInitializer)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">UIKBPLibrary::IKSampleFunction</span><span class="params">(<span class="keyword">float</span> Param)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UIKBPLibrary::InverseKinematics</span><span class="params">(FVector pos, FRotator rot, <span class="keyword">float</span> p, <span class="keyword">float</span> &amp;Joint0, <span class="keyword">float</span> &amp;Joint1, <span class="keyword">float</span> &amp;Joint2, <span class="keyword">float</span> &amp;Joint3, <span class="keyword">float</span> &amp;Joint4, <span class="keyword">float</span> &amp;Joint5, <span class="keyword">float</span> &amp;Joint6)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	FILE* fp = fopen(<span class="string">&quot;test.txt&quot;</span>, <span class="string">&quot;w&quot;</span>);</span><br><span class="line">	<span class="keyword">float</span> JointAngle[NB_JOINT] = &#123;&#125;;</span><br><span class="line">	<span class="keyword">float</span> Alpha[NB_JOINT] = &#123;&#125;;</span><br><span class="line">	<span class="keyword">float</span> A[NB_JOINT] = &#123;&#125;;</span><br><span class="line">	<span class="keyword">float</span> D[NB_JOINT] = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	Alpha[<span class="number">0</span>] = <span class="number">-90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">1</span>] = <span class="number">90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">2</span>] = <span class="number">-90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">3</span>] = <span class="number">90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">4</span>] = <span class="number">-90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">5</span>] = <span class="number">90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">6</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	A[<span class="number">0</span>] = A[<span class="number">1</span>] = A[<span class="number">2</span>] = A[<span class="number">3</span>] = A[<span class="number">4</span>] = A[<span class="number">5</span>] = A[<span class="number">6</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	D[<span class="number">0</span>] = <span class="number">360</span>;</span><br><span class="line">	D[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">	D[<span class="number">2</span>] = <span class="number">420</span>;</span><br><span class="line">	D[<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	D[<span class="number">4</span>] = <span class="number">400</span>;</span><br><span class="line">	D[<span class="number">5</span>] = <span class="number">0</span>;</span><br><span class="line">	D[<span class="number">6</span>] = <span class="number">110</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*int test;</span></span><br><span class="line"><span class="comment">	test = 10;</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	pos.X = test;</span></span><br><span class="line"><span class="comment">	pos.Y = test;</span></span><br><span class="line"><span class="comment">	pos.Z = test;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	rot.Roll = test;</span></span><br><span class="line"><span class="comment">	rot.Pitch = test;</span></span><br><span class="line"><span class="comment">	rot.Yaw = test;*/</span></span><br><span class="line"></span><br><span class="line">	FVector err;</span><br><span class="line">	err = rot.RotateVector(FVector(<span class="number">0</span>, <span class="number">0</span>, D[<span class="number">6</span>]));</span><br><span class="line">	err.X = -err.X;</span><br><span class="line">	err.Y = -err.Y;</span><br><span class="line"></span><br><span class="line">	FVector wristPos = pos - err;</span><br><span class="line"></span><br><span class="line">	FVector WristPos;</span><br><span class="line">	WristPos = wristPos;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(fp, <span class="string">&quot;wristPos : %f\t, %f\t, %f\t&quot;</span>, wristPos.X, wristPos.Y, wristPos.Z);</span><br><span class="line">	FVector shoulderToWrist = wristPos - FVector(<span class="number">0</span>, <span class="number">0</span>, D[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">	FVector unitStoW = shoulderToWrist / shoulderToWrist.Size();</span><br><span class="line"></span><br><span class="line">	FRotator k;</span><br><span class="line">	<span class="function">FRotationMatrix <span class="title">kw</span><span class="params">(k)</span></span>;</span><br><span class="line">	kw.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>; kw.M[<span class="number">0</span>][<span class="number">1</span>] = -unitStoW.Z; kw.M[<span class="number">0</span>][<span class="number">2</span>] = unitStoW.Y;</span><br><span class="line">	kw.M[<span class="number">1</span>][<span class="number">0</span>] = unitStoW.Z; kw.M[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>; kw.M[<span class="number">1</span>][<span class="number">2</span>] = -unitStoW.X;</span><br><span class="line">	kw.M[<span class="number">2</span>][<span class="number">0</span>] = -unitStoW.Y; kw.M[<span class="number">2</span>][<span class="number">1</span>] = unitStoW.X; kw.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	FRotator identity;</span><br><span class="line">	<span class="function">FRotationMatrix <span class="title">Identity</span><span class="params">(identity)</span></span>;</span><br><span class="line">	Identity.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; Identity.M[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>; Identity.M[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">	Identity.M[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">0</span>; Identity.M[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>; Identity.M[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">	Identity.M[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">0</span>; Identity.M[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">0</span>; Identity.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">float</span> theta4Prime = D[<span class="number">2</span>] * D[<span class="number">2</span>] + D[<span class="number">4</span>] * D[<span class="number">4</span>] - shoulderToWrist.SizeSquared();</span><br><span class="line">	theta4Prime = theta4Prime / (<span class="number">2.0</span> * D[<span class="number">2</span>] * D[<span class="number">4</span>]);</span><br><span class="line">	JointAngle[<span class="number">3</span>] = PI - <span class="built_in">acos</span>(theta4Prime);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">float</span> theta1Prime = <span class="built_in">atan2</span>(wristPos.Y, wristPos.X);</span><br><span class="line">	<span class="keyword">float</span> alpha = (wristPos.Z - D[<span class="number">0</span>]) / shoulderToWrist.Size();</span><br><span class="line">	alpha = <span class="built_in">asin</span>(alpha);</span><br><span class="line">	<span class="keyword">float</span> beta = D[<span class="number">2</span>] * D[<span class="number">2</span>] + shoulderToWrist.SizeSquared() - D[<span class="number">4</span>] * D[<span class="number">4</span>];</span><br><span class="line">	beta = beta / (<span class="number">2</span> * D[<span class="number">2</span>] * shoulderToWrist.Size());</span><br><span class="line">	beta = <span class="built_in">acos</span>(beta);</span><br><span class="line">	<span class="keyword">float</span> theta2Prime = PI / <span class="number">2.0</span> - alpha - beta;</span><br><span class="line"></span><br><span class="line">	FRotator Prime;</span><br><span class="line">	<span class="function">FRotationMatrix <span class="title">rotPrime</span><span class="params">(Prime)</span></span>;</span><br><span class="line">	rotPrime.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="built_in">cos</span>(theta1Prime)*<span class="built_in">cos</span>(theta2Prime); rotPrime.M[<span class="number">0</span>][<span class="number">1</span>] = -<span class="built_in">cos</span>(theta1Prime)*<span class="built_in">sin</span>(theta2Prime); rotPrime.M[<span class="number">0</span>][<span class="number">2</span>] = -<span class="built_in">sin</span>(theta1Prime);</span><br><span class="line">	rotPrime.M[<span class="number">1</span>][<span class="number">0</span>] = <span class="built_in">cos</span>(theta2Prime)*<span class="built_in">sin</span>(theta1Prime); rotPrime.M[<span class="number">1</span>][<span class="number">1</span>] = -<span class="built_in">sin</span>(theta1Prime)*<span class="built_in">sin</span>(theta2Prime); rotPrime.M[<span class="number">1</span>][<span class="number">2</span>] = <span class="built_in">cos</span>(theta1Prime);</span><br><span class="line">	rotPrime.M[<span class="number">2</span>][<span class="number">0</span>] = -<span class="built_in">sin</span>(theta2Prime); rotPrime.M[<span class="number">2</span>][<span class="number">1</span>] = -<span class="built_in">cos</span>(theta2Prime); rotPrime.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	JointAngle[<span class="number">0</span>] = <span class="built_in">atan2</span>(wristPos.Y, wristPos.X);</span><br><span class="line">	JointAngle[<span class="number">1</span>] = theta2Prime;</span><br><span class="line">	JointAngle[<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="comment">//////////////////////////////////////////////</span></span><br><span class="line">	FMatrix T;</span><br><span class="line">	T.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; T.M[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>; T.M[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">0</span>; T.M[<span class="number">0</span>][<span class="number">3</span>] = <span class="number">0</span>; <span class="comment">//T.identity()</span></span><br><span class="line">	T.M[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">0</span>; T.M[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>; T.M[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">0</span>; T.M[<span class="number">1</span>][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	T.M[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">0</span>; T.M[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">0</span>; T.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">1</span>; T.M[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	T.M[<span class="number">3</span>][<span class="number">0</span>] = <span class="number">0</span>; T.M[<span class="number">3</span>][<span class="number">1</span>] = <span class="number">0</span>; T.M[<span class="number">3</span>][<span class="number">2</span>] = <span class="number">0</span>; T.M[<span class="number">3</span>][<span class="number">3</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">		FMatrix transformationMatirx;</span><br><span class="line">		transformationMatirx.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="built_in">cos</span>(JointAngle[i]); transformationMatirx.M[<span class="number">0</span>][<span class="number">1</span>] = -<span class="built_in">sin</span>(JointAngle[i]) * <span class="built_in">cos</span>(Alpha[i]); transformationMatirx.M[<span class="number">0</span>][<span class="number">2</span>] = <span class="built_in">sin</span>(JointAngle[i])*<span class="built_in">sin</span>(Alpha[i]); transformationMatirx.M[<span class="number">0</span>][<span class="number">3</span>] = A[i] * <span class="built_in">cos</span>(JointAngle[i]);</span><br><span class="line">		transformationMatirx.M[<span class="number">1</span>][<span class="number">0</span>] = <span class="built_in">sin</span>(JointAngle[i]); transformationMatirx.M[<span class="number">1</span>][<span class="number">1</span>] = <span class="built_in">cos</span>(JointAngle[i]) * <span class="built_in">cos</span>(Alpha[i]); transformationMatirx.M[<span class="number">1</span>][<span class="number">2</span>] = -<span class="built_in">cos</span>(JointAngle[i])*<span class="built_in">sin</span>(Alpha[i]); transformationMatirx.M[<span class="number">1</span>][<span class="number">3</span>] = A[i] * <span class="built_in">sin</span>(JointAngle[i]);</span><br><span class="line">		transformationMatirx.M[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">0</span>; transformationMatirx.M[<span class="number">2</span>][<span class="number">1</span>] = <span class="built_in">sin</span>(Alpha[i]); transformationMatirx.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="built_in">cos</span>(Alpha[i]); transformationMatirx.M[<span class="number">2</span>][<span class="number">3</span>] = D[i];</span><br><span class="line">		transformationMatirx.M[<span class="number">3</span>][<span class="number">0</span>] = <span class="number">0</span>; transformationMatirx.M[<span class="number">3</span>][<span class="number">1</span>] = <span class="number">0</span>; transformationMatirx.M[<span class="number">3</span>][<span class="number">2</span>] = <span class="number">0</span>; transformationMatirx.M[<span class="number">3</span>][<span class="number">3</span>] = <span class="number">1</span>;</span><br><span class="line">		FMatrix ti = transformationMatirx;</span><br><span class="line">		T = T * ti;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">fprintf</span>(fp, <span class="string">&quot;\n T = \n&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;<span class="number">4</span>; j++)&#123;</span><br><span class="line">			<span class="built_in">fprintf</span>(fp, <span class="string">&quot;%.2f\t&quot;</span>, T.M[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fprintf</span>(fp, <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	FMatrix rot041;</span><br><span class="line">	FMatrix Rot04;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">float</span> j[<span class="number">2</span>] = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	rot041 = Rot04 = T;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">		rot041.M[i][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">		Rot04.M[i][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">		j[i] = T.M[i][<span class="number">3</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(fp, <span class="string">&quot;\n Rot04 = \n&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++) &#123;</span><br><span class="line">			<span class="built_in">fprintf</span>(fp, <span class="string">&quot;%.2f\t&quot;</span>, Rot04.M[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fprintf</span>(fp, <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(fp, <span class="string">&quot;\n rot041 = \n&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++) &#123;</span><br><span class="line">			<span class="built_in">fprintf</span>(fp, <span class="string">&quot;%.2f\t&quot;</span>, rot041.M[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fprintf</span>(fp, <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	FVector Pos04;</span><br><span class="line">	Pos04.X = j[<span class="number">0</span>];</span><br><span class="line">	Pos04.Y = j[<span class="number">1</span>];</span><br><span class="line">	Pos04.Z = j[<span class="number">2</span>];</span><br><span class="line">	</span><br><span class="line">	FMatrix rot47;</span><br><span class="line">	rot47.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; rot47.M[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>; rot47.M[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">0</span>; rot47.M[<span class="number">0</span>][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	rot47.M[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">0</span>; rot47.M[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>; rot47.M[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">0</span>; rot47.M[<span class="number">1</span>][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	rot47.M[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">0</span>; rot47.M[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">0</span>; rot47.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">1</span>; rot47.M[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	rot47.M[<span class="number">3</span>][<span class="number">0</span>] = <span class="number">0</span>; rot47.M[<span class="number">3</span>][<span class="number">1</span>] = <span class="number">0</span>; rot47.M[<span class="number">3</span>][<span class="number">2</span>] = <span class="number">0</span>; rot47.M[<span class="number">3</span>][<span class="number">3</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function">FRotationMatrix <span class="title">ROT1</span><span class="params">(rot)</span></span>;</span><br><span class="line">	FMatrix ROT = ROT1.GetTransposed();</span><br><span class="line">	ROT.M[<span class="number">0</span>][<span class="number">2</span>] = -ROT.M[<span class="number">0</span>][<span class="number">2</span>];</span><br><span class="line">	ROT.M[<span class="number">1</span>][<span class="number">2</span>] = -ROT.M[<span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">	ROT.M[<span class="number">2</span>][<span class="number">0</span>] = -ROT.M[<span class="number">2</span>][<span class="number">0</span>];</span><br><span class="line">	ROT.M[<span class="number">2</span>][<span class="number">1</span>] = -ROT.M[<span class="number">2</span>][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(fp, <span class="string">&quot;\n rot= \n&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++) &#123;</span><br><span class="line">			<span class="built_in">fprintf</span>(fp, <span class="string">&quot;%.2f\t&quot;</span>, ROT.M[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fprintf</span>(fp, <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	rot47 = rot041.GetTransposed() * ROT;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">fprintf</span>(fp, <span class="string">&quot;\n rot47 = \n&quot;</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">4</span>; j++) &#123;</span><br><span class="line">			<span class="built_in">fprintf</span>(fp, <span class="string">&quot;%.2f\t&quot;</span>, rot47.M[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">fprintf</span>(fp, <span class="string">&quot;\n&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">fabs</span>(rot47.M[<span class="number">0</span>][<span class="number">2</span>]) &gt; <span class="number">0.000001</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (rot47.M[<span class="number">0</span>][<span class="number">2</span>] &gt; <span class="number">0</span>)</span><br><span class="line">			JointAngle[<span class="number">4</span>] = <span class="built_in">atan</span>(rot47.M[<span class="number">1</span>][<span class="number">2</span>] / rot47.M[<span class="number">0</span>][<span class="number">2</span>]);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			JointAngle[<span class="number">4</span>] = <span class="built_in">atan</span>(rot47.M[<span class="number">1</span>][<span class="number">2</span>] / rot47.M[<span class="number">0</span>][<span class="number">2</span>]) + PI;</span><br><span class="line">	&#125;</span><br><span class="line">	JointAngle[<span class="number">5</span>] = <span class="built_in">acos</span>(rot47.M[<span class="number">2</span>][<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">fabs</span>(rot47.M[<span class="number">2</span>][<span class="number">0</span>]) &gt; <span class="number">0.000001</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (rot47.M[<span class="number">2</span>][<span class="number">0</span>] &gt; <span class="number">0</span>)</span><br><span class="line">			JointAngle[<span class="number">6</span>] = <span class="built_in">atan</span>(-rot47.M[<span class="number">2</span>][<span class="number">1</span>] / rot47.M[<span class="number">2</span>][<span class="number">0</span>]) + PI;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			JointAngle[<span class="number">6</span>] = <span class="built_in">atan</span>(rot47.M[<span class="number">2</span>][<span class="number">1</span>] / rot47.M[<span class="number">2</span>][<span class="number">0</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Joint0 = JointAngle[<span class="number">0</span>];</span><br><span class="line">	Joint1 = JointAngle[<span class="number">1</span>];</span><br><span class="line">	Joint2 = JointAngle[<span class="number">2</span>];</span><br><span class="line">	Joint3 = JointAngle[<span class="number">3</span>];</span><br><span class="line">	Joint4 = JointAngle[<span class="number">4</span>];</span><br><span class="line">	Joint5 = JointAngle[<span class="number">5</span>];</span><br><span class="line">	Joint6 = JointAngle[<span class="number">6</span>];</span><br><span class="line">	fclose(fp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="변수-직관성-fprintf-수정"><a href="#변수-직관성-fprintf-수정" class="headerlink" title="변수 직관성, fprintf 수정"></a>변수 직관성, fprintf 수정</h1><blockquote>
+<p>IKBPLibrary.cpp</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Copyright 1998-2018 Epic Games, Inc. All Rights Reserved.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;IKBPLibrary.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;IK.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">UIKBPLibrary::UIKBPLibrary(<span class="keyword">const</span> FObjectInitializer&amp; ObjectInitializer) : Super(ObjectInitializer)</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">UIKBPLibrary::IKSampleFunction</span><span class="params">(<span class="keyword">float</span> Param)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">UIKBPLibrary::InverseKinematics</span><span class="params">(FVector pos, FRotator rot, <span class="keyword">float</span> p, <span class="keyword">float</span> &amp;Joint0, <span class="keyword">float</span> &amp;Joint1, <span class="keyword">float</span> &amp;Joint2, <span class="keyword">float</span> &amp;Joint3, <span class="keyword">float</span> &amp;Joint4, <span class="keyword">float</span> &amp;Joint5, <span class="keyword">float</span> &amp;Joint6)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//FILE* fp = fopen(&quot;test.txt&quot;, &quot;w&quot;);</span></span><br><span class="line">	<span class="keyword">float</span> JointAngle[NB_JOINT] = &#123;&#125;;</span><br><span class="line">	<span class="keyword">float</span> Alpha[NB_JOINT] = &#123;&#125;;</span><br><span class="line">	<span class="keyword">float</span> A[NB_JOINT] = &#123;&#125;;</span><br><span class="line">	<span class="keyword">float</span> D[NB_JOINT] = &#123;&#125;;</span><br><span class="line"></span><br><span class="line">	Alpha[<span class="number">0</span>] = <span class="number">-90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">1</span>] = <span class="number">90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">2</span>] = <span class="number">-90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">3</span>] = <span class="number">90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">4</span>] = <span class="number">-90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">5</span>] = <span class="number">90</span> * PI / <span class="number">180.0</span>;</span><br><span class="line">	Alpha[<span class="number">6</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	A[<span class="number">0</span>] = A[<span class="number">1</span>] = A[<span class="number">2</span>] = A[<span class="number">3</span>] = A[<span class="number">4</span>] = A[<span class="number">5</span>] = A[<span class="number">6</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	D[<span class="number">0</span>] = <span class="number">360</span>;</span><br><span class="line">	D[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">	D[<span class="number">2</span>] = <span class="number">420</span>;</span><br><span class="line">	D[<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	D[<span class="number">4</span>] = <span class="number">400</span>;</span><br><span class="line">	D[<span class="number">5</span>] = <span class="number">0</span>;</span><br><span class="line">	D[<span class="number">6</span>] = <span class="number">110</span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*int test;</span></span><br><span class="line"><span class="comment">	test = 10;</span></span><br><span class="line"><span class="comment">	</span></span><br><span class="line"><span class="comment">	pos.X = test;</span></span><br><span class="line"><span class="comment">	pos.Y = test;</span></span><br><span class="line"><span class="comment">	pos.Z = test;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	rot.Roll = test;</span></span><br><span class="line"><span class="comment">	rot.Pitch = test;</span></span><br><span class="line"><span class="comment">	rot.Yaw = test;*/</span></span><br><span class="line"></span><br><span class="line">	FVector rotmulvec;</span><br><span class="line">	rotmulvec = rot.RotateVector(FVector(<span class="number">0</span>, <span class="number">0</span>, D[<span class="number">6</span>]));</span><br><span class="line">	rotmulvec.X = -rotmulvec.X;</span><br><span class="line">	rotmulvec.Y = -rotmulvec.Y;</span><br><span class="line"></span><br><span class="line">	FVector wristPos = pos - rotmulvec;</span><br><span class="line"></span><br><span class="line">	FVector WristPos;</span><br><span class="line">	WristPos = wristPos;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//fprintf(fp, &quot;wristPos : %f\t, %f\t, %f\t&quot;, wristPos.X, wristPos.Y, wristPos.Z);</span></span><br><span class="line">	FVector shoulderToWrist = wristPos - FVector(<span class="number">0</span>, <span class="number">0</span>, D[<span class="number">0</span>]);</span><br><span class="line"></span><br><span class="line">	FVector unitStoW = shoulderToWrist / shoulderToWrist.Size();</span><br><span class="line"></span><br><span class="line">	FRotator k;</span><br><span class="line">	<span class="function">FRotationMatrix <span class="title">kw</span><span class="params">(k)</span></span>;</span><br><span class="line">	kw.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>; kw.M[<span class="number">0</span>][<span class="number">1</span>] = -unitStoW.Z; kw.M[<span class="number">0</span>][<span class="number">2</span>] = unitStoW.Y;</span><br><span class="line">	kw.M[<span class="number">1</span>][<span class="number">0</span>] = unitStoW.Z; kw.M[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">0</span>; kw.M[<span class="number">1</span>][<span class="number">2</span>] = -unitStoW.X;</span><br><span class="line">	kw.M[<span class="number">2</span>][<span class="number">0</span>] = -unitStoW.Y; kw.M[<span class="number">2</span>][<span class="number">1</span>] = unitStoW.X; kw.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	FRotator identity;</span><br><span class="line">	<span class="function">FRotationMatrix <span class="title">Identity</span><span class="params">(identity)</span></span>;</span><br><span class="line">	Identity.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; Identity.M[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>; Identity.M[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">	Identity.M[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">0</span>; Identity.M[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>; Identity.M[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">	Identity.M[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">0</span>; Identity.M[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">0</span>; Identity.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">float</span> theta4Prime = D[<span class="number">2</span>] * D[<span class="number">2</span>] + D[<span class="number">4</span>] * D[<span class="number">4</span>] - shoulderToWrist.SizeSquared();</span><br><span class="line">	theta4Prime = theta4Prime / (<span class="number">2.0</span> * D[<span class="number">2</span>] * D[<span class="number">4</span>]);</span><br><span class="line">	JointAngle[<span class="number">3</span>] = PI - <span class="built_in">acos</span>(theta4Prime);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">float</span> theta1Prime = <span class="built_in">atan2</span>(wristPos.Y, wristPos.X);</span><br><span class="line">	<span class="keyword">float</span> alpha = (wristPos.Z - D[<span class="number">0</span>]) / shoulderToWrist.Size();</span><br><span class="line">	alpha = <span class="built_in">asin</span>(alpha);</span><br><span class="line">	<span class="keyword">float</span> beta = D[<span class="number">2</span>] * D[<span class="number">2</span>] + shoulderToWrist.SizeSquared() - D[<span class="number">4</span>] * D[<span class="number">4</span>];</span><br><span class="line">	beta = beta / (<span class="number">2</span> * D[<span class="number">2</span>] * shoulderToWrist.Size());</span><br><span class="line">	beta = <span class="built_in">acos</span>(beta);</span><br><span class="line">	<span class="keyword">float</span> theta2Prime = PI / <span class="number">2.0</span> - alpha - beta;</span><br><span class="line"></span><br><span class="line">	FRotator Prime;</span><br><span class="line">	<span class="function">FRotationMatrix <span class="title">rotPrime</span><span class="params">(Prime)</span></span>;</span><br><span class="line">	rotPrime.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="built_in">cos</span>(theta1Prime)*<span class="built_in">cos</span>(theta2Prime); rotPrime.M[<span class="number">0</span>][<span class="number">1</span>] = -<span class="built_in">cos</span>(theta1Prime)*<span class="built_in">sin</span>(theta2Prime); rotPrime.M[<span class="number">0</span>][<span class="number">2</span>] = -<span class="built_in">sin</span>(theta1Prime);</span><br><span class="line">	rotPrime.M[<span class="number">1</span>][<span class="number">0</span>] = <span class="built_in">cos</span>(theta2Prime)*<span class="built_in">sin</span>(theta1Prime); rotPrime.M[<span class="number">1</span>][<span class="number">1</span>] = -<span class="built_in">sin</span>(theta1Prime)*<span class="built_in">sin</span>(theta2Prime); rotPrime.M[<span class="number">1</span>][<span class="number">2</span>] = <span class="built_in">cos</span>(theta1Prime);</span><br><span class="line">	rotPrime.M[<span class="number">2</span>][<span class="number">0</span>] = -<span class="built_in">sin</span>(theta2Prime); rotPrime.M[<span class="number">2</span>][<span class="number">1</span>] = -<span class="built_in">cos</span>(theta2Prime); rotPrime.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	JointAngle[<span class="number">0</span>] = <span class="built_in">atan2</span>(wristPos.Y, wristPos.X);</span><br><span class="line">	JointAngle[<span class="number">1</span>] = theta2Prime;</span><br><span class="line">	JointAngle[<span class="number">2</span>] = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	FMatrix T;</span><br><span class="line">	T.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; T.M[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>; T.M[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">0</span>; T.M[<span class="number">0</span>][<span class="number">3</span>] = <span class="number">0</span>; <span class="comment">//T.identity()</span></span><br><span class="line">	T.M[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">0</span>; T.M[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>; T.M[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">0</span>; T.M[<span class="number">1</span>][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	T.M[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">0</span>; T.M[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">0</span>; T.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">1</span>; T.M[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	T.M[<span class="number">3</span>][<span class="number">0</span>] = <span class="number">0</span>; T.M[<span class="number">3</span>][<span class="number">1</span>] = <span class="number">0</span>; T.M[<span class="number">3</span>][<span class="number">2</span>] = <span class="number">0</span>; T.M[<span class="number">3</span>][<span class="number">3</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++) &#123;</span><br><span class="line">		FMatrix transformationMatirx;</span><br><span class="line">		transformationMatirx.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="built_in">cos</span>(JointAngle[i]); transformationMatirx.M[<span class="number">0</span>][<span class="number">1</span>] = -<span class="built_in">sin</span>(JointAngle[i]) * <span class="built_in">cos</span>(Alpha[i]); transformationMatirx.M[<span class="number">0</span>][<span class="number">2</span>] = <span class="built_in">sin</span>(JointAngle[i])*<span class="built_in">sin</span>(Alpha[i]); transformationMatirx.M[<span class="number">0</span>][<span class="number">3</span>] = A[i] * <span class="built_in">cos</span>(JointAngle[i]);</span><br><span class="line">		transformationMatirx.M[<span class="number">1</span>][<span class="number">0</span>] = <span class="built_in">sin</span>(JointAngle[i]); transformationMatirx.M[<span class="number">1</span>][<span class="number">1</span>] = <span class="built_in">cos</span>(JointAngle[i]) * <span class="built_in">cos</span>(Alpha[i]); transformationMatirx.M[<span class="number">1</span>][<span class="number">2</span>] = -<span class="built_in">cos</span>(JointAngle[i])*<span class="built_in">sin</span>(Alpha[i]); transformationMatirx.M[<span class="number">1</span>][<span class="number">3</span>] = A[i] * <span class="built_in">sin</span>(JointAngle[i]);</span><br><span class="line">		transformationMatirx.M[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">0</span>; transformationMatirx.M[<span class="number">2</span>][<span class="number">1</span>] = <span class="built_in">sin</span>(Alpha[i]); transformationMatirx.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="built_in">cos</span>(Alpha[i]); transformationMatirx.M[<span class="number">2</span>][<span class="number">3</span>] = D[i];</span><br><span class="line">		transformationMatirx.M[<span class="number">3</span>][<span class="number">0</span>] = <span class="number">0</span>; transformationMatirx.M[<span class="number">3</span>][<span class="number">1</span>] = <span class="number">0</span>; transformationMatirx.M[<span class="number">3</span>][<span class="number">2</span>] = <span class="number">0</span>; transformationMatirx.M[<span class="number">3</span>][<span class="number">3</span>] = <span class="number">1</span>;</span><br><span class="line">		FMatrix ti = transformationMatirx;</span><br><span class="line">		T = T * ti;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">/*fprintf(fp, &quot;\n T = \n&quot;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	for (int i = 0; i &lt; 4; i++) &#123;</span></span><br><span class="line"><span class="comment">		for(int j=0; j&lt;4; j++)&#123;</span></span><br><span class="line"><span class="comment">			fprintf(fp, &quot;%.2f\t&quot;, T.M[i][j]);</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">		fprintf(fp, &quot;\n&quot;);</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line">	</span><br><span class="line">	FMatrix rot04;</span><br><span class="line">	FMatrix Rot04;</span><br><span class="line">	FVector Pos04;</span><br><span class="line"></span><br><span class="line">	rot04 = Rot04 = T;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">		rot04.M[i][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">		Rot04.M[i][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">		Pos04[i] = T.M[i][<span class="number">3</span>];</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*fprintf(fp, &quot;\n Rot04 = \n&quot;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	for (int i = 0; i &lt; 4; i++) &#123;</span></span><br><span class="line"><span class="comment">		for (int j = 0; j &lt; 4; j++) &#123;</span></span><br><span class="line"><span class="comment">			fprintf(fp, &quot;%.2f\t&quot;, Rot04.M[i][j]);</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">		fprintf(fp, &quot;\n&quot;);</span></span><br><span class="line"><span class="comment">	&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	fprintf(fp, &quot;\n rot04 = \n&quot;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	for (int i = 0; i &lt; 4; i++) &#123;</span></span><br><span class="line"><span class="comment">		for (int j = 0; j &lt; 4; j++) &#123;</span></span><br><span class="line"><span class="comment">			fprintf(fp, &quot;%.2f\t&quot;, rot04.M[i][j]);</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">		fprintf(fp, &quot;\n&quot;);</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	FMatrix rot47;</span><br><span class="line">	rot47.M[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">1</span>; rot47.M[<span class="number">0</span>][<span class="number">1</span>] = <span class="number">0</span>; rot47.M[<span class="number">0</span>][<span class="number">2</span>] = <span class="number">0</span>; rot47.M[<span class="number">0</span>][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	rot47.M[<span class="number">1</span>][<span class="number">0</span>] = <span class="number">0</span>; rot47.M[<span class="number">1</span>][<span class="number">1</span>] = <span class="number">1</span>; rot47.M[<span class="number">1</span>][<span class="number">2</span>] = <span class="number">0</span>; rot47.M[<span class="number">1</span>][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	rot47.M[<span class="number">2</span>][<span class="number">0</span>] = <span class="number">0</span>; rot47.M[<span class="number">2</span>][<span class="number">1</span>] = <span class="number">0</span>; rot47.M[<span class="number">2</span>][<span class="number">2</span>] = <span class="number">1</span>; rot47.M[<span class="number">2</span>][<span class="number">3</span>] = <span class="number">0</span>;</span><br><span class="line">	rot47.M[<span class="number">3</span>][<span class="number">0</span>] = <span class="number">0</span>; rot47.M[<span class="number">3</span>][<span class="number">1</span>] = <span class="number">0</span>; rot47.M[<span class="number">3</span>][<span class="number">2</span>] = <span class="number">0</span>; rot47.M[<span class="number">3</span>][<span class="number">3</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="function">FRotationMatrix <span class="title">ROT1</span><span class="params">(rot)</span></span>;</span><br><span class="line">	FMatrix ROT = ROT1.GetTransposed();</span><br><span class="line">	ROT.M[<span class="number">0</span>][<span class="number">2</span>] = -ROT.M[<span class="number">0</span>][<span class="number">2</span>];</span><br><span class="line">	ROT.M[<span class="number">1</span>][<span class="number">2</span>] = -ROT.M[<span class="number">1</span>][<span class="number">2</span>];</span><br><span class="line">	ROT.M[<span class="number">2</span>][<span class="number">0</span>] = -ROT.M[<span class="number">2</span>][<span class="number">0</span>];</span><br><span class="line">	ROT.M[<span class="number">2</span>][<span class="number">1</span>] = -ROT.M[<span class="number">2</span>][<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*fprintf(fp, &quot;\n rot= \n&quot;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	for (int i = 0; i &lt; 4; i++) &#123;</span></span><br><span class="line"><span class="comment">		for (int j = 0; j &lt; 4; j++) &#123;</span></span><br><span class="line"><span class="comment">			fprintf(fp, &quot;%.2f\t&quot;, ROT.M[i][j]);</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">		fprintf(fp, &quot;\n&quot;);</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line"></span><br><span class="line">	rot47 = rot04.GetTransposed() * ROT;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*fprintf(fp, &quot;\n rot47 = \n&quot;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	for (int i = 0; i &lt; 4; i++) &#123;</span></span><br><span class="line"><span class="comment">		for (int j = 0; j &lt; 4; j++) &#123;</span></span><br><span class="line"><span class="comment">			fprintf(fp, &quot;%.2f\t&quot;, rot47.M[i][j]);</span></span><br><span class="line"><span class="comment">		&#125;</span></span><br><span class="line"><span class="comment">		fprintf(fp, &quot;\n&quot;);</span></span><br><span class="line"><span class="comment">	&#125;*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">fabs</span>(rot47.M[<span class="number">0</span>][<span class="number">2</span>]) &gt; <span class="number">0.000001</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (rot47.M[<span class="number">0</span>][<span class="number">2</span>] &gt; <span class="number">0</span>)</span><br><span class="line">			JointAngle[<span class="number">4</span>] = <span class="built_in">atan</span>(rot47.M[<span class="number">1</span>][<span class="number">2</span>] / rot47.M[<span class="number">0</span>][<span class="number">2</span>]);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			JointAngle[<span class="number">4</span>] = <span class="built_in">atan</span>(rot47.M[<span class="number">1</span>][<span class="number">2</span>] / rot47.M[<span class="number">0</span>][<span class="number">2</span>]) + PI;</span><br><span class="line">	&#125;</span><br><span class="line">	JointAngle[<span class="number">5</span>] = <span class="built_in">acos</span>(rot47.M[<span class="number">2</span>][<span class="number">2</span>]);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (<span class="built_in">fabs</span>(rot47.M[<span class="number">2</span>][<span class="number">0</span>]) &gt; <span class="number">0.000001</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (rot47.M[<span class="number">2</span>][<span class="number">0</span>] &gt; <span class="number">0</span>)</span><br><span class="line">			JointAngle[<span class="number">6</span>] = <span class="built_in">atan</span>(-rot47.M[<span class="number">2</span>][<span class="number">1</span>] / rot47.M[<span class="number">2</span>][<span class="number">0</span>]) + PI;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			JointAngle[<span class="number">6</span>] = <span class="built_in">atan</span>(rot47.M[<span class="number">2</span>][<span class="number">1</span>] / rot47.M[<span class="number">2</span>][<span class="number">0</span>]);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	Joint0 = JointAngle[<span class="number">0</span>];</span><br><span class="line">	Joint1 = JointAngle[<span class="number">1</span>];</span><br><span class="line">	Joint2 = JointAngle[<span class="number">2</span>];</span><br><span class="line">	Joint3 = JointAngle[<span class="number">3</span>];</span><br><span class="line">	Joint4 = JointAngle[<span class="number">4</span>];</span><br><span class="line">	Joint5 = JointAngle[<span class="number">5</span>];</span><br><span class="line">	Joint6 = JointAngle[<span class="number">6</span>];</span><br><span class="line">	<span class="comment">//fclose(fp);</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/42334717/60789463-220fb100-a19a-11e9-8743-e8543fbe595e.png" alt="Joint0"><br><img src="https://user-images.githubusercontent.com/42334717/60789465-220fb100-a19a-11e9-9d8c-57d47a671b75.png" alt="Joint1"><br><img src="https://user-images.githubusercontent.com/42334717/60789466-220fb100-a19a-11e9-95b4-11bd2fba7d9c.png" alt="Joint2"><br><img src="https://user-images.githubusercontent.com/42334717/60789468-220fb100-a19a-11e9-9d64-82073fd75452.png" alt="Joint3"><br><img src="https://user-images.githubusercontent.com/42334717/60789470-22a84780-a19a-11e9-92f0-19699fdd1075.png" alt="Joint4"><br><img src="https://user-images.githubusercontent.com/42334717/60789471-22a84780-a19a-11e9-8a79-1fdeee85bd42.png" alt="Joint5"><br><img src="https://user-images.githubusercontent.com/42334717/60789472-22a84780-a19a-11e9-83a4-8c9b6a61bb7a.png" alt="Joint6"><br><img src="https://user-images.githubusercontent.com/42334717/60789473-22a84780-a19a-11e9-92e1-3c420f2c861c.png" alt="원래 소스와 비교"></p>
+<ul>
+<li>값이 모두 일치함을 볼 수 있다</li>
+<li><code>Joint</code>값을 각각의 <code>Joint</code>에 각도값을 입력하는 블루프린트를 구현</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/inverse-kinematics-in-unreal-engine-1/" rel="bookmark">Inverse Kinematics in Unreal engine(1)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/unreal-engine-and-c-2/" rel="bookmark">Unreal engine and C++(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/unreal-engine-and-c-1/" rel="bookmark">Unreal engine and C++(1)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/unreal-engine/" rel="bookmark">Unreal Engine</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/exporting-to-unreal-engine-at-3ds-max-by-datasmith/" rel="bookmark">Exporting to Unreal Engine at 3ds Max by Datasmith</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/" title="Inverse Kinematics in Unreal engine(2)">https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> C, C++</a>
+              <a href="/tags/unreal-engine/" rel="tag"><i class="fa fa-tag"></i> Unreal Engine</a>
+              <a href="/tags/vr-project/" rel="tag"><i class="fa fa-tag"></i> VR Project</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/inverse-kinematics-in-unreal-engine-1/" rel="prev" title="Inverse Kinematics in Unreal engine(1)">
+                  <i class="fa fa-chevron-left"></i> Inverse Kinematics in Unreal engine(1)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/motion-capture-technology-using-stereo-camera/" rel="next" title="Motion capture technology using stereo camera">
+                  Motion capture technology using stereo camera <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/inverse-kinematics-in-unreal-engine-2/";
+    this.page.identifier = "inverse-kinematics-in-unreal-engine-2/";
+    this.page.title = "Inverse Kinematics in Unreal engine(2)";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

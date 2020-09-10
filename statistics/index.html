@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="통계적 추론가설 검정 표본을 통해 모집단의 특성(모수mu)를 알기위해   대문자 X - rv(확률변수) 소문자 x - 표본(하나의 값)  rv - 통계량 - 표본분포(통계량의 확률분포)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Statistics">
+<meta property="og:url" content="https://zerohertz.github.io/statistics/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="통계적 추론가설 검정 표본을 통해 모집단의 특성(모수mu)를 알기위해   대문자 X - rv(확률변수) 소문자 x - 표본(하나의 값)  rv - 통계량 - 표본분포(통계량의 확률분포)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/71956742-46bf1100-322f-11ea-8fab-9c91855c4762.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/71956920-bc2ae180-322f-11ea-9056-16549a809ab1.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/71957490-3a3bb800-3231-11ea-8adf-5fdabadffebf.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/72044473-2eb2c480-32f7-11ea-8ad5-d53e71c94df9.png">
+<meta property="article:published_time" content="2020-01-07T05:03:55.000Z">
+<meta property="article:modified_time" content="2020-04-28T07:19:37.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="Statistics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/71956742-46bf1100-322f-11ea-8fab-9c91855c4762.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/statistics/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Statistics | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%86%B5%EA%B3%84%EC%A0%81-%EC%B6%94%EB%A1%A0"><span class="nav-number">1.</span> <span class="nav-text">통계적 추론</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B0%80%EC%84%A4-%EA%B2%80%EC%A0%95"><span class="nav-number">1.1.</span> <span class="nav-text">가설 검정</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rv-%ED%86%B5%EA%B3%84%EB%9F%89-%ED%91%9C%EB%B3%B8%EB%B6%84%ED%8F%AC-%ED%86%B5%EA%B3%84%EB%9F%89%EC%9D%98-%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC"><span class="nav-number">1.2.</span> <span class="nav-text">rv - 통계량 - 표본분포(통계량의 확률분포)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98"><span class="nav-number">2.</span> <span class="nav-text">확률변수</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%91%9C%EB%B3%B8%EA%B3%B5%EA%B0%84%EC%9D%98-%EA%B0%81-%EC%82%AC%EA%B1%B4%EC%9D%84-%EC%88%98%EC%B9%98%EB%A1%9C-%EB%8C%80%EC%9D%91%EC%8B%9C%EC%BC%9C%EC%A3%BC%EB%8A%94-%ED%95%A8%EC%88%98-rv-random-variable-X-function"><span class="nav-number">2.1.</span> <span class="nav-text">표본공간의 각 사건을 수치로 대응시켜주는 함수(rv - random variable, X) - function</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ex-%EB%8F%99%EC%A0%84-2%EA%B0%9C"><span class="nav-number">2.2.</span> <span class="nav-text">ex) 동전 2개</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ex2-n-1"><span class="nav-number">2.3.</span> <span class="nav-text">ex2) n&#x3D;1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%EB%8C%93%EA%B0%92-%ED%8F%89%EA%B7%A0"><span class="nav-number">2.4.</span> <span class="nav-text">기댓값, 평균</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC"><span class="nav-number">3.</span> <span class="nav-text">확률분포</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%99%95%EB%A5%A0%EB%B3%80%EC%88%98%EC%9D%98-%EB%B6%84%ED%8F%AC"><span class="nav-number">3.1.</span> <span class="nav-text">확률변수의 분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%99%95%EB%A5%A0-function"><span class="nav-number">3.2.</span> <span class="nav-text">확률 function</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B2%A0%EB%A5%B4%EB%88%84%EC%9D%B4-%EC%8B%9C%ED%96%89"><span class="nav-number">4.</span> <span class="nav-text">베르누이 시행</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%9D%B4%EC%82%B0%ED%98%95-%EB%B6%84%ED%8F%AC"><span class="nav-number">5.</span> <span class="nav-text">이산형 분포</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%B4%ED%95%AD%EB%B6%84%ED%8F%AC"><span class="nav-number">5.1.</span> <span class="nav-text">이항분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EA%B8%B0%ED%95%98%EB%B6%84%ED%8F%AC"><span class="nav-number">5.2.</span> <span class="nav-text">기하분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%9D%8C%EC%9D%B4%ED%95%AD%EB%B6%84%ED%8F%AC"><span class="nav-number">5.3.</span> <span class="nav-text">음이항분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%8F%AC%EC%95%84%EC%86%A1%EB%B6%84%ED%8F%AC"><span class="nav-number">5.4.</span> <span class="nav-text">포아송분포</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%B4%88%EA%B8%B0%ED%95%98%EB%B6%84%ED%8F%AC"><span class="nav-number">5.5.</span> <span class="nav-text">초기하분포</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%97%B0%EC%86%8D%ED%98%95-%EB%B6%84%ED%8F%AC"><span class="nav-number">6.</span> <span class="nav-text">연속형 분포</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A7%80%EC%88%98%EB%B6%84%ED%8F%AC"><span class="nav-number">6.1.</span> <span class="nav-text">지수분포</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#R"><span class="nav-number">7.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%ED%91%9C"><span class="nav-number">7.1.</span> <span class="nav-text">표</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#R-source"><span class="nav-number">7.2.</span> <span class="nav-text">R source</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%91%9C%EB%B3%B8%EB%B6%84%ED%8F%AC"><span class="nav-number">8.</span> <span class="nav-text">표본분포</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Xbar-%ED%86%B5%EA%B3%84%EB%9F%89-Statistic-r-v"><span class="nav-number">8.1.</span> <span class="nav-text">Xbar - 통계량(Statistic) - r.v</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ex-%EB%AA%A8%EC%A7%91%EB%8B%A8-1-2-3-%EC%B6%94%EC%B6%9C-2"><span class="nav-number">8.1.1.</span> <span class="nav-text">ex) 모집단 - 1,2,3, 추출 - 2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EC%A0%95%EA%B7%9C%EB%AA%A8%EC%A7%91%EB%8B%A8-%EC%A0%95%EA%B7%9C%EB%B6%84%ED%8F%AC"><span class="nav-number">8.2.</span> <span class="nav-text">정규모집단(정규분포)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%EB%AA%A8%EC%A7%91%EB%8B%A8-%EC%9E%84%EC%9D%98%EC%9D%98-%EB%B6%84%ED%8F%AC"><span class="nav-number">8.3.</span> <span class="nav-text">모집단 - 임의의 분포</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%A4%91%EC%8B%AC%EA%B7%B9%ED%95%9C%EC%A0%95%EB%A6%AC-CLT"><span class="nav-number">8.3.1.</span> <span class="nav-text">중심극한정리(CLT)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B0%80%EC%84%A4%EA%B2%80%EC%A0%95"><span class="nav-number">9.</span> <span class="nav-text">가설검정</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%EA%B0%80%EC%84%A4%EC%84%A4%EC%A0%95"><span class="nav-number">9.1.</span> <span class="nav-text">1. 가설설정</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EA%B7%80%EB%AC%B4%EA%B0%80%EC%84%A4-Hsub0"><span class="nav-number">9.1.1.</span> <span class="nav-text">귀무가설(Hsub0)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EB%8C%80%EB%A6%BD%EA%B0%80%EC%84%A4-Hsub1"><span class="nav-number">9.1.2.</span> <span class="nav-text">대립가설(Hsub1)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%EC%9C%A0%EC%9D%98%EC%88%98%EC%A4%80"><span class="nav-number">9.2.</span> <span class="nav-text">2. 유의수준</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%EA%B2%80%EC%A0%95%ED%86%B5%EA%B3%84%EB%9F%89-%EA%B3%84%EC%82%B0"><span class="nav-number">9.3.</span> <span class="nav-text">3. 검정통계량 계산</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%EC%9C%A0%EC%9D%98%EC%88%98%EC%A4%80%EA%B3%BC-%EC%9C%A0%EC%9D%98%ED%99%95%EB%A5%A0-%EB%B9%84%EA%B5%90-%EA%B2%80%EC%A0%95%ED%86%B5%EA%B3%84%EB%9F%89%EA%B0%92%EA%B3%BC-%EA%B8%B0%EA%B0%81%EC%97%AD-%EB%B9%84%EA%B5%90-%ED%95%99%EB%B6%80-X"><span class="nav-number">9.4.</span> <span class="nav-text">4. 유의수준과 유의확률 비교 &#x2F; 검정통계량값과 기각역 비교(학부 X)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9C%A0%EC%9D%98%EC%88%98%EC%A4%80"><span class="nav-number">9.4.1.</span> <span class="nav-text">유의수준</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%EC%9C%A0%EC%9D%98%ED%99%95%EB%A5%A0-p-value"><span class="nav-number">9.4.2.</span> <span class="nav-text">유의확률(p-value)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-%EA%B2%B0%EB%A1%A0-%EB%B0%8F-%ED%95%B4%EC%84%9D"><span class="nav-number">9.5.</span> <span class="nav-text">5. 결론 및 해석</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B6%84%EC%84%9D%EA%B8%B0%EB%B2%95"><span class="nav-number">10.</span> <span class="nav-text">분석기법</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/statistics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Statistics
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-07 14:03:55" itemprop="dateCreated datePublished" datetime="2020-01-07T14:03:55+09:00">2020-01-07</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-04-28 16:19:37" itemprop="dateModified" datetime="2020-04-28T16:19:37+09:00">2020-04-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/r/" itemprop="url" rel="index"><span itemprop="name">R</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/statistics/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="statistics/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>4.4k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="통계적-추론"><a href="#통계적-추론" class="headerlink" title="통계적 추론"></a>통계적 추론</h1><h2 id="가설-검정"><a href="#가설-검정" class="headerlink" title="가설 검정"></a>가설 검정</h2><blockquote>
+<p>표본을 통해 모집단의 특성(모수<code>mu</code>)를 알기위해</p>
+</blockquote>
+<ul>
+<li>대문자 <code>X</code> - rv(확률변수)</li>
+<li>소문자 <code>x</code> - 표본(하나의 값)</li>
+</ul>
+<h2 id="rv-통계량-표본분포-통계량의-확률분포"><a href="#rv-통계량-표본분포-통계량의-확률분포" class="headerlink" title="rv - 통계량 - 표본분포(통계량의 확률분포)"></a>rv - 통계량 - 표본분포(통계량의 확률분포)</h2><a id="more"></a>
+<hr>
+<h1 id="확률변수"><a href="#확률변수" class="headerlink" title="확률변수"></a>확률변수</h1><h2 id="표본공간의-각-사건을-수치로-대응시켜주는-함수-rv-random-variable-X-function"><a href="#표본공간의-각-사건을-수치로-대응시켜주는-함수-rv-random-variable-X-function" class="headerlink" title="표본공간의 각 사건을 수치로 대응시켜주는 함수(rv - random variable, X) - function"></a>표본공간의 각 사건을 수치로 대응시켜주는 함수(rv - random variable, <code>X</code>) - function</h2><ul>
+<li>정수 - 이산형</li>
+<li>실수 - 연속형</li>
+</ul>
+<h2 id="ex-동전-2개"><a href="#ex-동전-2개" class="headerlink" title="ex) 동전 2개"></a><code>ex</code>) 동전 2개</h2><ul>
+<li><code>HH</code>, <code>HT</code>, <code>TH</code>, <code>TT</code>(원소, 사건) - 표본공간(전체집합)</li>
+<li>앞면의 수 - 함수<ul>
+<li>X(<code>HH</code>) = 2</li>
+<li>X(<code>HT</code>) = 1</li>
+<li>X(<code>TH</code>) = 1</li>
+<li>X(<code>TT</code>) = 0</li>
+<li>X(<code>정의역</code>)=<code>치역</code></li>
+</ul>
+</li>
+<li><code>X</code> - 값을 여러개 취함</li>
+<li>대문자는 확률변수, 소문자는 값</li>
+</ul>
+<h2 id="ex2-n-1"><a href="#ex2-n-1" class="headerlink" title="ex2) n=1"></a><code>ex2</code>) n=1</h2><ul>
+<li>시행 1번</li>
+<li><code>X</code>: 앞면의 수</li>
+<li>p(X=x)=(p^x)*((1-p)^(1-x))</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center"><code>X</code></th>
+<th align="center">0</th>
+<th align="center">1</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>p(X=x)</code></td>
+<td align="center">$\displaystyle{\frac{1}{2}}$</td>
+<td align="center">$\displaystyle{\frac{1}{2}}$</td>
+</tr>
+</tbody></table>
+<h2 id="기댓값-평균"><a href="#기댓값-평균" class="headerlink" title="기댓값, 평균"></a>기댓값, 평균</h2><ul>
+<li>기댓값 - 확률변수의 평균</li>
+<li>평균 - Data의 산술평균</li>
+</ul>
+<hr>
+<h1 id="확률분포"><a href="#확률분포" class="headerlink" title="확률분포"></a>확률분포</h1><h2 id="확률변수의-분포"><a href="#확률변수의-분포" class="headerlink" title="확률변수의 분포"></a>확률변수의 분포</h2><ul>
+<li>표</li>
+<li>Graph</li>
+<li>Function</li>
+</ul>
+<h2 id="확률-function"><a href="#확률-function" class="headerlink" title="확률 function"></a>확률 function</h2><ul>
+<li>확률 질량 함수(이산) - <code>p(X=x)</code></li>
+<li>확률 밀도 함수(연속) - <code>f(x)</code></li>
+</ul>
+<hr>
+<h1 id="베르누이-시행"><a href="#베르누이-시행" class="headerlink" title="베르누이 시행"></a>베르누이 시행</h1><ul>
+<li>결과 : 단 두개 - 성공 / 실패</li>
+<li><code>p(성공)</code>=p, <code>p(실패)</code>=1-p=q</li>
+<li>각 시행은 독립시행(전사건이 후사건에 영향 X)</li>
+</ul>
+<hr>
+<h1 id="이산형-분포"><a href="#이산형-분포" class="headerlink" title="이산형 분포"></a>이산형 분포</h1><table>
+<thead>
+<tr>
+<th align="center">분포</th>
+<th align="center">?의 횟수</th>
+<th align="center">베르누이 시행</th>
+<th align="center">기호(X~)</th>
+<th align="center">X</th>
+<th align="center">p(X=x)</th>
+<th align="center">R</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">베르누이</td>
+<td align="center">성공</td>
+<td align="center">O</td>
+<td align="center">Be(p)</td>
+<td align="center">1번의 베르누이 시행 성공횟수</td>
+<td align="center">$\displaystyle{p^x\times(1-p)^{1-x}}$</td>
+<td align="center"><code>binom()</code></td>
+</tr>
+<tr>
+<td align="center">이항</td>
+<td align="center">성공</td>
+<td align="center">O</td>
+<td align="center">B(n,p)</td>
+<td align="center">n번의 베르누이 시행 성공횟수</td>
+<td align="center">${}_n \mathrm{C}_x\times p^x\times(1-p)^{n-x}$</td>
+<td align="center"><code>binom()</code></td>
+</tr>
+<tr>
+<td align="center">기하</td>
+<td align="center">시행</td>
+<td align="center">O</td>
+<td align="center">G(p)</td>
+<td align="center">처음 성공까지의 시행횟수</td>
+<td align="center">$\displaystyle{q^{x-1}\times p}$</td>
+<td align="center"><code>geom()</code></td>
+</tr>
+<tr>
+<td align="center">음이항</td>
+<td align="center">시행</td>
+<td align="center">O</td>
+<td align="center">NB(k,p)</td>
+<td align="center">k번 성공까지의 시행횟수</td>
+<td align="center">$(x-1)C(k-1) \times p^{k-1} \times (1-p)^{x-k}\times p$</td>
+<td align="center"><code>nbinom()</code></td>
+</tr>
+<tr>
+<td align="center">포아송</td>
+<td align="center">성공</td>
+<td align="center">O</td>
+<td align="center">$\displaystyle{P_0(\lambda)}$</td>
+<td align="center">단위(시간, 면적, …) 성공횟수</td>
+<td align="center">$\displaystyle{e^{-\lambda} \times \lambda^x\over x!}$</td>
+<td align="center"><code>pois()</code></td>
+</tr>
+<tr>
+<td align="center">초기하</td>
+<td align="center">성공</td>
+<td align="center">X</td>
+<td align="center">HG(N,n,D)</td>
+<td align="center">성공횟수</td>
+<td align="center">${}_DC_x \times (N-D)C(n-x) \over {}_N C_n$</td>
+<td align="center"><code>hyper()</code></td>
+</tr>
+</tbody></table>
+<h2 id="이항분포"><a href="#이항분포" class="headerlink" title="이항분포"></a>이항분포</h2><ul>
+<li>E(X)=np - 평균(성공횟수)</li>
+<li>V(X)=npq</li>
+</ul>
+<h2 id="기하분포"><a href="#기하분포" class="headerlink" title="기하분포"></a>기하분포</h2><ul>
+<li>무한하게 시행시 무조건 성공(<code>p/(1-q)=1</code> by 무한등비급수)</li>
+<li>E(X)=1/p - 평균(시행횟수)</li>
+<li>V(X)=q/(p^2)</li>
+</ul>
+<h2 id="음이항분포"><a href="#음이항분포" class="headerlink" title="음이항분포"></a>음이항분포</h2><ul>
+<li>이항분포의 반대(<code>시행횟수</code> &lt;-&gt; <code>성공횟수</code>)</li>
+<li>E(X)=k/p - 평균(시행횟수)</li>
+<li>V(X)=k*q/(p^2)</li>
+</ul>
+<h2 id="포아송분포"><a href="#포아송분포" class="headerlink" title="포아송분포"></a>포아송분포</h2><ul>
+<li><code>n-&gt;inf</code>, <code>p-&gt;0</code> 근사</li>
+<li><code>ex</code>) p=0.001, n=3000<ul>
+<li>p(X=5)=3000C5((0.001)^5)*(0.999)^2995</li>
+<li>p(X=x)=(e^(-lambda)*lambda^x)/(x!)<ul>
+<li>lambda=np</li>
+<li>p=(lambda)/n</li>
+<li>이항분포에 근사하여 대입 후 증명</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>lambda</code>- 평균성공횟수</li>
+<li>E(X)=lambda</li>
+</ul>
+<h2 id="초기하분포"><a href="#초기하분포" class="headerlink" title="초기하분포"></a>초기하분포</h2><ul>
+<li>독립시행 X - 베르누이 시행을 따르지 않음</li>
+<li>단순 확률 구하기와 Similar</li>
+<li>변수<ul>
+<li>N - 전체집단 개수</li>
+<li>n - 추출대상 개수</li>
+<li>D - 성공집단 개수</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="연속형-분포"><a href="#연속형-분포" class="headerlink" title="연속형 분포"></a>연속형 분포</h1><h2 id="지수분포"><a href="#지수분포" class="headerlink" title="지수분포"></a>지수분포</h2><ul>
+<li><code>ex</code>) 처음 죽을때까지의 시간</li>
+</ul>
+<hr>
+<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="표"><a href="#표" class="headerlink" title="표"></a>표</h2><table>
+<thead>
+<tr>
+<th align="center">mean</th>
+<th align="center">R</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">이항분포</td>
+<td align="center">binom()</td>
+</tr>
+<tr>
+<td align="center">기하분포</td>
+<td align="center">geom()</td>
+</tr>
+<tr>
+<td align="center">음이항분포</td>
+<td align="center">nbinom()</td>
+</tr>
+<tr>
+<td align="center">포아송분포</td>
+<td align="center">pois()</td>
+</tr>
+<tr>
+<td align="center">초기하분포</td>
+<td align="center">hyper()</td>
+</tr>
+<tr>
+<td align="center">표본추출 - 이항</td>
+<td align="center"><code>rbinom(표본수,시행횟수,성공확률)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X=n)</code> - 이항</td>
+<td align="center"><code>dbinom(성공횟수,시행횟수,성공확률)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X&lt;=n)</code> - 이항</td>
+<td align="center"><code>pbinom(성공횟수,시행횟수,성공확률)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X=n)</code> - 기하</td>
+<td align="center"><code>dgeom(실패횟수,성공확률)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X=n)</code> - 음이항</td>
+<td align="center"><code>dnbinom(실패횟수,성공횟수,성공확률)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X=n)</code> - 포아송</td>
+<td align="center"><code>dpois(성공횟수,lambda)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X&lt;=n)</code>- 포아송</td>
+<td align="center"><code>ppois(성공횟수,lambda)</code></td>
+</tr>
+<tr>
+<td align="center"><code>p(X=n)</code>- 초기하</td>
+<td align="center"><code>dhyper(성공횟수(x),성공표본수(D),다른표본수(N-D),추출개수(n))</code></td>
+</tr>
+<tr>
+<td align="center">t 분포</td>
+<td align="center">t()</td>
+</tr>
+<tr>
+<td align="center">F 분포</td>
+<td align="center">f()</td>
+</tr>
+<tr>
+<td align="center">정규분포</td>
+<td align="center">norm()</td>
+</tr>
+<tr>
+<td align="center">정규분포 함숫값</td>
+<td align="center"><code>dnorm()</code></td>
+</tr>
+<tr>
+<td align="center">정규분포 누적</td>
+<td align="center"><code>pnorm()</code></td>
+</tr>
+<tr>
+<td align="center">정규분포 x,z값(분위수)</td>
+<td align="center"><code>qnorm(누적확률값)</code></td>
+</tr>
+<tr>
+<td align="center">지수분포</td>
+<td align="center"><code>exp()</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>r</code> - 추출</li>
+<li><code>d</code> - 확률</li>
+<li><code>p</code> - 누적 확률</li>
+<li><code>q</code> - 분위수</li>
+</ul>
+<h2 id="R-source"><a href="#R-source" class="headerlink" title="R source"></a>R source</h2><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="comment">### 이산형 ###</span></span><br><span class="line">&gt; dbinom(<span class="number">1</span>,<span class="number">3</span>,<span class="number">0.5</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.375</span></span><br><span class="line">&gt; pbinom(<span class="number">2</span>,<span class="number">3</span>,<span class="number">0.5</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.875</span></span><br><span class="line">&gt; dbinom(<span class="number">0</span>,<span class="number">3</span>,<span class="number">0.5</span>)+dbinom(<span class="number">1</span>,<span class="number">3</span>,<span class="number">0.5</span>)+dbinom(<span class="number">2</span>,<span class="number">3</span>,<span class="number">0.5</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.875</span></span><br><span class="line">&gt; dgeom(<span class="number">2</span>,<span class="number">0.4</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.144</span></span><br><span class="line">&gt; dnbinom(<span class="number">1</span>,<span class="number">2</span>,<span class="number">0.4</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.192</span></span><br><span class="line">&gt; dpois(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.2240418</span></span><br><span class="line">&gt; dpois(<span class="number">0</span>,<span class="number">3</span>)+dpois(<span class="number">1</span>,<span class="number">3</span>)+dpois(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.4231901</span></span><br><span class="line">&gt; ppois(<span class="number">2</span>,<span class="number">3</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.4231901</span></span><br><span class="line">&gt; dhyper(<span class="number">2</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">3</span>) <span class="comment"># B=3, W=2 3개 추출, B=2, W=1</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.6</span></span><br><span class="line">&gt; <span class="comment">### 연속형 ###</span></span><br><span class="line">&gt; x=seq(-<span class="number">3</span>,<span class="number">3</span>,length=<span class="number">100</span>)</span><br><span class="line">&gt; x</span><br><span class="line">  [<span class="number">1</span>] -<span class="number">3.00000000</span> -<span class="number">2.93939394</span> -<span class="number">2.87878788</span> -<span class="number">2.81818182</span> -<span class="number">2.75757576</span> -<span class="number">2.69696970</span> -<span class="number">2.63636364</span> -<span class="number">2.57575758</span></span><br><span class="line"><span class="keyword">...</span></span><br><span class="line"> [<span class="number">97</span>]  <span class="number">2.81818182</span>  <span class="number">2.87878788</span>  <span class="number">2.93939394</span>  <span class="number">3.00000000</span></span><br><span class="line">&gt; plot(x,dnorm(x)) <span class="comment"># 표준정규분포 확률밀도함수</span></span><br><span class="line">&gt; plot(x,dnorm(x),type=<span class="string">&#x27;l&#x27;</span>) <span class="comment"># type = line</span></span><br><span class="line">&gt; x=rnorm(<span class="number">100000000</span>)<span class="comment"># 랜덤생성</span></span><br><span class="line">&gt; mean(x);sd(x)</span><br><span class="line">[<span class="number">1</span>] -<span class="number">7.529876e-05</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1.000055</span></span><br><span class="line">&gt; y=rnorm(<span class="number">100000000</span>,<span class="number">2000</span>,<span class="number">10</span>)</span><br><span class="line">&gt; mean(y);sd(y)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2000</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">10.00069</span></span><br><span class="line">&gt; hist(x)</span><br><span class="line">&gt; pnorm(<span class="number">0</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">0.5</span></span><br><span class="line">&gt; pnorm(<span class="number">0</span>)-pnorm(-<span class="number">1.96</span>) <span class="comment"># p(-1.96&lt;X&lt;0)</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.4750021</span></span><br><span class="line">&gt; pnorm(<span class="number">110</span>,<span class="number">100</span>,<span class="number">5</span>)-pnorm(<span class="number">90</span>,<span class="number">100</span>,<span class="number">5</span>) <span class="comment"># p(90&lt;X&lt;110)</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">0.9544997</span></span><br><span class="line">&gt; qnorm(<span class="number">0.975</span>) <span class="comment">############</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">1.959964</span></span><br><span class="line">&gt; qnorm(<span class="number">0.5</span>,<span class="number">175</span>,<span class="number">10</span>)</span><br><span class="line">[<span class="number">1</span>] <span class="number">175</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>plot(x,dnorm(x))<br><img src="https://user-images.githubusercontent.com/42334717/71956742-46bf1100-322f-11ea-8fab-9c91855c4762.png"></p>
+</blockquote>
+<blockquote>
+<p>plot(x,dnorm(x),type=’l’)<br><img src="https://user-images.githubusercontent.com/42334717/71956920-bc2ae180-322f-11ea-9056-16549a809ab1.png"></p>
+</blockquote>
+<blockquote>
+<p>hist(x)<br><img src="https://user-images.githubusercontent.com/42334717/71957490-3a3bb800-3231-11ea-8adf-5fdabadffebf.png"></p>
+</blockquote>
+<hr>
+<h1 id="표본분포"><a href="#표본분포" class="headerlink" title="표본분포"></a>표본분포</h1><h2 id="Xbar-통계량-Statistic-r-v"><a href="#Xbar-통계량-Statistic-r-v" class="headerlink" title="Xbar - 통계량(Statistic) - r.v"></a>Xbar - 통계량(Statistic) - r.v</h2><ul>
+<li>대문자</li>
+<li>값 여러개 대응</li>
+<li>분포를 가지고 있음</li>
+<li><code>xbar</code> - 표본의 평균이므로 소문자</li>
+<li><code>Xbar</code> - 표본평균의 평균이므로 대문자</li>
+<li>불편성(E(X)=E(<code>Xbar</code>) - 추정량의 평균과 실제 모수값과 일치)을 만족하기때문에 <code>Xbar</code> 사용</li>
+</ul>
+<h3 id="ex-모집단-1-2-3-추출-2"><a href="#ex-모집단-1-2-3-추출-2" class="headerlink" title="ex) 모집단 - 1,2,3, 추출 - 2"></a><code>ex</code>) 모집단 - <code>1,2,3</code>, 추출 - <code>2</code></h3><blockquote>
+<p>통계량의 확률분포는 표본분포(<code>Xbar</code>의 확률분포는 표본분포)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center"><code>xbar</code></th>
+<th align="center">1</th>
+<th align="center">1.5</th>
+<th align="center">2</th>
+<th align="center">2.5</th>
+<th align="center">3</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">p(<code>Xbar</code>=<code>xbar</code>)</td>
+<td align="center">1/9</td>
+<td align="center">2/9</td>
+<td align="center">3/9</td>
+<td align="center">2/9</td>
+<td align="center">1/9</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>Xbar</code>=1/2*(Xsub1+Xsub2) - Xsub1, Xsub2는 모집단의 분포를 따름</li>
+<li>E(<code>Xbar</code>)=E(1/2*(Xsub1+Xsub2))=1/2*(E(Xsub1)+E(Xsub2))</li>
+</ul>
+<h2 id="정규모집단-정규분포"><a href="#정규모집단-정규분포" class="headerlink" title="정규모집단(정규분포)"></a>정규모집단(정규분포)</h2><blockquote>
+<p>X ~ N(<code>mu</code>,<code>sigma</code>^2)</p>
+</blockquote>
+<ul>
+<li>모집단 분포 - X ~ N(<code>mu</code>,<code>sigma</code>^2)</li>
+<li>모집단 분포 - Xsub1, Xsub2, …, Xsubn ~ N(<code>mu</code>,<code>sigma</code>^2)</li>
+<li>E(<code>Xbar</code>)=1/n(<code>mu</code>+…+<code>mu</code>)=<code>mu</code></li>
+<li>V(<code>Xbar</code>)=1/(n^2)*(<code>sigma</code>^2+…+<code>sigma</code>^2)=<code>sigma</code>^2/n</li>
+<li><code>Xbar</code> ~ N(<code>mu</code>,<code>sigma</code>^2/n) - 모집단이 정규분포기 때문</li>
+<li><code>X</code>, <code>mu</code>, <code>sigma</code> 추정</li>
+</ul>
+<h2 id="모집단-임의의-분포"><a href="#모집단-임의의-분포" class="headerlink" title="모집단 - 임의의 분포"></a>모집단 - 임의의 분포</h2><blockquote>
+<p>E(X)=<code>mu</code>, V(X)=<code>sigma</code>^2</p>
+</blockquote>
+<h3 id="중심극한정리-CLT"><a href="#중심극한정리-CLT" class="headerlink" title="중심극한정리(CLT)"></a>중심극한정리(CLT)</h3><ul>
+<li>n&gt;=30</li>
+<li><code>Xbar</code> ~ N(<code>mu</code>,<code>sigma</code>^2/n)</li>
+<li>모집단이 정규분포를 따르지 않아도 표본집단이 30 이상일 경우 <code>Xbar</code>는 정규분포</li>
+<li><code>ex</code>) <code>mu1</code>-<code>mu2</code> 평균의 차이 분석 - <code>Xbar1</code>-<code>Xbar2</code> ~ N 이용</li>
+</ul>
+<hr>
+<h1 id="가설검정"><a href="#가설검정" class="headerlink" title="가설검정"></a>가설검정</h1><h2 id="1-가설설정"><a href="#1-가설설정" class="headerlink" title="1. 가설설정"></a>1. 가설설정</h2><p><img src="https://user-images.githubusercontent.com/42334717/72044473-2eb2c480-32f7-11ea-8ad5-d53e71c94df9.png"></p>
+<ul>
+<li><code>Hsub0</code>를 채택, 기각(무조건 <code>Hsub0</code> 중심으로 서술)</li>
+</ul>
+<h3 id="귀무가설-Hsub0"><a href="#귀무가설-Hsub0" class="headerlink" title="귀무가설(Hsub0)"></a>귀무가설(Hsub0)</h3><blockquote>
+<p>연구자가 기각하길 바라면서 세운 가설</p>
+</blockquote>
+<ul>
+<li>검정대상이 되는 가설</li>
+<li><code>Hsub0</code>: ~이다, ~차이가 없다, ~영향력이 없다,<code>=</code></li>
+</ul>
+<h3 id="대립가설-Hsub1"><a href="#대립가설-Hsub1" class="headerlink" title="대립가설(Hsub1)"></a>대립가설(Hsub1)</h3><blockquote>
+<p>연구자가 증명하고자 하는 가설</p>
+</blockquote>
+<ul>
+<li>귀무가설이 거짓이면 대립가설 참</li>
+<li><code>Hsub1</code>: ~아니다, ~차이가 있다, ~영향력이 있다, <code>=/=</code>(양측검정), <code>&gt;</code>, <code>&lt;</code>(단측검정)</li>
+<li>양측검정 - 사전정보가 없어서 양쪽 확인</li>
+<li>단측검정 - 사전정보가 있어서 한쪽만 확인</li>
+</ul>
+<h2 id="2-유의수준"><a href="#2-유의수준" class="headerlink" title="2. 유의수준"></a>2. 유의수준</h2><blockquote>
+<p>가설검정시 허용되는 오류</p>
+</blockquote>
+<ul>
+<li><code>alpha=0.05</code>, 0.01, 0.001</li>
+<li>$\alpha=0.05$이면 5%의 오류 허용</li>
+</ul>
+<h2 id="3-검정통계량-계산"><a href="#3-검정통계량-계산" class="headerlink" title="3. 검정통계량 계산"></a>3. 검정통계량 계산</h2><ul>
+<li>$\mu_0$를 설정하여 정규분포표를 이용해 Normalize</li>
+</ul>
+<h2 id="4-유의수준과-유의확률-비교-검정통계량값과-기각역-비교-학부-X"><a href="#4-유의수준과-유의확률-비교-검정통계량값과-기각역-비교-학부-X" class="headerlink" title="4. 유의수준과 유의확률 비교 / 검정통계량값과 기각역 비교(학부 X)"></a>4. 유의수준과 유의확률 비교 / 검정통계량값과 기각역 비교(학부 X)</h2><blockquote>
+<p>유의수준 $\geq$ 유의확률 - <code>Hsub0</code> 기각</p>
+</blockquote>
+<h3 id="유의수준"><a href="#유의수준" class="headerlink" title="유의수준"></a>유의수준</h3><blockquote>
+<p>$$\alpha$$</p>
+</blockquote>
+<h3 id="유의확률-p-value"><a href="#유의확률-p-value" class="headerlink" title="유의확률(p-value)"></a>유의확률(p-value)</h3><blockquote>
+<p>$H_0$를 기각하게 하는 최소의 유의수준</p>
+</blockquote>
+<ul>
+<li>단측검정 - 검정통계량값의 적은쪽 꼬리확률</li>
+<li>양측검정 - 검정통계량값의 적은쪽 꼬리확률X2</li>
+</ul>
+<h2 id="5-결론-및-해석"><a href="#5-결론-및-해석" class="headerlink" title="5. 결론 및 해석"></a>5. 결론 및 해석</h2><ul>
+<li>위의 flow대로 번호써서 진행</li>
+<li>검정통계 공식, 값</li>
+</ul>
+<hr>
+<h1 id="분석기법"><a href="#분석기법" class="headerlink" title="분석기법"></a>분석기법</h1><ul>
+<li>일표본 T-검정 - $H_0$ : $\mu$ = float<ul>
+<li>수치자료 1개</li>
+</ul>
+</li>
+<li>독립표본 T-검정(두 집단의 평균비교) - $H_0$ : $\mu_1$ - $\mu_2$ = 0<ul>
+<li>집단변수(범주형, factor, 집단 2개), 수치자료 1개</li>
+</ul>
+</li>
+<li>대응표본 T-검정(변화량 비교) - $H_0$ : $\mu_{before}$ - $\mu_{after}$ = 0<ul>
+<li>수치자료 2개</li>
+</ul>
+</li>
+<li>일원배치 분산분석(세 집단 이상의 평균비교) - $H_0$ : $\mu_1$ = $\mu_2$ = … = $\mu_k$<ul>
+<li>집단변수(범주형, factor, 집단 3개 이상), 수치자료 1개</li>
+</ul>
+</li>
+<li>회귀분석<ul>
+<li>독립변수 : 종속변수에 영향을 주는 변수(수치자료 n개)</li>
+<li>종속변수 : 독립변수에 영향을 받는 변수(수치자료 1개)</li>
+</ul>
+</li>
+<li>교차분석<ul>
+<li>범주형자료 2개</li>
+</ul>
+</li>
+<li>상관분석<ul>
+<li>수치자료 2개</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-3/" rel="bookmark">R(3)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-2/" rel="bookmark">R(2)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-6/" rel="bookmark">R(6)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-mid-term/" rel="bookmark">R mid-term</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/statistics/" title="Statistics">https://zerohertz.github.io/statistics/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/r/" rel="tag"><i class="fa fa-tag"></i> R</a>
+              <a href="/tags/statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/r-mid-term/" rel="prev" title="R mid-term">
+                  <i class="fa fa-chevron-left"></i> R mid-term
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/mathjax-test/" rel="next" title="mathjax test">
+                  mathjax test <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/statistics/";
+    this.page.identifier = "statistics/";
+    this.page.title = "Statistics";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

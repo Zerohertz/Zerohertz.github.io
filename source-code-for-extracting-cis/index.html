@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="CIs? Condition Indicator의 약자로써, Feature extraction의 과정이며 Smart data와 동의어로 이해할 수 있다.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Source code for extracting CIs">
+<meta property="og:url" content="https://zerohertz.github.io/source-code-for-extracting-cis/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="CIs? Condition Indicator의 약자로써, Feature extraction의 과정이며 Smart data와 동의어로 이해할 수 있다.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76924261-212e4200-6919-11ea-8be4-3f90fb5573a7.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76925234-1a54fe80-691c-11ea-9857-61b8a7599c18.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/76925437-d1517a00-691c-11ea-8103-f0ab09de1ae8.png">
+<meta property="article:published_time" content="2020-03-18T03:14:38.000Z">
+<meta property="article:modified_time" content="2020-03-27T02:22:00.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="PHM">
+<meta property="article:tag" content="Smart data">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="Statistics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/76924261-212e4200-6919-11ea-8be4-3f90fb5573a7.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/source-code-for-extracting-cis/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Source code for extracting CIs | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CIs"><span class="nav-number">1.</span> <span class="nav-text">CIs?</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Window-size%EC%97%90-%EB%94%B0%EB%9D%BC-CI%EB%A5%BC-%EA%B5%AC%ED%95%98%EB%8A%94-%ED%95%A8%EC%88%98"><span class="nav-number">2.</span> <span class="nav-text">Window size에 따라 CI를 구하는 함수</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#MakeData"><span class="nav-number">3.</span> <span class="nav-text">MakeData</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FDR"><span class="nav-number">4.</span> <span class="nav-text">FDR</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FDR%EC%9D%84-%EC%9D%B4%EC%9A%A9%ED%95%B4-Window-size-%EA%B2%B0%EC%A0%95"><span class="nav-number">5.</span> <span class="nav-text">FDR을 이용해 Window size 결정</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%ED%99%95%EB%A5%A0%EB%B0%80%EB%8F%84%ED%95%A8%EC%88%98"><span class="nav-number">6.</span> <span class="nav-text">확률밀도함수</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/source-code-for-extracting-cis/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Source code for extracting CIs
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-03-18 12:14:38" itemprop="dateCreated datePublished" datetime="2020-03-18T12:14:38+09:00">2020-03-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-03-27 11:22:00" itemprop="dateModified" datetime="2020-03-27T11:22:00+09:00">2020-03-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/r/" itemprop="url" rel="index"><span itemprop="name">R</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/source-code-for-extracting-cis/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="source-code-for-extracting-cis/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>6.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="CIs"><a href="#CIs" class="headerlink" title="CIs?"></a>CIs?</h1><blockquote>
+<p>Condition Indicator의 약자로써, Feature extraction의 과정이며 Smart data와 동의어로 이해할 수 있다.</p>
+</blockquote>
+<a id="more"></a>
+
+<hr>
+<h1 id="Window-size에-따라-CI를-구하는-함수"><a href="#Window-size에-따라-CI를-구하는-함수" class="headerlink" title="Window size에 따라 CI를 구하는 함수"></a>Window size에 따라 CI를 구하는 함수</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">sk=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">	i=<span class="number">0</span></span><br><span class="line">	sk=<span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span>(i&lt;floor(length(x)/Winsiz))&#123;</span><br><span class="line">		j=<span class="number">1</span></span><br><span class="line">		sam=<span class="number">0</span></span><br><span class="line">		<span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">			sam[j]=x[i*Winsiz+j]</span><br><span class="line">			j=j+<span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">		sk[i+<span class="number">1</span>]&lt;-sum(((sam-mean(sam))^<span class="number">3</span>)/sd(sam)^<span class="number">3</span>)*(<span class="number">1</span>/(Winsiz-<span class="number">1</span>))</span><br><span class="line">		i=i+<span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>(sk)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ku=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">	i=<span class="number">0</span></span><br><span class="line">	ku=<span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span>(i&lt;floor(length(x)/Winsiz))&#123;</span><br><span class="line">		j=<span class="number">1</span></span><br><span class="line">		sam=<span class="number">0</span></span><br><span class="line">		<span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">			sam[j]=x[i*Winsiz+j]</span><br><span class="line">			j=j+<span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">		ku[i+<span class="number">1</span>]&lt;-sum(((sam-mean(sam))^<span class="number">4</span>)/sd(sam)^<span class="number">4</span>)*(<span class="number">1</span>/(Winsiz-<span class="number">1</span>))</span><br><span class="line">		i=i+<span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>(ku)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">rm=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">	i=<span class="number">0</span></span><br><span class="line">	rm=<span class="number">0</span></span><br><span class="line">	<span class="keyword">while</span>(i&lt;floor(length(x)/Winsiz))&#123;</span><br><span class="line">		j=<span class="number">1</span></span><br><span class="line">		sam=<span class="number">0</span></span><br><span class="line">		<span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">			sam[j]=x[i*Winsiz+j]</span><br><span class="line">			j=j+<span class="number">1</span></span><br><span class="line">		&#125;</span><br><span class="line">		rm[i+<span class="number">1</span>]&lt;-sqrt(sum(sam^<span class="number">2</span>)/Winsiz)</span><br><span class="line">		i=i+<span class="number">1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span>(rm)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">p2p=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">  i=<span class="number">0</span></span><br><span class="line">  pp=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span>(i&lt;floor(length(x)/Winsiz))&#123;</span><br><span class="line">    j=<span class="number">1</span></span><br><span class="line">    sam=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">      sam[j]=x[i*Winsiz+j]</span><br><span class="line">      j=j+<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    pp[i+<span class="number">1</span>]&lt;-max(sam)-min(sam)</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>(pp)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">iq=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">  i=<span class="number">0</span></span><br><span class="line">  qq=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span>(i&lt;floor(length(x)/Winsiz))&#123;</span><br><span class="line">    j=<span class="number">1</span></span><br><span class="line">    sam=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">      sam[j]=x[i*Winsiz+j]</span><br><span class="line">      j=j+<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    qq[i+<span class="number">1</span>]&lt;-IQR(sam)</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>(qq)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cf=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">  i=<span class="number">0</span></span><br><span class="line">  cc=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span>(i&lt;floor(length(x)/Winsiz))&#123;</span><br><span class="line">    j=<span class="number">1</span></span><br><span class="line">    sam=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">      sam[j]=x[i*Winsiz+j]</span><br><span class="line">      j=j+<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    cc[i+<span class="number">1</span>]&lt;-(max(sam)-min(sam))/(sqrt(sum(sam^<span class="number">2</span>)/Winsiz))</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>(cc)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">함수(변수)명</th>
+<th align="center">뜻</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sk()</td>
+<td align="center">Skewness(왜도)</td>
+</tr>
+<tr>
+<td align="center">ku()</td>
+<td align="center">Kurtosis(첨도)</td>
+</tr>
+<tr>
+<td align="center">rm()</td>
+<td align="center">RMS</td>
+</tr>
+<tr>
+<td align="center">p2p()</td>
+<td align="center">Peak to peak</td>
+</tr>
+<tr>
+<td align="center">iq()</td>
+<td align="center">IQR</td>
+</tr>
+<tr>
+<td align="center">cf()</td>
+<td align="center">Crest factor</td>
+</tr>
+<tr>
+<td align="center">Winsiz</td>
+<td align="center">Window size</td>
+</tr>
+<tr>
+<td align="center">sam</td>
+<td align="center">Window size만큼의 Sample</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Moving average 이용</li>
+<li>Real-time에 적용하기 용이</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line">sk=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">  i=<span class="number">0</span></span><br><span class="line">  sk=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span>((i+Winsiz)&lt;=length(x))&#123;</span><br><span class="line">    j=<span class="number">1</span></span><br><span class="line">    sam=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">      sam[j]=x[i+j]</span><br><span class="line">      j=j+<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    sk[i+<span class="number">1</span>]&lt;-sum(((sam-mean(sam))^<span class="number">3</span>)/sd(sam)^<span class="number">3</span>)*(<span class="number">1</span>/(Winsiz-<span class="number">1</span>))</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>(sk)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">ku=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">  i=<span class="number">0</span></span><br><span class="line">  ku=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span>((i+Winsiz)&lt;=length(x))&#123;</span><br><span class="line">    j=<span class="number">1</span></span><br><span class="line">    sam=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">      sam[j]=x[i+j]</span><br><span class="line">      j=j+<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    ku[i+<span class="number">1</span>]&lt;-sum(((sam-mean(sam))^<span class="number">4</span>)/sd(sam)^<span class="number">4</span>)*(<span class="number">1</span>/(Winsiz-<span class="number">1</span>))</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>(ku)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">rm=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">  i=<span class="number">0</span></span><br><span class="line">  rm=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span>((i+Winsiz)&lt;=length(x))&#123;</span><br><span class="line">    j=<span class="number">1</span></span><br><span class="line">    sam=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">      sam[j]=x[i+j]</span><br><span class="line">      j=j+<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    rm[i+<span class="number">1</span>]&lt;-sqrt(sum(sam^<span class="number">2</span>)/Winsiz)</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>(rm)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p2p=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">  i=<span class="number">0</span></span><br><span class="line">  pp=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span>((i+Winsiz)&lt;=length(x))&#123;</span><br><span class="line">    j=<span class="number">1</span></span><br><span class="line">    sam=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">      sam[j]=x[i+j]</span><br><span class="line">      j=j+<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    pp[i+<span class="number">1</span>]&lt;-max(sam)-min(sam)</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>(pp)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">iq=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">  i=<span class="number">0</span></span><br><span class="line">  qq=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span>((i+Winsiz)&lt;=length(x))&#123;</span><br><span class="line">    j=<span class="number">1</span></span><br><span class="line">    sam=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">      sam[j]=x[i+j]</span><br><span class="line">      j=j+<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    qq[i+<span class="number">1</span>]&lt;-IQR(sam)</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>(qq)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">cf=<span class="keyword">function</span>(x,Winsiz)&#123;</span><br><span class="line">  i=<span class="number">0</span></span><br><span class="line">  cc=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span>((i+Winsiz)&lt;=length(x))&#123;</span><br><span class="line">    j=<span class="number">1</span></span><br><span class="line">    sam=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span>(j&lt;=Winsiz)&#123;</span><br><span class="line">      sam[j]=x[i+j]</span><br><span class="line">      j=j+<span class="number">1</span></span><br><span class="line">    &#125;</span><br><span class="line">    cc[i+<span class="number">1</span>]&lt;-(max(sam)-min(sam))/(sqrt(sum(sam^<span class="number">2</span>)/Winsiz))</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span>(cc)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>위 함수도 동일한 맥락</li>
+<li>하지만 Moving average를 어떤식으로 이용했는지에 차이</li>
+<li>Window size의 움직임을 Window size(위) 혹은 주기(아래)에 기준을 둔 차이</li>
+</ul>
+<hr>
+<h1 id="MakeData"><a href="#MakeData" class="headerlink" title="MakeData"></a>MakeData</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">MakeData=<span class="keyword">function</span>(data,Winsiz,name)&#123;</span><br><span class="line">  X_skew=sk(data$X,Winsiz)</span><br><span class="line">  X_kurt=ku(data$X,Winsiz)</span><br><span class="line">  X_rms=rm(data$X,Winsiz)</span><br><span class="line">  X_p2p=p2p(data$X,Winsiz)</span><br><span class="line">  X_iq=iq(data$X,Winsiz)</span><br><span class="line">  X_cf=cf(data$X,Winsiz)</span><br><span class="line">  Y_skew=sk(data$Y,Winsiz)</span><br><span class="line">  Y_kurt=ku(data$Y,Winsiz)</span><br><span class="line">  Y_rms=rm(data$Y,Winsiz)</span><br><span class="line">  Y_p2p=p2p(data$Y,Winsiz)</span><br><span class="line">  Y_iq=iq(data$Y,Winsiz)</span><br><span class="line">  Y_cf=cf(data$Y,Winsiz)</span><br><span class="line">  Z_skew=sk(data$Z,Winsiz)</span><br><span class="line">  Z_kurt=ku(data$Z,Winsiz)</span><br><span class="line">  Z_rms=rm(data$Z,Winsiz)</span><br><span class="line">  Z_p2p=p2p(data$Z,Winsiz)</span><br><span class="line">  Z_iq=iq(data$Z,Winsiz)</span><br><span class="line">  Z_cf=cf(data$Z,Winsiz)</span><br><span class="line">  all=cbind(X_skew,X_kurt,X_rms,X_p2p,X_iq,X_cf,Y_skew,Y_kurt,Y_rms,Y_p2p,Y_iq,Y_cf,Z_skew,Z_kurt,Z_rms,Z_p2p,Z_iq,Z_cf)</span><br><span class="line">  options(max.print=<span class="number">10000000</span>)</span><br><span class="line">  print(<span class="string">&quot;Im writing now&quot;</span>)</span><br><span class="line">  write.table(all[,<span class="number">1</span>:<span class="number">18</span>],name,sep=<span class="string">&#x27;\t&#x27;</span>,row.names=<span class="literal">F</span>)</span><br><span class="line">  <span class="keyword">return</span>(all)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">함수(변수)명</th>
+<th align="center">뜻</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">MakeData()</td>
+<td align="center">CI를 각 축에 대해 Window size에 맞춰 구하고 저장하는 함수</td>
+</tr>
+<tr>
+<td align="center">data</td>
+<td align="center">DAQ를 이용해 구한 Data를 입력</td>
+</tr>
+<tr>
+<td align="center">all</td>
+<td align="center">cbind()함수를 통해 직접 구한 CIs를 결합</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>.txt</code>파일로 Export</li>
+<li>CIs table을 return</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">asdf=<span class="number">5000</span></span><br><span class="line"></span><br><span class="line">f1=MakeData(fault6,asdf,<span class="string">&#x27;Fault6.txt&#x27;</span>)</span><br><span class="line">f2=MakeData(fault7,asdf,<span class="string">&#x27;Fault7.txt&#x27;</span>)</span><br><span class="line">f3=MakeData(fault8,asdf,<span class="string">&#x27;Fault8.txt&#x27;</span>)</span><br><span class="line">f4=MakeData(fault9,asdf,<span class="string">&#x27;Fault9.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">f5=rbind(f1,f2,f3,f4)</span><br><span class="line">write.table(f5[,<span class="number">1</span>:<span class="number">18</span>],<span class="string">&#x27;fault.txt&#x27;</span>,sep=<span class="string">&#x27;\t&#x27;</span>,row.names=<span class="literal">F</span>)</span><br><span class="line"></span><br><span class="line">h1=MakeData(normal5,asdf,<span class="string">&#x27;Normal5.txt&#x27;</span>)</span><br><span class="line">h2=MakeData(normal6,asdf,<span class="string">&#x27;Normal6.txt&#x27;</span>)</span><br><span class="line">h3=MakeData(normal7,asdf,<span class="string">&#x27;Normal7.txt&#x27;</span>)</span><br><span class="line">h4=MakeData(normal8,asdf,<span class="string">&#x27;Normal8.txt&#x27;</span>)</span><br><span class="line"></span><br><span class="line">h5=rbind(h1,h2,h3,h4)</span><br><span class="line">write.table(h5[,<span class="number">1</span>:<span class="number">18</span>],<span class="string">&#x27;health.txt&#x27;</span>,sep=<span class="string">&#x27;\t&#x27;</span>,row.names=<span class="literal">F</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>이런식으로 사용</li>
+</ul>
+<hr>
+<h1 id="FDR"><a href="#FDR" class="headerlink" title="FDR"></a>FDR</h1><p><img src="https://user-images.githubusercontent.com/42334717/76924261-212e4200-6919-11ea-8be4-3f90fb5573a7.png" alt="FDR"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">fdr=<span class="keyword">function</span>(data1,data2)&#123;</span><br><span class="line">  ff=(mean(data1)-mean(data2))^<span class="number">2</span>/((sd(data1))^<span class="number">2</span>+(sd(data2))^<span class="number">2</span>)</span><br><span class="line">  <span class="keyword">return</span>(ff)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">allfdr=<span class="keyword">function</span>(data1,data2)&#123;</span><br><span class="line">  i=<span class="number">1</span></span><br><span class="line">  <span class="keyword">while</span>(i&lt;=ncol(data1))&#123;</span><br><span class="line">    cat(i,<span class="string">&#x27; : &#x27;</span>,fdr(data1[,i],data2[,i]),<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">함수(변수)명</th>
+<th align="center">뜻</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">fdr()</td>
+<td align="center">FDR식을 이용한 수치 계산</td>
+</tr>
+<tr>
+<td align="center">allfdr()</td>
+<td align="center">모든 CIs의 FDR 출력</td>
+</tr>
+<tr>
+<td align="center">data1, data2</td>
+<td align="center">FDR에 이용할 Data set</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="FDR을-이용해-Window-size-결정"><a href="#FDR을-이용해-Window-size-결정" class="headerlink" title="FDR을 이용해 Window size 결정"></a>FDR을 이용해 Window size 결정</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">test1=<span class="keyword">function</span>(data,Winsiz)&#123;</span><br><span class="line">  Z_kurt=ku(data$Z,Winsiz)</span><br><span class="line">  Z_rms=rm(data$Z,Winsiz)</span><br><span class="line">  Z_iq=iq(data$Z,Winsiz)</span><br><span class="line">  Z_cf=cf(data$Z,Winsiz)</span><br><span class="line">  all=cbind(Z_kurt,Z_rms,Z_iq,Z_cf)</span><br><span class="line">  options(max.print=<span class="number">10000000</span>)</span><br><span class="line">  <span class="keyword">return</span>(all)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">FDRtest=<span class="keyword">function</span>(max1,size,start)&#123;</span><br><span class="line">  asdf=start</span><br><span class="line">  i=<span class="number">1</span></span><br><span class="line">  ku1=<span class="number">0</span></span><br><span class="line">  rm1=<span class="number">0</span></span><br><span class="line">  iq1=<span class="number">0</span></span><br><span class="line">  cf1=<span class="number">0</span></span><br><span class="line">  ti1=<span class="number">0</span></span><br><span class="line">  <span class="keyword">while</span>(asdf&lt;=max1)&#123;</span><br><span class="line">    f1=test1(fault6,asdf)</span><br><span class="line">    f2=test1(fault7,asdf)</span><br><span class="line">    f3=test1(fault8,asdf)</span><br><span class="line">    f4=test1(fault9,asdf)</span><br><span class="line">    </span><br><span class="line">    f5=rbind(f1,f2,f3,f4)</span><br><span class="line">    </span><br><span class="line">    h1=test1(normal5,asdf)</span><br><span class="line">    h2=test1(normal6,asdf)</span><br><span class="line">    h3=test1(normal7,asdf)</span><br><span class="line">    h4=test1(normal8,asdf)</span><br><span class="line">    </span><br><span class="line">    h5=rbind(h1,h2,h3,h4)</span><br><span class="line">    </span><br><span class="line">    ku1[i]&lt;-fdr(f5[,<span class="number">1</span>],h5[,<span class="number">1</span>])</span><br><span class="line">    rm1[i]&lt;-fdr(f5[,<span class="number">2</span>],h5[,<span class="number">2</span>])</span><br><span class="line">    iq1[i]&lt;-fdr(f5[,<span class="number">3</span>],h5[,<span class="number">3</span>])</span><br><span class="line">    cf1[i]&lt;-fdr(f5[,<span class="number">4</span>],h5[,<span class="number">4</span>])</span><br><span class="line">    ti1[i]&lt;-asdf</span><br><span class="line">    </span><br><span class="line">    print(asdf)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span>(i%%<span class="number">2</span>==<span class="number">1</span>)&#123;</span><br><span class="line">      cat((asdf-start)/(max1-start)*<span class="number">100</span>,<span class="string">&#x27;%\n&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    asdf=asdf+size</span><br><span class="line">    i=i+<span class="number">1</span></span><br><span class="line">  &#125;</span><br><span class="line">  gg=cbind(ku1,rm1,iq1,cf1)</span><br><span class="line">  <span class="keyword">return</span>(gg)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th align="center">함수(변수)명</th>
+<th align="center">뜻</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">test1()</td>
+<td align="center">MakeData의 축소 형태</td>
+</tr>
+<tr>
+<td align="center">fdrtest()</td>
+<td align="center">모든 CIs의 FDR 출력</td>
+</tr>
+<tr>
+<td align="center">max1</td>
+<td align="center">끝점</td>
+</tr>
+<tr>
+<td align="center">size</td>
+<td align="center">Window size 증가폭</td>
+</tr>
+<tr>
+<td align="center">start</td>
+<td align="center">시작점</td>
+</tr>
+<tr>
+<td align="center">asdf</td>
+<td align="center">동적인 Window size</td>
+</tr>
+<tr>
+<td align="center">ku1</td>
+<td align="center">FDR of Kurtosis</td>
+</tr>
+<tr>
+<td align="center">rm1</td>
+<td align="center">FDR of RMS</td>
+</tr>
+<tr>
+<td align="center">iq1</td>
+<td align="center">FDR of IQR</td>
+</tr>
+<tr>
+<td align="center">cf1</td>
+<td align="center">FDR of CF</td>
+</tr>
+<tr>
+<td align="center">ti1</td>
+<td align="center">Window size 배열</td>
+</tr>
+</tbody></table>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">as=FDRtest(<span class="number">100000</span>,<span class="number">100</span>,<span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+<img width="1024" alt="FDR 그래프" src="https://user-images.githubusercontent.com/42334717/76925234-1a54fe80-691c-11ea-9857-61b8a7599c18.png">
+
+<hr>
+<h1 id="확률밀도함수"><a href="#확률밀도함수" class="headerlink" title="확률밀도함수"></a>확률밀도함수</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">plot(density(f5[,<span class="number">17</span>]),xlab=<span class="string">&quot;Magnitude&quot;</span>, ylab=<span class="string">&quot;Density&quot;</span>, main=<span class="string">&quot;Z_iq&quot;</span>, col=<span class="string">&quot;red&quot;</span>)</span><br><span class="line">par(new=<span class="literal">TRUE</span>)</span><br><span class="line">lines(density(h5[,<span class="number">17</span>]),col=<span class="string">&#x27;blue&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>xlim=c()</code>, <code>ylim=c()</code>로 스케일 조정 가능</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/76925437-d1517a00-691c-11ea-8103-f0ab09de1ae8.png" alt="Z_iq"></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-for-ball-bearing-cage-defects-using-fisher-discriminant-ratio/" rel="bookmark">Diagnosis Systems for Ball Bearing Cage Defects using Fisher Discriminant Ratio</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/" rel="bookmark">Development of a Obstructive Sleep Apnea Diagnosis Algorithm Using HRV</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a-fault-diagnosis-on-the-rotating-machinery-using-mahalanobis-distance/" rel="bookmark">A Fault Diagnosis on the Rotating Machinery Using Mahalanobis Distance</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/source-code-for-extracting-cis/" title="Source code for extracting CIs">https://zerohertz.github.io/source-code-for-extracting-cis/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+              <a href="/tags/phm/" rel="tag"><i class="fa fa-tag"></i> PHM</a>
+              <a href="/tags/smart-data/" rel="tag"><i class="fa fa-tag"></i> Smart data</a>
+              <a href="/tags/r/" rel="tag"><i class="fa fa-tag"></i> R</a>
+              <a href="/tags/statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/diagnosis-systems-with-smart-data-for-3d-printer/" rel="prev" title="Diagnosis Systems with Smart Data for 3D Printer">
+                  <i class="fa fa-chevron-left"></i> Diagnosis Systems with Smart Data for 3D Printer
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/matlab-source-for-data-visualization/" rel="next" title="Matlab source for data visualization">
+                  Matlab source for data visualization <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/source-code-for-extracting-cis/";
+    this.page.identifier = "source-code-for-extracting-cis/";
+    this.page.title = "Source code for extracting CIs";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

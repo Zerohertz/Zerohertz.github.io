@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Clustering 선형 회귀분석은 모델을 만들기 위해 입력 데이터와 출력 값(label)을 사용해 감독(Supervised) 학습 알고리즘 모든 데이터에 레이블이 있지 않음 비감독(Unsupervised) 학습 알고리즘 데이터 분석의 사전 작업으로 사용되기 좋음   K-means Clustering   데이터를 다른 묶음과 구분되도록 유사한 것끼리 자동으">
+<meta property="og:type" content="article">
+<meta property="og:title" content="TensorFlow(2)">
+<meta property="og:url" content="https://zerohertz.github.io/tensorflow-2/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Clustering 선형 회귀분석은 모델을 만들기 위해 입력 데이터와 출력 값(label)을 사용해 감독(Supervised) 학습 알고리즘 모든 데이터에 레이블이 있지 않음 비감독(Unsupervised) 학습 알고리즘 데이터 분석의 사전 작업으로 사용되기 좋음   K-means Clustering   데이터를 다른 묶음과 구분되도록 유사한 것끼리 자동으">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62998283-0c329180-bea6-11e9-90fb-7ab886f4b9e9.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62998535-cd510b80-bea6-11e9-9552-61482c901090.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/62998530-caeeb180-bea6-11e9-99b4-c9e33773807a.png">
+<meta property="article:published_time" content="2019-08-14T04:46:25.000Z">
+<meta property="article:modified_time" content="2020-02-25T06:36:48.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="DNN">
+<meta property="article:tag" content="TensorFlow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/62998283-0c329180-bea6-11e9-90fb-7ab886f4b9e9.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/tensorflow-2/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>TensorFlow(2) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Clustering"><span class="nav-number">1.</span> <span class="nav-text">Clustering</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tensor"><span class="nav-number">2.</span> <span class="nav-text">Tensor</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#K-means-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98"><span class="nav-number">3.</span> <span class="nav-text">K-means 알고리즘</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/tensorflow-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          TensorFlow(2)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-08-14 13:46:25" itemprop="dateCreated datePublished" datetime="2019-08-14T13:46:25+09:00">2019-08-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-02-25 15:36:48" itemprop="dateModified" datetime="2020-02-25T15:36:48+09:00">2020-02-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/tensorflow/" itemprop="url" rel="index"><span itemprop="name">TensorFlow</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/tensorflow-2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="tensorflow-2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Clustering"><a href="#Clustering" class="headerlink" title="Clustering"></a>Clustering</h1><ul>
+<li>선형 회귀분석은 모델을 만들기 위해 입력 데이터와 출력 값(label)을 사용해 감독(Supervised) 학습 알고리즘</li>
+<li>모든 데이터에 레이블이 있지 않음</li>
+<li>비감독(Unsupervised) 학습 알고리즘</li>
+<li>데이터 분석의 사전 작업으로 사용되기 좋음</li>
+</ul>
+<blockquote>
+<p>K-means Clustering</p>
+</blockquote>
+<ul>
+<li>데이터를 다른 묶음과 구분되도록 유사한 것끼리 자동으로 Grouping</li>
+<li>알고리즘에 예측해야 할 타겟 변수나 결과 변수가 없음</li>
+<li>텐서(Tensor) 이용</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h1 id="Tensor"><a href="#Tensor" class="headerlink" title="Tensor"></a>Tensor</h1><ul>
+<li>동적 사이즈를 갖는 다차원 데이터 배열</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>텐서플로우 타입</th>
+<th>파이썬 타입</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DT_FLOAT</td>
+<td>tf.float32</td>
+<td>32비트 실수</td>
+</tr>
+<tr>
+<td>DT_INT16</td>
+<td>tf.int16</td>
+<td>16비트 정수</td>
+</tr>
+<tr>
+<td>DT_INT32</td>
+<td>tf.int32</td>
+<td>32비트 정수</td>
+</tr>
+<tr>
+<td>DT_INT64</td>
+<td>tf.int64</td>
+<td>64비트 정수</td>
+</tr>
+<tr>
+<td>DT_STRING</td>
+<td>tf.string</td>
+<td>문자열</td>
+</tr>
+<tr>
+<td>DT_BOOL</td>
+<td>tf.bool</td>
+<td>불리언</td>
+</tr>
+</tbody></table>
+<ul>
+<li>각 텐서는 배열의 차원을 나타내는 랭크(rank)를 가짐</li>
+<li>텐서의 랭크는 제한이 없음</li>
+<li>랭크가 0이면 스칼라, 1이면 벡터, 2이면 행렬을 나타냄</li>
+<li>텐서들을 다루기 위해 텐서플로우에선 변환 함수를 사용</li>
+</ul>
+<hr>
+<h1 id="K-means-알고리즘"><a href="#K-means-알고리즘" class="headerlink" title="K-means 알고리즘"></a>K-means 알고리즘</h1><ul>
+<li>주어진 데이터를 지정된 클러스터 갯수(K)로 Grouping</li>
+<li>한 클러스터 내의 데이터들은 동일한 성질을 가지며 다른 그룹에 대하여 구별됨</li>
+<li>센트로이드(Centroid)라 불리는 K개의 포인트로 서로 다른 그룹의 중심을 나타냄</li>
+<li>데이터들은 K 클러스터 중 하나에만 속할 수 있음</li>
+<li>클러스터를 구성하는데 직접 에러 함수를 최소화하려면 계산을 매우 많이 해야함</li>
+<li>스스로 로컬 최솟값에 빠르게 수렴할 수 있는 방법이 개발됨(iterative refinement)</li>
+</ul>
+<ol>
+<li>초기 단계 : K 센트로이드의 초기 값을 결정</li>
+<li>할당 단계 : 가까운 클러스터에 데이터를 할당</li>
+<li>수정 단계 : 각 클러스터에 대해 새로운 센트로이드 계산</li>
+</ol>
+<ul>
+<li>데이터 중 K개를 임의로 선택하여 센트로이드로 삼아 초기값을 정함</li>
+<li>할당 단게와 수정 단계는 알고리즘이 수렴되어서 클러스터 내의 데이터의 변화가 없을 때 까지 루프 안에서 반복됨</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"></span><br><span class="line">num_puntos = <span class="number">2000</span></span><br><span class="line">conjunto_puntos = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(num_puntos):</span><br><span class="line">   <span class="keyword">if</span> np.random.random() &gt; <span class="number">0.5</span>:</span><br><span class="line">     conjunto_puntos.append([np.random.normal(<span class="number">0.0</span>, <span class="number">0.9</span>), np.random.normal(<span class="number">0.0</span>, <span class="number">0.9</span>)])</span><br><span class="line">   <span class="keyword">else</span>:</span><br><span class="line">     conjunto_puntos.append([np.random.normal(<span class="number">3.0</span>, <span class="number">0.5</span>), np.random.normal(<span class="number">1.0</span>, <span class="number">0.5</span>)])</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">&quot;x&quot;</span>: [v[<span class="number">0</span>] <span class="keyword">for</span> v <span class="keyword">in</span> conjunto_puntos],</span><br><span class="line">        <span class="string">&quot;y&quot;</span>: [v[<span class="number">1</span>] <span class="keyword">for</span> v <span class="keyword">in</span> conjunto_puntos]&#125;)</span><br><span class="line">sns.lmplot(<span class="string">&quot;x&quot;</span>, <span class="string">&quot;y&quot;</span>, data=df, fit_reg=<span class="literal">False</span>, size=<span class="number">6</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>샘플 데이터 생성</li>
+<li>두 개의 정규분포를 이용하여 2D 좌표계에 2000개의 포인트를 난수로 발생</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/62998283-0c329180-bea6-11e9-90fb-7ab886f4b9e9.png" alt="실행결과"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">vectors = tf.constant(conjunto_puntos)</span><br><span class="line">k = <span class="number">4</span></span><br><span class="line">centroides = tf.Variable(tf.slice(tf.random_shuffle(vectors),[<span class="number">0</span>,<span class="number">0</span>],[k,<span class="number">-1</span>]))</span><br><span class="line"></span><br><span class="line">expanded_vectors = tf.expand_dims(vectors, <span class="number">0</span>)</span><br><span class="line">expanded_centroides = tf.expand_dims(centroides, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">assignments = tf.argmin(tf.reduce_sum(tf.square(tf.subtract(expanded_vectors, expanded_centroides)), <span class="number">2</span>), <span class="number">0</span>)</span><br><span class="line">means = tf.concat([tf.reduce_mean(tf.gather(vectors, tf.reshape(tf.where( tf.equal(assignments, c)),[<span class="number">1</span>,<span class="number">-1</span>])), reduction_indices=[<span class="number">1</span>]) <span class="keyword">for</span> c <span class="keyword">in</span> range(k)], <span class="number">0</span>)</span><br><span class="line">update_centroides = tf.assign(centroides, means)</span><br><span class="line">init_op = tf.global_variables_initializer()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init_op)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> step <span class="keyword">in</span> range(<span class="number">100</span>):</span><br><span class="line">   _, centroid_values, assignment_values = sess.run([update_centroides, centroides, assignments])</span><br><span class="line"></span><br><span class="line">data = &#123;<span class="string">&quot;x&quot;</span>: [], <span class="string">&quot;y&quot;</span>: [], <span class="string">&quot;cluster&quot;</span>: []&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(assignment_values)):</span><br><span class="line">  data[<span class="string">&quot;x&quot;</span>].append(conjunto_puntos[i][<span class="number">0</span>])</span><br><span class="line">  data[<span class="string">&quot;y&quot;</span>].append(conjunto_puntos[i][<span class="number">1</span>])</span><br><span class="line">  data[<span class="string">&quot;cluster&quot;</span>].append(assignment_values[i])</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line">sns.lmplot(<span class="string">&quot;x&quot;</span>, <span class="string">&quot;y&quot;</span>, data=df, fit_reg=<span class="literal">False</span>, size=<span class="number">6</span>, hue=<span class="string">&quot;cluster&quot;</span>, legend=<span class="literal">False</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>vectors = tf.constant(conjunto_puntos)</code>를 이용하여 무작위로 생성한 데이터를 가지고 상수 텐서를 만듦</li>
+<li><code>centroides = tf.Variable(tf.slice(tf.random_shuffle(vectors),[0,0],[k,-1]))</code>를 이용하여 입력 데이터를 무작위로 섞어서 K개의 센트로이드를 선택</li>
+<li>K개의 데이터 포인트는 2D 텐서로 저장됨</li>
+<li><code>vectors</code>는 D0 차원에 2000개의 배열을 가지고 있고 D1 차원에는 각 포인트의 x, y 좌표의 값을 가지고 있음</li>
+<li><code>centroids</code>는 D0 차원에 4개, D1 차원에 <code>vectors</code>와 동일한 2개의 배열을 가진 행렬</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">expanded_vectors = tf.expand_dims(vectors, <span class="number">0</span>)</span><br><span class="line">expanded_centroides = tf.expand_dims(centroides, <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>각 포인트에 대해 유클리디언 제곱거리(Square Euclidean Distance)로 가장 가까운 센트로이드 계산하기 위해 <code>tf.subtranct(vectors, centroids)</code>를 사용</li>
+<li>빼려는 두 텐서가 모두 2차원이지만 1차원 배열의 갯수가 다르므로 <code>tf.expand_dims</code>함수를 사용하여 두 텐서에 차원을 추가</li>
+<li>2차원에서 3차원으로 만들어 뺄셈을 할 수 있도록 사이즈를 맞춰줌</li>
+<li><code>vectors</code>텐서에는 첫 번째 차원(D0)를 추가하고 <code>centroids</code>텐서에는 두 번째 차원(D1)을 추가</li>
+<li>크기가 1이라는 것은 크기가 결정되지 않았다는 것을 의미</li>
+<li>크기가 정해지지 않음을 이용하여 다른 차원의 수를 맞춤</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">diff=tf.subtract(expanded_vectors, expanded_centroides)</span><br><span class="line">sqr= tf.square(diff)</span><br><span class="line">distances = tf.reduce_sum(sqr, <span class="number">2</span>)</span><br><span class="line">assignments = tf.argmin(distances, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>tf.subtract</code>함수는 <code>expaned_vectors</code>와 <code>expanded_centroids</code>를 뺀 값을 가진 <code>diff</code>텐서 리턴(D0 차원에는 센트로이드, D1 차원에는 데이터 인덱스, D2 차원에는 x, y값을 가진 텐서)</li>
+<li><code>sqr</code>텐서는 <code>diff</code>텐서의 제곱 값을 가짐</li>
+<li><code>distances</code>텐서에서는 <code>tf.reduce_sum</code>메소드에 파라미터로 지정된 차원(D2)가 감소된 것을 볼 수 있음</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assignments = tf.argmin(tf.reduce_sum(tf.square(tf.subtract(expanded_vectors, expanded_centroides)), <span class="number">2</span>), <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>위의 4줄로 쓴 코드는 이와같이 나타낼 수 있음</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">means = tf.concat([tf.reduce_mean(tf.gather(vectors, tf.reshape(tf.where( tf.equal(assignments, c)),[<span class="number">1</span>,<span class="number">-1</span>])), reduction_indices=[<span class="number">1</span>]) <span class="keyword">for</span> c <span class="keyword">in</span> range(k)], <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>K개의 클러스터에 속한 모든 포인트의 평균을 가지고있는 K개의 텐서를 합친 <code>means</code>텐서 정의</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/62998535-cd510b80-bea6-11e9-9552-61482c901090.png" alt="원래의 분포"><br><img src="https://user-images.githubusercontent.com/42334717/62998530-caeeb180-bea6-11e9-99b4-c9e33773807a.png" alt="클러스터링"></p>
+<hr>
+<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://tensorflow.blog/2016/04/28/first-contact-with-tensorflow/">참고</a></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/tensorflow-1/" rel="bookmark">TensorFlow(1)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/tensorflow-3/" rel="bookmark">TensorFlow(3)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/motion-capture-technology-using-stereo-camera/" rel="bookmark">Motion capture technology using stereo camera</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/domain-knowledge-based-data-preprocessing-technology-for-industrial-applications-of-deep-learning/" rel="bookmark">Domain Knowledge Based Data Preprocessing Technology for Industrial Applications of Deep Learning</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/tensorflow-2/" title="TensorFlow(2)">https://zerohertz.github.io/tensorflow-2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+              <a href="/tags/dnn/" rel="tag"><i class="fa fa-tag"></i> DNN</a>
+              <a href="/tags/tensorflow/" rel="tag"><i class="fa fa-tag"></i> TensorFlow</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/tensorflow-1/" rel="prev" title="TensorFlow(1)">
+                  <i class="fa fa-chevron-left"></i> TensorFlow(1)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/tensorflow-3/" rel="next" title="TensorFlow(3)">
+                  TensorFlow(3) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/tensorflow-2/";
+    this.page.identifier = "tensorflow-2/";
+    this.page.title = "TensorFlow(2)";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

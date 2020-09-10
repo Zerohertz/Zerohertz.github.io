@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Introduction Fused Deposition Modeling(FDM), one of representative Additive Manufacturing(AM, 3D printing) technologies  AM(Additive Manufacturing) technologies Stereolithography(SLA) Multijet Modelin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Development of Data-Driven In-Situ Monitoring and Diagnosis System of Fused Deposition Modeling(FDM) Process Based on Support Vector Machine Algorithm">
+<meta property="og:url" content="https://zerohertz.github.io/development-of-data-driven-in-situ-monitoring-and-diagnosis-system-of-fused-deposition-modeling-fdm-process-based-on-support-vector-machine-algorithm/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Introduction Fused Deposition Modeling(FDM), one of representative Additive Manufacturing(AM, 3D printing) technologies  AM(Additive Manufacturing) technologies Stereolithography(SLA) Multijet Modelin">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/73340015-43162b80-42bd-11ea-8bdd-8af32807ad8d.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/73340050-57f2bf00-42bd-11ea-8945-acceaeb244d5.png">
+<meta property="article:published_time" content="2020-01-22T05:37:37.000Z">
+<meta property="article:modified_time" content="2020-04-06T09:34:29.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="Machine Learning">
+<meta property="article:tag" content="Signal Processing">
+<meta property="article:tag" content="PHM">
+<meta property="article:tag" content="Read Paper">
+<meta property="article:tag" content="Smart data">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/73340015-43162b80-42bd-11ea-8bdd-8af32807ad8d.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/development-of-data-driven-in-situ-monitoring-and-diagnosis-system-of-fused-deposition-modeling-fdm-process-based-on-support-vector-machine-algorithm/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Development of Data-Driven In-Situ Monitoring and Diagnosis System of Fused Deposition Modeling(FDM) Process Based on Support Vector Machine Algorithm | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#AM-Additive-Manufacturing-technologies"><span class="nav-number">1.1.</span> <span class="nav-text">AM(Additive Manufacturing) technologies</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Among-them-FDM-one-of-Fused-Filament-Fabrication-FFF-3D-printing-processes"><span class="nav-number">1.2.</span> <span class="nav-text">Among them, FDM, one of Fused Filament Fabrication(FFF) 3D printing processes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Used-materials-in-FDM"><span class="nav-number">1.3.</span> <span class="nav-text">Used materials in FDM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Drawbacks-of-FDM"><span class="nav-number">1.4.</span> <span class="nav-text">Drawbacks of FDM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Using-sensor"><span class="nav-number">1.5.</span> <span class="nav-text">Using sensor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Method"><span class="nav-number">1.6.</span> <span class="nav-text">Method</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FDM-Experiments-and-Data-Collection"><span class="nav-number">2.</span> <span class="nav-text">FDM Experiments and Data Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Faulty-quality-modes"><span class="nav-number">2.1.</span> <span class="nav-text">Faulty quality modes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Layer-difference"><span class="nav-number">2.2.</span> <span class="nav-text">Layer difference</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Development-of-Monitoring-and-Diagnosis-Models-of-FDM-Process-States"><span class="nav-number">3.</span> <span class="nav-text">Development of Monitoring and Diagnosis Models of FDM Process States</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Signal-Processing-and-Feature-Extraction"><span class="nav-number">3.1.</span> <span class="nav-text">Signal Processing and Feature Extraction</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Development-of-FDM-Process-Monitoring-and-Diagnosis-Models"><span class="nav-number">3.2.</span> <span class="nav-text">Development of FDM Process Monitoring and Diagnosis Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Validation-of-FDM-Process-Monitoring-and-Diagnosis-Models"><span class="nav-number">3.3.</span> <span class="nav-text">Validation of FDM Process Monitoring and Diagnosis Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Software-Module-Development-and-Real-Time-Validation"><span class="nav-number">3.4.</span> <span class="nav-text">Software Module Development and Real-Time Validation</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Conclusion"><span class="nav-number">4.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/development-of-data-driven-in-situ-monitoring-and-diagnosis-system-of-fused-deposition-modeling-fdm-process-based-on-support-vector-machine-algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Development of Data-Driven In-Situ Monitoring and Diagnosis System of Fused Deposition Modeling(FDM) Process Based on Support Vector Machine Algorithm
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-01-22 14:37:37" itemprop="dateCreated datePublished" datetime="2020-01-22T14:37:37+09:00">2020-01-22</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-04-06 18:34:29" itemprop="dateModified" datetime="2020-04-06T18:34:29+09:00">2020-04-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/research/read-paper/" itemprop="url" rel="index"><span itemprop="name">Read Paper</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/development-of-data-driven-in-situ-monitoring-and-diagnosis-system-of-fused-deposition-modeling-fdm-process-based-on-support-vector-machine-algorithm/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="development-of-data-driven-in-situ-monitoring-and-diagnosis-system-of-fused-deposition-modeling-fdm-process-based-on-support-vector-machine-algorithm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>9.5k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>9 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>Fused Deposition Modeling(FDM), one of representative Additive Manufacturing(AM, 3D printing) technologies</p>
+</blockquote>
+<h2 id="AM-Additive-Manufacturing-technologies"><a href="#AM-Additive-Manufacturing-technologies" class="headerlink" title="AM(Additive Manufacturing) technologies"></a>AM(Additive Manufacturing) technologies</h2><ul>
+<li>Stereolithography(SLA)</li>
+<li>Multijet Modeling(MJM)</li>
+<li>Fused Deposition Modeling(FDM)</li>
+<li>Selective Laser Sintering(SLS)</li>
+<li>Selective Laser Melting(SLM)</li>
+<li>Laminated Object Manufacturing(LOM)</li>
+<li>Laser Engineering Net Shaping(LENS)</li>
+</ul>
+<a id="more"></a>
+
+<h2 id="Among-them-FDM-one-of-Fused-Filament-Fabrication-FFF-3D-printing-processes"><a href="#Among-them-FDM-one-of-Fused-Filament-Fabrication-FFF-3D-printing-processes" class="headerlink" title="Among them, FDM, one of Fused Filament Fabrication(FFF) 3D printing processes"></a>Among them, FDM, one of Fused Filament Fabrication(FFF) 3D printing processes</h2><ul>
+<li>Most widely used for fabricating thermoplastic parts</li>
+<li>Components with low cost</li>
+<li>Easy material change</li>
+<li>Without geometrical complexity limitation</li>
+</ul>
+<h2 id="Used-materials-in-FDM"><a href="#Used-materials-in-FDM" class="headerlink" title="Used materials in FDM"></a>Used materials in FDM</h2><ul>
+<li>Acrylonitrile Butadiene Styrene(ABS)</li>
+<li>Polylatic Acid(PLA)</li>
+<li>High-Impact Polystyrene(HIPS)</li>
+<li>Thermoplastic Polyurethane(TPU)</li>
+<li>Aliphatic Polyamides(Nylon)</li>
+</ul>
+<h2 id="Drawbacks-of-FDM"><a href="#Drawbacks-of-FDM" class="headerlink" title="Drawbacks of FDM"></a>Drawbacks of FDM</h2><ul>
+<li>Limitations on part quality</li>
+<li>Process reliability and controllability</li>
+<li>Significant amount of material been wasted during the FDM process</li>
+<li>A disposal of defective products due to faulty FDM process and equipment has become an enviromental problem in the industrial field</li>
+</ul>
+<p><u><strong>Therefore, it is necessary to identify and monitor major factors of the FDM process that can have a profound influence on the part quality and process reliability</strong></u></p>
+<h2 id="Using-sensor"><a href="#Using-sensor" class="headerlink" title="Using sensor"></a>Using sensor</h2><ul>
+<li>Accelerometer(353B03, PCB Piezotronics Inc.)</li>
+<li>Acoustic Emission(AE) sensor(R.45, Physical Acoustics Inc.0)</li>
+</ul>
+<h2 id="Method"><a href="#Method" class="headerlink" title="Method"></a>Method</h2><ul>
+<li><code>The root mean square(RMS)</code> is found to be most appropriate to diagnose the FDM process states</li>
+<li>When constructing the FDM process monitoring and diagnosis model, <code>a Support Vector Machine(SVM) algorithm</code> is chosen</li>
+<li><code>A k-fold cross validation approach</code> is applied to obtain the best models having the highest diagnosis accuracy</li>
+</ul>
+<hr>
+<h1 id="FDM-Experiments-and-Data-Collection"><a href="#FDM-Experiments-and-Data-Collection" class="headerlink" title="FDM Experiments and Data Collection"></a>FDM Experiments and Data Collection</h1><h2 id="Faulty-quality-modes"><a href="#Faulty-quality-modes" class="headerlink" title="Faulty quality modes"></a>Faulty quality modes</h2><ul>
+<li>Warping</li>
+<li>Elephant foot</li>
+<li>Shifting layer</li>
+<li>Leaning part</li>
+</ul>
+<p><strong>Major reason : A looseness of the bolt driving a motion of the nozzle head - Shifting layer</strong><br><u><strong>A Faulty state of the FDM process - The loosened bolt</strong></u></p>
+<h2 id="Layer-difference"><a href="#Layer-difference" class="headerlink" title="Layer difference"></a>Layer difference</h2><ul>
+<li>Odd-numbered(1, 3, 5 ,7) layer<ul>
+<li>The 3D printing path was divided into 4 sections</li>
+<li>The outline, The left part, The central reduced part, The right part</li>
+</ul>
+</li>
+<li>Even-numbered(2, 4, 6, 8) layer<ul>
+<li>The 3D printing path was divided into 5 sections</li>
+<li>The outline, The left-upper part, The central reduced part, The right part, The left-lower part</li>
+</ul>
+</li>
+</ul>
+<p><u><strong>They had different paths to finish each layer</strong></u></p>
+<hr>
+<h1 id="Development-of-Monitoring-and-Diagnosis-Models-of-FDM-Process-States"><a href="#Development-of-Monitoring-and-Diagnosis-Models-of-FDM-Process-States" class="headerlink" title="Development of Monitoring and Diagnosis Models of FDM Process States"></a>Development of Monitoring and Diagnosis Models of FDM Process States</h1><h2 id="Signal-Processing-and-Feature-Extraction"><a href="#Signal-Processing-and-Feature-Extraction" class="headerlink" title="Signal Processing and Feature Extraction"></a>Signal Processing and Feature Extraction</h2><ul>
+<li>A feature extraction - An essential procedure to construct an index indicating FDM process states</li>
+<li>Various features showing different tendencies about signal transition<ul>
+<li><code>A root mean square(RMS)</code></li>
+<li>A maximum</li>
+<li>A crest factor</li>
+<li>A variance</li>
+<li>A kurtosis</li>
+<li>A skewness</li>
+</ul>
+</li>
+<li>Among them, <code>the RMS values</code> seemed to be best one(those in the cases of healthy and faulty states were more obviously different)</li>
+<li>The RMS values in the case of faulty state are larger than those in the healthy state</li>
+<li>In particular, for the acceleration along x- and y-direction and the AE</li>
+<li>Meanwhile, the RMS values extracted from the z-acceleration data did not show that kind of difference between the healthy and faulty states</li>
+<li>The loosened bolt could result in faulty motions of the pulley, belt and shaft, thus an abnormal lateral motion of the nozzle head along x- and y-direction could be generated</li>
+</ul>
+<p><u><strong>Therefore, the RMS values of x- and y-acceleration data could be different between the healthy and faulty states</strong></u></p>
+<h2 id="Development-of-FDM-Process-Monitoring-and-Diagnosis-Models"><a href="#Development-of-FDM-Process-Monitoring-and-Diagnosis-Models" class="headerlink" title="Development of FDM Process Monitoring and Diagnosis Models"></a>Development of FDM Process Monitoring and Diagnosis Models</h2><blockquote>
+<p><code>An SVM(Supprot Vector Machine)</code> which is a learning model for data analysis is mainly used for classification(It creates a non-probabilistic binary linear classification model when given a set of data belonging to one of two categories that determines to which category new data belong based on a given set of data)</p>
+</blockquote>
+<ul>
+<li>Linear and non-linear SVM algorithms were applied</li>
+<li>The RMS values of x- and y-acceleration and AE signals were used as input variables and output responses were numerical confidence values, which were 0 for the healthy state and 1 for the faulty state, respectively</li>
+<li>These SVM-based models were developed for the odd- and even-numbered layers in the cases of healthy and faulty states</li>
+</ul>
+<blockquote>
+<p>Thus, while building one FDM specimen, four SVM-based models could be developed by using one collected signal out of x- and y-acceleration and AE</p>
+<ul>
+<li>One for the odd-numbered layer in the healthy state</li>
+<li>One for the even-numbered layer in the healthy state</li>
+<li>One for the odd-numbered layer in the faulty state</li>
+<li>One for the even-numbered layer in the faulty state</li>
+</ul>
+</blockquote>
+<ul>
+<li>In a single FDM specimen<ul>
+<li>Odd-numbered layers - 16 RMS data</li>
+<li>Even-numbered layers - 20 RMS data</li>
+</ul>
+</li>
+<li>For each states(Three repeated FDM experiments were conducted for the healthy and faulty states)<ul>
+<li>Odd-numbered layers - 48 RMS data</li>
+<li>Even-numbered layers - 60 RMS data</li>
+</ul>
+</li>
+<li>While testing the models<ul>
+<li>Odd-numbered layers - Total 32 heathy and faulty RMS data</li>
+<li>Even-numbered layers - Total 40 healthy and faulty RMS data</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>When developing <code>the SVM-based models</code>, both linear and non-linear SVM approaches were considered</p>
+</blockquote>
+<ul>
+<li>A non-linear classification is carried out by mapping given data to a high dimensional feature space - A kernel trick shoud be used</li>
+<li>The non-linear SVM models based on the kernel function were optimized through an objective function using allowable parameters for two categories of the healthy and faulty process states</li>
+<li>It is necessary to empirically determine an adjustment factor value for maximizing classification accuaracy<ul>
+<li>In the models</li>
+<li>The adjustment factor value : 10 - An overfitting was occurred</li>
+<li>The adjustment factor value : 0.1 - Non-linear SVM models were similar to the linear SVM models</li>
+<li>Therefore, 1 was selected as the adjustment factor value</li>
+</ul>
+</li>
+<li>The training results indicates that the SVM-based models using <code>the acoustic emission signals</code> could have a better accuaracy to diagnose the FDM process states</li>
+</ul>
+<blockquote>
+<p><code>A k-fold cross validation approach</code> has been applied to increase a statistical reliability of the developed SVM-based models</p>
+</blockquote>
+<ul>
+<li>Original data are randomly divided into k sub-data sets having a same size</li>
+<li>One sub-set of k sub-data sets is maintained as validation data for testing the model</li>
+<li>Remaining (k-1) sub-data sets are used to train the model</li>
+</ul>
+<p><img src="https://user-images.githubusercontent.com/42334717/73340015-43162b80-42bd-11ea-8bdd-8af32807ad8d.png" alt="k-fold cross validation approach"></p>
+<blockquote>
+<p>A total of four consecutive FDM experiments were repeated, three for training the models and the last one for testing the models</p>
+</blockquote>
+<ul>
+<li>The sub-data sets for training and testing of the models were cyclically changed(In k-fold cross validation approach)</li>
+<li>Four sub-data sets were prepared for both healthy and faulty states in the case of one sensor among three sensors by repeating the FDM experiments four times</li>
+<li>Training of the models using three sub-data sets and testing using the remaining one sub-data set were cyclically carried out</li>
+<li>Example(In the case of fold 1)<ul>
+<li>The sub-data sets from cases 2, 3 and 4 were used for training</li>
+<li>The sub-data sets from case 1 was used for testing</li>
+</ul>
+</li>
+</ul>
+<h2 id="Validation-of-FDM-Process-Monitoring-and-Diagnosis-Models"><a href="#Validation-of-FDM-Process-Monitoring-and-Diagnosis-Models" class="headerlink" title="Validation of FDM Process Monitoring and Diagnosis Models"></a>Validation of FDM Process Monitoring and Diagnosis Models</h2><p><img src="https://user-images.githubusercontent.com/42334717/73340050-57f2bf00-42bd-11ea-8945-acceaeb244d5.png" alt="Diagnosis accuracies of FDM process states"></p>
+<ul>
+<li>The diagnosis accuracies of the linear and non-linear SVM-based models for the odd-numbered layers are given in the cases using the x-acceleration, y-acceleration and AE signals, respectively<ul>
+<li>By validating the models with total 32 data<ul>
+<li>16 healthy and 16 faulty data</li>
+<li>From 4 odd-numbered layers</li>
+<li>4 RMS data per each odd-numbered layer</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The diagnosis accuracies of the linear and non-linear SVM-based models for the even-numbered layers are given in the cases using the x-acceleration, y-acceleration and AE signals, respectively<ul>
+<li>By validating the models with total 40 data<ul>
+<li>20 healthy and 20 faulty data</li>
+<li>From 4 even-numbered layers</li>
+<li>5 RMS data per each even-numbered layer</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><u><strong>Overall, the non-linear SVM-based models showed a better performance than the linear SVM-based models(While observing their diagnosis accuracies)</strong></u><br><u><strong>The AE signals shows the best performance for diagnosing healthy and faulty FDM process states for both linear and non-linear SVM-based models(Their RMS values were quite different to each other for the healthy and faulty states)</strong></u></p>
+<h2 id="Software-Module-Development-and-Real-Time-Validation"><a href="#Software-Module-Development-and-Real-Time-Validation" class="headerlink" title="Software Module Development and Real-Time Validation"></a>Software Module Development and Real-Time Validation</h2><blockquote>
+<p>The best FDM process monitoring and diagnosis models based on the x- and y-acceleration signals having the highest accuracies were selected from <code>the k-fold cross validation</code> results, and they were used for developing the software module by using a commercial package of <code>Matlab</code></p>
+</blockquote>
+<ul>
+<li>In the learning mode, the models for healthy and faulty FDM process states were trained by clicking either healthy state or faulty state after inputting the acceleration data which were collected in each state</li>
+<li>After completion of training of the models, the FDM process states could be determinded in the diagnosis mode</li>
+<li>The real-time validation experiments were conducted by using the developed software<ul>
+<li>8 healthy process states</li>
+<li>8 faulty process states</li>
+</ul>
+</li>
+</ul>
+<p><u><strong>The final accuracy was 87.5%, which meant two misdiagnosis cases out of 16 total cases</strong></u></p>
+<blockquote>
+<p>In the software development, the models based on the AE signals were not considered, since they can be disturbed in a factory floor due to an enviromental noise</p>
+</blockquote>
+<ul>
+<li>To utilize such models in the factory floor, additional filtering and signal processing should be needed to minimize effects of the enviromental noise</li>
+<li>Since the models based on the AE signals had the highest accuracy(100%), it could be also possible to use them to develop the software with an appropriate signal processing technology(A wavelet transform method, which can characterize the signals in both time and frequency domains)</li>
+</ul>
+<hr>
+<h1 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h1><blockquote>
+<p>The monitoring and diagnosis system for FDM process, which is the most popular additive manufacturing technology, was developed based on a data-driven approach</p>
+</blockquote>
+<ol>
+<li>Collect mass data that are highly related to the FDM process - <code>Three accelerometers</code>, <code>an AE sensor</code></li>
+<li>Through a series of FDM experiments, the acceleration and AE data were collected with the sensors in the cases of the healthy and faulty process states<ul>
+<li>The faulty FDM process state was realized by considering the loosened bolt</li>
+</ul>
+</li>
+<li>The collected data were processed to obtain various features, and <code>the RMS values</code> were selected due to their distinctive differences for the healthy and faulty states</li>
+<li>Constructing the FDM process monitoring and diagnosis models<ul>
+<li>Odd-numbered layers</li>
+<li>Even-numbered layers</li>
+</ul>
+</li>
+<li>The linear and non-linear <code>SVM algorithms</code> were adopted due to their superiority for a classification of the data into two categories - healthy and faulty states</li>
+<li><code>A k-fold cross validation method</code> was applied, and the best models having the highest accuracy were chosen for validation(In order to further enhance the diagnosis accuaracy)</li>
+<li>The <code>non-linear SVM based models</code> had diagnosis accuaracy better than 77.5% from an average point of view</li>
+<li>The best modelsbased on <code>x- and y-acceleration signals</code> were selected(Since AE signals could be disturbed by and enviromental noise)</li>
+<li>The real-time validation experiments were carried out by considering 8 healthy and 8 faulty process states, and the final accuracy was 87.5%</li>
+</ol>
+<p><u><strong>By using the developed FDM process diagnosis system, the faulty processes can be prevented in advance, and therefore, waste of material and energy can also be prevented</strong></u><br><strong>During the validation experiments for the faulty processes states, 6 cases were correctly diagnosed among total 8 cases -</strong> <u><strong>Those 6 faulty cases can be prevented, and therefore, the rate of saving material and energy is 75%</strong></u></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/a-fault-diagnosis-on-the-rotating-machinery-using-mahalanobis-distance/" rel="bookmark">A Fault Diagnosis on the Rotating Machinery Using Mahalanobis Distance</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/evaluation-of-datum-unit-for-diagnostics-of-journal-bearing-systems/" rel="bookmark">Evaluation of Datum Unit for Diagnostics of Journal-Bearing Systems</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/professional-signal-process-for-phm/" rel="bookmark">Professional Signal Process for PHM</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/domain-knowledge-based-data-preprocessing-technology-for-industrial-applications-of-deep-learning/" rel="bookmark">Domain Knowledge Based Data Preprocessing Technology for Industrial Applications of Deep Learning</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/development-of-data-driven-in-situ-monitoring-and-diagnosis-system-of-fused-deposition-modeling-fdm-process-based-on-support-vector-machine-algorithm/" title="Development of Data-Driven In-Situ Monitoring and Diagnosis System of Fused Deposition Modeling(FDM) Process Based on Support Vector Machine Algorithm">https://zerohertz.github.io/development-of-data-driven-in-situ-monitoring-and-diagnosis-system-of-fused-deposition-modeling-fdm-process-based-on-support-vector-machine-algorithm/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
+              <a href="/tags/signal-processing/" rel="tag"><i class="fa fa-tag"></i> Signal Processing</a>
+              <a href="/tags/phm/" rel="tag"><i class="fa fa-tag"></i> PHM</a>
+              <a href="/tags/read-paper/" rel="tag"><i class="fa fa-tag"></i> Read Paper</a>
+              <a href="/tags/smart-data/" rel="tag"><i class="fa fa-tag"></i> Smart data</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/professional-signal-process-for-phm/" rel="prev" title="Professional Signal Process for PHM">
+                  <i class="fa fa-chevron-left"></i> Professional Signal Process for PHM
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/word/" rel="next" title="Word">
+                  Word <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/development-of-data-driven-in-situ-monitoring-and-diagnosis-system-of-fused-deposition-modeling-fdm-process-based-on-support-vector-machine-algorithm/";
+    this.page.identifier = "development-of-data-driven-in-situ-monitoring-and-diagnosis-system-of-fused-deposition-modeling-fdm-process-based-on-support-vector-machine-algorithm/";
+    this.page.title = "Development of Data-Driven In-Situ Monitoring and Diagnosis System of Fused Deposition Modeling(FDM) Process Based on Support Vector Machine Algorithm";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

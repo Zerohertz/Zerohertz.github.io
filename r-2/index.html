@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":false},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="변수 지우기123&gt; rm(list&#x3D;ls())&gt; ls()character(0)   ls()는 지금까지 생성한 변수들의 목록을 문자열들로 반환하는 함수(list의 약자)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="R(2)">
+<meta property="og:url" content="https://zerohertz.github.io/r-2/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="변수 지우기123&gt; rm(list&#x3D;ls())&gt; ls()character(0)   ls()는 지금까지 생성한 변수들의 목록을 문자열들로 반환하는 함수(list의 약자)">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/71461810-7e23cb80-27f4-11ea-9f82-a24efb1b0a62.png">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/71461815-82e87f80-27f4-11ea-99e1-9ed0c071d064.png">
+<meta property="article:published_time" content="2019-12-26T04:32:56.000Z">
+<meta property="article:modified_time" content="2020-02-25T07:16:36.000Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="R">
+<meta property="article:tag" content="Statistics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/71461810-7e23cb80-27f4-11ea-9f82-a24efb1b0a62.png">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/r-2/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>R(2) | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">25</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">19</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%EB%B3%80%EC%88%98-%EC%A7%80%EC%9A%B0%EA%B8%B0"><span class="nav-number">1.</span> <span class="nav-text">변수 지우기</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B8%B0%EB%B3%B8-Data-%EC%A0%9C%EA%B3%B5"><span class="nav-number">2.</span> <span class="nav-text">기본 Data 제공</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Data-package"><span class="nav-number">3.</span> <span class="nav-text">Data package</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Work-directory"><span class="nav-number">4.</span> <span class="nav-text">Work directory</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#save-image"><span class="nav-number">5.</span> <span class="nav-text">save.image()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#str"><span class="nav-number">6.</span> <span class="nav-text">str()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%9E%90%EB%A3%8C%ED%98%95"><span class="nav-number">7.</span> <span class="nav-text">자료형</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#attach"><span class="nav-number">8.</span> <span class="nav-text">attach()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EA%B0%9D%EC%B2%B4-Vector-Matrix-data-frame"><span class="nav-number">9.</span> <span class="nav-text">객체 Vector&#x2F;Matrix&#x2F;data.frame</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Indexing"><span class="nav-number">10.</span> <span class="nav-text">Indexing</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#factor"><span class="nav-number">11.</span> <span class="nav-text">factor()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Matrix"><span class="nav-number">12.</span> <span class="nav-text">Matrix</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dim"><span class="nav-number">13.</span> <span class="nav-text">dim()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#data-frame"><span class="nav-number">14.</span> <span class="nav-text">data.frame()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#rbind"><span class="nav-number">15.</span> <span class="nav-text">rbind()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#length-dim"><span class="nav-number">16.</span> <span class="nav-text">length()&#x2F;dim()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%EC%A0%95%EB%A6%AC"><span class="nav-number">17.</span> <span class="nav-text">정리</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <span class="exturl cc-opacity" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/r-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          R(2)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2019-12-26 13:32:56" itemprop="dateCreated datePublished" datetime="2019-12-26T13:32:56+09:00">2019-12-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2020-02-25 16:16:36" itemprop="dateModified" datetime="2020-02-25T16:16:36+09:00">2020-02-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/r/" itemprop="url" rel="index"><span itemprop="name">R</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/r-2/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="r-2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>8.9k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>8 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="변수-지우기"><a href="#변수-지우기" class="headerlink" title="변수 지우기"></a>변수 지우기</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; rm(list=ls())</span><br><span class="line">&gt; ls()</span><br><span class="line">character(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>ls()</code>는 지금까지 생성한 변수들의 목록을 문자열들로 반환하는 함수(list의 약자)</li>
+</ul>
+<a id="more"></a>
+<hr>
+<h1 id="기본-Data-제공"><a href="#기본-Data-제공" class="headerlink" title="기본 Data 제공"></a>기본 Data 제공</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&gt; summary(trees)</span><br><span class="line">     Girth           Height       Volume     </span><br><span class="line"> Min.   : <span class="number">8.30</span>   Min.   :<span class="number">63</span>   Min.   :<span class="number">10.20</span>  </span><br><span class="line"> 1st Qu.:<span class="number">11.05</span>   1st Qu.:<span class="number">72</span>   1st Qu.:<span class="number">19.40</span>  </span><br><span class="line"> Median :<span class="number">12.90</span>   Median :<span class="number">76</span>   Median :<span class="number">24.20</span>  </span><br><span class="line"> Mean   :<span class="number">13.25</span>   Mean   :<span class="number">76</span>   Mean   :<span class="number">30.17</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">15.25</span>   3rd Qu.:<span class="number">80</span>   3rd Qu.:<span class="number">37.30</span>  </span><br><span class="line"> Max.   :<span class="number">20.60</span>   Max.   :<span class="number">87</span>   Max.   :<span class="number">77.00</span>  </span><br><span class="line">&gt; summary(chickwts)</span><br><span class="line">     weight             feed   </span><br><span class="line"> Min.   :<span class="number">108.0</span>   casein   :<span class="number">12</span>  </span><br><span class="line"> 1st Qu.:<span class="number">204.5</span>   horsebean:<span class="number">10</span>  </span><br><span class="line"> Median :<span class="number">258.0</span>   linseed  :<span class="number">12</span>  </span><br><span class="line"> Mean   :<span class="number">261.3</span>   meatmeal :<span class="number">11</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">323.5</span>   soybean  :<span class="number">14</span>  </span><br><span class="line"> Max.   :<span class="number">423.0</span>   sunflower:<span class="number">12</span>  </span><br><span class="line">&gt; summary(cars)</span><br><span class="line">     speed           dist       </span><br><span class="line"> Min.   : <span class="number">4.0</span>   Min.   :  <span class="number">2.00</span>  </span><br><span class="line"> 1st Qu.:<span class="number">12.0</span>   1st Qu.: <span class="number">26.00</span>  </span><br><span class="line"> Median :<span class="number">15.0</span>   Median : <span class="number">36.00</span>  </span><br><span class="line"> Mean   :<span class="number">15.4</span>   Mean   : <span class="number">42.98</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">19.0</span>   3rd Qu.: <span class="number">56.00</span>  </span><br><span class="line"> Max.   :<span class="number">25.0</span>   Max.   :<span class="number">120.00</span>  </span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>자료 종류</p>
+</blockquote>
+<ul>
+<li>범주형 : 빈도 <code>chickwts - feed</code></li>
+<li>수치형 : summary() <code>나머지</code></li>
+</ul>
+<p><code>기말</code> - 자료의 종류에 따라서 통계분석 기법은 정해짐</p>
+<hr>
+<h1 id="Data-package"><a href="#Data-package" class="headerlink" title="Data package"></a>Data package</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">library</span>(MASS)</span><br><span class="line">install.packages(<span class="string">&quot;UsingR&quot;</span>)</span><br><span class="line"><span class="keyword">library</span>(UsingR)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>Package</code> - 다른사람이 제공하는 <code>Data</code>나 <code>Function</code>을 저장해둔곳</li>
+<li><code>library()</code>는 <code>C</code>에서의 <code>#include</code></li>
+<li><code>/Library/Frameworks/R.framework/Versions/3.6/Resources/library</code></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&gt; summary(Cars93)</span><br><span class="line">    Manufacturer     Model         Type      Min.Price         Price         Max.Price       MPG.city      MPG.highway   </span><br><span class="line"> Chevrolet: <span class="number">8</span>    <span class="number">100</span>    : <span class="number">1</span>   Compact:<span class="number">16</span>   Min.   : <span class="number">6.70</span>   Min.   : <span class="number">7.40</span>   Min.   : <span class="number">7.9</span>   Min.   :<span class="number">15.00</span>   Min.   :<span class="number">20.00</span>  </span><br><span class="line"> Ford     : <span class="number">8</span>    <span class="number">190E</span>   : <span class="number">1</span>   Large  :<span class="number">11</span>   1st Qu.:<span class="number">10.80</span>   1st Qu.:<span class="number">12.20</span>   1st Qu.:<span class="number">14.7</span>   1st Qu.:<span class="number">18.00</span>   1st Qu.:<span class="number">26.00</span>  </span><br><span class="line"> Dodge    : <span class="number">6</span>    <span class="number">240</span>    : <span class="number">1</span>   Midsize:<span class="number">22</span>   Median :<span class="number">14.70</span>   Median :<span class="number">17.70</span>   Median :<span class="number">19.6</span>   Median :<span class="number">21.00</span>   Median :<span class="number">28.00</span>  </span><br><span class="line"> Mazda    : <span class="number">5</span>    <span class="number">300E</span>   : <span class="number">1</span>   Small  :<span class="number">21</span>   Mean   :<span class="number">17.13</span>   Mean   :<span class="number">19.51</span>   Mean   :<span class="number">21.9</span>   Mean   :<span class="number">22.37</span>   Mean   :<span class="number">29.09</span>  </span><br><span class="line"> Pontiac  : <span class="number">5</span>    <span class="number">323</span>    : <span class="number">1</span>   Sporty :<span class="number">14</span>   3rd Qu.:<span class="number">20.30</span>   3rd Qu.:<span class="number">23.30</span>   3rd Qu.:<span class="number">25.3</span>   3rd Qu.:<span class="number">25.00</span>   3rd Qu.:<span class="number">31.00</span>  </span><br><span class="line"> Buick    : <span class="number">4</span>    <span class="number">535i</span>   : <span class="number">1</span>   Van    : <span class="number">9</span>   Max.   :<span class="number">45.40</span>   Max.   :<span class="number">61.90</span>   Max.   :<span class="number">80.0</span>   Max.   :<span class="number">46.00</span>   Max.   :<span class="number">50.00</span>  </span><br><span class="line"> (Other)  :<span class="number">57</span>    (Other):<span class="number">87</span>                                                                                              </span><br><span class="line">               AirBags   DriveTrain  Cylinders    EngineSize      Horsepower         RPM        Rev.per.mile  Man.trans.avail</span><br><span class="line"> Driver &amp; Passenger:<span class="number">16</span>   4WD  :<span class="number">10</span>   <span class="number">3</span>     : <span class="number">3</span>   Min.   :<span class="number">1.000</span>   Min.   : <span class="number">55.0</span>   Min.   :<span class="number">3800</span>   Min.   :<span class="number">1320</span>   No :<span class="number">32</span>         </span><br><span class="line"> Driver only       :<span class="number">43</span>   Front:<span class="number">67</span>   <span class="number">4</span>     :<span class="number">49</span>   1st Qu.:<span class="number">1.800</span>   1st Qu.:<span class="number">103.0</span>   1st Qu.:<span class="number">4800</span>   1st Qu.:<span class="number">1985</span>   Yes:<span class="number">61</span>         </span><br><span class="line"> None              :<span class="number">34</span>   Rear :<span class="number">16</span>   <span class="number">5</span>     : <span class="number">2</span>   Median :<span class="number">2.400</span>   Median :<span class="number">140.0</span>   Median :<span class="number">5200</span>   Median :<span class="number">2340</span>                  </span><br><span class="line">                                    <span class="number">6</span>     :<span class="number">31</span>   Mean   :<span class="number">2.668</span>   Mean   :<span class="number">143.8</span>   Mean   :<span class="number">5281</span>   Mean   :<span class="number">2332</span>                  </span><br><span class="line">                                    <span class="number">8</span>     : <span class="number">7</span>   3rd Qu.:<span class="number">3.300</span>   3rd Qu.:<span class="number">170.0</span>   3rd Qu.:<span class="number">5750</span>   3rd Qu.:<span class="number">2565</span>                  </span><br><span class="line">                                    rotary: <span class="number">1</span>   Max.   :<span class="number">5.700</span>   Max.   :<span class="number">300.0</span>   Max.   :<span class="number">6500</span>   Max.   :<span class="number">3755</span>                  </span><br><span class="line">                                                                                                                             </span><br><span class="line"> Fuel.tank.capacity   Passengers        Length        Wheelbase         Width        Turn.circle    Rear.seat.room   Luggage.room  </span><br><span class="line"> Min.   : <span class="number">9.20</span>      Min.   :<span class="number">2.000</span>   Min.   :<span class="number">141.0</span>   Min.   : <span class="number">90.0</span>   Min.   :<span class="number">60.00</span>   Min.   :<span class="number">32.00</span>   Min.   :<span class="number">19.00</span>   Min.   : <span class="number">6.00</span>  </span><br><span class="line"> 1st Qu.:<span class="number">14.50</span>      1st Qu.:<span class="number">4.000</span>   1st Qu.:<span class="number">174.0</span>   1st Qu.: <span class="number">98.0</span>   1st Qu.:<span class="number">67.00</span>   1st Qu.:<span class="number">37.00</span>   1st Qu.:<span class="number">26.00</span>   1st Qu.:<span class="number">12.00</span>  </span><br><span class="line"> Median :<span class="number">16.40</span>      Median :<span class="number">5.000</span>   Median :<span class="number">183.0</span>   Median :<span class="number">103.0</span>   Median :<span class="number">69.00</span>   Median :<span class="number">39.00</span>   Median :<span class="number">27.50</span>   Median :<span class="number">14.00</span>  </span><br><span class="line"> Mean   :<span class="number">16.66</span>      Mean   :<span class="number">5.086</span>   Mean   :<span class="number">183.2</span>   Mean   :<span class="number">103.9</span>   Mean   :<span class="number">69.38</span>   Mean   :<span class="number">38.96</span>   Mean   :<span class="number">27.83</span>   Mean   :<span class="number">13.89</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">18.80</span>      3rd Qu.:<span class="number">6.000</span>   3rd Qu.:<span class="number">192.0</span>   3rd Qu.:<span class="number">110.0</span>   3rd Qu.:<span class="number">72.00</span>   3rd Qu.:<span class="number">41.00</span>   3rd Qu.:<span class="number">30.00</span>   3rd Qu.:<span class="number">15.00</span>  </span><br><span class="line"> Max.   :<span class="number">27.00</span>      Max.   :<span class="number">8.000</span>   Max.   :<span class="number">219.0</span>   Max.   :<span class="number">119.0</span>   Max.   :<span class="number">78.00</span>   Max.   :<span class="number">45.00</span>   Max.   :<span class="number">36.00</span>   Max.   :<span class="number">22.00</span>  </span><br><span class="line">                                                                                                    <span class="literal">NA</span><span class="string">&#x27;s   :2       NA&#x27;</span>s   :<span class="number">11</span>     </span><br><span class="line">     Weight         Origin              Make   </span><br><span class="line"> Min.   :<span class="number">1695</span>   USA    :<span class="number">48</span>   Acura Integra: <span class="number">1</span>  </span><br><span class="line"> 1st Qu.:<span class="number">2620</span>   non-USA:<span class="number">45</span>   Acura Legend : <span class="number">1</span>  </span><br><span class="line"> Median :<span class="number">3040</span>                Audi <span class="number">100</span>     : <span class="number">1</span>  </span><br><span class="line"> Mean   :<span class="number">3073</span>                Audi <span class="number">90</span>      : <span class="number">1</span>  </span><br><span class="line"> 3rd Qu.:<span class="number">3525</span>                BMW <span class="number">535i</span>     : <span class="number">1</span>  </span><br><span class="line"> Max.   :<span class="number">4105</span>                Buick Century: <span class="number">1</span>  </span><br><span class="line">                             (Other)      :<span class="number">87</span>  </span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="Work-directory"><a href="#Work-directory" class="headerlink" title="Work directory"></a>Work directory</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; getwd()</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;/Users/zerohertz/Documents/R&quot;</span></span><br><span class="line">&gt; setwd(<span class="string">&quot;/Users/zerohertz/Downloads&quot;</span>)</span><br><span class="line">&gt; getwd()</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;/Users/zerohertz/Downloads&quot;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>₩, \</code>대신 <code>/</code>사용</li>
+</ul>
+<hr>
+<h1 id="save-image"><a href="#save-image" class="headerlink" title="save.image()"></a>save.image()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">1</span>+<span class="number">1</span></span><br><span class="line">save.image(file=<span class="string">&quot;/Users/zerohertz/Downloads/asd.RData&quot;</span>)</span><br><span class="line">load(<span class="string">&quot;/Users/zerohertz/Downloads/asd.RData&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="https://user-images.githubusercontent.com/42334717/71461810-7e23cb80-27f4-11ea-9f82-a24efb1b0a62.png" alt="No variable"><br><img src="https://user-images.githubusercontent.com/42334717/71461815-82e87f80-27f4-11ea-99e1-9ed0c071d064.png" alt="load"></p>
+<ul>
+<li>숨김파일은 <code>cmd + . + shift</code></li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&gt; ls()</span><br><span class="line">character(<span class="number">0</span>)</span><br><span class="line">&gt; a=<span class="string">&quot;test&quot;</span></span><br><span class="line">&gt; a</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;test&quot;</span></span><br><span class="line">&gt; save.image()</span><br><span class="line">&gt; getwd()</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;/Users/zerohertz&quot;</span></span><br><span class="line">&gt; setwd(<span class="string">&quot;/Users/zerohertz/Downloads&quot;</span>)</span><br><span class="line">&gt; b=<span class="string">&quot;Another Work Directory&quot;</span></span><br><span class="line">&gt; save.image()</span><br><span class="line">&gt; getwd()</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;/Users/zerohertz/Downloads&quot;</span></span><br><span class="line">&gt; rm(list=ls())</span><br><span class="line">&gt; load(<span class="string">&quot;/Users/zerohertz/.RData&quot;</span>)</span><br><span class="line">&gt; a</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;test&quot;</span></span><br><span class="line">&gt; b</span><br><span class="line">Error: object <span class="string">&#x27;b&#x27;</span> not found</span><br><span class="line">&gt; rm(list=ls())</span><br><span class="line">&gt; load(<span class="string">&quot;/Users/zerohertz/Downloads/.RData&quot;</span>)</span><br><span class="line">&gt; a</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;test&quot;</span></span><br><span class="line">&gt; b</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;Another Work Directory&quot;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="str"><a href="#str" class="headerlink" title="str()"></a>str()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; str(cars)</span><br><span class="line"><span class="string">&#x27;data.frame&#x27;</span>:	<span class="number">50</span> obs. of  <span class="number">2</span> variables:</span><br><span class="line"> $ speed: num  <span class="number">4</span> <span class="number">4</span> <span class="number">7</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">10</span> <span class="number">10</span> <span class="number">11</span> <span class="keyword">...</span></span><br><span class="line"> $ dist : num  <span class="number">2</span> <span class="number">10</span> <span class="number">4</span> <span class="number">22</span> <span class="number">16</span> <span class="number">10</span> <span class="number">18</span> <span class="number">26</span> <span class="number">34</span> <span class="number">17</span> <span class="keyword">...</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>Structure</code>의 약자</li>
+</ul>
+<hr>
+<h1 id="자료형"><a href="#자료형" class="headerlink" title="자료형"></a>자료형</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; mean(cars)</span><br><span class="line">[<span class="number">1</span>] <span class="literal">NA</span></span><br><span class="line">Warning message:</span><br><span class="line">In mean.default(cars) : argument is not numeric or logical: returning <span class="literal">NA</span></span><br><span class="line">&gt; typeof(cars)</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;list&quot;</span></span><br><span class="line">&gt; typeof(speed)</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;double&quot;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="attach"><a href="#attach" class="headerlink" title="attach()"></a>attach()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&gt; mean(cars$speed)</span><br><span class="line">[<span class="number">1</span>] <span class="number">15.4</span></span><br><span class="line">&gt; sd(cars$dist)</span><br><span class="line">[<span class="number">1</span>] <span class="number">25.76938</span></span><br><span class="line">&gt; mean(speed)</span><br><span class="line">Error <span class="keyword">in</span> mean(speed) : object <span class="string">&#x27;speed&#x27;</span> not found</span><br><span class="line">&gt; sd(dist)</span><br><span class="line">Error <span class="keyword">in</span> as.double(x) : </span><br><span class="line">  cannot coerce type <span class="string">&#x27;closure&#x27;</span> to vector of type <span class="string">&#x27;double&#x27;</span></span><br><span class="line">&gt; <span class="keyword">attach</span>(cars)</span><br><span class="line">&gt; mean(cars$speed)</span><br><span class="line">[<span class="number">1</span>] <span class="number">15.4</span></span><br><span class="line">&gt; sd(cars$dist)</span><br><span class="line">[<span class="number">1</span>] <span class="number">25.76938</span></span><br><span class="line">&gt; mean(speed)</span><br><span class="line">[<span class="number">1</span>] <span class="number">15.4</span></span><br><span class="line">&gt; sd(dist)</span><br><span class="line">[<span class="number">1</span>] <span class="number">25.76938</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>C++</code>의 <code>Using namespace</code>와 유사</li>
+</ul>
+<hr>
+<h1 id="객체-Vector-Matrix-data-frame"><a href="#객체-Vector-Matrix-data-frame" class="headerlink" title="객체 Vector/Matrix/data.frame"></a>객체 Vector/Matrix/data.frame</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x=c(<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">3</span>) <span class="comment">#숫자형 벡터</span></span><br><span class="line">y=c(<span class="string">&quot;one&quot;</span>,<span class="string">&quot;two&quot;</span>,<span class="string">&quot;three&quot;</span>) <span class="comment">#문자형 벡터</span></span><br><span class="line">z=c(<span class="literal">TRUE</span>,<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">F</span>) <span class="comment">#논리형 벡터</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Vector : 숫자, 문자, 논리만의 Vector 가능</li>
+<li>Matrix : 행과 열/각 열이 숫자, 문자 논리만 가지는 행렬 가능</li>
+<li>data.frame : 각 열이 숫자, 문자, 논리 혼합 가능(행렬과 같은 2차원 구조 / 모든 데이터가 동일한 유형일 필요 X)</li>
+<li>행 = <code>Case</code>, 열 = <code>Variable</code></li>
+</ul>
+<hr>
+<h1 id="Indexing"><a href="#Indexing" class="headerlink" title="Indexing"></a>Indexing</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&gt; x[<span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span></span><br><span class="line">&gt; x[<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br><span class="line">&gt; x[<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">5</span></span><br><span class="line">&gt; x[<span class="number">4</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span></span><br><span class="line">&gt; x[<span class="number">5</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">3</span></span><br><span class="line">&gt; x[<span class="number">1</span>,<span class="number">3</span>]</span><br><span class="line">Error <span class="keyword">in</span> x[<span class="number">1</span>, <span class="number">3</span>] : incorrect number of dimensions</span><br><span class="line">&gt; x[c(<span class="number">1</span>,<span class="number">3</span>)]</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">5</span></span><br><span class="line">&gt; x[<span class="number">1</span>:<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">3</span> <span class="number">5</span></span><br><span class="line">&gt; cars[<span class="number">1</span>,<span class="number">2</span>] <span class="comment">#Matrix[행,열]</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span></span><br><span class="line">&gt; y1=y[c(<span class="number">1</span>,<span class="number">3</span>)];y1</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;one&quot;</span>   <span class="string">&quot;three&quot;</span></span><br><span class="line">&gt; a[<span class="number">2</span>,<span class="number">3</span>] <span class="comment">#a is matrix</span></span><br><span class="line">[<span class="number">1</span>] <span class="number">8</span></span><br><span class="line">&gt; a[<span class="number">1</span>,]</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">4</span> <span class="number">7</span></span><br><span class="line">&gt; a[,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>a[x,y]</code> - <code>Matrix</code> or <code>data.frame</code></li>
+</ul>
+<hr>
+<h1 id="factor"><a href="#factor" class="headerlink" title="factor()"></a>factor()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&gt; gender=c(<span class="string">&quot;m&quot;</span>,<span class="string">&quot;f&quot;</span>,<span class="string">&quot;m&quot;</span>,<span class="string">&quot;f&quot;</span>);gender</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;m&quot;</span> <span class="string">&quot;f&quot;</span> <span class="string">&quot;m&quot;</span> <span class="string">&quot;f&quot;</span></span><br><span class="line">&gt; str(gender)</span><br><span class="line"> chr [<span class="number">1</span>:<span class="number">4</span>] <span class="string">&quot;m&quot;</span> <span class="string">&quot;f&quot;</span> <span class="string">&quot;m&quot;</span> <span class="string">&quot;f&quot;</span></span><br><span class="line">&gt; f.gender=factor(gender);f.gender</span><br><span class="line">[<span class="number">1</span>] m f m f</span><br><span class="line">Levels: f m</span><br><span class="line">&gt; str(f.gender)</span><br><span class="line"> Factor w/ <span class="number">2</span> levels <span class="string">&quot;f&quot;</span>,<span class="string">&quot;m&quot;</span>: <span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br><span class="line">&gt; summary(f.gender)</span><br><span class="line">f m </span><br><span class="line"><span class="number">2</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>범주형자료는 요인(factor)로 무조건 변경</li>
+<li>알파벳순</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt; f.gender2=factor(gender,order=<span class="literal">TRUE</span>,level=c(<span class="string">&quot;m&quot;</span>,<span class="string">&#x27;f&#x27;</span>))</span><br><span class="line">&gt; str(f.gender2)</span><br><span class="line"> Ord.factor w/ <span class="number">2</span> levels <span class="string">&quot;m&quot;</span>&lt;<span class="string">&quot;f&quot;</span>: <span class="number">1</span> <span class="number">2</span> <span class="number">1</span> <span class="number">2</span></span><br><span class="line">&gt; summary(f.gender2)</span><br><span class="line">m f </span><br><span class="line"><span class="number">2</span> <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>order=TRUE</code> - 오름차순</li>
+<li><code>level</code> - 직접정의, 올바르지 않은 data 찾기</li>
+</ul>
+<hr>
+<h1 id="Matrix"><a href="#Matrix" class="headerlink" title="Matrix"></a>Matrix</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&gt; a=matrix(<span class="number">1</span>:<span class="number">9</span>,nrow=<span class="number">3</span>);a</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span>    <span class="number">7</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span>    <span class="number">8</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span>    <span class="number">9</span></span><br><span class="line">&gt; b=matrix(<span class="number">1</span>:<span class="number">9</span>,nrow=<span class="number">3</span>,byrow=<span class="literal">TRUE</span>);b</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">2</span>    <span class="number">3</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">4</span>    <span class="number">5</span>    <span class="number">6</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">7</span>    <span class="number">8</span>    <span class="number">9</span></span><br><span class="line">&gt; c=matrix(<span class="number">1</span>:<span class="number">100</span>,nrow=<span class="number">100</span>);c</span><br><span class="line">       [,<span class="number">1</span>]</span><br><span class="line">  [<span class="number">1</span>,]    <span class="number">1</span></span><br><span class="line">  [<span class="number">2</span>,]    <span class="number">2</span></span><br><span class="line">  [<span class="number">3</span>,]    <span class="number">3</span></span><br><span class="line">  [<span class="number">4</span>,]    <span class="number">4</span></span><br><span class="line">  [<span class="number">5</span>,]    <span class="number">5</span></span><br><span class="line"><span class="keyword">...</span></span><br><span class="line"> [<span class="number">98</span>,]   <span class="number">98</span></span><br><span class="line"> [<span class="number">99</span>,]   <span class="number">99</span></span><br><span class="line">[<span class="number">100</span>,]  <span class="number">100</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>small n - 표본</li>
+<li><code>nrow</code> - 행의 개수</li>
+<li><code>Matrix</code>는 <code>,</code>가 들어감</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; cnames=c(<span class="string">&quot;c1&quot;</span>,<span class="string">&quot;c2&quot;</span>,<span class="string">&quot;c3&quot;</span>);cnames</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;c1&quot;</span> <span class="string">&quot;c2&quot;</span> <span class="string">&quot;c3&quot;</span></span><br><span class="line">&gt; rnames=c(<span class="string">&quot;r1&quot;</span>,<span class="string">&quot;r2&quot;</span>,<span class="string">&quot;r3&quot;</span>);rnames</span><br><span class="line">[<span class="number">1</span>] <span class="string">&quot;r1&quot;</span> <span class="string">&quot;r2&quot;</span> <span class="string">&quot;r3&quot;</span></span><br><span class="line">&gt; z=matrix(<span class="number">1</span>:<span class="number">9</span>,nrow=<span class="number">3</span>,dimnames=list(rnames,cnames));z</span><br><span class="line">   c1 c2 c3</span><br><span class="line">r1  <span class="number">1</span>  <span class="number">4</span>  <span class="number">7</span></span><br><span class="line">r2  <span class="number">2</span>  <span class="number">5</span>  <span class="number">8</span></span><br><span class="line">r3  <span class="number">3</span>  <span class="number">6</span>  <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>행과 열의 이름 부여</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; a</span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">4</span>    <span class="number">7</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">5</span>    <span class="number">8</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">6</span>    <span class="number">9</span></span><br><span class="line">&gt; a[<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">8</span></span><br><span class="line">&gt; a[<span class="number">1</span>,]</span><br><span class="line">[<span class="number">1</span>] <span class="number">1</span> <span class="number">4</span> <span class="number">7</span></span><br><span class="line">&gt; a[,<span class="number">2</span>]</span><br><span class="line">[<span class="number">1</span>] <span class="number">4</span> <span class="number">5</span> <span class="number">6</span></span><br><span class="line">&gt; mean(a[,<span class="number">2</span>])</span><br><span class="line">[<span class="number">1</span>] <span class="number">5</span></span><br><span class="line">&gt; mean(a)</span><br><span class="line">[<span class="number">1</span>] <span class="number">5</span></span><br><span class="line">&gt; sum(a)</span><br><span class="line">[<span class="number">1</span>] <span class="number">45</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="dim"><a href="#dim" class="headerlink" title="dim()"></a>dim()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&gt; d=<span class="number">1</span>:<span class="number">24</span></span><br><span class="line">&gt; dim(d)=c(<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>);d</span><br><span class="line">, , <span class="number">1</span></span><br><span class="line"></span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]    <span class="number">1</span>    <span class="number">5</span>    <span class="number">9</span></span><br><span class="line">[<span class="number">2</span>,]    <span class="number">2</span>    <span class="number">6</span>   <span class="number">10</span></span><br><span class="line">[<span class="number">3</span>,]    <span class="number">3</span>    <span class="number">7</span>   <span class="number">11</span></span><br><span class="line">[<span class="number">4</span>,]    <span class="number">4</span>    <span class="number">8</span>   <span class="number">12</span></span><br><span class="line"></span><br><span class="line">, , <span class="number">2</span></span><br><span class="line"></span><br><span class="line">     [,<span class="number">1</span>] [,<span class="number">2</span>] [,<span class="number">3</span>]</span><br><span class="line">[<span class="number">1</span>,]   <span class="number">13</span>   <span class="number">17</span>   <span class="number">21</span></span><br><span class="line">[<span class="number">2</span>,]   <span class="number">14</span>   <span class="number">18</span>   <span class="number">22</span></span><br><span class="line">[<span class="number">3</span>,]   <span class="number">15</span>   <span class="number">19</span>   <span class="number">23</span></span><br><span class="line">[<span class="number">4</span>,]   <span class="number">16</span>   <span class="number">20</span>   <span class="number">24</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="data-frame"><a href="#data-frame" class="headerlink" title="data.frame()"></a>data.frame()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&gt; a1=c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">&gt; a2=c(<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;m&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;m&#x27;</span>)</span><br><span class="line">&gt; a12=data.frame(a1,a2);a12</span><br><span class="line">  a1 a2</span><br><span class="line"><span class="number">1</span>  <span class="number">1</span>  f</span><br><span class="line"><span class="number">2</span>  <span class="number">2</span>  m</span><br><span class="line"><span class="number">3</span>  <span class="number">3</span>  f</span><br><span class="line"><span class="number">4</span>  <span class="number">4</span>  m</span><br><span class="line">&gt; a123=data.frame(age=a1,gender=a2);a123</span><br><span class="line">  age gender</span><br><span class="line"><span class="number">1</span>   <span class="number">1</span>      f</span><br><span class="line"><span class="number">2</span>   <span class="number">2</span>      m</span><br><span class="line"><span class="number">3</span>   <span class="number">3</span>      f</span><br><span class="line"><span class="number">4</span>   <span class="number">4</span>      m</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>옆으로 붙인다는 것을 잘 생각해야함</li>
+<li>데이터 문자는 항상 <code>&quot;&quot;</code>해야함</li>
+</ul>
+<hr>
+<h1 id="rbind"><a href="#rbind" class="headerlink" title="rbind()"></a>rbind()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt; a_add=data.frame(age=<span class="number">30</span>,gender=<span class="string">&#x27;f&#x27;</span>);a_add</span><br><span class="line">  age gender</span><br><span class="line"><span class="number">1</span>  <span class="number">30</span>      f</span><br><span class="line">&gt; a12t=rbind(a123,a_add);a12t <span class="comment">#위 아래로 행을 붙임(Case 추가)</span></span><br><span class="line">  age gender</span><br><span class="line"><span class="number">1</span>   <span class="number">1</span>      f</span><br><span class="line"><span class="number">2</span>   <span class="number">2</span>      m</span><br><span class="line"><span class="number">3</span>   <span class="number">3</span>      f</span><br><span class="line"><span class="number">4</span>   <span class="number">4</span>      m</span><br><span class="line"><span class="number">5</span>  <span class="number">30</span>      f</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>위 아래로 행을 붙임(Case 추가)</li>
+<li><code>cbind</code> - 옆으로 열을 붙임(변수 추가)</li>
+</ul>
+<hr>
+<h1 id="length-dim"><a href="#length-dim" class="headerlink" title="length()/dim()"></a>length()/dim()</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; length(a12t)</span><br><span class="line">[<span class="number">1</span>] <span class="number">2</span></span><br><span class="line">&gt; dim(a12t</span><br><span class="line">[<span class="number">1</span>] <span class="number">5</span> <span class="number">2</span></span><br><span class="line">&gt; str(a12t)</span><br><span class="line"><span class="string">&#x27;data.frame&#x27;</span>:	<span class="number">5</span> obs. of  <span class="number">2</span> variables:</span><br><span class="line"> $ age   : num  <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">30</span></span><br><span class="line"> $ gender: Factor w/ <span class="number">2</span> levels <span class="string">&quot;f&quot;</span>,<span class="string">&quot;m&quot;</span>: <span class="number">1</span> <span class="number">2</span> <span class="number">1</span> <span class="number">2</span> <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>length()</code> - 열의 수</li>
+<li><code>dim()</code> - 행과 열의 수</li>
+<li><code>str()</code> - danawa</li>
+</ul>
+<hr>
+<h1 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h1><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#전산실습 Day 1</span></span><br><span class="line">rm(list=ls())</span><br><span class="line"></span><br><span class="line">speed=cars$speed;speed</span><br><span class="line">dist=cars$dist;dist</span><br><span class="line">summary(speed)</span><br><span class="line">summary(dist)</span><br><span class="line">mean(speed)</span><br><span class="line">mean(dist)</span><br><span class="line"></span><br><span class="line"><span class="comment">#전산실습 Day 2</span></span><br><span class="line">summary(trees)</span><br><span class="line">summary(chickwts)</span><br><span class="line">summary(cars)</span><br><span class="line"></span><br><span class="line"><span class="keyword">library</span>(MASS)</span><br><span class="line">summary(Cars93)</span><br><span class="line"></span><br><span class="line"><span class="comment">#install.packages(&quot;UsingR&quot;)</span></span><br><span class="line"><span class="keyword">library</span>(UsingR)</span><br><span class="line"></span><br><span class="line">ls()</span><br><span class="line"></span><br><span class="line">getwd()</span><br><span class="line">setwd(<span class="string">&quot;/Users/zerohertz&quot;</span>)</span><br><span class="line"><span class="comment">#setwd(&quot;/Users/zerohertz/Documents/R&quot;)</span></span><br><span class="line"><span class="comment">#setwd(&quot;/Users/zerohertz/Downloads&quot;)</span></span><br><span class="line">getwd()</span><br><span class="line"></span><br><span class="line">summary(cars)</span><br><span class="line">mean(speed)</span><br><span class="line">mean(cars$speed)</span><br><span class="line"></span><br><span class="line">str(cars)</span><br><span class="line">cars[<span class="number">1</span>,<span class="number">2</span>]</span><br><span class="line">summary(cars)</span><br><span class="line"><span class="keyword">attach</span>(cars)</span><br><span class="line">mean(cars$speed)</span><br><span class="line">sd(cars$dist)</span><br><span class="line">mean(speed)</span><br><span class="line">sd(dist)</span><br><span class="line"><span class="keyword">detach</span>(cars)</span><br><span class="line"></span><br><span class="line">save.image()</span><br><span class="line"></span><br><span class="line">x=c(<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">4</span>,<span class="number">3</span>,<span class="number">3</span>) <span class="comment">#숫자형 벡터</span></span><br><span class="line">y=c(<span class="string">&quot;one&quot;</span>,<span class="string">&quot;two&quot;</span>,<span class="string">&quot;three&quot;</span>) <span class="comment">#문자형 벡터</span></span><br><span class="line">z=c(<span class="literal">TRUE</span>,<span class="literal">TRUE</span>,<span class="literal">FALSE</span>,<span class="literal">F</span>) <span class="comment">#논리형 벡터</span></span><br><span class="line"></span><br><span class="line">y1=y[c(<span class="number">1</span>,<span class="number">3</span>)];y1</span><br><span class="line"></span><br><span class="line">gender=c(<span class="string">&quot;m&quot;</span>,<span class="string">&quot;f&quot;</span>,<span class="string">&quot;m&quot;</span>,<span class="string">&quot;f&quot;</span>);gender</span><br><span class="line">str(gender)</span><br><span class="line">f.gender=factor(gender);f.gender</span><br><span class="line">str(f.gender)</span><br><span class="line">summary(f.gender)</span><br><span class="line">f.gender2=factor(gender,order=<span class="literal">TRUE</span>,level=c(<span class="string">&quot;m&quot;</span>,<span class="string">&#x27;f&#x27;</span>))</span><br><span class="line">str(f.gender2)</span><br><span class="line">summary(f.gender2)</span><br><span class="line"></span><br><span class="line">str(Cars93)</span><br><span class="line"></span><br><span class="line">a=matrix(<span class="number">1</span>:<span class="number">9</span>,nrow=<span class="number">3</span>);a</span><br><span class="line">b=matrix(<span class="number">1</span>:<span class="number">9</span>,nrow=<span class="number">3</span>,byrow=<span class="literal">TRUE</span>);b</span><br><span class="line">c=matrix(<span class="number">1</span>:<span class="number">100</span>,nrow=<span class="number">100</span>);c</span><br><span class="line">cnames=c(<span class="string">&quot;c1&quot;</span>,<span class="string">&quot;c2&quot;</span>,<span class="string">&quot;c3&quot;</span>);cnames</span><br><span class="line">rnames=c(<span class="string">&quot;r1&quot;</span>,<span class="string">&quot;r2&quot;</span>,<span class="string">&quot;r3&quot;</span>);rnames</span><br><span class="line">z=matrix(<span class="number">1</span>:<span class="number">9</span>,nrow=<span class="number">3</span>,dimnames=list(rnames,cnames));z</span><br><span class="line"></span><br><span class="line">a[<span class="number">2</span>,<span class="number">3</span>]</span><br><span class="line">a[<span class="number">1</span>,]</span><br><span class="line">a[,<span class="number">2</span>]</span><br><span class="line">mean(a[,<span class="number">2</span>])</span><br><span class="line">mean(a)</span><br><span class="line">sum(a)</span><br><span class="line"></span><br><span class="line">d=<span class="number">1</span>:<span class="number">24</span></span><br><span class="line">dim(d)=c(<span class="number">4</span>,<span class="number">3</span>,<span class="number">2</span>);d</span><br><span class="line"></span><br><span class="line">a1=c(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">a2=c(<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;m&#x27;</span>,<span class="string">&#x27;f&#x27;</span>,<span class="string">&#x27;m&#x27;</span>)</span><br><span class="line">a12=data.frame(a1,a2);a12</span><br><span class="line">a123=data.frame(age=a1,gender=a2);a123</span><br><span class="line">a_add=data.frame(age=<span class="number">30</span>,gender=<span class="string">&#x27;f&#x27;</span>);a_add</span><br><span class="line">a12t=rbind(a123,a_add);a12t <span class="comment">#위 아래로 행을 붙임(Case 추가)</span></span><br><span class="line"></span><br><span class="line">length(a12t)</span><br><span class="line">dim(a12t)</span><br><span class="line">str(a12t)</span><br><span class="line"></span><br><span class="line"><span class="comment">#q()</span></span><br></pre></td></tr></table></figure>
+
+<p><code>get data</code> - <code>str()</code> - <code>summary()</code> - 문자면 <code>factor()</code> - <code>level()</code></p>
+
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-3/" rel="bookmark">R(3)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-6/" rel="bookmark">R(6)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/r-mid-term/" rel="bookmark">R mid-term</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/statistics/" rel="bookmark">Statistics</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/r-2/" title="R(2)">https://zerohertz.github.io/r-2/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/r/" rel="tag"><i class="fa fa-tag"></i> R</a>
+              <a href="/tags/statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/r-1/" rel="prev" title="R(1)">
+                  <i class="fa fa-chevron-left"></i> R(1)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/r-3/" rel="next" title="R(3)">
+                  R(3) <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">553k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">8:23</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/r-2/";
+    this.page.identifier = "r-2/";
+    this.page.title = "R(2)";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
