@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89857466-2301e600-dbd7-11ea-9f52-f375b8a3d435.jpg">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#800a0a">
@@ -413,7 +422,7 @@
 
 <hr>
 <h1 id="라즈베리파이-캠을-이용한-얼굴인식"><a href="#라즈베리파이-캠을-이용한-얼굴인식" class="headerlink" title="라즈베리파이 캠을 이용한 얼굴인식"></a>라즈베리파이 캠을 이용한 얼굴인식</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;opencv2/opencv.hpp&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;raspicam/raspicam_cv.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> cv;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">    raspicam::RaspiCam_Cv cam;</span><br><span class="line">    cam.<span class="built_in">set</span>(CV_CAP_PROP_FORMAT, CV_8UC3);</span><br><span class="line">    cam.<span class="built_in">set</span>(CV_CAP_PROP_FRAME_WIDTH, <span class="number">640</span>);</span><br><span class="line">    cam.<span class="built_in">set</span>(CV_CAP_PROP_FRAME_HEIGHT, <span class="number">480</span>);</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">if</span> (!cam.open()) &#123;</span><br><span class="line">        <span class="built_in">cerr</span> &lt;&lt; <span class="string">&quot;Camera open failed!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">     <span class="function">CascadeClassifier <span class="title">cascade</span><span class="params">(<span class="string">&quot;haarcascade_frontalface_default.xml&quot;</span>)</span></span>;</span><br><span class="line">     <span class="keyword">if</span> (cascade.empty()) &#123;</span><br><span class="line">        <span class="built_in">cerr</span> &lt;&lt; <span class="string">&quot;Failed to open xml file!&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">     Mat frame, gray, reduced;</span><br><span class="line">    int64 t1, t2;</span><br><span class="line">    <span class="keyword">bool</span> do_flip = <span class="literal">false</span>;</span><br><span class="line">     </span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">        cam.grab();</span><br><span class="line">        cam.retrieve(frame);</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">if</span> (do_flip)</span><br><span class="line">            flip(frame, frame, <span class="number">-1</span>);</span><br><span class="line">         t1 = getTickCount();</span><br><span class="line">         </span><br><span class="line">        cvtColor(frame, gray, cv::COLOR_BGR2GRAY);</span><br><span class="line">        resize(gray, reduced, Size(<span class="number">0</span>, <span class="number">0</span>), <span class="number">0.5</span>, <span class="number">0.5</span>);</span><br><span class="line">         </span><br><span class="line">        <span class="built_in">vector</span>&lt;Rect&gt; faces;</span><br><span class="line">        cascade.detectMultiScale(reduced, faces, <span class="number">1.1</span>, <span class="number">3</span>, <span class="number">0</span>, Size(<span class="number">40</span>, <span class="number">40</span>));</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">size_t</span> i = <span class="number">0</span>; i &lt; faces.size(); i++) &#123;</span><br><span class="line">            Rect rc;</span><br><span class="line">            rc.x = faces[i].x &lt;&lt; <span class="number">1</span>;</span><br><span class="line">		cv::imwrite(<span class="string">&quot;raspicam_cv_image.jpg&quot;</span>,frame);</span><br><span class="line">            rc.y = faces[i].y &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            rc.width = faces[i].width &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            rc.height = faces[i].height &lt;&lt; <span class="number">1</span>;</span><br><span class="line">            rectangle(frame, rc, Scalar(<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">3</span>);</span><br><span class="line">        &#125;</span><br><span class="line">         </span><br><span class="line">        t2 = getTickCount();</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;It took &quot;</span> &lt;&lt; (t2 - t1) * <span class="number">1000</span> / getTickFrequency() &lt;&lt; <span class="string">&quot; ms.&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">         imshow(<span class="string">&quot;frame&quot;</span>, frame);</span><br><span class="line">         </span><br><span class="line">        <span class="keyword">int</span> k = waitKey(<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">if</span> (k == <span class="number">27</span>)</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span> (k == <span class="string">&#x27;f&#x27;</span> || k == <span class="string">&#x27;F&#x27;</span>)</span><br><span class="line">            do_flip = !do_flip;</span><br><span class="line">    &#125;</span><br><span class="line">     cam.release();</span><br><span class="line">    destroyAllWindows();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE3OTcwNzYzMzYwMDA0OTk3/">실행 결과</a></p>
+<p><span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS9zL2FHbG5hR3hwWjJoME9qRTNPVGN3TnpZek16WXdNREEwT1RrMy8=">실행 결과<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -424,19 +433,19 @@
   <div class="popular-posts-header">Related posts</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/source-code-obstructive-sleep-apnea/" rel="bookmark">Source Code(Obstructive Sleep Apnea)</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/arduino-nano-33-ble/" rel="bookmark">Arduino Nano 33 BLE</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/serial-communication-arduino-to-raspberrypi/" rel="bookmark">Serial Communication(Arduino to RaspberryPi)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/" rel="bookmark">Development of a Obstructive Sleep Apnea Diagnosis Algorithm Using HRV</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/inverse-kinematics-in-unreal-engine-1/" rel="bookmark">Inverse Kinematics in Unreal engine(1)</a></div>
+      <div class="popular-posts-title"><a href="/serial-communication-arduino-to-raspberrypi/" rel="bookmark">Serial Communication(Arduino to RaspberryPi)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/source-code-obstructive-sleep-apnea/" rel="bookmark">Source Code(Obstructive Sleep Apnea)</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/arduino-basic/" rel="bookmark">Arduino Basic</a></div>
     </li>
   </ul>
 
@@ -576,7 +585,6 @@
   </footer>
 
   
-  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 

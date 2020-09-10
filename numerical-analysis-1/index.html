@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89857466-2301e600-dbd7-11ea-9f52-f375b8a3d435.jpg">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#800a0a">
@@ -420,7 +429,7 @@
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">0 0</span><br><span class="line">2.4 23.5</span><br><span class="line">4.8 36.7</span><br><span class="line">7.2 44.1</span><br><span class="line">9.6 48.2</span><br><span class="line">12.0 50.5</span><br><span class="line">14.4 51.8</span><br><span class="line">16.8 52.5</span><br><span class="line">19.2 52.9</span><br><span class="line">21.6 53.2</span><br><span class="line">#중간생략 왼쪽이 시간, 오른쪽이 Velocity</span><br><span class="line">220.8 53.4</span><br><span class="line">223.2 53.4</span><br><span class="line">225.6 53.4</span><br><span class="line">228.0 53.4</span><br><span class="line">230.4 53.4</span><br><span class="line">232.8 53.4</span><br><span class="line">235.2 53.4</span><br><span class="line">237.6 53.4</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="Graph-plot"><a href="#Graph-plot" class="headerlink" title="Graph plot"></a>Graph plot</h1><p>참고 : <a target="_blank" rel="external nofollow noopener noreferrer" href="https://zzsza.github.io/development/2018/08/24/data-visualization-in-python/">그래프 그리기</a></p>
+<h1 id="Graph-plot"><a href="#Graph-plot" class="headerlink" title="Graph plot"></a>Graph plot</h1><p>참고 : <span class="exturl" data-url="aHR0cHM6Ly96enN6YS5naXRodWIuaW8vZGV2ZWxvcG1lbnQvMjAxOC8wOC8yNC9kYXRhLXZpc3VhbGl6YXRpb24taW4tcHl0aG9uLw==">그래프 그리기<i class="fa fa-external-link-alt"></i></span></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> plotly</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> plotly.graph_objs <span class="keyword">import</span> Scatter, Layout</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">t = <span class="number">0</span> <span class="comment">#변수, 상수 선언</span></span><br><span class="line">g = <span class="number">9.81</span></span><br><span class="line">c = <span class="number">12.5</span></span><br><span class="line">m = <span class="number">68.1</span></span><br><span class="line">delta = <span class="number">0.24e1</span></span><br><span class="line">vel = <span class="number">0</span></span><br><span class="line">Ti = [<span class="number">0</span>]</span><br><span class="line">Ve = [<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">velocity</span>(<span class="params">t</span>):</span></span><br><span class="line">    value = vel + (g - c * vel / m) * delta <span class="comment">#식의 해</span></span><br><span class="line">    <span class="keyword">return</span> value</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> a <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">20</span>): <span class="comment">#몇번 반복할지</span></span><br><span class="line">    vel = velocity(t)</span><br><span class="line">    t = t + delta</span><br><span class="line">    T = round(t, <span class="number">1</span>) <span class="comment">#유효숫자</span></span><br><span class="line">    VEL = round(vel, <span class="number">1</span>)</span><br><span class="line">    Ti = Ti + [T]</span><br><span class="line">    Ve = Ve + [VEL]</span><br><span class="line"></span><br><span class="line">print(Ti)</span><br><span class="line">print(Ve)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">plotly.offline.plot(&#123;</span><br><span class="line">    <span class="string">&quot;data&quot;</span>: [Scatter(x=Ti, y=Ve)],</span><br><span class="line">    <span class="string">&quot;layout&quot;</span>: Layout(title=<span class="string">&quot;ODE 풀이&quot;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <p><img src="https://user-images.githubusercontent.com/42334717/45418251-f37e9200-b6be-11e8-9b1c-9648e01a6cf2.png" alt="실행결과"></p>
 <hr>
@@ -446,7 +455,7 @@
       <div class="popular-posts-title"><a href="/numerical-analysis-5/" rel="bookmark">Numerical analysis(5)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/web-crawling-by-beautifulsoup-1/" rel="bookmark">Web crawling by BeautifulSoup(1)</a></div>
+      <div class="popular-posts-title"><a href="/arduino-nano-33-ble/" rel="bookmark">Arduino Nano 33 BLE</a></div>
     </li>
   </ul>
 
@@ -586,7 +595,6 @@
   </footer>
 
   
-  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 

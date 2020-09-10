@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89857466-2301e600-dbd7-11ea-9f52-f375b8a3d435.jpg">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#800a0a">
@@ -44,8 +53,8 @@
 <meta property="article:modified_time" content="2020-02-25T07:03:35.000Z">
 <meta property="article:author" content="Zerohertz">
 <meta property="article:tag" content="C, C++">
-<meta property="article:tag" content="Unreal Engine">
 <meta property="article:tag" content="VR Project">
+<meta property="article:tag" content="Unreal Engine">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/50725556-7c27af00-1142-11e9-9dbc-1ab57f111f81.png">
 
@@ -417,7 +426,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p><a target="_blank" rel="external nofollow noopener noreferrer" href="https://www.youtube.com/watch?v=V707r4bkJOY">개요</a></p>
+        <p><span class="exturl" data-url="aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1WNzA3cjRia0pPWQ==">개요<i class="fa fa-external-link-alt"></i></span></p>
 <hr>
 <h1 id="Class-마법사-Unreal-Engine에서-새로운-Class-만들기"><a href="#Class-마법사-Unreal-Engine에서-새로운-Class-만들기" class="headerlink" title="Class 마법사(Unreal Engine에서 새로운 Class 만들기)"></a>Class 마법사(Unreal Engine에서 새로운 Class 만들기)</h1><p><code>File</code> &gt; <code>New C++ Class</code> &gt;<br><img src="https://user-images.githubusercontent.com/42334717/50725556-7c27af00-1142-11e9-9dbc-1ab57f111f81.png" alt="Class 지정"></p>
 <a id="more"></a>
@@ -458,7 +467,7 @@
 <li><code>GENERATED_BODY()</code>매크로는 본문 제일 처음에 와야함</li>
 <li>아래의 <code>Class Specifier</code>를 위의 <code>specifier</code>란에 용도에 맞게 적어서 쓸 수 있다</li>
 </ul>
-<p><a target="_blank" rel="external nofollow noopener noreferrer" href="http://api.unrealengine.com/KOR/Programming/UnrealArchitecture/Reference/Classes/index.html#%ED%81%B4%EB%9E%98%EC%8A%A4%EC%A7%80%EC%A0%95%EC%9E%90">Class Specifier</a></p>
+<p><span class="exturl" data-url="aHR0cDovL2FwaS51bnJlYWxlbmdpbmUuY29tL0tPUi9Qcm9ncmFtbWluZy9VbnJlYWxBcmNoaXRlY3R1cmUvUmVmZXJlbmNlL0NsYXNzZXMvaW5kZXguaHRtbCMlRUQlODElQjQlRUIlOUUlOTglRUMlOEElQTQlRUMlQTclODAlRUMlQTAlOTUlRUMlOUUlOTA=">Class Specifier<i class="fa fa-external-link-alt"></i></span></p>
 <hr>
 <h1 id="프로퍼티가-에디터에-보이도록-만들기"><a href="#프로퍼티가-에디터에-보이도록-만들기" class="headerlink" title="프로퍼티가 에디터에 보이도록 만들기"></a>프로퍼티가 에디터에 보이도록 만들기</h1><blockquote>
 <p>MyActor.h</p>
@@ -491,7 +500,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Fill out your copyright notice in the Description page of Project Settings.</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;MyActor.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Sets default values</span></span><br><span class="line">AMyActor::AMyActor()</span><br><span class="line">&#123;</span><br><span class="line"> 	<span class="comment">// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don&#x27;t need it.</span></span><br><span class="line">	PrimaryActorTick.bCanEverTick = <span class="literal">true</span>;</span><br><span class="line">	TotalDamage = <span class="number">200</span>;</span><br><span class="line">	DamageTimeInSeconds = <span class="number">1.f</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Called when the game starts or when spawned</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AMyActor::BeginPlay</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Super::BeginPlay();</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Called every frame</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AMyActor::Tick</span><span class="params">(<span class="keyword">float</span> DeltaTime)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Super::Tick(DeltaTime);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AMyActor::PostInitProperties</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	Super::PostInitProperties();</span><br><span class="line"></span><br><span class="line">	CalculateValues();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AMyActor::CalculateValues</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	DamagePerSecond = TotalDamage / DamageTimeInSeconds;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">if</span> WITH_EDITOR</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AMyActor::PostEditChangeProperty</span><span class="params">(FPropertyChangedEvent&amp; PropertyChangedEvent)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	CalculateValues();</span><br><span class="line"></span><br><span class="line">	Super::PostEditChangeProperty(PropertyChangedEvent);</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br></pre></td></tr></table></figure>
 <p><img src="https://user-images.githubusercontent.com/42334717/50773681-c5a80380-12d4-11e9-91a8-5e3afc881bfd.png" alt="계산이 되는 모습"></p>
 <hr>
-<h1 id="여러가지-프로퍼티-지정자"><a href="#여러가지-프로퍼티-지정자" class="headerlink" title="여러가지 프로퍼티 지정자"></a>여러가지 프로퍼티 지정자</h1><p><a target="_blank" rel="external nofollow noopener noreferrer" href="http://api.unrealengine.com/KOR/Programming/UnrealArchitecture/Reference/Properties/Specifiers/index.html">프로퍼티 지정자</a></p>
+<h1 id="여러가지-프로퍼티-지정자"><a href="#여러가지-프로퍼티-지정자" class="headerlink" title="여러가지 프로퍼티 지정자"></a>여러가지 프로퍼티 지정자</h1><p><span class="exturl" data-url="aHR0cDovL2FwaS51bnJlYWxlbmdpbmUuY29tL0tPUi9Qcm9ncmFtbWluZy9VbnJlYWxBcmNoaXRlY3R1cmUvUmVmZXJlbmNlL1Byb3BlcnRpZXMvU3BlY2lmaWVycy9pbmRleC5odG1s">프로퍼티 지정자<i class="fa fa-external-link-alt"></i></span></p>
 
     </div>
 
@@ -505,16 +514,16 @@
       <div class="popular-posts-title"><a href="/inverse-kinematics-in-unreal-engine-1/" rel="bookmark">Inverse Kinematics in Unreal engine(1)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/unreal-engine-and-c-2/" rel="bookmark">Unreal engine and C++(2)</a></div>
-    </li>
-    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/inverse-kinematics-in-unreal-engine-2/" rel="bookmark">Inverse Kinematics in Unreal engine(2)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/unreal-engine/" rel="bookmark">Unreal Engine</a></div>
+      <div class="popular-posts-title"><a href="/unreal-engine-and-c-2/" rel="bookmark">Unreal engine and C++(2)</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/exporting-to-unreal-engine-at-3ds-max-by-datasmith/" rel="bookmark">Exporting to Unreal Engine at 3ds Max by Datasmith</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/unreal-engine/" rel="bookmark">Unreal Engine</a></div>
     </li>
   </ul>
 
@@ -539,8 +548,8 @@
 
           <div class="post-tags">
               <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> C, C++</a>
-              <a href="/tags/unreal-engine/" rel="tag"><i class="fa fa-tag"></i> Unreal Engine</a>
               <a href="/tags/vr-project/" rel="tag"><i class="fa fa-tag"></i> VR Project</a>
+              <a href="/tags/unreal-engine/" rel="tag"><i class="fa fa-tag"></i> Unreal Engine</a>
           </div>
 
         
@@ -655,7 +664,6 @@
   </footer>
 
   
-  <script size="200" alpha="0.6" zindex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 

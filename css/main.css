@@ -1218,11 +1218,11 @@ pre code {
   }
 }
 .custom-logo-image {
-  margin-top: 20px;
+  margin-top: -30px;
 }
 @media (max-width: 991px) {
   .custom-logo-image {
-    display: none;
+    display: true;
   }
 }
 .brand {
@@ -1239,11 +1239,12 @@ pre code {
   font-size: 1.375em;
   font-weight: normal;
   margin: 0;
+  color: #000;
 }
 .site-subtitle {
   color: #ddd;
   font-size: 0.8125em;
-  margin: 10px 0;
+  margin: 0px 0px 0;
 }
 .use-motion .site-title,
 .use-motion .site-subtitle,
@@ -2704,7 +2705,7 @@ mjx-container[display="true"] + br {
   }
 }
 .site-brand-container {
-  background: #222;
+  background: #000;
 }
 @media (max-width: 991px) {
   .site-nav-on .site-brand-container {
