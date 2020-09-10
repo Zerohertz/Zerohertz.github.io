@@ -1904,7 +1904,7 @@ pre code {
 .posts-collapse .post-content .post-title a,
 .posts-collapse .post-content .post-title span.exturl {
   border-bottom: none;
-  color: var(--link-color);
+  color: var(#800a0a);
 }
 .posts-collapse .post-content .post-title .fa-external-link-alt {
   font-size: 0.875em;

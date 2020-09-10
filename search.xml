@@ -218,9 +218,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -251,9 +251,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -381,9 +381,9 @@
             
             <tag> PHM </tag>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -455,9 +455,9 @@
             
             <tag> Smart data </tag>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -1985,9 +1985,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2014,9 +2014,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2817,9 +2817,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2846,9 +2846,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2954,6 +2954,17 @@
     
     
     <entry>
+      <title>Categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>about Zerohertz</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -2968,17 +2979,6 @@
       <title>Tag Cloud</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
