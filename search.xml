@@ -135,9 +135,9 @@
       
         <tags>
             
-            <tag> Signal Processing </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Signal Processing </tag>
             
             <tag> DNN </tag>
             
@@ -309,13 +309,13 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> DNN </tag>
             
@@ -375,6 +375,8 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
@@ -382,8 +384,6 @@
             <tag> Arduino </tag>
             
             <tag> C, C++ </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -447,6 +447,8 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
@@ -456,8 +458,6 @@
             <tag> Arduino </tag>
             
             <tag> C, C++ </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -750,11 +750,11 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> PHM </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> Statistics </tag>
             
@@ -785,13 +785,13 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> DNN </tag>
             
@@ -828,6 +828,8 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
@@ -835,8 +837,6 @@
             <tag> Read Paper </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -863,6 +863,8 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
@@ -870,8 +872,6 @@
             <tag> Read Paper </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -898,13 +898,13 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> PHM </tag>
             
             <tag> Read Paper </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> DNN </tag>
             
@@ -933,9 +933,9 @@
       
         <tags>
             
-            <tag> Signal Processing </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Signal Processing </tag>
             
             <tag> DNN </tag>
             
@@ -1018,6 +1018,8 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
@@ -1025,8 +1027,6 @@
             <tag> Read Paper </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -1053,6 +1053,8 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
@@ -1060,8 +1062,6 @@
             <tag> Read Paper </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -1115,13 +1115,13 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> DNN </tag>
             
@@ -2954,17 +2954,6 @@
     
     
     <entry>
-      <title>Categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
-      
-        <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>about Zerohertz</title>
       <link href="/about/index.html"/>
       <url>/about/index.html</url>
@@ -2979,6 +2968,17 @@
       <title>Tag Cloud</title>
       <link href="/tags/index.html"/>
       <url>/tags/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
