@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/introduction-to-music/</loc>
+        <lastmod>2020-09-11T16:54:30.735Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/product-design-for-manufacturing/</loc>
-        <lastmod>2020-09-08T07:48:19.046Z</lastmod>
+        <lastmod>2020-09-11T15:53:18.035Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/political-science/</loc>
+        <lastmod>2020-09-11T15:51:33.770Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -18,22 +34,6 @@
     <url>
         <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
         <lastmod>2020-09-08T07:08:38.108Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/introduction-to-music/</loc>
-        <lastmod>2020-09-03T04:33:42.380Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/political-science/</loc>
-        <lastmod>2020-09-02T05:50:54.325Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
