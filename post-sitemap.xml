@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/raspberry-pi-server/</loc>
+        <lastmod>2020-09-18T13:13:13.325Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/face-recognition-by-raspberrypi/</loc>
+        <lastmod>2020-09-18T11:34:16.713Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/line-detection/</loc>
+        <lastmod>2020-09-18T11:33:44.942Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/manufacturing-process-laboratory/</loc>
         <lastmod>2020-09-17T11:31:01.327Z</lastmod>
         <changefreq>daily</changefreq>
@@ -162,14 +186,6 @@
     <url>
         <loc>https://zerohertz.github.io/r-6/</loc>
         <lastmod>2020-08-19T15:17:14.977Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/face-recognition-by-raspberrypi/</loc>
-        <lastmod>2020-08-12T04:55:12.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -506,14 +522,6 @@
     <url>
         <loc>https://zerohertz.github.io/r-mid-term/</loc>
         <lastmod>2020-02-25T07:16:11.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/line-detection/</loc>
-        <lastmod>2020-02-25T07:11:53.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
