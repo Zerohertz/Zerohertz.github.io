@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/serial-communication-arduino-to-raspberrypi/</loc>
+        <lastmod>2020-09-18T15:57:27.020Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/raspberry-pi-server/</loc>
         <lastmod>2020-09-18T15:53:34.683Z</lastmod>
         <changefreq>daily</changefreq>
@@ -154,14 +162,6 @@
     <url>
         <loc>https://zerohertz.github.io/hexo-generator-alias/</loc>
         <lastmod>2020-08-20T11:41:10.530Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/serial-communication-arduino-to-raspberrypi/</loc>
-        <lastmod>2020-08-20T02:07:31.244Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 

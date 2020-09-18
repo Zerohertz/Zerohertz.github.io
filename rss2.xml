@@ -385,14 +385,12 @@
       <content:encoded><![CDATA[<h1 id="CMD를-통한-Serial-통신"><a href="#CMD를-통한-Serial-통신" class="headerlink" title="CMD를 통한 Serial 통신"></a>CMD를 통한 Serial 통신</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 130px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '130px', windowTitle: 'pi@raspberrypi: ~', promptString: 'pi@raspberrypi:~ $'})    .command(`sudo usermod <span class="token operator">-</span>a <span class="token operator">-</span>G tty pi`, {onCompleteDelay: 300}).command(`sudo usermod <span class="token operator">-</span>a <span class="token operator">-</span>G dialout pi`, {onCompleteDelay: 300}).command(`stty <span class="token operator">-</span>F <span class="token operator">/</span>dev<span class="token operator">/</span>ttyACM0 raw <span class="token number">115200</span> cs8 clocal <span class="token operator">-</span>cstopb`, {onCompleteDelay: 300}).command(`cat <span class="token operator">/</span>dev<span class="token operator">/</span>ttyACM0`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><a id="more"></a><h1 id="Python을-통한-Serial-통신"><a href="#Python을-통한-Serial-통신" class="headerlink" title="Python을 통한 Serial 통신"></a>Python을 통한 Serial 통신</h1><figure class="highlight python"><figcaption><span>ser.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> serial</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">ser = serial.Serial(<span class="string">&#x27;/dev/ttyACM0&#x27;</span>, <span class="number">115200</span>)</span><br><span class="line">f = open(<span class="string">&#x27;filename.csv&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding = <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">t = time.time()</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> ser.in_waiting != <span class="number">0</span>:</span><br><span class="line">            t1 = time.time() - t</span><br><span class="line">            t2 = round(t1, <span class="number">5</span>)</span><br><span class="line">            t3 = str(t2)</span><br><span class="line">            sensor = ser.readline()</span><br><span class="line">            print(t3)</span><br><span class="line">            print(sensor.decode())</span><br><span class="line">            f.write(t3)</span><br><span class="line">            f.write(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">            f.write(sensor.decode())</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure><ul><li>파일명을 <code>serial.py</code>로 지정하면 오류가 날 수 있으므로 유의</li></ul>]]></content:encoded>
       
       
-      <category domain="https://zerohertz.github.io/categories/c-c/">C, C++</category>
+      <category domain="https://zerohertz.github.io/categories/raspberrypi/">RaspberryPi</category>
       
-      <category domain="https://zerohertz.github.io/categories/c-c/arduino/">Arduino</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
       
       <category domain="https://zerohertz.github.io/tags/arduino/">Arduino</category>
+      
+      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
       
       <category domain="https://zerohertz.github.io/tags/raspberrypi/">RaspberryPi</category>
       
@@ -445,9 +443,9 @@
       <category domain="https://zerohertz.github.io/categories/c-c/arduino/">Arduino</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
-      
       <category domain="https://zerohertz.github.io/tags/arduino/">Arduino</category>
+      
+      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
       
       <category domain="https://zerohertz.github.io/tags/raspberrypi/">RaspberryPi</category>
       
@@ -585,9 +583,9 @@
       
       <category domain="https://zerohertz.github.io/tags/phm/">PHM</category>
       
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
-      
       <category domain="https://zerohertz.github.io/tags/arduino/">Arduino</category>
+      
+      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
       
       <category domain="https://zerohertz.github.io/tags/raspberrypi/">RaspberryPi</category>
       
@@ -661,9 +659,9 @@
       
       <category domain="https://zerohertz.github.io/tags/smart-data/">Smart data</category>
       
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
-      
       <category domain="https://zerohertz.github.io/tags/arduino/">Arduino</category>
+      
+      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
       
       <category domain="https://zerohertz.github.io/tags/raspberrypi/">RaspberryPi</category>
       
