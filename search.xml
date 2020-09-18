@@ -8,7 +8,7 @@
       <link href="/raspberry-pi-server/"/>
       <url>/raspberry-pi-server/</url>
       
-        <content type="html"><![CDATA[<h1 id="RASPBERRY-PI-OS-설치"><a href="#RASPBERRY-PI-OS-설치" class="headerlink" title="RASPBERRY PI OS 설치"></a>RASPBERRY PI OS 설치</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmFzcGJlcnJ5cGkub3JnL2Rvd25sb2Fkcy8=">RASPBERRY PI OS<i class="fa fa-external-link-alt"></i></span></p><blockquote><p>위 사이트에서 프로그램을 받은 뒤, SD카드 연결 후 아래와 같이 WRITE하면 설치가 된다.</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/93593200-a096ee00-f9ee-11ea-9ea0-e0eb7fb979b4.png" alt="Raspbian"></p><a id="more"></a><hr><h1 id="ssh-연결-허용"><a href="#ssh-연결-허용" class="headerlink" title="ssh 연결 허용"></a>ssh 연결 허용</h1><blockquote><p>RASPBERRY PI OS는 기본적으로 ssh가 disable이므로 설정을 바꿔줘야 한다. SD카드의 최상위 디렉토리에 확장자가 없는 ssh라는 파일을 생성하면 ssh가 enable이 된다.</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/93593734-975a5100-f9ef-11ea-98c6-06172342eaad.png" alt="ssh"></p><blockquote><p>만약 WiFi를 통하여 라즈베리 파이를 이용할 예정이라면, 아래의 이름과 소스를 작성하여 최상위 디렉토리에 저장해야한다.</p></blockquote><figure class="highlight cpp"><figcaption><span>wpa_supplicant.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=<span class="number">1</span></span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=<span class="string">&quot;WiFi 이름&quot;</span></span><br><span class="line">    psk=<span class="string">&quot;WiFi 비밀번호&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h1 id="라즈베리-파이의-IP"><a href="#라즈베리-파이의-IP" class="headerlink" title="라즈베리 파이의 IP"></a>라즈베리 파이의 IP</h1><blockquote><p>라즈베리 파이에 연결된 공유기의 Gateway 주소로 접속 후, 라즈베리 파이의 IP를 알아낸다. Gateway는 아래의 코드를 입력하여 알 수 있다.</p></blockquote><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz1' style='height: 30px'></div>            <script>        new GDemo('#zerohertz1')          .openApp('terminal', {minHeight: '30px', windowTitle: 'zerohertz@zerohertz: ~', promptString: 'zerohertz@zerohertz ~'})    .command(`route <span class="token keyword">get</span> default`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><br/><br/><p><img src="https://user-images.githubusercontent.com/42334717/93594589-2025bc80-f9f1-11ea-869b-eecafaf3e4d8.png" alt="IP"></p><hr><h1 id="ssh-접속"><a href="#ssh-접속" class="headerlink" title="ssh 접속"></a>ssh 접속</h1><blockquote><p>위의 IP를 이용해 ssh로 접속할 수 있다.</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/93594705-4f3c2e00-f9f1-11ea-915d-cf68fa265a84.png" alt="ssh"></p><p><img src="https://user-images.githubusercontent.com/42334717/93594775-75fa6480-f9f1-11ea-9b75-73e182a4ef75.png" alt="ssh"></p><hr><h1 id="고정-IP-할당"><a href="#고정-IP-할당" class="headerlink" title="고정 IP 할당"></a>고정 IP 할당</h1><blockquote><p>WiFi 내에서 라즈베리 파이가 항상 같은 IP(192.168.123.123)를 갖도록 설정하였다.</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/93595293-71827b80-f9f2-11ea-9afd-218e8805b629.png" alt="IP_Config"></p><p><img src="https://user-images.githubusercontent.com/42334717/93595386-a098ed00-f9f2-11ea-9600-c2e1231ae1a0.png" alt="IP_Config"></p><blockquote><p>이후 공유기 자체의 IP를 고정 IP로 설정을 바꿔준다. 또한 포트포워딩을 통해 내부 포트는 22로, 외부 포트는 자유로 설정하고 IP는 위에서 라즈베리 파이에 할당한 IP를 기입한다.</p></blockquote><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz2' style='height: 30px'></div>            <script>        new GDemo('#zerohertz2')          .openApp('terminal', {minHeight: '30px', windowTitle: 'zerohertz@zerohertz: ~', promptString: 'zerohertz@zerohertz ~'})    .command(`ssh pi@xxx.xxx.xxx.xxx<span class="token punctuation">(</span>고정IP<span class="token punctuation">)</span> <span class="token operator">-</span>p<span class="token punctuation">(</span>외부 포트<span class="token punctuation">)</span>`, {onCompleteDelay: 300})        .respond(``)        .end();    </script>]]></content>
+        <content type="html"><![CDATA[<h1 id="RASPBERRY-PI-OS-설치"><a href="#RASPBERRY-PI-OS-설치" class="headerlink" title="RASPBERRY PI OS 설치"></a>RASPBERRY PI OS 설치</h1><p><span class="exturl" data-url="aHR0cHM6Ly93d3cucmFzcGJlcnJ5cGkub3JnL2Rvd25sb2Fkcy8=">RASPBERRY PI OS<i class="fa fa-external-link-alt"></i></span></p><blockquote><p>위 사이트에서 프로그램을 받은 뒤, SD카드 연결 후 아래와 같이 WRITE하면 설치가 된다.</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/93593200-a096ee00-f9ee-11ea-9ea0-e0eb7fb979b4.png" alt="Raspbian"></p><a id="more"></a><hr><h1 id="ssh-연결-허용"><a href="#ssh-연결-허용" class="headerlink" title="ssh 연결 허용"></a>ssh 연결 허용</h1><blockquote><p>RASPBERRY PI OS는 기본적으로 ssh가 disable이므로 설정을 바꿔줘야 한다. SD카드의 최상위 디렉토리에 확장자가 없는 ssh라는 파일을 생성하면 ssh가 enable이 된다.</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/93593734-975a5100-f9ef-11ea-98c6-06172342eaad.png" alt="ssh"></p><blockquote><p>만약 WiFi를 통하여 라즈베리 파이를 이용할 예정이라면, 아래의 이름과 소스를 작성하여 최상위 디렉토리에 저장해야한다.</p></blockquote><figure class="highlight cpp"><figcaption><span>wpa_supplicant.conf</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev</span><br><span class="line">update_config=<span class="number">1</span></span><br><span class="line">network=&#123;</span><br><span class="line">    ssid=<span class="string">&quot;WiFi 이름&quot;</span></span><br><span class="line">    psk=<span class="string">&quot;WiFi 비밀번호&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><h1 id="라즈베리-파이의-IP"><a href="#라즈베리-파이의-IP" class="headerlink" title="라즈베리 파이의 IP"></a>라즈베리 파이의 IP</h1><blockquote><p>라즈베리 파이에 연결된 공유기의 Gateway 주소로 접속 후, 라즈베리 파이의 IP를 알아낸다. Gateway는 아래의 코드를 입력하여 알 수 있다.</p></blockquote><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz1' style='height: 30px'></div>            <script>        new GDemo('#zerohertz1')          .openApp('terminal', {minHeight: '30px', windowTitle: 'zerohertz@zerohertz: ~', promptString: 'zerohertz@zerohertz ~'})    .command(`route <span class="token keyword">get</span> default`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><br/><br/><p><img src="https://user-images.githubusercontent.com/42334717/93594589-2025bc80-f9f1-11ea-869b-eecafaf3e4d8.png" alt="IP"></p><hr><h1 id="ssh-접속"><a href="#ssh-접속" class="headerlink" title="ssh 접속"></a>ssh 접속</h1><blockquote><p>위의 IP를 이용해 ssh로 접속할 수 있다.</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/93594705-4f3c2e00-f9f1-11ea-915d-cf68fa265a84.png" alt="ssh"></p><p><img src="https://user-images.githubusercontent.com/42334717/93594775-75fa6480-f9f1-11ea-9b75-73e182a4ef75.png" alt="ssh"></p><hr><h1 id="고정-IP-할당"><a href="#고정-IP-할당" class="headerlink" title="고정 IP 할당"></a>고정 IP 할당</h1><blockquote><p>WiFi 내에서 라즈베리 파이가 항상 같은 IP(192.168.123.123)를 갖도록 설정하였다.</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/93595293-71827b80-f9f2-11ea-9afd-218e8805b629.png" alt="IP_Config"></p><p><img src="https://user-images.githubusercontent.com/42334717/93595386-a098ed00-f9f2-11ea-9600-c2e1231ae1a0.png" alt="IP_Config"></p><blockquote><p>이후 공유기 자체의 IP를 고정 IP로 설정을 바꿔준다. 또한 포트포워딩을 통해 내부 포트는 22로, 외부 포트는 자유로 설정하고 IP는 위에서 라즈베리 파이에 할당한 IP를 기입한다.</p></blockquote><hr><h1 id="외부에서-ssh-접속"><a href="#외부에서-ssh-접속" class="headerlink" title="외부에서 ssh 접속"></a>외부에서 ssh 접속</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz2' style='height: 30px'></div>            <script>        new GDemo('#zerohertz2')          .openApp('terminal', {minHeight: '30px', windowTitle: 'zerohertz@zerohertz: ~', promptString: 'zerohertz@zerohertz ~'})    .command(`ssh pi@xxx.xxx.xxx.xxx<span class="token punctuation">(</span>고정IP<span class="token punctuation">)</span> <span class="token operator">-</span>p<span class="token punctuation">(</span>외부 포트<span class="token punctuation">)</span>`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><br/><br/><blockquote><p>만약 외부 포트를 22로 할당해주었다면, -p를 제외하고 실행해도 무방하다.</p></blockquote>]]></content>
       
       
       <categories>
@@ -243,9 +243,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -276,9 +276,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -406,9 +406,9 @@
             
             <tag> PHM </tag>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -480,9 +480,9 @@
             
             <tag> Smart data </tag>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -2010,9 +2010,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2039,9 +2039,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2842,9 +2842,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2871,9 +2871,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2981,22 +2981,22 @@
     
     
     <entry>
-      <title>about Zerohertz</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>Categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 60px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '$'})    .command(`안녕하세요. 오효근입니다!`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='career' style='height: 150px'></div>            <script>        new GDemo('#career')          .openApp('terminal', {minHeight: '150px', windowTitle: 'Career', promptString: '$'})    .command(`<span class="token number">2017.03</span> ~ <span class="token punctuation">:</span> Konkuk Univ<span class="token operator">.</span> Mechanical Engineering`, {onCompleteDelay: 300}).command(`<span class="token number">2018.06</span> ~ <span class="token number">2019.11</span> <span class="token punctuation">:</span> Former undergraduate researcher at MRV Lab<span class="token operator">.</span><span class="token punctuation">(</span>Medical Robotics and Virtual Reality Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`<span class="token number">2019.11</span> ~ <span class="token punctuation">:</span> Undergraduate researcher at SiM Lab<span class="token operator">.</span><span class="token punctuation">(</span>Smart intelligent Manufacturing system Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='skills' style='height: 500px'></div>            <script>        new GDemo('#skills')          .openApp('terminal', {minHeight: '500px', windowTitle: 'Skills', promptString: '$'})    .command(`C`, {onCompleteDelay: 300}).command(`C++`, {onCompleteDelay: 300}).command(`Arduino`, {onCompleteDelay: 300}).command(`AutoCAD`, {onCompleteDelay: 300}).command(`Python`, {onCompleteDelay: 300}).command(`RaspberryPi`, {onCompleteDelay: 300}).command(`Linux`, {onCompleteDelay: 300}).command(`MatLab`, {onCompleteDelay: 300}).command(`html`, {onCompleteDelay: 300}).command(`MarkDown`, {onCompleteDelay: 300}).command(`Catia`, {onCompleteDelay: 300}).command(`3ds Max`, {onCompleteDelay: 300}).command(`Unreal Engine`, {onCompleteDelay: 300}).command(`Simulink`, {onCompleteDelay: 300}).command(`R`, {onCompleteDelay: 300}).command(`Cura`, {onCompleteDelay: 300}).command(`LabView`, {onCompleteDelay: 300}).command(`Ansys`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Research-Interests"><a href="#Research-Interests" class="headerlink" title="Research Interests"></a>Research Interests</h1><ul><li>PHM(Prognostic and Health Management)</li><li>Smart Data(Feature Extraction)</li><li>ML(Machine Learning)</li><li>DNN(Deep Neural Network)</li><li>Programming</li></ul>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>Categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>about Zerohertz</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 60px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '$'})    .command(`안녕하세요. 오효근입니다!`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='career' style='height: 150px'></div>            <script>        new GDemo('#career')          .openApp('terminal', {minHeight: '150px', windowTitle: 'Career', promptString: '$'})    .command(`<span class="token number">2017.03</span> ~ <span class="token punctuation">:</span> Konkuk Univ<span class="token operator">.</span> Mechanical Engineering`, {onCompleteDelay: 300}).command(`<span class="token number">2018.06</span> ~ <span class="token number">2019.11</span> <span class="token punctuation">:</span> Former undergraduate researcher at MRV Lab<span class="token operator">.</span><span class="token punctuation">(</span>Medical Robotics and Virtual Reality Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`<span class="token number">2019.11</span> ~ <span class="token punctuation">:</span> Undergraduate researcher at SiM Lab<span class="token operator">.</span><span class="token punctuation">(</span>Smart intelligent Manufacturing system Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='skills' style='height: 500px'></div>            <script>        new GDemo('#skills')          .openApp('terminal', {minHeight: '500px', windowTitle: 'Skills', promptString: '$'})    .command(`C`, {onCompleteDelay: 300}).command(`C++`, {onCompleteDelay: 300}).command(`Arduino`, {onCompleteDelay: 300}).command(`AutoCAD`, {onCompleteDelay: 300}).command(`Python`, {onCompleteDelay: 300}).command(`RaspberryPi`, {onCompleteDelay: 300}).command(`Linux`, {onCompleteDelay: 300}).command(`MatLab`, {onCompleteDelay: 300}).command(`html`, {onCompleteDelay: 300}).command(`MarkDown`, {onCompleteDelay: 300}).command(`Catia`, {onCompleteDelay: 300}).command(`3ds Max`, {onCompleteDelay: 300}).command(`Unreal Engine`, {onCompleteDelay: 300}).command(`Simulink`, {onCompleteDelay: 300}).command(`R`, {onCompleteDelay: 300}).command(`Cura`, {onCompleteDelay: 300}).command(`LabView`, {onCompleteDelay: 300}).command(`Ansys`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Research-Interests"><a href="#Research-Interests" class="headerlink" title="Research Interests"></a>Research Interests</h1><ul><li>PHM(Prognostic and Health Management)</li><li>Smart Data(Feature Extraction)</li><li>ML(Machine Learning)</li><li>DNN(Deep Neural Network)</li><li>Programming</li></ul>]]></content>
       
     </entry>
     
