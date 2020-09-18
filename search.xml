@@ -243,8 +243,6 @@
             
             <tag> Arduino </tag>
             
-            <tag> C, C++ </tag>
-            
             <tag> RaspberryPi </tag>
             
             <tag> Python </tag>
@@ -2990,9 +2988,9 @@
     
     
     <entry>
-      <title>Categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>Tag Cloud</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -3001,9 +2999,9 @@
     
     
     <entry>
-      <title>Tag Cloud</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>Categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
