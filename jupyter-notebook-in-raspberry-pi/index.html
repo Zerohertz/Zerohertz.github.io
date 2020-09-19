@@ -34,32 +34,24 @@
     var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta name="description" content="Mass-Spring-Damper System">
+  <meta name="description" content="Raspberry Pi 초기 설정1234567891011pi@raspberrypi:~ $ sudo apt-get updatepi@raspberrypi:~ $ sudo apt-get install python3-pip -ypi@raspberrypi:~ $ sudo apt-get update -ypi@raspberrypi:~ $ sudo apt-get inst">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Matlab(10)">
-<meta property="og:url" content="https://zerohertz.github.io/matlab-10/index.html">
+<meta property="og:title" content="Jupyter notebook in Raspberry Pi">
+<meta property="og:url" content="https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/index.html">
 <meta property="og:site_name" content="Zerohertz">
-<meta property="og:description" content="Mass-Spring-Damper System">
+<meta property="og:description" content="Raspberry Pi 초기 설정1234567891011pi@raspberrypi:~ $ sudo apt-get updatepi@raspberrypi:~ $ sudo apt-get install python3-pip -ypi@raspberrypi:~ $ sudo apt-get update -ypi@raspberrypi:~ $ sudo apt-get inst">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/70117378-ae21f800-16a8-11ea-91a0-b861a296a778.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/70117517-ffca8280-16a8-11ea-874c-742e2bbb72f8.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/70118412-3d300f80-16ab-11ea-9d22-8fc500c3abbc.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/70118523-82ecd800-16ab-11ea-982c-2b64558e511d.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/70118996-a6fce900-16ac-11ea-9c32-43ead6a57246.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/70119141-fb07cd80-16ac-11ea-90ad-7c9e93341126.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/70120137-2ab7d500-16af-11ea-8fe3-cc9926cf07b6.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/70124317-de24c780-16b7-11ea-801e-bad594ed62ef.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/70122875-cb5cc380-16b4-11ea-9795-d315b54971eb.png">
-<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/70124417-1d531880-16b8-11ea-9acf-d866858e427e.png">
-<meta property="article:published_time" content="2019-12-04T06:10:01.000Z">
-<meta property="article:modified_time" content="2020-01-10T08:46:25.000Z">
+<meta property="og:image" content="https://user-images.githubusercontent.com/42334717/93658730-32e3d400-fa79-11ea-80dd-ed5086acd002.png">
+<meta property="article:published_time" content="2020-09-19T03:38:28.000Z">
+<meta property="article:modified_time" content="2020-09-19T19:43:43.380Z">
 <meta property="article:author" content="Zerohertz">
-<meta property="article:tag" content="Matlab">
+<meta property="article:tag" content="RaspberryPi">
+<meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/70117378-ae21f800-16a8-11ea-91a0-b861a296a778.png">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/42334717/93658730-32e3d400-fa79-11ea-80dd-ed5086acd002.png">
 
 
-<link rel="canonical" href="https://zerohertz.github.io/matlab-10/">
+<link rel="canonical" href="https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/">
 
 
 <script class="page-configurations">
@@ -72,7 +64,7 @@
   };
 </script>
 
-  <title>Matlab(10) | Zerohertz</title>
+  <title>Jupyter notebook in Raspberry Pi | Zerohertz</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
     <script>
@@ -246,7 +238,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Mass-Spring-Damper-System"><span class="nav-number">1.</span> <span class="nav-text">Mass-Spring-Damper System</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Simulink"><span class="nav-number">2.</span> <span class="nav-text">Simulink</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Raspberry-Pi-%EC%B4%88%EA%B8%B0-%EC%84%A4%EC%A0%95"><span class="nav-number">1.</span> <span class="nav-text">Raspberry Pi 초기 설정</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jupyter-notebook-%EC%B4%88%EA%B8%B0-%EC%84%A4%EC%A0%95"><span class="nav-number">2.</span> <span class="nav-text">Jupyter notebook 초기 설정</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Jupyter-notebook-%EC%8B%A4%ED%96%89"><span class="nav-number">3.</span> <span class="nav-text">Jupyter notebook 실행</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -326,7 +318,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/matlab-10/">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
@@ -342,7 +334,7 @@
     
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Matlab(10)
+          Jupyter notebook in Raspberry Pi
         </h1>
 
         <div class="post-meta-container">
@@ -353,14 +345,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2019-12-04 15:10:01" itemprop="dateCreated datePublished" datetime="2019-12-04T15:10:01+09:00">2019-12-04</time>
+      <time title="Created: 2020-09-19 12:38:28" itemprop="dateCreated datePublished" datetime="2020-09-19T12:38:28+09:00">2020-09-19</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-01-10 17:46:25" itemprop="dateModified" datetime="2020-01-10T17:46:25+09:00">2020-01-10</time>
+        <time title="Modified: 2020-09-20 04:43:43" itemprop="dateModified" datetime="2020-09-20T04:43:43+09:00">2020-09-20</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -368,7 +360,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/matlab/" itemprop="url" rel="index"><span itemprop="name">Matlab</span></a>
+          <a href="/categories/raspberrypi/" itemprop="url" rel="index"><span itemprop="name">RaspberryPi</span></a>
         </span>
     </span>
 
@@ -388,8 +380,8 @@
       </span>
       <span class="post-meta-item-text">Disqus: </span>
     
-    <a title="disqus" href="/matlab-10/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="matlab-10/" itemprop="commentCount"></span>
+    <a title="disqus" href="/jupyter-notebook-in-raspberry-pi/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="jupyter-notebook-in-raspberry-pi/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -401,14 +393,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>397</span>
+      <span>1.7k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
+      <span>2 mins.</span>
     </span>
 </div>
 
@@ -419,24 +411,34 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="Mass-Spring-Damper-System"><a href="#Mass-Spring-Damper-System" class="headerlink" title="Mass-Spring-Damper System"></a>Mass-Spring-Damper System</h1><p><img src="https://user-images.githubusercontent.com/42334717/70117378-ae21f800-16a8-11ea-91a0-b861a296a778.png" alt="Mass-Spring-Damper System"></p>
+        <h1 id="Raspberry-Pi-초기-설정"><a href="#Raspberry-Pi-초기-설정" class="headerlink" title="Raspberry Pi 초기 설정"></a>Raspberry Pi 초기 설정</h1><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~ <span class="variable">$</span> sudo apt<span class="literal">-get</span> update</span><br><span class="line">pi@raspberrypi:~ <span class="variable">$</span> sudo apt<span class="literal">-get</span> install python3<span class="literal">-pip</span> <span class="literal">-y</span></span><br><span class="line">pi@raspberrypi:~ <span class="variable">$</span> sudo apt<span class="literal">-get</span> update <span class="literal">-y</span></span><br><span class="line">pi@raspberrypi:~ <span class="variable">$</span> sudo apt<span class="literal">-get</span> install python3<span class="literal">-venv</span></span><br><span class="line">pi@raspberrypi:~ <span class="variable">$</span> python3 <span class="literal">-m</span> venv zerohertz</span><br><span class="line">pi@raspberrypi:~ <span class="variable">$</span> source ~/zerohertz/bin/activate</span><br><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> pip install -<span class="literal">-upgrade</span> pip</span><br><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> pip install jupyter notebook</span><br><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> pip install ipykernel</span><br><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> python <span class="literal">-m</span> ipykernel install -<span class="literal">-user</span> -<span class="literal">-name</span>=zerohertz</span><br><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> jupyter notebook -<span class="literal">-generate</span><span class="literal">-config</span></span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
-<p><img src="https://user-images.githubusercontent.com/42334717/70117517-ffca8280-16a8-11ea-874c-742e2bbb72f8.png" alt="General Solution"></p>
-<blockquote>
-<p>General Solution</p>
-</blockquote>
-<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">syms s x0 xp0 wn z;</span><br><span class="line">Xs=(x0*(s+z*wn)+(xp0+z*wn*x0)/(wn*(<span class="built_in">sqrt</span>(<span class="number">1</span>-z^<span class="number">2</span>)))*wn*<span class="built_in">sqrt</span>(<span class="number">1</span>- z^<span class="number">2</span>))/((s+z*wn)^<span class="number">2</span>+(wn*<span class="built_in">sqrt</span>(<span class="number">1</span>-z^<span class="number">2</span>))^<span class="number">2</span>)</span><br><span class="line">U=ilaplace(Xs)</span><br></pre></td></tr></table></figure>
 
-<blockquote>
-<p>실행결과</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Xs &#x3D;</span><br><span class="line"> </span><br><span class="line">-(xp0 + x0*(s + wn*z) + wn*x0*z)&#x2F;(wn^2*(z^2 - 1) - (s + wn*z)^2)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">U &#x3D;</span><br><span class="line"> </span><br><span class="line">x0*exp(-t*wn*z)*(cosh(t*wn*(z^2 - 1)^(1&#x2F;2)) - (sinh(t*wn*(z^2 - 1)^(1&#x2F;2))*(wn*z - (xp0 + 2*wn*x0*z)&#x2F;x0))&#x2F;(wn*(z^2 - 1)^(1&#x2F;2)))</span><br></pre></td></tr></table></figure>
 <hr>
-<h1 id="Simulink"><a href="#Simulink" class="headerlink" title="Simulink"></a>Simulink</h1><p><img src="https://user-images.githubusercontent.com/42334717/70118412-3d300f80-16ab-11ea-9d22-8fc500c3abbc.png" alt="Look up table"><br><img src="https://user-images.githubusercontent.com/42334717/70118523-82ecd800-16ab-11ea-982c-2b64558e511d.png" alt="display b, k"><br><img src="https://user-images.githubusercontent.com/42334717/70118996-a6fce900-16ac-11ea-9c32-43ead6a57246.png" alt="Wn, Zeta"><br><img src="https://user-images.githubusercontent.com/42334717/70119141-fb07cd80-16ac-11ea-90ad-7c9e93341126.png" alt="Dynamic properties at 32&#39;C"></p>
-<p><img src="https://user-images.githubusercontent.com/42334717/70120137-2ab7d500-16af-11ea-8fe3-cc9926cf07b6.png" alt="Subsystem"><br><img src="https://user-images.githubusercontent.com/42334717/70124317-de24c780-16b7-11ea-801e-bad594ed62ef.png"></p>
-<p><img src="https://user-images.githubusercontent.com/42334717/70122875-cb5cc380-16b4-11ea-9795-d315b54971eb.png" alt="Pretty"></p>
-<p><img src="https://user-images.githubusercontent.com/42334717/70124417-1d531880-16b8-11ea-9acf-d866858e427e.png" alt="Scope"></p>
+<h1 id="Jupyter-notebook-초기-설정"><a href="#Jupyter-notebook-초기-설정" class="headerlink" title="Jupyter notebook 초기 설정"></a>Jupyter notebook 초기 설정</h1><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> <span class="built_in">cd</span> .jupyter/</span><br><span class="line">(zerohertz) pi@raspberrypi:~/.jupyter <span class="variable">$</span> ipython</span><br><span class="line">Python <span class="number">3.7</span>.<span class="number">3</span> (default, Jul <span class="number">25</span> <span class="number">2020</span>, <span class="number">13</span>:<span class="number">03</span>:<span class="number">44</span>)</span><br><span class="line"><span class="built_in">Type</span> <span class="string">&#x27;copyright&#x27;</span>, <span class="string">&#x27;credits&#x27;</span> or <span class="string">&#x27;license&#x27;</span> <span class="keyword">for</span> more information</span><br><span class="line">IPython <span class="number">7.18</span>.<span class="number">1</span> -- An enhanced Interactive Python. <span class="built_in">Type</span> <span class="string">&#x27;?&#x27;</span> <span class="keyword">for</span> help.</span><br><span class="line"></span><br><span class="line"><span class="keyword">In</span> [<span class="number">1</span>]: from notebook.auth import passwd</span><br><span class="line"></span><br><span class="line"><span class="keyword">In</span> [<span class="number">2</span>]: passwd()</span><br><span class="line">Enter password:</span><br><span class="line">Verify password:</span><br><span class="line">Out[<span class="number">2</span>]: <span class="string">&#x27;argon2:$argon2id$v=19$m=10240,t=10,p=8$m+aqEGBeyldGR0GXSWzrgA$WZwA4udVMOnjOX27aYJaBA&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">In</span> [<span class="number">3</span>]: <span class="keyword">exit</span>()</span><br><span class="line"></span><br><span class="line">(zerohertz) pi@raspberrypi:~/.jupyter <span class="variable">$</span> nano jupyter_notebook_config.py</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>nano 에디터를 통해 아래와 같이 수정한다.</p>
+</blockquote>
+<p><img src="https://user-images.githubusercontent.com/42334717/93658730-32e3d400-fa79-11ea-80dd-ed5086acd002.png" alt="Jupyter"></p>
+<blockquote>
+<p>가상환경에서 deactivate 명령어로 나올 수 있다.</p>
+</blockquote>
+<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> deactivate</span><br><span class="line">pi@raspberrypi:~ <span class="variable">$</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Jupyter-notebook-실행"><a href="#Jupyter-notebook-실행" class="headerlink" title="Jupyter notebook 실행"></a>Jupyter notebook 실행</h1><figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~ <span class="variable">$</span> source ~/zerohertz/bin/activate</span><br><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> jupyter notebook</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>만약, 백그라운드에서 Jupyter notebook을 실행하고 싶다면 아래와 같이 실행한다.</p>
+</blockquote>
+<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pi@raspberrypi:~ <span class="variable">$</span> source ~/zerohertz/bin/activate</span><br><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> nohup jupyter notebook &amp;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>종료 시, 아래와 같이 실행한다.</p>
+</blockquote>
+<figure class="highlight ps"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> lsof nohup.out</span><br><span class="line">COMMAND    PID      USER   FD   <span class="built_in">TYPE</span> DEVICE SIZE/OFF   NODE NAME</span><br><span class="line">jupyter<span class="literal">-n</span> <span class="number">3008</span> zerohertz    <span class="number">1</span>w   REG  <span class="number">179</span>,<span class="number">2</span>     <span class="number">1310</span> <span class="number">401054</span> nohup.out</span><br><span class="line">jupyter<span class="literal">-n</span> <span class="number">3008</span> zerohertz    <span class="number">2</span>w   REG  <span class="number">179</span>,<span class="number">2</span>     <span class="number">1310</span> <span class="number">401054</span> nohup.out</span><br><span class="line">(zerohertz) pi@raspberrypi:~ <span class="variable">$</span> <span class="built_in">kill</span> <span class="literal">-9</span> <span class="number">3008</span>(PID)</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -446,19 +448,19 @@
   <div class="popular-posts-header">Related posts</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/arduino-nano-33-ble/" rel="bookmark">Arduino Nano 33 BLE</a></div>
+    </li>
+    <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/" rel="bookmark">Development of a Obstructive Sleep Apnea Diagnosis Algorithm Using HRV</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/diagnosis-systems-for-ball-bearing-cage-defects-using-fisher-discriminant-ratio/" rel="bookmark">Diagnosis Systems for Ball Bearing Cage Defects using Fisher Discriminant Ratio</a></div>
+      <div class="popular-posts-title"><a href="/serial-communication-arduino-to-raspberrypi/" rel="bookmark">Serial Communication(Arduino to RaspberryPi)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+      <div class="popular-posts-title"><a href="/source-code-obstructive-sleep-apnea/" rel="bookmark">Source Code(Obstructive Sleep Apnea)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer</a></div>
-    </li>
-    <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/matlab-1/" rel="bookmark">Matlab(1)</a></div>
+      <div class="popular-posts-title"><a href="/face-recognition-by-raspberrypi/" rel="bookmark">Face recognition by RaspberryPi</a></div>
     </li>
   </ul>
 
@@ -473,7 +475,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>Post link: </strong>
-      <a href="https://zerohertz.github.io/matlab-10/" title="Matlab(10)">https://zerohertz.github.io/matlab-10/</a>
+      <a href="https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/" title="Jupyter notebook in Raspberry Pi">https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/</a>
   </li>
   <li class="post-copyright-license">
     <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
@@ -482,21 +484,19 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/matlab/" rel="tag"><i class="fa fa-tag"></i> Matlab</a>
+              <a href="/tags/raspberrypi/" rel="tag"><i class="fa fa-tag"></i> RaspberryPi</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/matlab-9/" rel="prev" title="Matlab(9)">
-                  <i class="fa fa-chevron-left"></i> Matlab(9)
+                <a href="/raspberry-pi-server/" rel="prev" title="라즈베리파이로 간단한 서버 만들기">
+                  <i class="fa fa-chevron-left"></i> 라즈베리파이로 간단한 서버 만들기
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/matlab-11/" rel="next" title="Matlab(11)">
-                  Matlab(11) <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -650,9 +650,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://zerohertz.github.io/matlab-10/";
-    this.page.identifier = "matlab-10/";
-    this.page.title = "Matlab(10)";
+    this.page.url = "https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/";
+    this.page.identifier = "jupyter-notebook-in-raspberry-pi/";
+    this.page.title = "Jupyter notebook in Raspberry Pi";
     };
   NexT.utils.loadComments('#disqus_thread', () => {
     if (window.DISQUS) {

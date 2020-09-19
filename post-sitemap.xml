@@ -8,16 +8,24 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/serial-communication-arduino-to-raspberrypi/</loc>
-        <lastmod>2020-09-18T15:58:15.052Z</lastmod>
+        <loc>https://zerohertz.github.io/raspberry-pi-server/</loc>
+        <lastmod>2020-09-19T19:43:53.759Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/raspberry-pi-server/</loc>
-        <lastmod>2020-09-18T15:53:34.683Z</lastmod>
+        <loc>https://zerohertz.github.io/jupyter-notebook-in-raspberry-pi/</loc>
+        <lastmod>2020-09-19T19:43:43.380Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/serial-communication-arduino-to-raspberrypi/</loc>
+        <lastmod>2020-09-18T15:58:15.052Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
