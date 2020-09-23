@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/introduction-to-music/</loc>
+        <lastmod>2020-09-23T12:30:06.196Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/political-science/</loc>
+        <lastmod>2020-09-22T16:59:07.284Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/raspberry-pi-server/</loc>
         <lastmod>2020-09-19T19:43:53.759Z</lastmod>
         <changefreq>daily</changefreq>
@@ -72,24 +88,8 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/introduction-to-music/</loc>
-        <lastmod>2020-09-15T07:04:51.857Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/source-code-obstructive-sleep-apnea/</loc>
         <lastmod>2020-09-14T05:04:39.408Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/political-science/</loc>
-        <lastmod>2020-09-11T15:51:33.770Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
