@@ -9,7 +9,7 @@
 
     <url>
         <loc>https://zerohertz.github.io/introduction-to-music/</loc>
-        <lastmod>2020-09-23T12:30:06.196Z</lastmod>
+        <lastmod>2020-09-25T16:47:17.656Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -17,7 +17,15 @@
 
     <url>
         <loc>https://zerohertz.github.io/political-science/</loc>
-        <lastmod>2020-09-22T16:59:07.284Z</lastmod>
+        <lastmod>2020-09-25T08:57:40.903Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/source-code-obstructive-sleep-apnea/</loc>
+        <lastmod>2020-09-24T05:21:52.170Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -74,22 +82,6 @@
     <url>
         <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
         <lastmod>2020-09-17T11:27:36.889Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/product-design-for-manufacturing/</loc>
-        <lastmod>2020-09-17T05:01:45.018Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/source-code-obstructive-sleep-apnea/</loc>
-        <lastmod>2020-09-14T05:04:39.408Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 

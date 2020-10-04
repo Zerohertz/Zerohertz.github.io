@@ -42,11 +42,11 @@
 <meta property="og:description" content="Prototype 1(Arduino, Computer)ArduinoSenosr.ino1234567891011121314151617181920212223242526272829void setup() &amp;#123;  Serial.begin(2000000);&amp;#125;void loop() &amp;#123;  int x_val &#x3D; analogRead(A0);  int y_">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-07-27T09:27:01.000Z">
-<meta property="article:modified_time" content="2020-09-14T05:04:39.408Z">
+<meta property="article:modified_time" content="2020-09-24T05:21:52.170Z">
 <meta property="article:author" content="Zerohertz">
-<meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="Signal Processing">
 <meta property="article:tag" content="PHM">
+<meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="Arduino">
 <meta property="article:tag" content="C, C++">
 <meta property="article:tag" content="RaspberryPi">
@@ -182,7 +182,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">104</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">103</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -259,7 +259,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">104</span>
+          <span class="site-state-item-count">103</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -358,7 +358,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-09-14 14:04:39" itemprop="dateModified" datetime="2020-09-14T14:04:39+09:00">2020-09-14</time>
+        <time title="Modified: 2020-09-24 14:21:52" itemprop="dateModified" datetime="2020-09-24T14:21:52+09:00">2020-09-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -441,7 +441,7 @@
 <hr>
 <h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="Undersampling"><a href="#Undersampling" class="headerlink" title="Undersampling"></a>Undersampling</h2><figure class="highlight r"><figcaption><span>undersampling.R</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">setwd(<span class="string">&quot;/Users/zerohertz/MATLAB/Obstructive Sleep Apnea/&quot;</span>)</span><br><span class="line"></span><br><span class="line">del=read.csv(<span class="string">&quot;delta.csv&quot;</span>,header=<span class="literal">T</span>)</span><br><span class="line"></span><br><span class="line">del0=subset(del,subset=(del$Sleep==<span class="number">0</span>))</span><br><span class="line">del10=subset(del,subset=(del$Sleep==<span class="number">10</span>))</span><br><span class="line">del20=subset(del,subset=(del$Sleep==<span class="number">20</span>))</span><br><span class="line">del30=subset(del,subset=(del$Sleep==<span class="number">30</span>))</span><br><span class="line">del40=subset(del,subset=(del$Sleep==<span class="number">40</span>))</span><br><span class="line"></span><br><span class="line">s1=del10[sample(nrow(del10),<span class="number">1252</span>,replace=<span class="literal">FALSE</span>),]</span><br><span class="line">s2=del20[sample(nrow(del20),<span class="number">10954</span>,replace=<span class="literal">FALSE</span>),]</span><br><span class="line">s3=del30[sample(nrow(del30),<span class="number">1643</span>,replace=<span class="literal">FALSE</span>),]</span><br><span class="line">s4=del40[sample(nrow(del40),<span class="number">4421</span>,replace=<span class="literal">FALSE</span>),]</span><br><span class="line"></span><br><span class="line">sleep=rbind(s1,s2,s3,s4)</span><br><span class="line"></span><br><span class="line">write.table(sleep,file=<span class="string">&quot;sl1.csv&quot;</span>,sep=<span class="string">&quot;,&quot;</span>,row.names=<span class="literal">F</span>,col.names=<span class="literal">T</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="Make-Label-Data"><a href="#Make-Label-Data" class="headerlink" title="Make Label Data"></a>Make Label Data</h2><figure class="highlight r"><figcaption><span>MakeLabelData</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(i &lt;= length(raw[,<span class="number">1</span>]))&#123;</span><br><span class="line">	time=raw[i,<span class="number">1</span>]</span><br><span class="line">	ti=time%/%<span class="number">30</span>+<span class="number">1</span></span><br><span class="line">	raw[i,<span class="number">6</span>]=lab[ti,<span class="number">1</span>]</span><br><span class="line">	i=i+<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">write.table(raw,file=<span class="string">&quot;label.csv&quot;</span>,sep=<span class="string">&quot;,&quot;</span>,row.names=<span class="literal">F</span>,col.names=<span class="literal">F</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="Make-Label-Data"><a href="#Make-Label-Data" class="headerlink" title="Make Label Data"></a>Make Label Data</h2><figure class="highlight r"><figcaption><span>MakeLabelData</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(i &lt;= length(raw[,<span class="number">1</span>]))&#123;</span><br><span class="line">	time=raw[i,<span class="number">1</span>]</span><br><span class="line">	ti=time%/%<span class="number">30</span>+<span class="number">1</span></span><br><span class="line">	raw[i,<span class="number">6</span>]=lab[ti,<span class="number">1</span>]</span><br><span class="line">  <span class="keyword">if</span>(lab[ti,<span class="number">1</span>]==<span class="string">&#x27;W&#x27;</span>)&#123;</span><br><span class="line">    raw[i,<span class="number">7</span>]=<span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(lab[ti,<span class="number">1</span>]==<span class="string">&#x27;N1&#x27;</span>)&#123;</span><br><span class="line">    raw[i,<span class="number">7</span>]=<span class="number">10</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(lab[ti,<span class="number">1</span>]==<span class="string">&#x27;N2&#x27;</span>)&#123;</span><br><span class="line">    raw[i,<span class="number">7</span>]=<span class="number">20</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(lab[ti,<span class="number">1</span>]==<span class="string">&#x27;N3&#x27;</span>)&#123;</span><br><span class="line">    raw[i,<span class="number">7</span>]=<span class="number">30</span></span><br><span class="line">  &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(lab[ti,<span class="number">1</span>]==<span class="string">&#x27;R&#x27;</span>)&#123;</span><br><span class="line">    raw[i,<span class="number">7</span>]=<span class="number">40</span></span><br><span class="line">  &#125;</span><br><span class="line">  i=i+<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">write.table(raw,file=<span class="string">&quot;label.csv&quot;</span>,sep=<span class="string">&quot;,&quot;</span>,row.names=<span class="literal">F</span>,col.names=<span class="literal">F</span>)</span><br></pre></td></tr></table></figure>
 
 <hr>
 <h1 id="DNF-Number"><a href="#DNF-Number" class="headerlink" title="DNF Number"></a>DNF Number</h1><figure class="highlight matlab"><figcaption><span>dnf.m</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">dnf_num</span> = <span class="title">dnf</span><span class="params">(c1, c2, al, be)</span></span></span><br><span class="line">    dnf_num = <span class="number">1</span>/(al+be)*(al*(kurtosis(c1)/kurtosis(c2))+be*(<span class="built_in">sqrt</span>(var(c1))/<span class="built_in">sqrt</span>(var(c2))));</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
@@ -457,10 +457,10 @@
       <div class="popular-posts-title"><a href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/" rel="bookmark">Development of a Obstructive Sleep Apnea Diagnosis Algorithm Using HRV</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/diagnosis-systems-for-ball-bearing-cage-defects-using-fisher-discriminant-ratio/" rel="bookmark">Diagnosis Systems for Ball Bearing Cage Defects using Fisher Discriminant Ratio</a></div>
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+      <div class="popular-posts-title"><a href="/diagnosis-systems-for-ball-bearing-cage-defects-using-fisher-discriminant-ratio/" rel="bookmark">Diagnosis Systems for Ball Bearing Cage Defects using Fisher Discriminant Ratio</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer</a></div>
@@ -490,9 +490,9 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
               <a href="/tags/signal-processing/" rel="tag"><i class="fa fa-tag"></i> Signal Processing</a>
               <a href="/tags/phm/" rel="tag"><i class="fa fa-tag"></i> PHM</a>
+              <a href="/tags/machine-learning/" rel="tag"><i class="fa fa-tag"></i> Machine Learning</a>
               <a href="/tags/arduino/" rel="tag"><i class="fa fa-tag"></i> Arduino</a>
               <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> C, C++</a>
               <a href="/tags/raspberrypi/" rel="tag"><i class="fa fa-tag"></i> RaspberryPi</a>
@@ -579,14 +579,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">568k</span>
+    <span title="Symbols count total">563k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">8:36</span>
+    <span title="Reading time total">8:31</span>
   </span>
 </div>
 <div class="busuanzi-count">
