@@ -106,30 +106,11 @@
     
     
     <entry>
-      <title>Introduction to music</title>
-      <link href="/introduction-to-music/"/>
-      <url>/introduction-to-music/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><h2 id="음악의-구성"><a href="#음악의-구성" class="headerlink" title="음악의 구성"></a>음악의 구성</h2><ul><li>음악의 3요소<ul><li>리듬</li><li>가락</li><li>화성</li></ul></li><li>음악의 5요소<ul><li>리듬</li><li>가락</li><li>화성</li><li>소리</li><li>작곡가, 연주가의 생각</li></ul></li></ul><a id="more"></a><h2 id="소리"><a href="#소리" class="headerlink" title="소리"></a>소리</h2><ul><li>물리적 이해<ul><li>공기의 진동<ul><li>공기압의 변동</li><li>압력의 변화</li></ul></li><li>소리의 성질<ul><li>직진</li><li>반사</li><li>흡수</li><li>투과</li><li>회절</li><li>빛은 소리보다 빠름</li></ul></li><li>소리와 소음<ul><li>데시벨(Decibel) : 음량을 나타내는 단위</li><li>1dB : 가청한계, 양탄자 위에 바늘이 떨어지는 소리</li><li>10dB : 숨소리, 나뭇잎 바람에 흔들리는 소리</li><li>30dB : 속삭임</li><li>50dB : 정상적인 대화</li><li>85dB : 주간 도시의 소음 기준치</li><li>90dB : 술집</li><li>100dB : 노래방</li><li>115dB : 클럽, 자동차경적(최대 허용치 15분)</li><li>120dB : 귀가 고통을 느끼기 시작</li><li>160dB : 귓전에서 쏜 총소리</li></ul></li></ul></li><li>음악적 이해<ul><li>음색</li><li>공명</li><li>소리의 상대성(셈여림 - 인식 좌우)</li></ul></li><li>음의 3요소<ul><li>음정(음의 고저)</li><li>강약(음의 세기)</li><li>음색(배음, Overtone)</li></ul></li></ul><h2 id="작곡가-연주가의-생각"><a href="#작곡가-연주가의-생각" class="headerlink" title="작곡가, 연주가의 생각"></a>작곡가, 연주가의 생각</h2><ul><li>존 케이지(1912 ~ 1992)<ul><li>불확실성 음악</li><li>우연성의 음악</li><li>대표작 : 4분 33초(1952)</li></ul></li></ul><h2 id="음정"><a href="#음정" class="headerlink" title="음정"></a>음정</h2><ul><li>음 하나하나가 가지는 고유의 음 높이 또는 음과 음 사이의 간격</li><li>Hz(Hertz) : 진동수의 단위, 1초 동안의 진동횟수(라음은 440Hz)</li><li>고정음정 악기(Ex. 피아노)</li><li>성악은 약간의 음정 변화로 다양한 음악적 표현 가능</li><li>가락음정 : 두 음이 따로 울릴 때의 음정</li><li>화성음정 : 같이 울릴 때의 음정</li><li>장음계 : 3<del>4음과 7</del>8음 사이가 반음</li><li>자연 단음계 : 2<del>3음과 5</del>6음 사이가 반음이고 나머지는 온음으로 구성</li><li>화성 단음계 : 자연 단음계의 제 7음을 반음 올려준 음계</li><li>가락 단음계 : 상향시에는 자연 단음계의 제 6음과 제 7음을 반음 올려주고 하향시에는 자연 단음계를 연주</li></ul><h3 id="장조와-단조의-음악적-특성"><a href="#장조와-단조의-음악적-특성" class="headerlink" title="장조와 단조의 음악적 특성"></a>장조와 단조의 음악적 특성</h3><ul><li>장조 : 활기차고 밝음</li><li>단조 : 쓸쓸하고 우울함</li></ul><h2 id="화음"><a href="#화음" class="headerlink" title="화음"></a>화음</h2><ul><li>정의 : 높이가 다른 두 개 이상의 음이 동시에 울리는 것</li><li>3화음 : 어떤 음을 밑음으로하여 위로 3도, 5도로 음을 쌓아서 동시에 울리는 소리</li></ul><h3 id="협화음과-불협화음"><a href="#협화음과-불협화음" class="headerlink" title="협화음과 불협화음"></a>협화음과 불협화음</h3><ul><li>정의 : 어울리는 음, 또는 어울리지 않는 음</li><li>완전 4도는 고대 때 완전음정</li><li>중세부터 불완전 장3도, 6도 음정, 불완전 음정에서 완전음정</li><li>듣는 사람의 판단에 따라 결정 되어질 수 있음</li></ul><h2 id="음악제목-읽기"><a href="#음악제목-읽기" class="headerlink" title="음악제목 읽기"></a>음악제목 읽기</h2><ul><li>Example<ul><li>Beethoven Symphony No. 9 in D minor, Op. 125<ul><li>베토벤 교향곡 제 9번 라단조 작품번호 125번</li></ul></li><li>Symphony No. 6 in B minor, Op. 74 “Pathetique”<ul><li>교향곡 제 6번 단조 작품번호 74 비창</li></ul></li></ul></li><li>곡의 형식 / 형식에 따른 번호(No.) / 조성 / 작품번호 / 부제 / 악장 / 빠르기말</li></ul><h2 id="악곡-전체의-빠르기를-나타내는-말"><a href="#악곡-전체의-빠르기를-나타내는-말" class="headerlink" title="악곡 전체의 빠르기를 나타내는 말"></a>악곡 전체의 빠르기를 나타내는 말</h2><ul><li><strong>Grave</strong> : 아주 느리고 장중하게<ul><li>BMV 1003, Violin Sonata, Grave</li></ul></li><li>Largo : 아주 느리고 폭넓게(넓게, 여유있는)</li><li>Lento : 아주 느리고 무겁게</li><li><strong>Adagio</strong> : 아주 느리고 침착하게(조용히 내려놓다)</li><li><strong>Andante</strong> : 느리게(걷다)</li><li>Andantino : 조금 느리게</li><li><strong>Moderato</strong> : 보통 빠르게</li><li>Allegretto : 조금 빠르게</li><li><strong>Allegro</strong> : 빠르게(명랑한, 활발한)<ul><li>Eine Kleine Nachtmusik in G major, K. 525</li></ul></li><li><strong>Vivace</strong> : 빠르고 활발하게</li><li><strong>Presto</strong> : 매우 빠르게</li></ul><h2 id="악곡-일부의-빠르기에-변화를-주는-말"><a href="#악곡-일부의-빠르기에-변화를-주는-말" class="headerlink" title="악곡 일부의 빠르기에 변화를 주는 말"></a>악곡 일부의 빠르기에 변화를 주는 말</h2><ul><li>R it(리타르단도) : 점점 느리게(곡의 종지 시)</li><li>R all(랄렐탄도) : 점점 느리게(곡이 계속 진행)</li><li>accel(아첼라란도) : 점점 빠르게</li><li>A Tempo : 본디 빠르기로</li><li>Tempo Primo : 처음 빠르기로</li><li>tempo rubato : 음의 길이를 자유롭게</li></ul><hr><h1 id="음악의-구분과-종류"><a href="#음악의-구분과-종류" class="headerlink" title="음악의 구분과 종류"></a>음악의 구분과 종류</h1><h2 id="시대별-구분-및-명칭"><a href="#시대별-구분-및-명칭" class="headerlink" title="시대별 구분 및 명칭"></a>시대별 구분 및 명칭</h2><ul><li>중세시대 : 약 200년 ~ 1450년</li><li>르네상스시대 : 약 1450년 ~ 1600년</li><li>바로크시대 : 약 1600년 ~ 1750년</li><li>고전시대 : 약 1750년 ~ 1827년</li><li>낭만시대 : 약 1827년 ~ 1900년</li><li>현대시대 : 약 1900년 ~ 현재</li></ul><h2 id="인성음악-vs-기악음악"><a href="#인성음악-vs-기악음악" class="headerlink" title="인성음악 vs. 기악음악"></a>인성음악 vs. 기악음악</h2><h3 id="인성음악"><a href="#인성음악" class="headerlink" title="인성음악"></a>인성음악</h3><blockquote><p>사람의 목소리로 구성된 음악</p></blockquote><ul><li>솔로 성악곡<ul><li>가곡</li><li>아리아</li></ul></li><li>합창곡<ul><li>예술 합창</li><li>종교 합창(미사곡, 오라토리오)</li><li>오페라 합창</li></ul></li></ul><h3 id="기악음악"><a href="#기악음악" class="headerlink" title="기악음악"></a>기악음악</h3><blockquote><p>악기로 구성된 음악</p></blockquote><ul><li>독주 기악곡 : 피아노, 관현악 각 악기</li><li>교향곡(Symphony) : 오케스트라</li><li>협주곡(Concerto) : 오케스트라 + 솔로악기</li></ul><h2 id="음악의-기원"><a href="#음악의-기원" class="headerlink" title="음악의 기원"></a>음악의 기원</h2><h3 id="고대의-음악"><a href="#고대의-음악" class="headerlink" title="고대의 음악"></a>고대의 음악</h3><ul><li>메소포타미아 음악</li><li>이스라엘 음악</li><li>고대 이집트 음악</li><li>고대 그리스 음악<ul><li>피타고라스(B.C. 582년 ~ 500년)<ul><li>음악의 과학적 기초 세움</li><li>천체가 거대한 하모니를 만들고 있다고 믿음</li><li>중세 음악관에 영향</li></ul></li><li>에토스론(Ethos) : 음악이 인간의 성격(Ethos)에 강한 영향을 준다는 믿음<ul><li>피타고라스 : 음악을 영혼의 카타르시스를 위한 수단으로 봄</li><li>플라톤 : 음악의 선택적 사용</li><li>아리스토텔레스 : 모든 음악 선택</li></ul></li></ul></li><li>고대 로마 음악</li></ul><h3 id="중세의-음악"><a href="#중세의-음악" class="headerlink" title="중세의 음악"></a>중세의 음악</h3><ul><li>보에티우스(Boethius, 480년 ~ 524년, 로마 최후의 저술가, 철학자)<ul><li>Musicam naturaliter nobis esse conjunctam, et mores vel honestare vel evertere</li><li>음악은 본성적으로 우리와 연관되어 있으며, 성격을 고상하게 만들거나 타락시킬 수 있다.</li><li>구분<ul><li>천체의 음악</li><li>인간의 음악</li><li>악기의 음악</li></ul></li></ul></li></ul><h4 id="단성교회음악"><a href="#단성교회음악" class="headerlink" title="단성교회음악"></a>단성교회음악</h4><blockquote><p>500년 ~ 1450년</p></blockquote><ul><li>성무일도(하루 총 8번)<ul><li>수도원에서 매일 일정한 시간에 거행되는 의식</li><li>그리스도교 탄압시절 철야기도가 기원</li></ul></li><li>미사(Missa, lte missa est)<ul><li>최후의 만찬을 상징적으로 재현하고 기념하는 로마 그리스도교의 가장 중요한 전례의식</li><li>원래 Eucharist(성찬식)로 불리며, ‘성무일도’ 사이에 거행되다가 점차 복잡해지고 중요성이 커지며 ‘성무일도’로부터 독립하여 미사가 됨</li></ul></li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> Etc. </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Political science</title>
       <link href="/political-science/"/>
       <url>/political-science/</url>
       
-        <content type="html"><![CDATA[<h1 id="Politics-and-Political-Science"><a href="#Politics-and-Political-Science" class="headerlink" title="Politics and Political Science"></a>Politics and Political Science</h1><h2 id="인간-생활의-본질"><a href="#인간-생활의-본질" class="headerlink" title="인간 생활의 본질"></a>인간 생활의 본질</h2><ul><li>Aristotle : 인간은 정치적 동물<ul><li>정치는 인간사회에 반드시 필요하고 인간사회에서만 가능한 현상</li><li>정치적 동물인 인간의 사회에는 반드시 권력 발생</li></ul></li><li>B. Russell : 인간의 생활현상은 3가지 투쟁의 연속<ul><li>인간과 자연의 투쟁 -&gt; 자연과학, 물질문명 발달</li><li>인간과 인간 자신과의 내부 투쟁 -&gt; 정신문화 발달</li><li>인간과 다른 인간과의 투쟁 -&gt; 정치현상 발생</li></ul></li></ul><a id="more"></a><h2 id="정치는-왜-필요한가"><a href="#정치는-왜-필요한가" class="headerlink" title="정치는 왜 필요한가?"></a>정치는 왜 필요한가?</h2><blockquote><p>“이기적인 인간의 사회에 왜 질서 있는 사회가 창조, 유지, 변화되는가?”, T. Hobbes</p></blockquote><ul><li>사회를 존속</li><li>반사회적 행위를 통제하여 사회질서 유지</li><li>모든 사람이 갈망하는 이상사회로 진보</li></ul><blockquote><p>정치는 구성원이 현실에서 직면하는 공통의 문제를 해결하고, 좀 더 이상적인 사회를 창조하는 능동적인 집단 행위. 특히 집단행위에는 지도자의 통합 능력, 방향 제시 능력이 중요하게 작용한다.</p></blockquote><h2 id="정치의-세-가지-측면"><a href="#정치의-세-가지-측면" class="headerlink" title="정치의 세 가지 측면"></a>정치의 세 가지 측면</h2><ul><li>정치는 집단 내부 또는 집단 사이에서 발생하는 행위</li><li>집단에 영향을 미치는 문제에 대한 공동 결정</li><li>집단 구성원에 대한 구속력, 복종, 강제</li></ul><blockquote><p>정치는 전체 공동체에 영향을 미치는 결정을 내리고, 그 결정을 집행하는 행위 또는 과정</p></blockquote><h2 id="정치에-대한-다양한-생각들"><a href="#정치에-대한-다양한-생각들" class="headerlink" title="정치에 대한 다양한 생각들"></a>정치에 대한 다양한 생각들</h2><ul><li>정치는 시대에 따라, 공간에 따라 달리 이해되어왔으며 앞으로도 그럴 것이다</li><li>정치는 생물이다</li><li>자기보존(Self-preservation) : 시대에 따른 정치 개념의 차이<ul><li>근대 : 개인의 생명, 자유, 재산이라는 기본권</li><li>국제관계 : 국가의 자기보존, 생존은 곧 주권의 문제</li><li>냉전 시대의 자기보존 주체는 진영(사회주의, 자본주의)</li></ul></li></ul><h3 id="고대"><a href="#고대" class="headerlink" title="고대"></a>고대</h3><ul><li>서양<ul><li>Plato : 인간 영혼의 최고선을 동시공동체(Polis)안에서 실현시키는 것</li><li>Aristotle : 정치적 동물인 인간이 사회 전체(Polis)의 선을 실현시키는 것</li></ul></li><li>동양<ul><li>공자 : 정자정야(바르게 잡는 것)</li><li>맹자 : 정치의 본질은 백성을 위하는 것</li><li>한비자 : 법치에 기반을 둔 군주의 다스림과 군주의 통치권력 강조</li></ul></li></ul><h3 id="르네상스"><a href="#르네상스" class="headerlink" title="르네상스"></a>르네상스</h3><ul><li>N. Machiavelli<ul><li>정치는 권력을 둘러싼 대립과 투쟁</li><li>종교나 윤리로부터 정치 분리</li></ul></li></ul><blockquote><p>갈등의 해소를 통해 정치 안정을 유지하는 길만이 민족의 생존과 자유를 보장하는 길</p></blockquote><h3 id="근대"><a href="#근대" class="headerlink" title="근대"></a>근대</h3><ul><li>사회계약론<ul><li>‘사회나 국가는 자연 상태의 개인이 맺는 계약을 통해 창출된다’라는 사상의 큰 틀을 공유</li><li>T. Hobbes : 강력한 지배자의 통치를 통하여 질서를 유지하고 개인의 생명과 재산을 보존하는 일</li><li>J. Locke : 개개인의 자유를 확보하는 활동</li></ul></li></ul><blockquote><p>근대 부르주아 계급은 자신들의 기본권(개인의 자유)을 유지하기 위한 투쟁 전개</p><blockquote><p>국가를 대변하는 귀족계급과 대립</p></blockquote></blockquote><h3 id="현대"><a href="#현대" class="headerlink" title="현대"></a>현대</h3><ul><li>David Easton<ul><li>사회의 (희소한) 가치를 권위적으로 배분하는 것</li></ul></li><li>Harold Lasswell<ul><li>누가 무엇을 언제 그리고 어떻게 얻는가?</li><li>Who gets what, when and how?</li></ul></li></ul><h2 id="정치의-두-얼굴-Janus-faced"><a href="#정치의-두-얼굴-Janus-faced" class="headerlink" title="정치의 두 얼굴(Janus-faced)"></a>정치의 두 얼굴(Janus-faced)</h2><ul><li>경쟁지향적 정치 개념<ul><li>갈등 해소로서의 정치(Politics as conflict-resolution)</li><li>외형적으로 조화를 강조하는 것 같지만, 대립과 경쟁의 항구성을 강조</li><li>인간 공동의 삶, 공공활동 그 자체가 정치의 영역</li><li>인간은 정치를 통해서 인간다운 삶 실현 가능</li><li>정치는 공동의 활동</li><li>정치는 권력현상</li><li>대립, 갈등, 분열, 논쟁, 분투</li></ul></li><li>조화지향적 정치 개념<ul><li>공동체형성으로서의 정치(Politics as community-building)</li><li>정치에서 갈등, 대립, 투쟁, 분열 등의 요소를 약화시키거나 제거하는데 관심</li><li>국가에 관련되는 일이 정치의 영역이라는 고전적 정의와 관련</li><li>정치는 통치기술(관리, 행정, 정부의 활동)</li><li>정치는 타협과 합의</li><li>조화, 합의, 타협, 관리, 통합</li></ul></li></ul><h2 id="정치학-Political-science"><a href="#정치학-Political-science" class="headerlink" title="정치학(Political science)"></a>정치학(Political science)</h2><ul><li>정치, 특히 국가의 정치에 대한 분석을 유일하고 일반적인 임무로 하는 학문의 한 분야<ul><li>권력 비판의 학문</li><li>사회 조직과 운영의 원리를 제시함으로써 사회를 경영하는 학문</li><li>이론과 실천을 동시에 추구하는 학문</li></ul></li><li>Fields<ul><li>정치사상</li><li>비교정치</li><li>국제정치</li></ul></li></ul><hr><h1 id="Political-Thought-and-Ideology"><a href="#Political-Thought-and-Ideology" class="headerlink" title="Political Thought and Ideology"></a>Political Thought and Ideology</h1><h2 id="Ideology"><a href="#Ideology" class="headerlink" title="Ideology?"></a>Ideology?</h2><ul><li>Ideology<ul><li>사회집단에 있어서 사상, 행동, 생활방법을 근본적으로 제약하고 있는 관념이나 신조</li><li>관념(Idea) + 논리(Logy) = 관념의 논리</li><li>사고방식, 이념, 주의 등으로 번역</li></ul></li><li>Ideologue<ul><li>공론가, 몽상가</li><li>특정한 이데올로기의 신봉자</li><li>특정한 계급의 입장이나 당파를 대표하는 이론적 지도자</li></ul></li></ul><h3 id="정치-이데올로기의-기능"><a href="#정치-이데올로기의-기능" class="headerlink" title="(정치)이데올로기의 기능"></a>(정치)이데올로기의 기능</h3><blockquote><p>이데올로기는 특정한 사회체제를 정당화하는 성향을 지니고 있어서 매우 정치적임</p></blockquote><ul><li>사회에 대한 인식과 가치를 판단하는 기준 제공</li><li>하나의 관념적 인식을 공유시켜 집단을 하나로 결속시키고 통합하는 역할</li><li>개인의(정치참여 등에 대한) 자기정체성 확립</li><li>특정한 제도에 대한 정당성을 확보하게 함</li><li>같은 이데올로기를 공유하는 세력을 조직화하고 행동하게 함</li><li>(국가, 계급, 정파 등을 초월하여) 정치이데올로기를 추종하는 사람들로 하여금 그들의 이익이나 목표를 위해 정치적 행동을 하도록 유도함</li></ul><h3 id="정치이데올로기의-기본-유형"><a href="#정치이데올로기의-기본-유형" class="headerlink" title="정치이데올로기의 기본 유형"></a>정치이데올로기의 기본 유형</h3><ul><li>보수주의(Conservatism)<ul><li>현상을 유지하고, 변화를 반대하는 의식체계</li><li>역사, 전통, 관습에 토대를 두고 사회적 기능을 유지하려는 정치적 태도</li><li>특징<ul><li>인간의 자연적 불평등 강조</li><li>사회계급과 질서의 필요성 강조</li><li>기존의 전통과 관습 중시</li><li>사회변동의 불가피성을 인정하지만, 사회변동은 점진적으로 이루어져야 함</li></ul></li></ul></li><li>자유주의(Liberalism)<ul><li>집단에 의한 통제보다는 개인의 자유를 보장하기 위해 사회가 존재한다고 보는 시각<ul><li>도덕적으로는 개인적, 시민적, 사회적 자유 추구</li><li>경제적으로 시장 자유 지향</li><li>정치적으로는 입헌적 대의정치 모색</li></ul></li><li>특징<ul><li>개인의 자유를 보편적 가치로 인식</li><li>인간 이성에 대한 신뢰</li><li>진보에 대한 믿음, 변화를 선호하는 경향</li><li>인간의 조건을 개선하기 위해 정부를 활용</li></ul></li></ul></li><li>사회주의(Socialism)<ul><li>생산수단을 공유하는 사회제도 혹은 그러한 사회제도를 실현하려는 사상</li><li>사유재산을 완전히 폐지하거나, 일부를 제한함으로써 분배의 공평성을 추구하고자 함</li></ul></li><li>사회주의 vs. 공산주의<ul><li>생산수단의 사회적 소유 vs. 모든 소비재의 사회적 소유</li><li>개인의 경제적 동기 중시 vs. 개인의 비경제적 동기 중시</li><li>노력의 결과에 따라 소득의 차이 발생, 매매 행위로 인한 화폐 존재 vs. 소득, 교환, 매매가 없으므로 화폐 존재 이유 없음</li></ul></li></ul><h2 id="좌파와-우파의-기원"><a href="#좌파와-우파의-기원" class="headerlink" title="좌파와 우파의 기원"></a>좌파와 우파의 기원</h2><ul><li>파?<ul><li>어떤 주장이나 이해관계를 같이 하는 사람들이 뭉쳐서 이룬 단체나 모임</li><li>(조선시대의) 당파, (현대의) 좌파, 우파 : 특정한 정치이데올로기를 추구하거나, 공통 행동을 하거나, 같은 목적과 가치관을 공유하는 정치세력</li></ul></li></ul><table><thead><tr><th align="center"></th><th align="center">좌</th><th align="center">우</th></tr></thead><tbody><tr><td align="center">파</td><td align="center">공화파, 자코뱅파</td><td align="center">왕당파, 지롱드파</td></tr><tr><td align="center">개혁 속도</td><td align="center">급진적 개혁</td><td align="center">점진적 개혁</td></tr><tr><td align="center">지지 계층</td><td align="center">소시민</td><td align="center">부르주아</td></tr><tr><td align="center">정부 개입</td><td align="center">최대</td><td align="center">최소</td></tr><tr><td align="center">강조점</td><td align="center">공동체적 삶</td><td align="center">개인적 삶</td></tr></tbody></table><ul><li>정치성향<ul><li>정치, 사회, 경제 분야를 막론하고, 다양한 이슈나 문제에 대해 가지고 있는 개개인의 입장이나 사고방식</li></ul></li><li>좌(진보) vs. 우(보수)<ul><li>경제적, 물질적 차원</li><li>정치적, 사회적 차원</li><li>물질적 가치와 탈물질적 가치 차원</li></ul></li></ul><h3 id="서구의-좌파와-우파"><a href="#서구의-좌파와-우파" class="headerlink" title="서구의 좌파와 우파"></a>서구의 좌파와 우파</h3><table><thead><tr><th align="center"></th><th align="center">좌파</th><th align="center">우파</th></tr></thead><tbody><tr><td align="center">이데올로기</td><td align="center">평등주의(공동체주의)</td><td align="center">자유주의(개인주의)</td></tr><tr><td align="center">정부</td><td align="center">큰 정부</td><td align="center">작은 정부</td></tr><tr><td align="center">시장</td><td align="center">시장의 불완전성 강조</td><td align="center">자율성 강조</td></tr><tr><td align="center">범죄의 책임</td><td align="center">사회 구조적 책임</td><td align="center">개인의 책임</td></tr><tr><td align="center">노, 사 관계</td><td align="center">노동자 이해 대변</td><td align="center">기업가 이해 대변</td></tr></tbody></table><ul><li>극좌<ul><li>정부가 모든 생산수단을 독점하는 완벽한 계획경제(공산주의)</li></ul></li><li>극우<ul><li>국가나 민족주의에 대한 내용을 지나치기 강조(나치즘, 파시즘)</li></ul></li></ul><h3 id="대한민국의-좌파와-우파-진보와-보수"><a href="#대한민국의-좌파와-우파-진보와-보수" class="headerlink" title="대한민국의 좌파와 우파, 진보와 보수"></a>대한민국의 좌파와 우파, 진보와 보수</h3><ul><li>진보(Liberal)<ul><li>역사 발전의 합법칙성에 따라 사회의 변화, 발전을 추구</li><li>정도나 수준이 차츰 향상하여 감</li><li>분배</li><li>환경친화</li><li>(기회의) 제도적 평등 사회</li><li>제도의 책임 중시</li><li>국가역할의 확대</li><li>큰 정부</li><li>무고한 희생자 최소화</li><li>다문화주의</li><li>문화상대주의</li><li>연대</li></ul></li><li>보수(Conservative)<ul><li>새로운 것을 적극 받아들이기 보다는 재래의 풍습이나 전통을 중히 여겨 유지하려고 함</li><li>수구 : 옛 제도나 관습을 그대로 지키고 따름</li><li>성장</li><li>개발</li><li>기회활용의 자율성</li><li>개인의 책임 중시</li><li>국가역할의 최소화</li><li>작은 정부</li><li>강력한 법치주의</li><li>자문화중심주의</li><li>문화절대주의</li><li>통합</li></ul></li></ul><table><thead><tr><th align="center"></th><th align="center">좌파/진보</th><th align="center">우파/보수</th></tr></thead><tbody><tr><td align="center">경제적 가치</td><td align="center">평등, 분배, 노동, 복지</td><td align="center">효율, 성장, 자본</td></tr><tr><td align="center">권위, 자유주의에 대한 입장</td><td align="center">개인적, 사회적 자유 존중</td><td align="center">법과 질서 존중</td></tr><tr><td align="center">(탈)물질적가치</td><td align="center">환경보호, 동물보호, 소수자 인권 존중 및 보호</td><td align="center">도시개발, 근대화, 산업개발</td></tr><tr><td align="center">북한에 대한 태도</td><td align="center">대북 유화책, 국가보안법 거부와 폐기</td><td align="center">대북 강경책, 국가보안법 유지와 존속</td></tr></tbody></table><hr><h1 id="Political-Power"><a href="#Political-Power" class="headerlink" title="Political Power"></a>Political Power</h1><ul><li>권력이란 무엇이고, 과연 필요한 것인가?<ul><li>인간 집단생활의 속성과 권력</li><li>사회의 존속을 위한 권력</li><li>정치사회의 질서유지를 위한 정치권력</li></ul></li><li>H. Arendt<ul><li>모든 정치제도들이란 권력의 표현이자 구현으로 정치제도는 권력을 유지하지 못할 때 생기를 잃고 사라지게 된다.</li></ul></li></ul><h2 id="권력-Power"><a href="#권력-Power" class="headerlink" title="권력(Power)"></a>권력(Power)</h2><ul><li>사전적 의미 : 남을 자신의 뜻대로 움직이거나 지배할 수 있는 공인된 권리와 힘</li><li>사회적 관계에서 한 행위자가 다른 행위자의 저항에도 불구하고 자신의 의사를 관철시킬 수 있는 입장에 있을 가능성(M. Weber)<ul><li>권력은 사회적 관계에서 행사<ul><li>권력은 사회 구성원 간에 불평등하게 분배되어 있음</li></ul></li><li>A와 B, 두 행위자 간의 갈등을 수반<ul><li>지배를 당하는 자에게는 제재와 박탈이 일어나게 됨</li></ul></li></ul></li></ul><h3 id="정당하지-않은-권력행사"><a href="#정당하지-않은-권력행사" class="headerlink" title="정당하지 않은 권력행사"></a>정당하지 않은 권력행사</h3><ul><li>권력남용 : 남을 자신의 뜻대로 움직이거나 지배할 수 있는 공인된 힘을 정해진 규정이나 기준을 넘어서 함부로 사용하는 일</li><li>직권남용 : ‘공무원’이 직권을 남용하여 범하는 죄</li><li>갑질 : 권력의 우위에 있는 갑이 권리관계에서 약자인 을에게 하는 부당행위를 통칭하는 개념</li></ul><h3 id="권력의-정당성-정통성-Legitimacy-의-근거"><a href="#권력의-정당성-정통성-Legitimacy-의-근거" class="headerlink" title="권력의 정당성, 정통성(Legitimacy)의 근거"></a>권력의 정당성, 정통성(Legitimacy)의 근거</h3><blockquote><p>M. Weber</p></blockquote><ul><li>전통적 지배<ul><li>전통의 신성함과 역사적 배경, 이에 기초한 정치적 권위에 대한 사람들의 일상적 믿음에 근거한 지배<ul><li>가부장적 지배, 군주제(혈통, 왕권신수설 등)</li></ul></li></ul></li><li>카리스마적 지배<ul><li>어떤 인물의 특별한 신성함, 영웅적 능력 또는 모범적 인품 등에 근거, 구성원의 신뢰에 기초한 지배</li></ul></li><li>합법적 지배<ul><li>성문화된 질서와 법규의 합법성에 의한 지배<ul><li>선거를 통한 정치체제의 구성, 관료제</li></ul></li></ul></li></ul><blockquote><p>cf. 결과에 의한 정통성 획득, 습관에 의한 정통성 획득</p></blockquote><h3 id="권력의-실체설과-관계설"><a href="#권력의-실체설과-관계설" class="headerlink" title="권력의 실체설과 관계설"></a>권력의 실체설과 관계설</h3><ul><li>실체설<ul><li>유럽 대륙계 학자들이 주로 제시</li><li>권력은 다른 사람을 지배하기 위하여 인간이 소유하는 일종의 물건</li><li>소수의 엘리트가 다수의 구성원보다 더 능동적인 역할을 수행한다고 생각하므로 소수 권력 엘리트의 힘과 역할을 중시함</li><li>현실적으로 권력측정의 어려움이 없음(공식 지위, 돈, 물리적 강제력 등)</li><li>지배-복종의 수직적 관계</li></ul></li><li>관계설<ul><li>앵글로 색슨계 학자들이 주로 제시</li><li>권력은 인간과 인간의 관계 또는 치자와 구성원 간의 관계에서 나타나고 행사될 수 있는 것</li><li>구성원의 적극적 또는 소극적 지지와 동의를 통해 권력 부여</li><li>구성원의 동의와 지지, 자발성이 체제유지와 권력행사에 결정적으로 중요한 가치</li><li>수평적 상호관계</li></ul></li></ul><h2 id="권위-Authority"><a href="#권위-Authority" class="headerlink" title="권위(Authority)"></a>권위(Authority)</h2><ul><li>사전적 의미 : 다른 사람을 통솔하여 이끄는 힘</li><li>구성원의 마음을 지배하는 힘</li><li>승인을 받아낼 수 있는 잠재력</li><li>권력을 행사할 수 있는 권리</li><li>권력과 권위의 차이<ul><li>행동하는 능력 vs. 그렇게 하도록 인정받은 권한</li><li>방향성 : 일방향적 vs. 쌍방향적</li></ul></li></ul><h2 id="영향력-Influence"><a href="#영향력-Influence" class="headerlink" title="영향력(Influence)"></a>영향력(Influence)</h2><ul><li>사전적 의미 : 어떤 사물의 효과나 작용이 다른 것에 미치는 힘, 또는 그 크기나 정도</li><li>누가 누구에게 무엇을 하도록 어떤 행동을 유도하는 것</li><li>현재적 영향력 : 분명하게 상대방의 행동에 변화를 가져오는 유형</li><li>잠재적 영향력 : 영향력을 행사하려는 시도나 의도가 없었음에도 불구하고 사람들이 행동의 변화를 보이는 경우</li></ul><h2 id="정치권력의-개념"><a href="#정치권력의-개념" class="headerlink" title="정치권력의 개념"></a>정치권력의 개념</h2><ul><li>정치권력<ul><li>권력이 정치적 기능을 수행하기 위해 조직화 된 것</li><li>국가에 의해 제도화되고 행사되는 국가권력을 가장 전형적인 형태의 정치권력이라고 함</li></ul></li><li>정치와 정책<ul><li>정치권력은 정책결정을 담당하여 어떤 결정의 정책을 만들어 냄</li><li>정책은 본질적으로 이익갈등이 발생할 수 밖에 없음</li><li>NIMBY(Not In My Back Yard) 현상 : 혐오시설 유치를 기피, 반대하는 지역이기주의의 일종</li><li>PIMFY(Please In My Front Yard) 현상 : 금전적 이익이 기대되는 사업을 유치하려는 지역이기주의의 일종</li></ul></li></ul><h3 id="정치권력의-속성"><a href="#정치권력의-속성" class="headerlink" title="정치권력의 속성"></a>정치권력의 속성</h3><blockquote><p>이론</p></blockquote><ul><li>엘리트론(Mosca, 1939)<ul><li>조직되어 있는 소수가 조직되어 있지 못한 다수를 지배함</li><li>법률적, 도덕적 기초나 원칙 등으로 소수의 지배를 정당화함</li></ul></li><li>소수권력 엘리트론(Mills, 1954)<ul><li>모든 사회는 엘리트와 비 엘리트로 구성되고, 엘리트 집단 또한 통치 엘리트와 비 통치 엘리트로 구분됨</li></ul></li><li>엘리트 순환론(Pareto, 1963)<ul><li>어떤 방식에 의해서든 신, 구 통치 엘리트는 주기적 또는 비주기적으로 교체(순환)됨</li></ul></li><li>다원주의 권력론(Dahl, 1984)<ul><li>권력은 분산되어 있어 어느 한 집단이 전적으로 권력을 독점하는 것이 아니라 복수 엘리트들이 서로 권력을 나누어 행사함</li></ul></li><li>과두제의 철칙(Iron law of oligarchy)(Michels, 1925)<ul><li>아무리 민주적인 조직이라도 조직운영의 전략적, 기술적 필요에 의하여 소수 엘리트에 의한 과두지배가 필연적으로 나타남</li></ul></li></ul><h3 id="보이지-않는-권력"><a href="#보이지-않는-권력" class="headerlink" title="보이지 않는 권력"></a>보이지 않는 권력</h3><blockquote><p>Panopticon(원형감옥)</p></blockquote><ul><li>18c, J. Bentham이 설계</li><li>Pan(두루) + Opticon(보다)</li><li>원형의 공간이 가운데에 있는 복층 감옥으로 가운데 공간에는 감시탑이 존재</li><li>최소한의 인원으로 모든 수감자를 효율적으로 감시할 수 있도록 고안된 감옥</li><li>제재에 대한 위협이나 폭력의 사용 없이도 권력이 행사되는 과정</li><li>무력감을 만드는 상황, 자신이 의도하지 않은 방향으로 움직이게 하는 보이지 않는 권력</li><li>1974, M. Foucault ‘감시와 처벌’<ul><li>“근대사회는 잘 운영되는 원형감옥이며, 우리는 감옥에 갇힌 죄수처럼 보이지 않는 간수에게 스스로 복종하는 것을 배운다.”</li></ul></li></ul><hr><p>#</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Politics-and-Political-Science"><a href="#Politics-and-Political-Science" class="headerlink" title="Politics and Political Science"></a>Politics and Political Science</h1><h2 id="인간-생활의-본질"><a href="#인간-생활의-본질" class="headerlink" title="인간 생활의 본질"></a>인간 생활의 본질</h2><ul><li>Aristotle : 인간은 정치적 동물<ul><li>정치는 인간사회에 반드시 필요하고 인간사회에서만 가능한 현상</li><li>정치적 동물인 인간의 사회에는 반드시 권력 발생</li></ul></li><li>B. Russell : 인간의 생활현상은 3가지 투쟁의 연속<ul><li>인간과 자연의 투쟁 -&gt; 자연과학, 물질문명 발달</li><li>인간과 인간 자신과의 내부 투쟁 -&gt; 정신문화 발달</li><li>인간과 다른 인간과의 투쟁 -&gt; 정치현상 발생</li></ul></li></ul><a id="more"></a><h2 id="정치는-왜-필요한가"><a href="#정치는-왜-필요한가" class="headerlink" title="정치는 왜 필요한가?"></a>정치는 왜 필요한가?</h2><blockquote><p>“이기적인 인간의 사회에 왜 질서 있는 사회가 창조, 유지, 변화되는가?”, T. Hobbes</p></blockquote><ul><li>사회를 존속</li><li>반사회적 행위를 통제하여 사회질서 유지</li><li>모든 사람이 갈망하는 이상사회로 진보</li></ul><blockquote><p>정치는 구성원이 현실에서 직면하는 공통의 문제를 해결하고, 좀 더 이상적인 사회를 창조하는 능동적인 집단 행위. 특히 집단행위에는 지도자의 통합 능력, 방향 제시 능력이 중요하게 작용한다.</p></blockquote><h2 id="정치의-세-가지-측면"><a href="#정치의-세-가지-측면" class="headerlink" title="정치의 세 가지 측면"></a>정치의 세 가지 측면</h2><ul><li>정치는 집단 내부 또는 집단 사이에서 발생하는 행위</li><li>집단에 영향을 미치는 문제에 대한 공동 결정</li><li>집단 구성원에 대한 구속력, 복종, 강제</li></ul><blockquote><p>정치는 전체 공동체에 영향을 미치는 결정을 내리고, 그 결정을 집행하는 행위 또는 과정</p></blockquote><h2 id="정치에-대한-다양한-생각들"><a href="#정치에-대한-다양한-생각들" class="headerlink" title="정치에 대한 다양한 생각들"></a>정치에 대한 다양한 생각들</h2><ul><li>정치는 시대에 따라, 공간에 따라 달리 이해되어왔으며 앞으로도 그럴 것이다</li><li>정치는 생물이다</li><li>자기보존(Self-preservation) : 시대에 따른 정치 개념의 차이<ul><li>근대 : 개인의 생명, 자유, 재산이라는 기본권</li><li>국제관계 : 국가의 자기보존, 생존은 곧 주권의 문제</li><li>냉전 시대의 자기보존 주체는 진영(사회주의, 자본주의)</li></ul></li></ul><h3 id="고대"><a href="#고대" class="headerlink" title="고대"></a>고대</h3><ul><li>서양<ul><li>Plato : 인간 영혼의 최고선을 동시공동체(Polis)안에서 실현시키는 것</li><li>Aristotle : 정치적 동물인 인간이 사회 전체(Polis)의 선을 실현시키는 것</li></ul></li><li>동양<ul><li>공자 : 정자정야(바르게 잡는 것)</li><li>맹자 : 정치의 본질은 백성을 위하는 것</li><li>한비자 : 법치에 기반을 둔 군주의 다스림과 군주의 통치권력 강조</li></ul></li></ul><h3 id="르네상스"><a href="#르네상스" class="headerlink" title="르네상스"></a>르네상스</h3><ul><li>N. Machiavelli<ul><li>정치는 권력을 둘러싼 대립과 투쟁</li><li>종교나 윤리로부터 정치 분리</li></ul></li></ul><blockquote><p>갈등의 해소를 통해 정치 안정을 유지하는 길만이 민족의 생존과 자유를 보장하는 길</p></blockquote><h3 id="근대"><a href="#근대" class="headerlink" title="근대"></a>근대</h3><ul><li>사회계약론<ul><li>‘사회나 국가는 자연 상태의 개인이 맺는 계약을 통해 창출된다’라는 사상의 큰 틀을 공유</li><li>T. Hobbes : 강력한 지배자의 통치를 통하여 질서를 유지하고 개인의 생명과 재산을 보존하는 일</li><li>J. Locke : 개개인의 자유를 확보하는 활동</li></ul></li></ul><blockquote><p>근대 부르주아 계급은 자신들의 기본권(개인의 자유)을 유지하기 위한 투쟁 전개</p><blockquote><p>국가를 대변하는 귀족계급과 대립</p></blockquote></blockquote><h3 id="현대"><a href="#현대" class="headerlink" title="현대"></a>현대</h3><ul><li>David Easton<ul><li>사회의 (희소한) 가치를 권위적으로 배분하는 것</li></ul></li><li>Harold Lasswell<ul><li>누가 무엇을 언제 그리고 어떻게 얻는가?</li><li>Who gets what, when and how?</li></ul></li></ul><h2 id="정치의-두-얼굴-Janus-faced"><a href="#정치의-두-얼굴-Janus-faced" class="headerlink" title="정치의 두 얼굴(Janus-faced)"></a>정치의 두 얼굴(Janus-faced)</h2><ul><li>경쟁지향적 정치 개념<ul><li>갈등 해소로서의 정치(Politics as conflict-resolution)</li><li>외형적으로 조화를 강조하는 것 같지만, 대립과 경쟁의 항구성을 강조</li><li>인간 공동의 삶, 공공활동 그 자체가 정치의 영역</li><li>인간은 정치를 통해서 인간다운 삶 실현 가능</li><li>정치는 공동의 활동</li><li>정치는 권력현상</li><li>대립, 갈등, 분열, 논쟁, 분투</li></ul></li><li>조화지향적 정치 개념<ul><li>공동체형성으로서의 정치(Politics as community-building)</li><li>정치에서 갈등, 대립, 투쟁, 분열 등의 요소를 약화시키거나 제거하는데 관심</li><li>국가에 관련되는 일이 정치의 영역이라는 고전적 정의와 관련</li><li>정치는 통치기술(관리, 행정, 정부의 활동)</li><li>정치는 타협과 합의</li><li>조화, 합의, 타협, 관리, 통합</li></ul></li></ul><h2 id="정치학-Political-science"><a href="#정치학-Political-science" class="headerlink" title="정치학(Political science)"></a>정치학(Political science)</h2><ul><li>정치, 특히 국가의 정치에 대한 분석을 유일하고 일반적인 임무로 하는 학문의 한 분야<ul><li>권력 비판의 학문</li><li>사회 조직과 운영의 원리를 제시함으로써 사회를 경영하는 학문</li><li>이론과 실천을 동시에 추구하는 학문</li></ul></li><li>Fields<ul><li>정치사상</li><li>비교정치</li><li>국제정치</li></ul></li></ul><hr><h1 id="Political-Thought-and-Ideology"><a href="#Political-Thought-and-Ideology" class="headerlink" title="Political Thought and Ideology"></a>Political Thought and Ideology</h1><h2 id="Ideology"><a href="#Ideology" class="headerlink" title="Ideology?"></a>Ideology?</h2><ul><li>Ideology<ul><li>사회집단에 있어서 사상, 행동, 생활방법을 근본적으로 제약하고 있는 관념이나 신조</li><li>관념(Idea) + 논리(Logy) = 관념의 논리</li><li>사고방식, 이념, 주의 등으로 번역</li></ul></li><li>Ideologue<ul><li>공론가, 몽상가</li><li>특정한 이데올로기의 신봉자</li><li>특정한 계급의 입장이나 당파를 대표하는 이론적 지도자</li></ul></li></ul><h3 id="정치-이데올로기의-기능"><a href="#정치-이데올로기의-기능" class="headerlink" title="(정치)이데올로기의 기능"></a>(정치)이데올로기의 기능</h3><blockquote><p>이데올로기는 특정한 사회체제를 정당화하는 성향을 지니고 있어서 매우 정치적임</p></blockquote><ul><li>사회에 대한 인식과 가치를 판단하는 기준 제공</li><li>하나의 관념적 인식을 공유시켜 집단을 하나로 결속시키고 통합하는 역할</li><li>개인의(정치참여 등에 대한) 자기정체성 확립</li><li>특정한 제도에 대한 정당성을 확보하게 함</li><li>같은 이데올로기를 공유하는 세력을 조직화하고 행동하게 함</li><li>(국가, 계급, 정파 등을 초월하여) 정치이데올로기를 추종하는 사람들로 하여금 그들의 이익이나 목표를 위해 정치적 행동을 하도록 유도함</li></ul><h3 id="정치이데올로기의-기본-유형"><a href="#정치이데올로기의-기본-유형" class="headerlink" title="정치이데올로기의 기본 유형"></a>정치이데올로기의 기본 유형</h3><ul><li>보수주의(Conservatism)<ul><li>현상을 유지하고, 변화를 반대하는 의식체계</li><li>역사, 전통, 관습에 토대를 두고 사회적 기능을 유지하려는 정치적 태도</li><li>특징<ul><li>인간의 자연적 불평등 강조</li><li>사회계급과 질서의 필요성 강조</li><li>기존의 전통과 관습 중시</li><li>사회변동의 불가피성을 인정하지만, 사회변동은 점진적으로 이루어져야 함</li></ul></li></ul></li><li>자유주의(Liberalism)<ul><li>집단에 의한 통제보다는 개인의 자유를 보장하기 위해 사회가 존재한다고 보는 시각<ul><li>도덕적으로는 개인적, 시민적, 사회적 자유 추구</li><li>경제적으로 시장 자유 지향</li><li>정치적으로는 입헌적 대의정치 모색</li></ul></li><li>특징<ul><li>개인의 자유를 보편적 가치로 인식</li><li>인간 이성에 대한 신뢰</li><li>진보에 대한 믿음, 변화를 선호하는 경향</li><li>인간의 조건을 개선하기 위해 정부를 활용</li></ul></li></ul></li><li>사회주의(Socialism)<ul><li>생산수단을 공유하는 사회제도 혹은 그러한 사회제도를 실현하려는 사상</li><li>사유재산을 완전히 폐지하거나, 일부를 제한함으로써 분배의 공평성을 추구하고자 함</li></ul></li><li>사회주의 vs. 공산주의<ul><li>생산수단의 사회적 소유 vs. 모든 소비재의 사회적 소유</li><li>개인의 경제적 동기 중시 vs. 개인의 비경제적 동기 중시</li><li>노력의 결과에 따라 소득의 차이 발생, 매매 행위로 인한 화폐 존재 vs. 소득, 교환, 매매가 없으므로 화폐 존재 이유 없음</li></ul></li></ul><h2 id="좌파와-우파의-기원"><a href="#좌파와-우파의-기원" class="headerlink" title="좌파와 우파의 기원"></a>좌파와 우파의 기원</h2><ul><li>파?<ul><li>어떤 주장이나 이해관계를 같이 하는 사람들이 뭉쳐서 이룬 단체나 모임</li><li>(조선시대의) 당파, (현대의) 좌파, 우파 : 특정한 정치이데올로기를 추구하거나, 공통 행동을 하거나, 같은 목적과 가치관을 공유하는 정치세력</li></ul></li></ul><table><thead><tr><th align="center"></th><th align="center">좌</th><th align="center">우</th></tr></thead><tbody><tr><td align="center">파</td><td align="center">공화파, 자코뱅파</td><td align="center">왕당파, 지롱드파</td></tr><tr><td align="center">개혁 속도</td><td align="center">급진적 개혁</td><td align="center">점진적 개혁</td></tr><tr><td align="center">지지 계층</td><td align="center">소시민</td><td align="center">부르주아</td></tr><tr><td align="center">정부 개입</td><td align="center">최대</td><td align="center">최소</td></tr><tr><td align="center">강조점</td><td align="center">공동체적 삶</td><td align="center">개인적 삶</td></tr></tbody></table><ul><li>정치성향<ul><li>정치, 사회, 경제 분야를 막론하고, 다양한 이슈나 문제에 대해 가지고 있는 개개인의 입장이나 사고방식</li></ul></li><li>좌(진보) vs. 우(보수)<ul><li>경제적, 물질적 차원</li><li>정치적, 사회적 차원</li><li>물질적 가치와 탈물질적 가치 차원</li></ul></li></ul><h3 id="서구의-좌파와-우파"><a href="#서구의-좌파와-우파" class="headerlink" title="서구의 좌파와 우파"></a>서구의 좌파와 우파</h3><table><thead><tr><th align="center"></th><th align="center">좌파</th><th align="center">우파</th></tr></thead><tbody><tr><td align="center">이데올로기</td><td align="center">평등주의(공동체주의)</td><td align="center">자유주의(개인주의)</td></tr><tr><td align="center">정부</td><td align="center">큰 정부</td><td align="center">작은 정부</td></tr><tr><td align="center">시장</td><td align="center">시장의 불완전성 강조</td><td align="center">자율성 강조</td></tr><tr><td align="center">범죄의 책임</td><td align="center">사회 구조적 책임</td><td align="center">개인의 책임</td></tr><tr><td align="center">노, 사 관계</td><td align="center">노동자 이해 대변</td><td align="center">기업가 이해 대변</td></tr></tbody></table><ul><li>극좌<ul><li>정부가 모든 생산수단을 독점하는 완벽한 계획경제(공산주의)</li></ul></li><li>극우<ul><li>국가나 민족주의에 대한 내용을 지나치기 강조(나치즘, 파시즘)</li></ul></li></ul><h3 id="대한민국의-좌파와-우파-진보와-보수"><a href="#대한민국의-좌파와-우파-진보와-보수" class="headerlink" title="대한민국의 좌파와 우파, 진보와 보수"></a>대한민국의 좌파와 우파, 진보와 보수</h3><ul><li>진보(Liberal)<ul><li>역사 발전의 합법칙성에 따라 사회의 변화, 발전을 추구</li><li>정도나 수준이 차츰 향상하여 감</li><li>분배</li><li>환경친화</li><li>(기회의) 제도적 평등 사회</li><li>제도의 책임 중시</li><li>국가역할의 확대</li><li>큰 정부</li><li>무고한 희생자 최소화</li><li>다문화주의</li><li>문화상대주의</li><li>연대</li></ul></li><li>보수(Conservative)<ul><li>새로운 것을 적극 받아들이기 보다는 재래의 풍습이나 전통을 중히 여겨 유지하려고 함</li><li>수구 : 옛 제도나 관습을 그대로 지키고 따름</li><li>성장</li><li>개발</li><li>기회활용의 자율성</li><li>개인의 책임 중시</li><li>국가역할의 최소화</li><li>작은 정부</li><li>강력한 법치주의</li><li>자문화중심주의</li><li>문화절대주의</li><li>통합</li></ul></li></ul><table><thead><tr><th align="center"></th><th align="center">좌파/진보</th><th align="center">우파/보수</th></tr></thead><tbody><tr><td align="center">경제적 가치</td><td align="center">평등, 분배, 노동, 복지</td><td align="center">효율, 성장, 자본</td></tr><tr><td align="center">권위, 자유주의에 대한 입장</td><td align="center">개인적, 사회적 자유 존중</td><td align="center">법과 질서 존중</td></tr><tr><td align="center">(탈)물질적가치</td><td align="center">환경보호, 동물보호, 소수자 인권 존중 및 보호</td><td align="center">도시개발, 근대화, 산업개발</td></tr><tr><td align="center">북한에 대한 태도</td><td align="center">대북 유화책, 국가보안법 거부와 폐기</td><td align="center">대북 강경책, 국가보안법 유지와 존속</td></tr></tbody></table><hr><h1 id="Political-Power"><a href="#Political-Power" class="headerlink" title="Political Power"></a>Political Power</h1><ul><li>권력이란 무엇이고, 과연 필요한 것인가?<ul><li>인간 집단생활의 속성과 권력</li><li>사회의 존속을 위한 권력</li><li>정치사회의 질서유지를 위한 정치권력</li></ul></li><li>H. Arendt<ul><li>모든 정치제도들이란 권력의 표현이자 구현으로 정치제도는 권력을 유지하지 못할 때 생기를 잃고 사라지게 된다.</li></ul></li></ul><h2 id="권력-Power"><a href="#권력-Power" class="headerlink" title="권력(Power)"></a>권력(Power)</h2><ul><li>사전적 의미 : 남을 자신의 뜻대로 움직이거나 지배할 수 있는 공인된 권리와 힘</li><li>사회적 관계에서 한 행위자가 다른 행위자의 저항에도 불구하고 자신의 의사를 관철시킬 수 있는 입장에 있을 가능성(M. Weber)<ul><li>권력은 사회적 관계에서 행사<ul><li>권력은 사회 구성원 간에 불평등하게 분배되어 있음</li></ul></li><li>A와 B, 두 행위자 간의 갈등을 수반<ul><li>지배를 당하는 자에게는 제재와 박탈이 일어나게 됨</li></ul></li></ul></li></ul><h3 id="정당하지-않은-권력행사"><a href="#정당하지-않은-권력행사" class="headerlink" title="정당하지 않은 권력행사"></a>정당하지 않은 권력행사</h3><ul><li>권력남용 : 남을 자신의 뜻대로 움직이거나 지배할 수 있는 공인된 힘을 정해진 규정이나 기준을 넘어서 함부로 사용하는 일</li><li>직권남용 : ‘공무원’이 직권을 남용하여 범하는 죄</li><li>갑질 : 권력의 우위에 있는 갑이 권리관계에서 약자인 을에게 하는 부당행위를 통칭하는 개념</li></ul><h3 id="권력의-정당성-정통성-Legitimacy-의-근거"><a href="#권력의-정당성-정통성-Legitimacy-의-근거" class="headerlink" title="권력의 정당성, 정통성(Legitimacy)의 근거"></a>권력의 정당성, 정통성(Legitimacy)의 근거</h3><blockquote><p>M. Weber</p></blockquote><ul><li>전통적 지배<ul><li>전통의 신성함과 역사적 배경, 이에 기초한 정치적 권위에 대한 사람들의 일상적 믿음에 근거한 지배<ul><li>가부장적 지배, 군주제(혈통, 왕권신수설 등)</li></ul></li></ul></li><li>카리스마적 지배<ul><li>어떤 인물의 특별한 신성함, 영웅적 능력 또는 모범적 인품 등에 근거, 구성원의 신뢰에 기초한 지배</li></ul></li><li>합법적 지배<ul><li>성문화된 질서와 법규의 합법성에 의한 지배<ul><li>선거를 통한 정치체제의 구성, 관료제</li></ul></li></ul></li></ul><blockquote><p>cf. 결과에 의한 정통성 획득, 습관에 의한 정통성 획득</p></blockquote><h3 id="권력의-실체설과-관계설"><a href="#권력의-실체설과-관계설" class="headerlink" title="권력의 실체설과 관계설"></a>권력의 실체설과 관계설</h3><ul><li>실체설<ul><li>유럽 대륙계 학자들이 주로 제시</li><li>권력은 다른 사람을 지배하기 위하여 인간이 소유하는 일종의 물건</li><li>소수의 엘리트가 다수의 구성원보다 더 능동적인 역할을 수행한다고 생각하므로 소수 권력 엘리트의 힘과 역할을 중시함</li><li>현실적으로 권력측정의 어려움이 없음(공식 지위, 돈, 물리적 강제력 등)</li><li>지배-복종의 수직적 관계</li></ul></li><li>관계설<ul><li>앵글로 색슨계 학자들이 주로 제시</li><li>권력은 인간과 인간의 관계 또는 치자와 구성원 간의 관계에서 나타나고 행사될 수 있는 것</li><li>구성원의 적극적 또는 소극적 지지와 동의를 통해 권력 부여</li><li>구성원의 동의와 지지, 자발성이 체제유지와 권력행사에 결정적으로 중요한 가치</li><li>수평적 상호관계</li></ul></li></ul><h2 id="권위-Authority"><a href="#권위-Authority" class="headerlink" title="권위(Authority)"></a>권위(Authority)</h2><ul><li>사전적 의미 : 다른 사람을 통솔하여 이끄는 힘</li><li>구성원의 마음을 지배하는 힘</li><li>승인을 받아낼 수 있는 잠재력</li><li>권력을 행사할 수 있는 권리</li><li>권력과 권위의 차이<ul><li>행동하는 능력 vs. 그렇게 하도록 인정받은 권한</li><li>방향성 : 일방향적 vs. 쌍방향적</li></ul></li></ul><h2 id="영향력-Influence"><a href="#영향력-Influence" class="headerlink" title="영향력(Influence)"></a>영향력(Influence)</h2><ul><li>사전적 의미 : 어떤 사물의 효과나 작용이 다른 것에 미치는 힘, 또는 그 크기나 정도</li><li>누가 누구에게 무엇을 하도록 어떤 행동을 유도하는 것</li><li>현재적 영향력 : 분명하게 상대방의 행동에 변화를 가져오는 유형</li><li>잠재적 영향력 : 영향력을 행사하려는 시도나 의도가 없었음에도 불구하고 사람들이 행동의 변화를 보이는 경우</li></ul><h2 id="정치권력의-개념"><a href="#정치권력의-개념" class="headerlink" title="정치권력의 개념"></a>정치권력의 개념</h2><ul><li>정치권력<ul><li>권력이 정치적 기능을 수행하기 위해 조직화 된 것</li><li>국가에 의해 제도화되고 행사되는 국가권력을 가장 전형적인 형태의 정치권력이라고 함</li></ul></li><li>정치와 정책<ul><li>정치권력은 정책결정을 담당하여 어떤 결정의 정책을 만들어 냄</li><li>정책은 본질적으로 이익갈등이 발생할 수 밖에 없음</li><li>NIMBY(Not In My Back Yard) 현상 : 혐오시설 유치를 기피, 반대하는 지역이기주의의 일종</li><li>PIMFY(Please In My Front Yard) 현상 : 금전적 이익이 기대되는 사업을 유치하려는 지역이기주의의 일종</li></ul></li></ul><h3 id="정치권력의-속성"><a href="#정치권력의-속성" class="headerlink" title="정치권력의 속성"></a>정치권력의 속성</h3><blockquote><p>이론</p></blockquote><ul><li>엘리트론(Mosca, 1939)<ul><li>조직되어 있는 소수가 조직되어 있지 못한 다수를 지배함</li><li>법률적, 도덕적 기초나 원칙 등으로 소수의 지배를 정당화함</li></ul></li><li>소수권력 엘리트론(Mills, 1954)<ul><li>모든 사회는 엘리트와 비 엘리트로 구성되고, 엘리트 집단 또한 통치 엘리트와 비 통치 엘리트로 구분됨</li></ul></li><li>엘리트 순환론(Pareto, 1963)<ul><li>어떤 방식에 의해서든 신, 구 통치 엘리트는 주기적 또는 비주기적으로 교체(순환)됨</li></ul></li><li>다원주의 권력론(Dahl, 1984)<ul><li>권력은 분산되어 있어 어느 한 집단이 전적으로 권력을 독점하는 것이 아니라 복수 엘리트들이 서로 권력을 나누어 행사함</li></ul></li><li>과두제의 철칙(Iron law of oligarchy)(Michels, 1925)<ul><li>아무리 민주적인 조직이라도 조직운영의 전략적, 기술적 필요에 의하여 소수 엘리트에 의한 과두지배가 필연적으로 나타남</li></ul></li></ul><h3 id="보이지-않는-권력"><a href="#보이지-않는-권력" class="headerlink" title="보이지 않는 권력"></a>보이지 않는 권력</h3><blockquote><p>Panopticon(원형감옥)</p></blockquote><ul><li>18c, J. Bentham이 설계</li><li>Pan(두루) + Opticon(보다)</li><li>원형의 공간이 가운데에 있는 복층 감옥으로 가운데 공간에는 감시탑이 존재</li><li>최소한의 인원으로 모든 수감자를 효율적으로 감시할 수 있도록 고안된 감옥</li><li>제재에 대한 위협이나 폭력의 사용 없이도 권력이 행사되는 과정</li><li>무력감을 만드는 상황, 자신이 의도하지 않은 방향으로 움직이게 하는 보이지 않는 권력</li><li>1974, M. Foucault ‘감시와 처벌’<ul><li>“근대사회는 잘 운영되는 원형감옥이며, 우리는 감옥에 갇힌 죄수처럼 보이지 않는 간수에게 스스로 복종하는 것을 배운다.”</li></ul></li></ul><hr><h1 id="Democracy"><a href="#Democracy" class="headerlink" title="Democracy"></a>Democracy</h1><h2 id="정치체제-Polity"><a href="#정치체제-Polity" class="headerlink" title="정치체제(Polity)"></a>정치체제(Polity)</h2><blockquote><p>정치체제의 분류(by. Aristotle)</p></blockquote><table><thead><tr><th align="center">통치자의 수\통치 형태</th><th align="center">순수형태</th><th align="center">부패형태</th></tr></thead><tbody><tr><td align="center">1인</td><td align="center">군주정치</td><td align="center">폭군정치</td></tr><tr><td align="center">소수</td><td align="center">귀족정치</td><td align="center">금권적 과두정치</td></tr><tr><td align="center">다수</td><td align="center">법제적 민주정치</td><td align="center">빈민정치</td></tr></tbody></table><ul><li>현대적 기준<ul><li>누가 권력을 갖고 있는가?</li><li>정치권력이 어떤 절차에 따라 형성되고 집행되는가?</li></ul></li></ul><blockquote><p>민주공화국</p><blockquote><p>주권이 국민에게 있고 권력이 국민의 합의 기관에서 결정된다.</p></blockquote></blockquote><h2 id="민주주의란"><a href="#민주주의란" class="headerlink" title="민주주의란?"></a>민주주의란?</h2><ul><li>개념<ul><li>Democracy는 그리스어의 demokratia에서 유래</li><li>인민의 지배 : demos(인민, 민중) + kratia(지배)</li><li>1인 지배(왕정, 군주정), 소수의 지배(귀족정)와는 달리, 자유롭고 평등한 시민들이 참여하여 스스로 통치하는 체제</li></ul></li><li>특징<ul><li>민주주의는 인간의 존엄성, 자유, 평등을 이념으로 하는 이데올로기</li><li>핵심은 인간의 존엄성과 삶의 다양성 인정</li><li>인간이 존엄하기 때문에, 존엄성을 지키고 삶의 다양성을 지키기 위해 개인의 자유와 평등이 요구되는 것</li></ul></li><li>핵심원리<ul><li>1864년, 미국 제 16대 대통령 A. Lincoln의 게티스버그 연설</li><li>민주주의는 “인민의, 인민에 의한, 인민을 위한 통치”<ul><li>Of the people : 민주주의에 정치권력은 인민에게 있으므로(주권재민) 인민의 동의가 필수적임</li><li>By the people : 민주주의는 정치권력이 인민의 소유일 뿐만 아니라, 그 인민의 참여에 의해 운영되는 정부형태 및 통치원리</li><li>For the people : 민주주의는 소수의 기득권층이 아니라 인민 대중의 행복을 위한 정치임</li></ul></li></ul></li></ul><h2 id="민주주의의-두-가지-갈래"><a href="#민주주의의-두-가지-갈래" class="headerlink" title="민주주의의 두 가지 갈래"></a>민주주의의 두 가지 갈래</h2><h3 id="직접-민주주의"><a href="#직접-민주주의" class="headerlink" title="직접 민주주의"></a>직접 민주주의</h3><blockquote><p>아테네 민주주의</p></blockquote><ul><li>기본 원리<ul><li>자치(Self rule)에 기반한, 시민이 주인이 되는 통치 체제</li><li>치자와 피치자의 동일성 -&gt; 모든 시민들은 정치권력 행사의 잠재적 등가성을 보장받음(ex. 추첨을 통한 대표의 선출)</li></ul></li><li>통치기구의 구성 및 기능<ul><li>민회 : 아테네 최고의결기구, 1년에 40회 개최, 20세 이상의 남성이 참가자격 보유, 5,000 ~ 8,000명이 광장(아고라)에 모여 의견을 공유하고 정책을 결정</li><li>(500인) 평의회 : 10개 행정구역에서 30세 이상 남성 대표 50명을 추첨에 의해 선출, 민회의 투표에 부칠 의제 또는 의안 협의, 민회 소집권 보유</li><li>시민 법정 : 매년 추첨으로 선출된 6,000명의 시민단(배심원 후보)에서 재판 당일 추첨에 의하여 배심원 구성, 평의회나 민회가 내린 어떤 결정에 의해서도 그것이 법률에 위배된다고 기소하여 폐기시킬 수 있는 권한 보유</li></ul></li><li>의의<ul><li>민주적 평등과 참여의 제도화</li><li>사법부의 독립 등 권력에 대한 견제와 균형</li><li>심의정치 제도화</li><li>시민적 덕성에 대한 신념에 기반한 정치체제</li></ul></li><li>한계<ul><li>대중 선동 및 조작에 능한 이들의 전횡 위험</li><li>숙고하지 않은 대중들의 우민정치로의 타락 가능성</li><li>경제적 상층 편향성</li><li>인구 규모와 지리적 한계</li><li>사회적 기능 분화와 전문화 심화</li><li>갈등 해결의 어려움, 소수의 존중 및 보호 문제</li></ul></li></ul><h3 id="간접-민주주의"><a href="#간접-민주주의" class="headerlink" title="간접 민주주의"></a>간접 민주주의</h3><blockquote><p>대의 민주주의</p></blockquote><ul><li>기본 원리<ul><li>시민들이 스스로 선출한 대표자들을 통해 법률제정 및 정책결정에 참여하는 통치체제</li><li>전문성을 갖춘 대표를 선출하고 선출된 대표가 국회(의회)에 모여 의사 결정을 하도록 일임하고, 의사 결정에 주권자인 국민이 따르는 형태</li></ul></li><li>절차적 조건<ul><li>보통선거권, 경쟁하는 정당들의 존재, 권력에 대한 견제와 균형 및 사법부의 독립, 언론-출판-결사 등 시민권의 보장, 정부 및 의회에 대한 시민의 비판 등</li></ul></li><li>대표의 개념<ul><li>누구를, 무엇을, 어떻게 대표할 것인가?</li><li>대리자(Delegate) : 대리원리, 유권자(선거구민)의 뜻과 의지의 통제에 따라 그들의 의사를 대리하는 존재</li><li>신탁자(Trustee) : 국민대표원리, 일단 대표로 선출된 이후에는 국민 전체의 이익을 위한 판단 일체를 신탁 받은 존재</li></ul></li><li>의의 및 한계<ul><li>대표성(전문성) : 선거와 여론에 반영된 시민의 이익을 대표하면서 정부 조직을 구성할 수 있으며 기술-지식-전문성을 갖춘 정치 엘리트를 육성하고 활용할 수 있음</li><li>반응성 : 주기적인 경쟁선거를 통해 정치세력이 시민들의 관심을 경청하고 반응하는 수준을 향상시킬 수 있음</li><li>책임성 : 잘못된 정책, 공정하지 못한 국정운영에 대하여 대표들에게 정치적-법적 책임을 물을 수 있음</li></ul></li><li>보완<ul><li>보다 많은, 보다 적극적인 참여와 실질적인 감독과 통제 장치</li><li>국민 투표, 국민 발안, 국민 소환제 등과 같은 직접 민주주의적 제도 도입</li><li>참여민주주의, 심의민주주의, 전자민주주의 요소 도입 및 확충</li></ul></li></ul>]]></content>
       
       
       <categories>
@@ -162,9 +143,9 @@
       
         <tags>
             
-            <tag> Signal Processing </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Signal Processing </tag>
             
             <tag> DNN </tag>
             
@@ -332,13 +313,13 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> DNN </tag>
             
@@ -398,11 +379,11 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> Arduino </tag>
             
@@ -470,13 +451,13 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> Arduino </tag>
             
@@ -773,11 +754,11 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> PHM </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> Statistics </tag>
             
@@ -808,13 +789,13 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> DNN </tag>
             
@@ -851,6 +832,8 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
@@ -858,8 +841,6 @@
             <tag> Read Paper </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -886,6 +867,8 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
@@ -893,8 +876,6 @@
             <tag> Read Paper </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -921,13 +902,13 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> PHM </tag>
             
             <tag> Read Paper </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> DNN </tag>
             
@@ -956,9 +937,9 @@
       
         <tags>
             
-            <tag> Signal Processing </tag>
-            
             <tag> Machine Learning </tag>
+            
+            <tag> Signal Processing </tag>
             
             <tag> DNN </tag>
             
@@ -1041,6 +1022,8 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
@@ -1048,8 +1031,6 @@
             <tag> Read Paper </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -1076,6 +1057,8 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
@@ -1083,8 +1066,6 @@
             <tag> Read Paper </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
         </tags>
       
@@ -1138,13 +1119,13 @@
       
         <tags>
             
+            <tag> Machine Learning </tag>
+            
             <tag> Signal Processing </tag>
             
             <tag> PHM </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Machine Learning </tag>
             
             <tag> DNN </tag>
             
@@ -2990,9 +2971,9 @@
     
     
     <entry>
-      <title>Tag Cloud</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>Categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
@@ -3001,9 +2982,9 @@
     
     
     <entry>
-      <title>Categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>Tag Cloud</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
       
