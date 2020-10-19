@@ -8,8 +8,32 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
+        <lastmod>2020-10-19T14:25:16.039Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/domain-knowledge-based-data-preprocessing-technology-for-industrial-applications-of-deep-learning/</loc>
+        <lastmod>2020-10-11T15:20:31.769Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/professional-signal-process-for-phm/</loc>
+        <lastmod>2020-10-11T15:20:19.892Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/political-science/</loc>
-        <lastmod>2020-10-06T13:29:32.759Z</lastmod>
+        <lastmod>2020-10-08T06:23:23.682Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -66,14 +90,6 @@
     <url>
         <loc>https://zerohertz.github.io/manufacturing-process-laboratory/</loc>
         <lastmod>2020-09-17T11:31:01.327Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
-        <lastmod>2020-09-17T11:27:36.889Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -338,22 +354,6 @@
     <url>
         <loc>https://zerohertz.github.io/evaluation-of-datum-unit-for-diagnostics-of-journal-bearing-systems/</loc>
         <lastmod>2020-04-06T09:34:12.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/professional-signal-process-for-phm/</loc>
-        <lastmod>2020-04-06T09:34:02.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/domain-knowledge-based-data-preprocessing-technology-for-industrial-applications-of-deep-learning/</loc>
-        <lastmod>2020-04-06T09:33:32.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
