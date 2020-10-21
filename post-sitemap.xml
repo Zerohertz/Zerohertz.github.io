@@ -8,8 +8,24 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/political-science/</loc>
+        <lastmod>2020-10-21T15:13:13.431Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/mass-media/</loc>
+        <lastmod>2020-10-21T15:03:43.607Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/cam-and-cnc/</loc>
-        <lastmod>2020-10-19T14:25:16.039Z</lastmod>
+        <lastmod>2020-10-20T15:04:01.350Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -26,14 +42,6 @@
     <url>
         <loc>https://zerohertz.github.io/professional-signal-process-for-phm/</loc>
         <lastmod>2020-10-11T15:20:19.892Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/political-science/</loc>
-        <lastmod>2020-10-08T06:23:23.682Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -298,14 +306,6 @@
     <url>
         <loc>https://zerohertz.github.io/manufacturing-process/</loc>
         <lastmod>2020-07-01T04:33:38.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/mass-media/</loc>
-        <lastmod>2020-06-18T03:51:49.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
