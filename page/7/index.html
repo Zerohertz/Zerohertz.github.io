@@ -170,7 +170,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">102</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">101</span></a>
 
   </li>
         <li class="menu-item menu-item-sitemap">
@@ -246,7 +246,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">102</span>
+          <span class="site-state-item-count">101</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -306,137 +306,6 @@
       
 
       
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/web-crawling-by-beautifulsoup-4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
-      <meta itemprop="name" content="Zerohertz">
-      <meta itemprop="description" content="#800a0a">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Zerohertz">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/web-crawling-by-beautifulsoup-4/" class="post-title-link" itemprop="url">Web crawling by BeautifulSoup(4)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2018-08-22 16:46:04" itemprop="dateCreated datePublished" datetime="2018-08-22T16:46:04+09:00">2018-08-22</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2020-01-10 17:58:49" itemprop="dateModified" datetime="2020-01-10T17:58:49+09:00">2020-01-10</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/web-crawling/" itemprop="url" rel="index"><span itemprop="name">Web crawling</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus: </span>
-    
-    <a title="disqus" href="/web-crawling-by-beautifulsoup-4/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="web-crawling-by-beautifulsoup-4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-      </div>
-      <div class="post-meta">
-    <span class="post-meta-item" title="Symbols count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Symbols count in article: </span>
-      <span>1.2k</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="HTTP-통신"><a href="#HTTP-통신" class="headerlink" title="HTTP 통신"></a>HTTP 통신</h1><blockquote>
-<p>웹 브라우저와 웹 서버는 HTTP라는 통신규약(<code>프로토콜</code>)을 사용해서 통신한다.</p>
-</blockquote>
-<p>브라우저에서 서버로 요청(<code>request</code>), 서버에서 브라우저로 응답(<code>response</code>)할 때 어떻게 할지를 나타낸 규약이다.</p>
-<hr>
-<h1 id="쿠키"><a href="#쿠키" class="headerlink" title="쿠키"></a>쿠키</h1><p>무상태(<code>stateless</code>) <code>HTTP 통신</code>으로는 회원제 사이트를 만들 수 없다.(<code>stateless</code> : 이전에 어떤 데이터를 가져갔는지 등에 대한 정보(상태 : <code>state</code>)를 전혀 저장하지 않는 통신)</p>
-<blockquote>
-<p>방문하는 사람의 컴퓨터에 일시적으로 데이터를 저장하는 기능</p>
-</blockquote>
-<p>하지만 1개의 <code>쿠키</code>엔 <code>4096byte</code>의 데이터 크기 제한이 있다.<br>또한 <code>쿠키</code>는 <code>HTTP 통신</code> 헤더를 통해 읽고 쓸 수 있다. 따라서 방문자 혹은 확인자가 원하는 대로 변경할 수 있다.<br>하지만 위의 말대로 쉽게 변경이 가능하기에 비밀번호 등의 비밀 정보는 <code>세션</code>을 통해 다뤄진다.<br><code>새션</code>도 <code>쿠키</code>를 사용해 데이터를 저장하는 점은 같다. 하지만, 방문자 고유 ID만을 저장하고, 실제로 모든 데이터는 웹 서버에 저장하므로 <code>쿠키</code>와는 다르게 저장할 수 있는 데이터에 제한이 없다.</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/web-crawling-by-beautifulsoup-4/#more" rel="contents">
-                Read more &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      
-
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
       
   
   
@@ -1810,14 +1679,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Symbols count total: </span>
-    <span title="Symbols count total">572k</span>
+    <span title="Symbols count total">575k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">8:40</span>
+    <span title="Reading time total">8:43</span>
   </span>
 </div>
 <div class="busuanzi-count">
