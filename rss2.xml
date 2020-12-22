@@ -9,8 +9,135 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Sat, 19 Sep 2020 19:43:43 GMT</pubDate>
+    <pubDate>Tue, 22 Dec 2020 07:34:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Introduction of HRV</title>
+      <link>https://zerohertz.github.io/introduction-of-hrv/</link>
+      <guid>https://zerohertz.github.io/introduction-of-hrv/</guid>
+      <pubDate>Tue, 22 Dec 2020 05:58:04 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;심박동과 박동사이의 간격(R-R interval)은 안정을 취하고 있을 때에도 항상 변화하는데, 이것을 심박변동(Heart Rate Variability, HRV)이라고 한다. 일반적으로, 이러한 심장 박동 간의 변화는 안정 상태일수록 더 크고 복잡한 형태를 나타내며, 운동을 하거나 스트레스 상태인 경우 규칙적이고 일정한 형태를 나타낸다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;HRV 신호로부터 임상적인 해석을 유도하기 위해 심전도(ECG) 신호 측정&lt;/li&gt;
+&lt;li&gt;측정하는 시간에 따라&lt;ul&gt;
+&lt;li&gt;24시간 데이터를 이용하는 장기(long-term) 분석&lt;ul&gt;
+&lt;li&gt;하루주기리듬(circadian rhythm)을 포함하여 많은 정보를 얻을 수 있음&lt;/li&gt;
+&lt;li&gt;임상적 상황에서는 측정이 어려움&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;5분 또는 3분 데이터를 사용하는 단기(short-term) 분석&lt;ul&gt;
+&lt;li&gt;순간적인 생리적 변화를 반영&lt;/li&gt;
+&lt;li&gt;환자의 상태와 검사 환경을 제어하지 않을 경우 진단의 오류 가능성 존재&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HRV 측정 시간 및 방법은 비용대비 효과와 임상적 상황에 따라 적절한 선택 필요&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote><p>심박동과 박동사이의 간격(R-R interval)은 안정을 취하고 있을 때에도 항상 변화하는데, 이것을 심박변동(Heart Rate Variability, HRV)이라고 한다. 일반적으로, 이러한 심장 박동 간의 변화는 안정 상태일수록 더 크고 복잡한 형태를 나타내며, 운동을 하거나 스트레스 상태인 경우 규칙적이고 일정한 형태를 나타낸다.</p></blockquote><ul><li>HRV 신호로부터 임상적인 해석을 유도하기 위해 심전도(ECG) 신호 측정</li><li>측정하는 시간에 따라<ul><li>24시간 데이터를 이용하는 장기(long-term) 분석<ul><li>하루주기리듬(circadian rhythm)을 포함하여 많은 정보를 얻을 수 있음</li><li>임상적 상황에서는 측정이 어려움</li></ul></li><li>5분 또는 3분 데이터를 사용하는 단기(short-term) 분석<ul><li>순간적인 생리적 변화를 반영</li><li>환자의 상태와 검사 환경을 제어하지 않을 경우 진단의 오류 가능성 존재</li></ul></li></ul></li><li>HRV 측정 시간 및 방법은 비용대비 효과와 임상적 상황에 따라 적절한 선택 필요</li></ul><a id="more"></a><hr><h1 id="HRV-Signal"><a href="#HRV-Signal" class="headerlink" title="HRV Signal"></a>HRV Signal</h1><blockquote><p>HRV signal extraction from ECG signal</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/102859435-3ec3a580-446f-11eb-895c-8b85e1b9cfc6.png" alt="HRV signal extraction from ECG signal"></p><ul><li>HRV<ul><li>하나의 심장 주기로부터 다음 심장 주기 사이의 변이 측정</li><li>끊임없이 변화하는 심혈관계 제어 메커니즘에 있어 R-R 간격의 변동 특징을 관찰 및 심장박동의 변화 추이를 정량화</li></ul></li><li>Signal extraction process<ol><li>심전도 신호로부터 R 피크 검출</li><li>검출된 R-R 간격을 시계열 신호로 변환하여 시간축에 재배열</li></ol><ul><li>시간에 따라 변화하는 심박동 변화를 알 수 있음</li></ul></li><li>Condition Indicators of HRV<ul><li>Time domain analysis(시간 영역 해석)<ul><li>심박동의 평균치 변화나 표준편차와 같은 통계적이고 기초적 정보 제공</li><li>주파수 분석 방법이 도입되기 전에 일반적으로 사용된 방법</li><li>측정이 용이하며 많은 정보 제공</li></ul></li><li>Frequency domain analysis(주파수 영역 해석)<ul><li>HRV 파형을 분석하여 각 주파수 성분의 신호가 상대적으로 어떤 강도로 존재하는지 보는 방법</li><li>자율신경계의 교감신경과 부교감신경계의 길항적 활동 추정</li><li>대부분의 임상에서는 HF 대역에 대한 LF 대역의 강도를 교감신경과 부교감신경의 균형도로 해석</li></ul></li></ul></li></ul><hr><h1 id="Condition-Indicators-of-HRV"><a href="#Condition-Indicators-of-HRV" class="headerlink" title="Condition Indicators of HRV"></a>Condition Indicators of HRV</h1><ul><li>Time domain<ul><li>SDNN : Standard deviation of all NN intervals<ul><li>심혈관계의 안정도와 더불어 자율신경계의 신체에 대한 제어능력에 관한 정보를 제공하는 강력한 지표</li></ul></li><li>RMSSD : The square root of the mean of the sum of the squares of differences between adjacent NN intervals</li><li>SDSD : Standard deviation of differences between adjacent NN intervals</li><li>NN50 count : Number of pairs of adjacent NN intervals differing by more than 50ms in the entire recording</li><li>pNN50 : NN50 count divded by the total number of all NN intervals</li></ul></li><li>Frequency domain<ul><li>TP : 5min total power</li><li>VLF : Power in very low frequency range</li><li>LF : Power in low frequency range</li><li>HF : Power in high frequency range</li><li>LFnorm : LF power in normalized units</li><li>HFnorm : HF power in normalized units</li><li>LF/HF : Ratio LF {$ms^2$} / HF {$ms^2$}</li></ul></li></ul><table><thead><tr><th align="center">주기성분</th><th align="center">주파수 대역</th><th align="center">관계되는 신경계</th></tr></thead><tbody><tr><td align="center">VLF 성분</td><td align="center">0.003 ~ 0.05 Hz</td><td align="center">온도조절, 혈관운동, 레닌-엔지오텐신 조절계</td></tr><tr><td align="center">LF 성분</td><td align="center">0.05 ~ 0.15 Hz</td><td align="center">압력수용기 반사, 혈압조절계</td></tr><tr><td align="center">HF 성분</td><td align="center">0.15 ~ 0.40 Hz</td><td align="center">미주신경(부교감 신경)</td></tr></tbody></table>]]></content:encoded>
+      
+      
+      <category domain="https://zerohertz.github.io/categories/research/">Research</category>
+      
+      <category domain="https://zerohertz.github.io/categories/research/read-paper/">Read Paper</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/signal-processing/">Signal Processing</category>
+      
+      <category domain="https://zerohertz.github.io/tags/phm/">PHM</category>
+      
+      <category domain="https://zerohertz.github.io/tags/smart-data/">Smart data</category>
+      
+      <category domain="https://zerohertz.github.io/tags/statistics/">Statistics</category>
+      
+      <category domain="https://zerohertz.github.io/tags/sleep-apnea/">Sleep apnea</category>
+      
+      
+      <comments>https://zerohertz.github.io/introduction-of-hrv/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>User Condition Monitoring Data Analysis Using Artificial Intelligence Technology</title>
+      <link>https://zerohertz.github.io/user-condition-monitoring-data-analysis-using-artificial-intelligence-technology/</link>
+      <guid>https://zerohertz.github.io/user-condition-monitoring-data-analysis-using-artificial-intelligence-technology/</guid>
+      <pubDate>Mon, 21 Dec 2020 07:36:15 GMT</pubDate>
+      
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;사용자 상태 측정 시스템&lt;ul&gt;
+&lt;li&gt;전기적 측정&lt;ul&gt;
+&lt;li&gt;뇌파&lt;/li&gt;
+&lt;li&gt;심전도&lt;/li&gt;
+&lt;li&gt;근전도&lt;/li&gt;
+&lt;li&gt;안전도&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;움직임 및 행동 측정&lt;ul&gt;
+&lt;li&gt;가속도 센서&lt;/li&gt;
+&lt;li&gt;자이로 센서&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;심전도&lt;ul&gt;
+&lt;li&gt;심장의 상태를 전기적으로 측정할 수 있음&lt;/li&gt;
+&lt;li&gt;심전도 정보를 통해 사용자의 심장 상태 정보 및 자율신경계 반응을 얻을 수 있음&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;가속도&lt;ul&gt;
+&lt;li&gt;사용자의 행동 상태 정보를 모니터링&lt;/li&gt;
+&lt;li&gt;일상생활 중의 움직임 정보를 얻을 수 있음&lt;/li&gt;
+&lt;li&gt;모니터링을 통해 수면의 질을 평가하는데 많이 사용&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;기존의 기술 &lt;ul&gt;
+&lt;li&gt;대부분 특정 모델 기반 특징점 추출을 통해 이루어짐&lt;/li&gt;
+&lt;li&gt;신호들의 정형성 및 선형성을 가정한 모델&lt;/li&gt;
+&lt;li&gt;생체신호들이 가지고 있는 비정형성 및 비선형성의 특징을 반영하여 분석하기 어려움&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;생체신호 데이터로부터 모델을 설계하고 최적화하는 알고리즘 필요 - DNN 이용&lt;ul&gt;
+&lt;li&gt;Deep ECGNet&lt;/li&gt;
+&lt;li&gt;Deep ACTINet&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul><li>사용자 상태 측정 시스템<ul><li>전기적 측정<ul><li>뇌파</li><li>심전도</li><li>근전도</li><li>안전도</li></ul></li><li>움직임 및 행동 측정<ul><li>가속도 센서</li><li>자이로 센서</li></ul></li></ul></li><li>심전도<ul><li>심장의 상태를 전기적으로 측정할 수 있음</li><li>심전도 정보를 통해 사용자의 심장 상태 정보 및 자율신경계 반응을 얻을 수 있음</li></ul></li><li>가속도<ul><li>사용자의 행동 상태 정보를 모니터링</li><li>일상생활 중의 움직임 정보를 얻을 수 있음</li><li>모니터링을 통해 수면의 질을 평가하는데 많이 사용</li></ul></li><li>기존의 기술 <ul><li>대부분 특정 모델 기반 특징점 추출을 통해 이루어짐</li><li>신호들의 정형성 및 선형성을 가정한 모델</li><li>생체신호들이 가지고 있는 비정형성 및 비선형성의 특징을 반영하여 분석하기 어려움</li></ul></li><li>생체신호 데이터로부터 모델을 설계하고 최적화하는 알고리즘 필요 - DNN 이용<ul><li>Deep ECGNet</li><li>Deep ACTINet</li></ul></li></ul><a id="more"></a><hr><h1 id="Deep-Neural-Network-Algorithm"><a href="#Deep-Neural-Network-Algorithm" class="headerlink" title="Deep Neural Network Algorithm"></a>Deep Neural Network Algorithm</h1><ul><li>기존의 심전도 및 액티그라피 신호 분석<ul><li>대부분 모델 기반의 특징점 추출 알고리즘</li><li>기계 학습 분석을 통해 사용자의 상태를 최종 추정</li><li>고정된 모델 및 가정을 통해 분석이 이뤄짐</li><li>시간에 따라 지속적으로 특징이 변하는 생체신호 분석에 최적은 아님</li></ul></li><li>Deep Neural Network<ul><li>고정된 모델 및 가정에 기반하지 않고 데이터로부터 특징을 추출하여 분석함</li><li>입력 신호와 그 신호에 따른 상태를 딥러닝 네트워크 구조에 대입하고 최적화 기술을 활용하여 네트워크의 파라미터 값들을 찾아내어 최적의 모델을 데이터 자체로부터 유도하는 End-To-End 기술</li></ul></li></ul><h2 id="Deep-ECGNet"><a href="#Deep-ECGNet" class="headerlink" title="Deep ECGNet"></a>Deep ECGNet</h2><ul><li>심전도 신호의 특징점을 입력으로 받지 않고 심전도 데이터 자체 입력</li><li>입력 신호의 패턴을 딥러닝 구조 내에서 찾아내기 위하여 Convolution Neural Network(CNN) 레이어 사용<ul><li>필터 및 Pooling 레이어의 크기를 결정하기 위하여 심전도의 생리학적 특징을 바탕으로 설계해야 최적의 심전도 패턴 추출 성능을 기대할 수 있음</li></ul></li><li>CNN 구조를 통해 얻어낸 심전도 패턴 정보는 Recurrent Neural Network(RNN) 구조를 거쳐 시간에 따라 유사한 패턴이 나타나는 시계열 심전도 신호의 순차적 특징을 추출</li></ul><h2 id="Deep-ACTINet"><a href="#Deep-ACTINet" class="headerlink" title="Deep ACTINet"></a>Deep ACTINet</h2><ul><li>가속도 센서 데이터의 패턴을 추출하기 위해 네 개의 CNN 구조 설계</li><li>시계열의 순차적 패턴을 찾아내기 위해 RNN 구조 Long Short-Term Memory(LSTM) 적용</li></ul>]]></content:encoded>
+      
+      
+      <category domain="https://zerohertz.github.io/categories/research/">Research</category>
+      
+      <category domain="https://zerohertz.github.io/categories/research/read-paper/">Read Paper</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/machine-learning/">Machine Learning</category>
+      
+      <category domain="https://zerohertz.github.io/tags/signal-processing/">Signal Processing</category>
+      
+      <category domain="https://zerohertz.github.io/tags/phm/">PHM</category>
+      
+      <category domain="https://zerohertz.github.io/tags/smart-data/">Smart data</category>
+      
+      <category domain="https://zerohertz.github.io/tags/dnn/">DNN</category>
+      
+      <category domain="https://zerohertz.github.io/tags/statistics/">Statistics</category>
+      
+      <category domain="https://zerohertz.github.io/tags/sleep-apnea/">Sleep apnea</category>
+      
+      
+      <comments>https://zerohertz.github.io/user-condition-monitoring-data-analysis-using-artificial-intelligence-technology/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Jupyter notebook in Raspberry Pi</title>
@@ -510,15 +637,15 @@
       <category domain="https://zerohertz.github.io/categories/research/journal/">Journal</category>
       
       
-      <category domain="https://zerohertz.github.io/tags/arduino/">Arduino</category>
-      
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
-      
       <category domain="https://zerohertz.github.io/tags/machine-learning/">Machine Learning</category>
       
       <category domain="https://zerohertz.github.io/tags/signal-processing/">Signal Processing</category>
       
       <category domain="https://zerohertz.github.io/tags/phm/">PHM</category>
+      
+      <category domain="https://zerohertz.github.io/tags/arduino/">Arduino</category>
+      
+      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
       
       <category domain="https://zerohertz.github.io/tags/raspberrypi/">RaspberryPi</category>
       
@@ -529,6 +656,8 @@
       <category domain="https://zerohertz.github.io/tags/statistics/">Statistics</category>
       
       <category domain="https://zerohertz.github.io/tags/matlab/">Matlab</category>
+      
+      <category domain="https://zerohertz.github.io/tags/sleep-apnea/">Sleep apnea</category>
       
       
       <comments>https://zerohertz.github.io/source-code-obstructive-sleep-apnea/#disqus_thread</comments>
@@ -568,25 +697,56 @@
       <guid>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</guid>
       <pubDate>Tue, 14 Jul 2020 07:37:45 GMT</pubDate>
       
-      <description>&lt;h1 id=&quot;Condition-Indicator&quot;&gt;&lt;a href=&quot;#Condition-Indicator&quot; class=&quot;headerlink&quot; title=&quot;Condition Indicator&quot;&gt;&lt;/a&gt;Condition Indicator&lt;/h1&gt;&lt;h2 id=&quot;Sleep-Fragmentation-Index-SFI&quot;&gt;&lt;a href=&quot;#Sleep-Fragmentation-Index-SFI&quot; class=&quot;headerlink&quot; title=&quot;Sleep Fragmentation Index(SFI)&quot;&gt;&lt;/a&gt;Sleep Fragmentation Index(SFI)&lt;/h2&gt;&lt;blockquote&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;Apnea-Hypopnea-Index-AHI&quot;&gt;&lt;a href=&quot;#Apnea-Hypopnea-Index-AHI&quot; class=&quot;headerlink&quot; title=&quot;Apnea-Hypopnea Index(AHI)&quot;&gt;&lt;/a&gt;Apnea-Hypopnea Index(AHI)&lt;/h2&gt;&lt;blockquote&gt;
-&lt;p&gt;수면 시, 호흡의 장애 심각도를 측정하는 지표&lt;/p&gt;
-&lt;/blockquote&gt;</description>
+      <description>&lt;h1 id=&quot;Introduction&quot;&gt;&lt;a href=&quot;#Introduction&quot; class=&quot;headerlink&quot; title=&quot;Introduction&quot;&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Obstructive Sleep Apnea(폐쇄성 수면무호흡증)&lt;ul&gt;
+&lt;li&gt;정의 : 수면 중 상기도가 좁아지거나 막혀 무호흡과 저호흡이 되풀이되는 질환&lt;/li&gt;
+&lt;li&gt;위험성 : 혈중 산소포화도 감소 - 산소를 많이 필요로 하는 장기(뇌, 심장)에 영향&lt;ul&gt;
+&lt;li&gt;증상 : 두통, 기억력 및 집중력 저하, …&lt;/li&gt;
+&lt;li&gt;질환 : 수면질환(불면증), 고혈압, 심부정맥, 신부전 및 관상 동맥, …&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;유병률 : 국내 농촌인구의 3%, 미국 중년 남성의 4%, 여성의 2%&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;현재의 기술 - 야간 수면다원검사&lt;ul&gt;
+&lt;li&gt;여러 가지 감지기 부착&lt;/li&gt;
+&lt;li&gt;평소의 수면환경이 아닌 수면검사실에서 수면&lt;/li&gt;
+&lt;li&gt;장시간 검사에 따른 높은 비용&lt;/li&gt;
+&lt;li&gt;현실적 대안 : 간이형 수면다원기록기 or 활동 기록기&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;손목부착형 활동기록기(액티그라피)&lt;ul&gt;
+&lt;li&gt;손목 운동에 따른 가속을 감지해 몸의 활동량을 측정&lt;/li&gt;
+&lt;li&gt;사용이 간편하며 피험자에게 익숙한 환경에서 장기간 검사 가능&lt;/li&gt;
+&lt;li&gt;수면다원검사에 비해 경제적 이점&lt;/li&gt;
+&lt;li&gt;미국수면학회 : 불면증과 일주기 수면-각성 장애에서 유용&lt;/li&gt;
+&lt;li&gt;수면분절지수에 의해 민감도가 특이도가 낮음&lt;ul&gt;
+&lt;li&gt;무호흡 및 저호흡과 관련된 움직임의 빈도만 반영&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;수면무호흡수치 반영&lt;ul&gt;
+&lt;li&gt;폐쇄성 수면무호흡증 환자의 수면 시간을 짧게 평가하는 현상 개선&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;기술개발계획&lt;ul&gt;
+&lt;li&gt;심박변이도 신호 분석을 통한 폐쇄성 수면무호흡증 진단 알고리즘 개발&lt;/li&gt;
+&lt;li&gt;음성신호 분석을 위한 마이크 이용&lt;/li&gt;
+&lt;li&gt;획득된 폐쇄성 수면무호흡수치를 바탕으로 수면/각성 주기 계산 알고리즘 개발&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description>
       
       
       
-      <content:encoded><![CDATA[<h1 id="Condition-Indicator"><a href="#Condition-Indicator" class="headerlink" title="Condition Indicator"></a>Condition Indicator</h1><h2 id="Sleep-Fragmentation-Index-SFI"><a href="#Sleep-Fragmentation-Index-SFI" class="headerlink" title="Sleep Fragmentation Index(SFI)"></a>Sleep Fragmentation Index(SFI)</h2><blockquote></blockquote><h2 id="Apnea-Hypopnea-Index-AHI"><a href="#Apnea-Hypopnea-Index-AHI" class="headerlink" title="Apnea-Hypopnea Index(AHI)"></a>Apnea-Hypopnea Index(AHI)</h2><blockquote><p>수면 시, 호흡의 장애 심각도를 측정하는 지표</p></blockquote><a id="more"></a><h1 id="Data-Result"><a href="#Data-Result" class="headerlink" title="Data Result"></a>Data Result</h1><h2 id="2020-07-22"><a href="#2020-07-22" class="headerlink" title="2020/07/22"></a>2020/07/22</h2><blockquote><p>특수문자 사용으로 인한 .csv 파일 저장 오류</p></blockquote><h2 id="2020-07-27"><a href="#2020-07-27" class="headerlink" title="2020/07/27"></a>2020/07/27</h2><blockquote><p>Acceleration</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665268-58a7c900-d119-11ea-9861-3e05d5f4c587.jpg" alt="Acc"></p><blockquote><p>Acoustic Emission</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665261-56de0580-d119-11ea-86b5-31a9b10bb816.jpg" alt="AE"></p><blockquote><p>Accerleration &amp; Acoustic Emission</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665402-868d0d80-d119-11ea-8e9f-98daa1f4f6a1.png" alt="Acc &amp; AE"></p><blockquote><p>Accerleration &amp; Acoustic Emission &amp; Scoring Data</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/90608792-110aed80-e23e-11ea-9887-a03d635c1e58.jpg" alt="20200813_무호흡_진단_알고리즘_발표_H_Oh-3"></p><p><img src="https://user-images.githubusercontent.com/42334717/90608764-051f2b80-e23e-11ea-9156-8175f6ebb90e.jpg" alt="20200813_무호흡_진단_알고리즘_발표_H_Oh-4"></p>]]></content:encoded>
+      <content:encoded><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul><li>Obstructive Sleep Apnea(폐쇄성 수면무호흡증)<ul><li>정의 : 수면 중 상기도가 좁아지거나 막혀 무호흡과 저호흡이 되풀이되는 질환</li><li>위험성 : 혈중 산소포화도 감소 - 산소를 많이 필요로 하는 장기(뇌, 심장)에 영향<ul><li>증상 : 두통, 기억력 및 집중력 저하, …</li><li>질환 : 수면질환(불면증), 고혈압, 심부정맥, 신부전 및 관상 동맥, …</li></ul></li><li>유병률 : 국내 농촌인구의 3%, 미국 중년 남성의 4%, 여성의 2%</li></ul></li><li>현재의 기술 - 야간 수면다원검사<ul><li>여러 가지 감지기 부착</li><li>평소의 수면환경이 아닌 수면검사실에서 수면</li><li>장시간 검사에 따른 높은 비용</li><li>현실적 대안 : 간이형 수면다원기록기 or 활동 기록기</li></ul></li><li>손목부착형 활동기록기(액티그라피)<ul><li>손목 운동에 따른 가속을 감지해 몸의 활동량을 측정</li><li>사용이 간편하며 피험자에게 익숙한 환경에서 장기간 검사 가능</li><li>수면다원검사에 비해 경제적 이점</li><li>미국수면학회 : 불면증과 일주기 수면-각성 장애에서 유용</li><li>수면분절지수에 의해 민감도가 특이도가 낮음<ul><li>무호흡 및 저호흡과 관련된 움직임의 빈도만 반영</li></ul></li><li>수면무호흡수치 반영<ul><li>폐쇄성 수면무호흡증 환자의 수면 시간을 짧게 평가하는 현상 개선</li></ul></li></ul></li><li>기술개발계획<ul><li>심박변이도 신호 분석을 통한 폐쇄성 수면무호흡증 진단 알고리즘 개발</li><li>음성신호 분석을 위한 마이크 이용</li><li>획득된 폐쇄성 수면무호흡수치를 바탕으로 수면/각성 주기 계산 알고리즘 개발</li></ul></li></ul><a id="more"></a><hr><h1 id="Condition-Indicator-HRV"><a href="#Condition-Indicator-HRV" class="headerlink" title="Condition Indicator(HRV)"></a>Condition Indicator(HRV)</h1><ul><li>비침습적인 심박변이도(Heart Rate Variability, HRV)<ul><li>심전도상의 R-R 간격 변화 측정<ul><li>R-R 간격 : 하나의 심장 주기와 다음 심장 주기 사이의 미세한 변이</li></ul></li><li>일반적으로 교감신경과 부교감신경의 영향을 받아 조절되는 것으로 알려짐</li><li>수면은 자율신경계에 영향을 주며, 이는 곧 HRV에 영향을 줌<ul><li>수면무호흡증과의 상관관계</li></ul></li><li>영향을 주는 인자 : 호흡, 혈합, 호르몬, 감정, …</li></ul></li></ul><h2 id="Time-domain-analysis"><a href="#Time-domain-analysis" class="headerlink" title="Time domain analysis"></a>Time domain analysis</h2><h2 id="Frequency-domain-analysis"><a href="#Frequency-domain-analysis" class="headerlink" title="Frequency domain analysis"></a>Frequency domain analysis</h2><hr><h1 id="Data-Result"><a href="#Data-Result" class="headerlink" title="Data Result"></a>Data Result</h1><h2 id="2020-07-22"><a href="#2020-07-22" class="headerlink" title="2020/07/22"></a>2020/07/22</h2><blockquote><p>특수문자 사용으로 인한 .csv 파일 저장 오류</p></blockquote><h2 id="2020-07-27"><a href="#2020-07-27" class="headerlink" title="2020/07/27"></a>2020/07/27</h2><blockquote><p>Acceleration</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665268-58a7c900-d119-11ea-9861-3e05d5f4c587.jpg" alt="Acc"></p><blockquote><p>Acoustic Emission</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665261-56de0580-d119-11ea-86b5-31a9b10bb816.jpg" alt="AE"></p><blockquote><p>Accerleration &amp; Acoustic Emission</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665402-868d0d80-d119-11ea-8e9f-98daa1f4f6a1.png" alt="Acc &amp; AE"></p><blockquote><p>Accerleration &amp; Acoustic Emission &amp; Scoring Data</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/90608792-110aed80-e23e-11ea-9887-a03d635c1e58.jpg" alt="20200813_무호흡_진단_알고리즘_발표_H_Oh-3"></p><p><img src="https://user-images.githubusercontent.com/42334717/90608764-051f2b80-e23e-11ea-9156-8175f6ebb90e.jpg" alt="20200813_무호흡_진단_알고리즘_발표_H_Oh-4"></p><hr><h1 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h1><ul><li>Sleep Fragmentation Index(SFI, 수면분절지수)<ul><li>수면 분절의 정도를 유추하는 계산식을 통해 산출</li><li>기존에는 폐쇄성 수면무호흡증을 78%의 민감도, 95%의 특이도로 진단</li><li>수면무호흡 및 저호흡과 관련된 신체 움직임의 빈도만 반영</li><li>관련이 없는 움직임도 포함시킴으로써 민감도와 특이도가 낮아짐</li></ul></li><li>Apnea-Hypopnea Index(AHI, 수면무호흡지수)<ul><li>수면 시, 호흡의 장애 심각도를 측정하는 지표</li><li>무호흡 및 저호흡의 지속 시간, 혈중 산소 포화도 감소, 뇌파의 변화, 신체적 각성 등을 고려</li></ul></li><li>Heart Rate Variability(HRV, 비침습적인 심박변이도)<ul><li>심전도상의 R-R 간격의 변화를 측정하여 얻음</li><li>일반적으로 교감신경과 부교감신경의 영향을 받아 조절되는 것으로 알려짐</li></ul></li></ul>]]></content:encoded>
       
       
       <category domain="https://zerohertz.github.io/categories/research/">Research</category>
       
       <category domain="https://zerohertz.github.io/categories/research/journal/">Journal</category>
       
-      
-      <category domain="https://zerohertz.github.io/tags/arduino/">Arduino</category>
-      
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
       
       <category domain="https://zerohertz.github.io/tags/machine-learning/">Machine Learning</category>
       
@@ -595,6 +755,10 @@
       <category domain="https://zerohertz.github.io/tags/phm/">PHM</category>
       
       <category domain="https://zerohertz.github.io/tags/smart-data/">Smart data</category>
+      
+      <category domain="https://zerohertz.github.io/tags/arduino/">Arduino</category>
+      
+      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
       
       <category domain="https://zerohertz.github.io/tags/raspberrypi/">RaspberryPi</category>
       
@@ -605,6 +769,8 @@
       <category domain="https://zerohertz.github.io/tags/statistics/">Statistics</category>
       
       <category domain="https://zerohertz.github.io/tags/matlab/">Matlab</category>
+      
+      <category domain="https://zerohertz.github.io/tags/sleep-apnea/">Sleep apnea</category>
       
       
       <comments>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/#disqus_thread</comments>
@@ -746,77 +912,6 @@
       
       
       <comments>https://zerohertz.github.io/selection-and-iteration/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Data Types and Operations</title>
-      <link>https://zerohertz.github.io/data-types-and-operations/</link>
-      <guid>https://zerohertz.github.io/data-types-and-operations/</guid>
-      <pubDate>Wed, 01 Jul 2020 07:24:22 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;변수와-상수&quot;&gt;&lt;a href=&quot;#변수와-상수&quot; class=&quot;headerlink&quot; title=&quot;변수와 상수&quot;&gt;&lt;/a&gt;변수와 상수&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;변수(Variable) : 프로그램이 실행되는 동안 저장된 값이 변경될 수 있는 공간&lt;/li&gt;
-&lt;li&gt;상수(Constant) : 프로그램이 실행되는 동안 값이 변경되지 않는 공간&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h1 id=&quot;자료형&quot;&gt;&lt;a href=&quot;#자료형&quot; class=&quot;headerlink&quot; title=&quot;자료형&quot;&gt;&lt;/a&gt;자료형&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;데이터의 종류를 자료형(Data type) 또는 데이터 타입이라고 한다.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;변수는 일단 하나의 자료형으로 정의되면 해당되는 종류의 데이터만 저장할 수 있음&lt;/li&gt;
-&lt;li&gt;자료형을 크게 나누면 정수형(Interger type)과 문자형(Charater type), 부동 소수점형(Floating-point type)으로 나눌 수 있음&lt;ul&gt;
-&lt;li&gt;정수형 : 정수 타입의 데이터&lt;/li&gt;
-&lt;li&gt;문자형 : 하나의 문자 데이터&lt;/li&gt;
-&lt;li&gt;부동 소수점형 : 실수 타입의 데이터&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="변수와-상수"><a href="#변수와-상수" class="headerlink" title="변수와 상수"></a>변수와 상수</h1><ul><li>변수(Variable) : 프로그램이 실행되는 동안 저장된 값이 변경될 수 있는 공간</li><li>상수(Constant) : 프로그램이 실행되는 동안 값이 변경되지 않는 공간</li></ul><hr><h1 id="자료형"><a href="#자료형" class="headerlink" title="자료형"></a>자료형</h1><blockquote><p>데이터의 종류를 자료형(Data type) 또는 데이터 타입이라고 한다.</p></blockquote><ul><li>변수는 일단 하나의 자료형으로 정의되면 해당되는 종류의 데이터만 저장할 수 있음</li><li>자료형을 크게 나누면 정수형(Interger type)과 문자형(Charater type), 부동 소수점형(Floating-point type)으로 나눌 수 있음<ul><li>정수형 : 정수 타입의 데이터</li><li>문자형 : 하나의 문자 데이터</li><li>부동 소수점형 : 실수 타입의 데이터</li></ul></li></ul><a id="more"></a><hr><h1 id="변수-선언"><a href="#변수-선언" class="headerlink" title="변수 선언"></a>변수 선언</h1><ul><li>변수를 사용하기 전에 반드시 미리 선언</li><li>변수 선언 : 컴파일러에게 어떤 변수를 사용하겠다고 미리 알리는 것</li></ul><blockquote><p>변수 선언 방법</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">자료형 변수이름</span><br><span class="line"><span class="keyword">char</span> c;</span><br><span class="line"><span class="keyword">int</span> i;</span><br><span class="line"><span class="keyword">double</span> interest_rate;</span><br></pre></td></tr></table></figure><ul><li>변수가 선언되면 변수의 값은 아직 정의되지 않은 상태</li><li>변수를 선언과 동시에 값을 넣는 방법은 변수 이름 뒤에 할당 연산자 <code>=</code>를 놓고 초기값을 적어 넣으면 됨 - 변수의 초기화(Initialization)</li></ul><blockquote><p>변수의 초기화</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> c = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line"><span class="keyword">int</span> i = <span class="number">7</span>;</span><br><span class="line"><span class="keyword">double</span> interest_rate = <span class="number">0.05</span>;</span><br></pre></td></tr></table></figure><hr><h1 id="정수형"><a href="#정수형" class="headerlink" title="정수형"></a>정수형</h1><ul><li><code>short</code> : 16비트(2바이트)</li><li><code>int</code> : 32비트(4바이트)</li><li><code>long</code> : 32비트(4바이트)</li><li><code>sizeof()</code> : 자료형의 크기를 Return하는 함수</li><li><code>unsigned</code> : 자료형이 음수가 아닌 값만을 나타낸다는 것을 의미(더 넓은 범위의 양수)</li><li><code>signed</code> : 자료형이 음수도 가질 수 있음을 명백히 하는데 사용(<code>signed int == int</code>, 보통 생략)</li></ul><h2 id="오버플로우"><a href="#오버플로우" class="headerlink" title="오버플로우"></a>오버플로우</h2><blockquote><p>Overflow.cpp</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;climits&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">short</span> s = SHRT_MAX;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">short</span> u = USHRT_MAX;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;원래 s 값 : &quot;</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;원래 u 값 : &quot;</span> &lt;&lt; u &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    s = s + <span class="number">1</span>;</span><br><span class="line">    u = u + <span class="number">1</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;오버플로우 s 값 : &quot;</span> &lt;&lt; s &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;오버플로우 u 값 : &quot;</span> &lt;&lt; u &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>Output</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">원래 s 값 : <span class="number">32767</span></span><br><span class="line">원래 u 값 : <span class="number">65535</span></span><br><span class="line">오버플로우 s 값 : <span class="number">-32768</span></span><br><span class="line">오버플로우 u 값 : <span class="number">0</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure><ul><li>변수가 나타낼 수 있는 범위가 제한되어 있기 때문에 일어남</li><li>오버플로우가 발생하더라도 컴파일러는 아무런 경고를 하지 않음</li></ul><h2 id="기호-상수"><a href="#기호-상수" class="headerlink" title="기호 상수"></a>기호 상수</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="meta-keyword">define</span> TAX_RATE 0.15</span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> TAX_RATE = <span class="number">0.15</span>;</span><br></pre></td></tr></table></figure><ul><li><code>#define</code><ul><li>보통 프로그램의 맨 첫 부분에 모여 있음</li><li>컴파일러가 동작하기 전에 전처리기(Preprocessor)가 처리</li><li>전처리기는 단순히 기호의 이름을 전부 찾아 정의된 값으로 바꿈(<code>TAX_RATE</code>를 전부 찾아 <code>0.15</code>로 바꿈)</li></ul></li><li><code>const</code><ul><li><code>const</code>를 변수 선언 앞에 붙이면 상수가 됨</li><li>선언 시 <code>const</code>가 붙여진 변수는 일단 초기화 된 후 그 값이 변경될 수 없음</li><li>변수 선언과 같이 끝에 <code>;</code> 사용</li></ul></li></ul><hr><h1 id="문자형"><a href="#문자형" class="headerlink" title="문자형"></a>문자형</h1><ul><li>문자(Character)는 한글이나 영어에서의 하나의 글자, 숫자, 기호 등을 의미</li><li>문자를 숫자로 나타내는 규격으로 아스키(ASCII : American Standard Code for Information Interchange) 존재</li></ul><blockquote><p>Char.cpp</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">char</span> c;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; c;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;원래의 C : &quot;</span> &lt;&lt; c &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    c = c + <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;C + 1 : &quot;</span> &lt;&lt; c &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>Output</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a</span><br><span class="line">원래의 C : a</span><br><span class="line">C + <span class="number">1</span> : b</span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line"></span><br><span class="line">원래의 C : A</span><br><span class="line">C + <span class="number">1</span> : B</span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure><h2 id="Bool형"><a href="#Bool형" class="headerlink" title="Bool형"></a>Bool형</h2><ul><li>참(<code>true</code>) or 거짓(<code>false</code>)</li></ul><hr><h1 id="부동-소수점형"><a href="#부동-소수점형" class="headerlink" title="부동 소수점형"></a>부동 소수점형</h1><table><thead><tr><th align="center">자료형</th><th align="center">명칭</th><th align="center">크기</th><th align="center">범위</th></tr></thead><tbody><tr><td align="center">float</td><td align="center">단일정밀도(Single-precision) 부동 소수점</td><td align="center">32비트</td><td align="center">$\pm1.17549\times10^{-38}$~$\pm3.40282\times10^{+38}$</td></tr><tr><td align="center">double</td><td align="center">두배정밀도(Double-precision) 부동 소수점</td><td align="center">64비트</td><td align="center">$\pm2.22507\times10^{-308}$~$\pm1.79769\times10^{+308}$</td></tr><tr><td align="center">long double</td><td align="center">두배확장정밀도(Double-extension-precision) 부동 소수점</td><td align="center">64비트 또는 80비트</td><td align="center">$\pm2.22507\times10^{-308}$~$\pm1.79769\times10^{+308}$</td></tr></tbody></table><blockquote><p>Float.cpp</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span>.setf(ios_base::fixed); <span class="comment">//소수점 표기법</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">float</span> fvalue = <span class="number">1234567890.12345678901234567890</span>;</span><br><span class="line">    <span class="keyword">double</span> dvalue = <span class="number">1234567890.12345678901234567890</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Float : &quot;</span> &lt;&lt; fvalue &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Double : &quot;</span> &lt;&lt; dvalue &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>Output</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Float : <span class="number">1234567936.000000</span></span><br><span class="line">Double : <span class="number">1234567890.123457</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure><blockquote><p>소수점 표기법을 사용하지 않은 Output(<code>cout.setf()</code> 삭제)</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Float : <span class="number">1.23457e+09</span></span><br><span class="line">Double : <span class="number">1.23457e+09</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure><blockquote><p>Overflow.cpp</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> x = <span class="number">1e39</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; x &lt;&lt;<span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>Output</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">inf</span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure><blockquote><p>Underflow.cpp</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">float</span> x = <span class="number">1.23e-39</span>;</span><br><span class="line">    <span class="keyword">float</span> y = <span class="number">1.23e-46</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;X : &quot;</span> &lt;&lt; x &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;y : &quot;</span> &lt;&lt; y &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>Output</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">X : <span class="number">1.23e-39</span></span><br><span class="line">y : <span class="number">0</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure><hr><h1 id="수식과-연산자"><a href="#수식과-연산자" class="headerlink" title="수식과 연산자"></a>수식과 연산자</h1><ul><li>수식 : 피연산자들과 연산자의 조합</li><li>연산자(Operator) : 어떤 연산을 나타내는 기호</li><li>피연산자(Operand) : 연산의 대상이 되는 것</li></ul><table><thead><tr><th align="center">연산자의 분류</th><th align="center">연산자</th><th align="center">의미</th></tr></thead><tbody><tr><td align="center">할당</td><td align="center"><code>=</code></td><td align="center">오른쪽을 왼쪽에 할당</td></tr><tr><td align="center">산술</td><td align="center"><code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code></td><td align="center">사칙연산과 나머지 연산</td></tr><tr><td align="center">부호</td><td align="center"><code>+</code> <code>-</code></td><td align="center">양수와 음수 표시</td></tr><tr><td align="center">증감</td><td align="center"><code>++</code> <code>--</code></td><td align="center">증가, 감소 연산</td></tr><tr><td align="center">관계</td><td align="center"><code>&gt;</code> <code>&lt;</code> <code>==</code> <code>!=</code> <code>&gt;=</code> <code>&lt;=</code></td><td align="center">오른쪽과 왼쪽 비교</td></tr><tr><td align="center">논리</td><td align="center"><code>&amp;&amp;</code> `</td><td align="center"></td></tr><tr><td align="center">조건</td><td align="center"><code>?</code></td><td align="center">조건에 따라 선택</td></tr><tr><td align="center">콤마</td><td align="center"><code>,</code></td><td align="center">피연산자들을 순차적으로 실행</td></tr><tr><td align="center">비트 단위 연산자</td><td align="center"><code>&amp;</code> `</td><td align="center"><code> </code>^<code> </code>~<code> </code>&lt;&lt;<code> </code>&gt;&gt;`</td></tr><tr><td align="center">sizeof 연산자</td><td align="center"><code>sizeof</code></td><td align="center">자료형이나 변수의 크기를 바이트 단위로 반환</td></tr><tr><td align="center">형변환</td><td align="center"><code>(type)</code></td><td align="center">변수나 상수의 자료형을 변환</td></tr><tr><td align="center">포인터 연산자</td><td align="center"><code>*</code> <code>&amp;</code> <code>[]</code></td><td align="center">주소계산, 포인터가 가르키는 곳의 내용 추출</td></tr><tr><td align="center">구조체 연산자</td><td align="center"><code>.</code> <code>-&gt;</code></td><td align="center">구조체의 멤버 참조</td></tr></tbody></table><hr><h1 id="산술-연산자"><a href="#산술-연산자" class="headerlink" title="산술 연산자"></a>산술 연산자</h1><ul><li><code>%</code> : 나머지 값</li><li><code>x += y</code> : <code>x = x + y</code></li><li><code>++x</code> : <code>x</code>값을 먼저 증가한 후에 다른 연산에 사용</li><li><code>x++</code> : <code>x</code>값을 먼저 사용한 후에 증가</li></ul><h2 id="형변환"><a href="#형변환" class="headerlink" title="형변환"></a>형변환</h2><ul><li>자동적인 형변환<ul><li>할당 연산자의 오른쪽에 있는 값은 왼쪽에 있는 변수의 자료형으로 자동 변환</li></ul></li><li>명시적인 형변환<ul><li><code>(자료형) 상수 또는 변수</code></li></ul></li></ul><blockquote><p>Type.cpp</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line">    <span class="keyword">float</span> b = <span class="number">10.82</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;int + float : &quot;</span> &lt;&lt; a + b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;float + int : &quot;</span> &lt;&lt; b + a &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; (<span class="keyword">int</span>)a + (<span class="keyword">int</span>)b &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>Output</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> + <span class="keyword">float</span> : <span class="number">20.82</span></span><br><span class="line"><span class="keyword">float</span> + <span class="keyword">int</span> : <span class="number">20.82</span></span><br><span class="line"><span class="number">20</span></span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure><hr><h1 id="관계-연산자"><a href="#관계-연산자" class="headerlink" title="관계 연산자"></a>관계 연산자</h1><ul><li>관계 연산자(Relational operator) : 두 개의 피연산자를 비교하는데 사용</li><li><code>==</code>, <code>!=</code>, <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code></li></ul><hr><h1 id="논리-연산자"><a href="#논리-연산자" class="headerlink" title="논리 연산자"></a>논리 연산자</h1><ul><li>논리 연산자 : 여러 개의 조건을 조합하여 참인지 거짓인지를 따짐</li><li><code>&amp;&amp;</code>, <code>||</code>, <code>!</code></li></ul><hr><h1 id="조건-연산자"><a href="#조건-연산자" class="headerlink" title="조건 연산자"></a>조건 연산자</h1><ul><li><code>exp1 ? exp2 : exp3</code><ul><li><code>exp1</code>이 참이면 결과값은 <code>exp2</code></li><li><code>exp1</code>이 거짓이면 결과값은 <code>exp3</code></li></ul></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://zerohertz.github.io/categories/c-c/">C, C++</category>
-      
-      <category domain="https://zerohertz.github.io/categories/c-c/basic/">Basic</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
-      
-      
-      <comments>https://zerohertz.github.io/data-types-and-operations/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Introduction of C++</title>
-      <link>https://zerohertz.github.io/introduction-of-c/</link>
-      <guid>https://zerohertz.github.io/introduction-of-c/</guid>
-      <pubDate>Wed, 01 Jul 2020 04:32:51 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;C&quot;&gt;&lt;a href=&quot;#C&quot; class=&quot;headerlink&quot; title=&quot;C++?&quot;&gt;&lt;/a&gt;C++?&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;C언어에 객체 지향 프로그래밍 기능을 추가하여 만든 언어&lt;/li&gt;
-&lt;li&gt;C언어만큼 효율적이고 속도가 빠르며 이식성이 좋은 절차적 프로그래밍(Procedural programming) 가능&lt;/li&gt;
-&lt;li&gt;복잡한 프로그램을 작성하는데 매우 효과적인 방법으로 알려진 객체 지향 프로그래밍(Object-oriented programming) 가능&lt;/li&gt;
-&lt;li&gt;템플릿을 이용하는 일반화 프로그래밍(Generic programming) 가능&lt;/li&gt;
-&lt;/ul&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="C"><a href="#C" class="headerlink" title="C++?"></a>C++?</h1><ul><li>C언어에 객체 지향 프로그래밍 기능을 추가하여 만든 언어</li><li>C언어만큼 효율적이고 속도가 빠르며 이식성이 좋은 절차적 프로그래밍(Procedural programming) 가능</li><li>복잡한 프로그램을 작성하는데 매우 효과적인 방법으로 알려진 객체 지향 프로그래밍(Object-oriented programming) 가능</li><li>템플릿을 이용하는 일반화 프로그래밍(Generic programming) 가능</li></ul><a id="more"></a><hr><h1 id="프로그래밍-기법의-발전"><a href="#프로그래밍-기법의-발전" class="headerlink" title="프로그래밍 기법의 발전"></a>프로그래밍 기법의 발전</h1><h2 id="절차적-프로그래밍"><a href="#절차적-프로그래밍" class="headerlink" title="절차적 프로그래밍"></a>절차적 프로그래밍</h2><ul><li>프로그램은 흔히 데이터와 알고리즘으로 이루어져 있다고 말함<ul><li>데이터 : 프로그램에서 사용하는 정보</li><li>알고리즘(Algorithm) : 컴퓨터로 문제를 해결하는 절차</li></ul></li><li>초기의 프로그래밍은 데이터보다 알고리즘(절차)의 작성에 치중</li><li>절차를 중시하는 프로그래밍 기법 - 절차적 프로그래밍(Procedural programming)</li><li>GOTO문과 같이 무조건 특정한 위치로 점프하는 문장 난해</li><li>이것을 해결하기 위해 1970년대 구조화 프로그래밍(Structural programming) 개발<ul><li>순차, 반복, 선택만을 이용하여 순차적으로 프로그램하는 방식</li><li>명확하고 검사와 오류 수정이 쉬운 프로그램 작성 가능</li><li>독립적인 모듈(Module)이라는 단위로 나누어 작성하는 기법으로 발전</li><li>하향식(Top-down) 설계 : 큰 문제를 작은 문제들로 계속 나누어가는 것</li><li>데이터보다는 주로 문제를 해결하는 알고리즘(절차)에 집중 - 프로그램 규모가 커지면 역부족</li></ul></li></ul><h2 id="객체-지향-프로그래밍"><a href="#객체-지향-프로그래밍" class="headerlink" title="객체 지향 프로그래밍"></a>객체 지향 프로그래밍</h2><ul><li>절차적 프로그래밍의 문제점을 해결하기 위해 객체 지향 프로그래밍 등장</li><li>절차적 프로그래밍에서 알고리즘을 중요시했던 것과는 반대로 객체 지향에서는 데이터를 중요시함<ul><li>문제에서 필요한 데이터를 먼저 설계</li></ul></li><li>클래스 : 데이터를 나타낼 때 사용하는 도구<ul><li>클래스에는 데이터 외에 데이터를 처리하는 함수(알고리즘) 포함</li></ul></li><li>상향식(Bottom-up) 설계 : 낮은 수준의 클래스를 먼저 설계하고 높은 수준의 클래스 설계로 진행</li><li>캡슐화 : 데이터와 알고리즘을 하나의 단위(클래스)로 묶는 것<ul><li>데이터에 대한 불필요한 접근 차단</li><li>데이터 보호</li><li>각 클래스들을 서로 독립적으로 작성 가능</li></ul></li><li>상속 : 비슷한 클래스가 이미 존재하고 있다면 그 클래스를 가져다가 사용하는 것<ul><li>그 클래스 중 바꿔야할 부분이 있다면 변경 가능</li></ul></li><li>다형성 : 같은 이름의 함수나 연산자를 중복 정의하여 상황에 따라 가장 적절한 함수나 연산자를 프로그램이 자동적으로 선택하도록 하는 것</li><li>객체 지향의 개념에서 공통적 목표 : 코드의 재사용(Reuse)<ul><li>캡슐화, 상속, 다형성</li><li>지금까지의 프로그램 개발이 힘들었던 이유 : 다른 사람들의 유용하고 좋은 코드 재사용 X</li></ul></li></ul><h2 id="일반화-프로그래밍"><a href="#일반화-프로그래밍" class="headerlink" title="일반화 프로그래밍"></a>일반화 프로그래밍</h2><ul><li>하나의 코드로 다양한 데이터를 처리할 수 있음</li><li>데이터의 타입과 무관한 일반적인 코드를 작성하는 기법</li><li>알고리즘이 타입 매개 변수(Type parameter)를 이용하여 작성</li><li>1983년 에이다(Ada) 프로그래밍 언어에 의해 처음 시작</li><li>동일한 작업을 여러 가지 타입에 대하여 실행하는 함수를 작성하는데 유용</li><li>결과적으로 코드의 중복을 막을 수 있음</li><li>특정한 데이터 타입을 지정하지 않는 일반적인 코드를 작성하고 그 코드를 여러 가지 데이터 타입에 널리 사용할 수 있도록 함</li></ul><hr><h1 id="프로그램-작성-과정"><a href="#프로그램-작성-과정" class="headerlink" title="프로그램 작성 과정"></a>프로그램 작성 과정</h1><ol><li>프로그래머<ul><li>에디터(Editor)</li></ul></li><li>소스파일 - <code>test.cpp</code><ul><li>컴파일러(Compiler)</li></ul></li><li>오브젝트 파일 - <code>test.obj</code><ul><li>링커(Linker)</li></ul></li><li>실행파일 - <code>test.exe</code><ul><li>실행(Execution)</li></ul></li><li>사용자</li></ol><h2 id="편집-단계-Edit"><a href="#편집-단계-Edit" class="headerlink" title="편집 단계(Edit)"></a>편집 단계(Edit)</h2><ul><li>소스 코드(Source code) : C++ 언어를 이용하여 원하는 작업의 내용을 기술하는 것 <ul><li>에디터를 이용하여 입력되어서 텍스트 파일로 저장되어야 함</li></ul></li><li>소스 파일(Source file) : 소스 코드가 들어 있는 파일<ul><li>확장자 : <code>.cpp</code></li></ul></li></ul><h2 id="컴파일-단계-Compile"><a href="#컴파일-단계-Compile" class="headerlink" title="컴파일 단계(Compile)"></a>컴파일 단계(Compile)</h2><ul><li>컴파일러 : 소스 파일을 분석하여 특정한 컴퓨터에서 수행이 가능하도록 기계어로 변환<ul><li>소스 파일의 문장을 분석하여 문법에 맞도록 작성되었는지 체크</li><li>만약 오류가 발견되면 사용자에게 오류 통보 및 컴파일 종료<ul><li>프로그래머는 편집 단계로 되돌아가서 소스 파일 수정</li></ul></li><li>만약 오류가 없다면 컴파일러는 각 문장들을 어셈블리 언어로 변환<ul><li>다시 어셈블리 언어는 어셈블러에 의해 기계어로 변환</li><li>이 기계어로 되어 있는 파일은 오브젝트 파일(Object file)이라고 불림 - <code>.obj</code> 확장자</li></ul></li></ul></li></ul><h2 id="링크-단게-Link"><a href="#링크-단게-Link" class="headerlink" title="링크 단게(Link)"></a>링크 단게(Link)</h2><ul><li>링크(Link) : 서로 연관된 오브젝트 파일들을 라이브러리 파일들과 연결하여 하나의 실행 파일(Execute file)을 만드는 절차</li><li>Windows에서는 링크가 끝나면 실행가능한 파일 <code>.exe</code> 생성</li><li>컴파일과 링크 두 단계로 분리시켜 실행 파일을 만드는 이유<ul><li>여러 개의 파일로 구성된 프로그램의 경우 각각의 파일을 따로 컴파일한 후에 링커를 통하여 결합</li><li>만약 하나의 소스 파일만 변경되었다면 변경된 소스 파일만 다시 컴파일하고 나머지 파일들의 오브젝트 파일은 다시 컴파일하지 않고 사용 가능</li></ul></li></ul><h2 id="실행-단게-Execute"><a href="#실행-단게-Execute" class="headerlink" title="실행 단게(Execute)"></a>실행 단게(Execute)</h2><ul><li>프로그램을 실행하려면 Windows에서는 <code>.exe</code>를 클릭하거나 실행 메뉴를 사용</li><li>유닉스에서는 파일명을 입력하고 엔터를 눌러 사용</li><li>만약 실행 도중 오류가 발생하거나 실행 결과가 잘못되면 실행을 중단하고 다시 편집 단계로 돌아가서 소스 파일 수정</li></ul><hr><h1 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h1><blockquote><p>test.cpp</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Hello, World!\n&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;end&quot;</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><blockquote><p>Output</p></blockquote><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Hello, World!</span><br><span class="line"></span><br><span class="line">end</span><br><span class="line">Program ended with <span class="built_in">exit</span> code: <span class="number">0</span></span><br></pre></td></tr></table></figure><ul><li>대문자와 소문자 구별</li><li>주석은 <code>//</code> 혹은 <code>/* */</code>와 같이 사용<ul><li>주석 : 프로그램이 하는 일을 설명하는 설명 글</li><li>프로그램의 실행 결과에 영향을 끼치지 않음</li><li>컴퓨터를 위한 것이 아니고 프로그램을 읽는 사람을 위한 것</li><li>프로그램의 가독성을 높임</li></ul></li><li><code>#include &lt;iostream&gt;</code>은 전처리기 지시어<ul><li>전처리기(Preprocessor) : 본격적으로 컴파일 하기 전에 미리 어떤 처리를 하는 프로그램</li><li>전처리기는 보통 컴파일러의 일부분으로 자동적으로 호출</li><li>모든 전처리 지시어는 <code>#</code> 기호로 시작</li><li><code>#include</code> : 특정한 파일을 소스 코드 안에 포함시킬 때 사용</li><li><code>iostream</code> : 입출력에 필요한 클래스와 객체들이 정의되어 있음</li></ul></li><li><code>using namespace std;</code><ul><li><code>using</code> : 이름 공간을 지정하는 지시어</li><li>프로그램에서는 많은 이름(식별자)들이 사용되고 이 이름들은 효율성을 위하여 이름 공간(Name space)이라고 하는 몇 개의 영역으로 구성되어 있음</li><li>이름 공간(Name space)은 동일한 이름을 여러 소프트웨어 개발자들이 사용할 수 있도록 함</li><li>만약 <code>std</code>를 이름 공간으로 설정하지 않는다면 <code>std::cout &lt;&lt; Hello, World!\n;</code>으로 사용</li></ul></li><li><code>main()</code> 함수의 정의<ul><li>함수(Function) : 입력이 주어지면 이것을 처리하여서 출력을 만들어내는 가상적인 상자, 특정한 작업을 수행하는 코드들을 모아놓은 상자</li><li>함수 정의는 함수 헤더와 함수 몸체로 나눌 수 있음<ul><li><code>int main()</code> - 함수 헤더 : 함수의 입력과 출력을 나타내는 부분으로 함수와 외부를 연결시키는 역할</li><li><code>&#123; ... &#125;</code> - 함수 몸체 : 함수가 수행하는 작업을 기술하는 문장(Statement)들이 들어감(각각의 문장은 <code>;</code>으로 종료되어야 함)</li></ul></li></ul></li><li>함수 헤더<ul><li>함수 헤더(Function header) : 외부와 함수 사이의 인터페이스 역할을 함</li><li>함수는 외부의 함수로부터 호출될 수 있음</li><li>함수는 호출 시 입력을 받을 수 있고 호출이 종료되면 자신을 호출한 함수에게 값을 반환할 수 있음</li><li><code>main()</code> 앞의 <code>int</code>는 함수가 반환하는 값의 타입이 정수임을 표시</li><li>함수 이름 뒤에 붙이는 괄호 안은 외부로부터 전달 받는 데이터를 나타냄</li><li>빈 괄호만 있다는 것은 아무런 데이터도 받지 않음을 나타냄</li><li>결론적으로 <code>main()</code> 함수는 자신을 호출한 함수로부터는 값을 ㅂ다지 않지만 정수값을 반환한다는 것을 의미</li><li>모든 C++ 프로그램에서는 반드시 <code>main()</code> 함수가 하나 있어야 함<ul><li><code>main()</code> 함수는 프로그램에서 가장 먼저 실행되는 부분</li><li>만약 프로그램에서 <code>main()</code> 함수가 정의되지 않으면 컴파일 단계에서 오류 발생</li></ul></li></ul></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://zerohertz.github.io/categories/c-c/">C, C++</category>
-      
-      <category domain="https://zerohertz.github.io/categories/c-c/basic/">Basic</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
-      
-      
-      <comments>https://zerohertz.github.io/introduction-of-c/#disqus_thread</comments>
       
     </item>
     

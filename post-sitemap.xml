@@ -8,6 +8,46 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/introduction-of-hrv/</loc>
+        <lastmod>2020-12-22T07:34:43.254Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/user-condition-monitoring-data-analysis-using-artificial-intelligence-technology/</loc>
+        <lastmod>2020-12-22T05:55:36.443Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/source-code-obstructive-sleep-apnea/</loc>
+        <lastmod>2020-12-21T07:38:41.743Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
+        <lastmod>2020-12-21T07:38:33.223Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/diagnosis-systems-with-smart-data-for-3d-printer/</loc>
+        <lastmod>2020-12-21T03:05:07.169Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/political-science/</loc>
         <lastmod>2020-12-03T05:59:51.346Z</lastmod>
         <changefreq>daily</changefreq>
@@ -42,14 +82,6 @@
     <url>
         <loc>https://zerohertz.github.io/domain-knowledge-based-data-preprocessing-technology-for-industrial-applications-of-deep-learning/</loc>
         <lastmod>2020-10-11T15:20:31.769Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/source-code-obstructive-sleep-apnea/</loc>
-        <lastmod>2020-09-24T05:21:52.170Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -176,14 +208,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
-        <lastmod>2020-08-19T18:16:17.316Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/arduino-nano-33-ble/</loc>
         <lastmod>2020-08-19T15:18:00.127Z</lastmod>
         <changefreq>daily</changefreq>
@@ -234,14 +258,6 @@
     <url>
         <loc>https://zerohertz.github.io/diagnosis-systems-with-smart-data-for-3d-printer-introduction/</loc>
         <lastmod>2020-08-06T05:08:08.487Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/diagnosis-systems-with-smart-data-for-3d-printer/</loc>
-        <lastmod>2020-08-06T05:08:00.059Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
