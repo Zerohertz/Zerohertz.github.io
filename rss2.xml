@@ -9,8 +9,51 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Tue, 22 Dec 2020 07:34:43 GMT</pubDate>
+    <pubDate>Mon, 28 Dec 2020 07:00:08 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Deep-ACTINet</title>
+      <link>https://zerohertz.github.io/deep-actinet/</link>
+      <guid>https://zerohertz.github.io/deep-actinet/</guid>
+      <pubDate>Mon, 28 Dec 2020 05:21:52 GMT</pubDate>
+      
+        
+        
+      <description>&lt;blockquote&gt;
+&lt;p&gt;End-to-End Deep Learning Architecture for Automatic Sleep-Wake Detection Using Wrist Actigraphy&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&quot;In</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<blockquote><p>End-to-End Deep Learning Architecture for Automatic Sleep-Wake Detection Using Wrist Actigraphy</p></blockquote><h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1>]]></content:encoded>
+      
+      
+      <category domain="https://zerohertz.github.io/categories/research/">Research</category>
+      
+      <category domain="https://zerohertz.github.io/categories/research/read-paper/">Read Paper</category>
+      
+      
+      <category domain="https://zerohertz.github.io/tags/machine-learning/">Machine Learning</category>
+      
+      <category domain="https://zerohertz.github.io/tags/signal-processing/">Signal Processing</category>
+      
+      <category domain="https://zerohertz.github.io/tags/phm/">PHM</category>
+      
+      <category domain="https://zerohertz.github.io/tags/smart-data/">Smart data</category>
+      
+      <category domain="https://zerohertz.github.io/tags/dnn/">DNN</category>
+      
+      <category domain="https://zerohertz.github.io/tags/statistics/">Statistics</category>
+      
+      <category domain="https://zerohertz.github.io/tags/sleep-apnea/">Sleep apnea</category>
+      
+      
+      <comments>https://zerohertz.github.io/deep-actinet/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Introduction of HRV</title>
@@ -873,45 +916,6 @@
       
       
       <comments>https://zerohertz.github.io/computer-programming/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Selection and Iteration</title>
-      <link>https://zerohertz.github.io/selection-and-iteration/</link>
-      <guid>https://zerohertz.github.io/selection-and-iteration/</guid>
-      <pubDate>Thu, 02 Jul 2020 06:30:43 GMT</pubDate>
-      
-      <description>&lt;h1 id=&quot;제어문&quot;&gt;&lt;a href=&quot;#제어문&quot; class=&quot;headerlink&quot; title=&quot;제어문&quot;&gt;&lt;/a&gt;제어문&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;제어문(Control statement)을 사용하여 조건에 의해 문장들의 실행 순서 변경&lt;ul&gt;
-&lt;li&gt;조건문 : 조건에 따라서 여러 개의 실행 경로 가운데 하나를 선택&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;if-else&lt;/code&gt; 문장&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;switch&lt;/code&gt; 문장&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;반복문 : 조건이 유지되는 한, 혹은 정해진 횟수만큼 처리를 되풀이하는 문장&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;for&lt;/code&gt; 문장&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;while&lt;/code&gt; 문장&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;</description>
-      
-      
-      
-      <content:encoded><![CDATA[<h1 id="제어문"><a href="#제어문" class="headerlink" title="제어문"></a>제어문</h1><ul><li>제어문(Control statement)을 사용하여 조건에 의해 문장들의 실행 순서 변경<ul><li>조건문 : 조건에 따라서 여러 개의 실행 경로 가운데 하나를 선택<ul><li><code>if-else</code> 문장</li><li><code>switch</code> 문장</li></ul></li><li>반복문 : 조건이 유지되는 한, 혹은 정해진 횟수만큼 처리를 되풀이하는 문장<ul><li><code>for</code> 문장</li><li><code>while</code> 문장</li></ul></li></ul></li></ul><a id="more"></a><hr><h1 id="조건문"><a href="#조건문" class="headerlink" title="조건문"></a>조건문</h1><h2 id="if문"><a href="#if문" class="headerlink" title="if문"></a>if문</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(조건식<span class="number">1</span>)&#123;</span><br><span class="line">    문장<span class="number">1</span>; <span class="comment">// 조건식1이 true이면 실행</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>(조건식<span class="number">2</span>)&#123;</span><br><span class="line">    문장<span class="number">2</span>; <span class="comment">// 조건식1이 false이고 조건식2가 true이면 실행</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">    문장<span class="number">3</span>; <span class="comment">// 조건식1과 조건식2가 false이면 실행</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li><code>&#123;&#125;</code>로 묶인 문장 그룹핑을 복합문(Compound statement) 또는 블록(Block)이라고 함<ul><li>하나의 작업으로 분류될 수 있는 문장들을 묶는데 사용</li><li>단일문이 들어갈 수 있는 곳이면 어디나 단일문 대신 넣을 수 있음</li></ul></li></ul><hr><h1 id="반복문"><a href="#반복문" class="headerlink" title="반복문"></a>반복문</h1><ul><li>while문 : 조건이 만족되면 반복을 계속하는 구조, 미리 반복 횟수를 알 수 없음</li><li>for문 : 정해진 횟수만큼 반복</li></ul><h2 id="while문"><a href="#while문" class="headerlink" title="while문"></a>while문</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(조건식)&#123;</span><br><span class="line">    반복문장</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>무한 루프 : <code>while(true)</code></li></ul><h2 id="for문"><a href="#for문" class="headerlink" title="for문"></a>for문</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(초기식 ; 조건식 ; 증감식)&#123;</span><br><span class="line">    반복문장</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>무한 루프 : <code>for( ; ; )</code></li></ul><hr><h1 id="break문과-continue문"><a href="#break문과-continue문" class="headerlink" title="break문과 continue문"></a>break문과 continue문</h1><ul><li>break문 : 반복 루프를 벗어나기 위하여 사용<ul><li>반복 루프 안에서 실행되면 반복 루프는 즉시 중단되고 반복 루프 다음에 있는 문장 실행</li></ul></li><li>continue문 : 현재 수행하고 있는 반복 과정의 나머지를 건너뛰고 다음 반복 과정을 강제적 실행<ul><li>반복 루프 안에서 실행되면 continue문 다음에 있는 후속 코드들은 실행되지 않고 건너뜀</li></ul></li></ul>]]></content:encoded>
-      
-      
-      <category domain="https://zerohertz.github.io/categories/c-c/">C, C++</category>
-      
-      <category domain="https://zerohertz.github.io/categories/c-c/basic/">Basic</category>
-      
-      
-      <category domain="https://zerohertz.github.io/tags/c-c/">C, C++</category>
-      
-      
-      <comments>https://zerohertz.github.io/selection-and-iteration/#disqus_thread</comments>
       
     </item>
     

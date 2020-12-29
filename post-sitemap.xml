@@ -8,6 +8,22 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/deep-actinet/</loc>
+        <lastmod>2020-12-28T07:00:08.166Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
+        <lastmod>2020-12-24T03:32:22.559Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/introduction-of-hrv/</loc>
         <lastmod>2020-12-22T07:34:43.254Z</lastmod>
         <changefreq>daily</changefreq>
@@ -26,14 +42,6 @@
     <url>
         <loc>https://zerohertz.github.io/source-code-obstructive-sleep-apnea/</loc>
         <lastmod>2020-12-21T07:38:41.743Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
-        <lastmod>2020-12-21T07:38:33.223Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
