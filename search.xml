@@ -49,7 +49,7 @@
       <link href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/"/>
       <url>/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</url>
       
-        <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul><li>Obstructive Sleep Apnea(폐쇄성 수면무호흡증)<ul><li>정의 : 수면 중 상기도가 좁아지거나 막혀 무호흡과 저호흡이 되풀이되는 질환</li><li>위험성 : 혈중 산소포화도 감소 - 산소를 많이 필요로 하는 장기(뇌, 심장)에 영향<ul><li>증상 : 두통, 기억력 및 집중력 저하, …</li><li>질환 : 수면질환(불면증), 고혈압, 심부정맥, 신부전 및 관상 동맥, …</li></ul></li><li>유병률 : 국내 농촌인구의 3%, 미국 중년 남성의 4%, 여성의 2%</li></ul></li><li>현재의 기술 - 야간 수면다원검사<ul><li>여러 가지 감지기 부착</li><li>평소의 수면환경이 아닌 수면검사실에서 수면</li><li>장시간 검사에 따른 높은 비용</li><li>현실적 대안 : 간이형 수면다원기록기 or 활동 기록기</li></ul></li><li>손목부착형 활동기록기(액티그라피)<ul><li>손목 운동에 따른 가속을 감지해 몸의 활동량을 측정</li><li>사용이 간편하며 피험자에게 익숙한 환경에서 장기간 검사 가능</li><li>수면다원검사에 비해 경제적 이점</li><li>미국수면학회 : 불면증과 일주기 수면-각성 장애에서 유용</li><li>수면분절지수에 의해 민감도가 특이도가 낮음<ul><li>무호흡 및 저호흡과 관련된 움직임의 빈도만 반영</li></ul></li><li>수면무호흡수치 반영<ul><li>폐쇄성 수면무호흡증 환자의 수면 시간을 짧게 평가하는 현상 개선</li></ul></li></ul></li><li>기술개발계획<ul><li>심박변이도 신호 분석을 통한 폐쇄성 수면무호흡증 진단 알고리즘 개발</li><li>음성신호 분석을 위한 마이크 이용</li><li>획득된 폐쇄성 수면무호흡수치를 바탕으로 수면/각성 주기 계산 알고리즘 개발</li></ul></li></ul><a id="more"></a><hr><h1 id="Condition-Indicator-HRV"><a href="#Condition-Indicator-HRV" class="headerlink" title="Condition Indicator(HRV)"></a>Condition Indicator(HRV)</h1><ul><li>비침습적인 심박변이도(Heart Rate Variability, HRV)<ul><li>심전도상의 R-R 간격 변화 측정<ul><li>R-R 간격 : 하나의 심장 주기와 다음 심장 주기 사이의 미세한 변이</li></ul></li><li>일반적으로 교감신경과 부교감신경의 영향을 받아 조절되는 것으로 알려짐</li><li>수면은 자율신경계에 영향을 주며, 이는 곧 HRV에 영향을 줌<ul><li>수면무호흡증과의 상관관계</li></ul></li><li>영향을 주는 인자 : 호흡, 혈합, 호르몬, 감정, …</li></ul></li></ul><h2 id="Time-domain-analysis"><a href="#Time-domain-analysis" class="headerlink" title="Time domain analysis"></a>Time domain analysis</h2><blockquote><p>R-R 간격의 변화(NN interval)를 통계적 분석</p></blockquote><ul><li>SDNN</li><li>SDNN index</li><li>RMSSD</li><li>pNN50</li><li>SDANN</li></ul><h2 id="Frequency-domain-analysis"><a href="#Frequency-domain-analysis" class="headerlink" title="Frequency domain analysis"></a>Frequency domain analysis</h2><blockquote><p>R-R 간격의 주기적 진동을 주파수와 진폭으로 분해</p></blockquote><ul><li>VLF(Very Low frequency) : 0.003~0.04Hz</li><li>LF(Low Frequency) : 0.04~0.15Hz</li><li>HF(High Frequency) : 0.15~0.4Hz</li></ul><hr><h1 id="Data-Result"><a href="#Data-Result" class="headerlink" title="Data Result"></a>Data Result</h1><h2 id="2020-07-22"><a href="#2020-07-22" class="headerlink" title="2020/07/22"></a>2020/07/22</h2><blockquote><p>특수문자 사용으로 인한 .csv 파일 저장 오류</p></blockquote><h2 id="2020-07-27"><a href="#2020-07-27" class="headerlink" title="2020/07/27"></a>2020/07/27</h2><blockquote><p>Acceleration</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665268-58a7c900-d119-11ea-9861-3e05d5f4c587.jpg" alt="Acc"></p><blockquote><p>Acoustic Emission</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665261-56de0580-d119-11ea-86b5-31a9b10bb816.jpg" alt="AE"></p><blockquote><p>Accerleration &amp; Acoustic Emission</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665402-868d0d80-d119-11ea-8e9f-98daa1f4f6a1.png" alt="Acc &amp; AE"></p><blockquote><p>Accerleration &amp; Acoustic Emission &amp; Scoring Data</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/90608792-110aed80-e23e-11ea-9887-a03d635c1e58.jpg" alt="20200813_무호흡_진단_알고리즘_발표_H_Oh-3"></p><p><img src="https://user-images.githubusercontent.com/42334717/90608764-051f2b80-e23e-11ea-9156-8175f6ebb90e.jpg" alt="20200813_무호흡_진단_알고리즘_발표_H_Oh-4"></p><h2 id="2021-01-06"><a href="#2021-01-06" class="headerlink" title="2021/01/06"></a>2021/01/06</h2><blockquote><p>R-R interval &amp; HRV</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/103840890-cb0fd280-50d5-11eb-94fa-a6bd83468619.png" alt="R-R interval &amp; HRV"></p><blockquote><p>Frequency Domain Analysis</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/103643405-fa202a00-4f97-11eb-980f-1bb66f5a9e10.png" alt="Frequency Domain Analysis"></p><hr><h1 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h1><ul><li>Sleep Fragmentation Index(SFI, 수면분절지수)<ul><li>수면 분절의 정도를 유추하는 계산식을 통해 산출</li><li>기존에는 폐쇄성 수면무호흡증을 78%의 민감도, 95%의 특이도로 진단</li><li>수면무호흡 및 저호흡과 관련된 신체 움직임의 빈도만 반영</li><li>관련이 없는 움직임도 포함시킴으로써 민감도와 특이도가 낮아짐</li></ul></li><li>Apnea-Hypopnea Index(AHI, 수면무호흡지수)<ul><li>수면 시, 호흡의 장애 심각도를 측정하는 지표</li><li>무호흡 및 저호흡의 지속 시간, 혈중 산소 포화도 감소, 뇌파의 변화, 신체적 각성 등을 고려</li></ul></li><li>Heart Rate Variability(HRV, 비침습적인 심박변이도)<ul><li>심전도상의 R-R 간격의 변화를 측정하여 얻음</li><li>일반적으로 교감신경과 부교감신경의 영향을 받아 조절되는 것으로 알려짐</li></ul></li></ul>]]></content>
+        <content type="html"><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><ul><li>Obstructive Sleep Apnea(폐쇄성 수면무호흡증)<ul><li>정의 : 수면 중 상기도가 좁아지거나 막혀 무호흡과 저호흡이 되풀이되는 질환</li><li>위험성 : 혈중 산소포화도 감소 - 산소를 많이 필요로 하는 장기(뇌, 심장)에 영향<ul><li>증상 : 두통, 기억력 및 집중력 저하, …</li><li>질환 : 수면질환(불면증), 고혈압, 심부정맥, 신부전 및 관상 동맥, …</li></ul></li><li>유병률 : 국내 농촌인구의 3%, 미국 중년 남성의 4%, 여성의 2%</li></ul></li><li>현재의 기술 - 야간 수면다원검사<ul><li>여러 가지 감지기 부착</li><li>평소의 수면환경이 아닌 수면검사실에서 수면</li><li>장시간 검사에 따른 높은 비용</li><li>현실적 대안 : 간이형 수면다원기록기 or 활동 기록기</li></ul></li><li>손목부착형 활동기록기(액티그라피)<ul><li>손목 운동에 따른 가속을 감지해 몸의 활동량을 측정</li><li>사용이 간편하며 피험자에게 익숙한 환경에서 장기간 검사 가능</li><li>수면다원검사에 비해 경제적 이점</li><li>미국수면학회 : 불면증과 일주기 수면-각성 장애에서 유용</li><li>수면분절지수에 의해 민감도가 특이도가 낮음<ul><li>무호흡 및 저호흡과 관련된 움직임의 빈도만 반영</li></ul></li><li>수면무호흡수치 반영<ul><li>폐쇄성 수면무호흡증 환자의 수면 시간을 짧게 평가하는 현상 개선</li></ul></li></ul></li><li>기술개발계획<ul><li>심박변이도 신호 분석을 통한 폐쇄성 수면무호흡증 진단 알고리즘 개발</li><li>음성신호 분석을 위한 마이크 이용</li><li>획득된 폐쇄성 수면무호흡수치를 바탕으로 수면/각성 주기 계산 알고리즘 개발</li></ul></li></ul><a id="more"></a><hr><h1 id="Condition-Indicator-HRV"><a href="#Condition-Indicator-HRV" class="headerlink" title="Condition Indicator(HRV)"></a>Condition Indicator(HRV)</h1><ul><li>비침습적인 심박변이도(Heart Rate Variability, HRV)<ul><li>심전도상의 R-R 간격 변화 측정<ul><li>R-R 간격 : 하나의 심장 주기와 다음 심장 주기 사이의 미세한 변이</li></ul></li><li>일반적으로 교감신경과 부교감신경의 영향을 받아 조절되는 것으로 알려짐</li><li>수면은 자율신경계에 영향을 주며, 이는 곧 HRV에 영향을 줌<ul><li>수면무호흡증과의 상관관계</li></ul></li><li>영향을 주는 인자 : 호흡, 혈합, 호르몬, 감정, …</li></ul></li></ul><h2 id="Time-domain-analysis"><a href="#Time-domain-analysis" class="headerlink" title="Time domain analysis"></a>Time domain analysis</h2><blockquote><p>R-R 간격의 변화(NN interval)를 통계적 분석</p></blockquote><ul><li>SDNN</li><li>SDNN index</li><li>RMSSD</li><li>pNN50</li><li>SDANN</li></ul><h2 id="Frequency-domain-analysis"><a href="#Frequency-domain-analysis" class="headerlink" title="Frequency domain analysis"></a>Frequency domain analysis</h2><blockquote><p>R-R 간격의 주기적 진동을 주파수와 진폭으로 분석</p></blockquote><ul><li>VLF(Very Low frequency) : 0.003~0.04Hz</li><li>LF(Low Frequency) : 0.04~0.15Hz</li><li>HF(High Frequency) : 0.15~0.4Hz</li></ul><hr><h1 id="Data-Result"><a href="#Data-Result" class="headerlink" title="Data Result"></a>Data Result</h1><h2 id="2020-07-22"><a href="#2020-07-22" class="headerlink" title="2020/07/22"></a>2020/07/22</h2><blockquote><p>특수문자 사용으로 인한 .csv 파일 저장 오류</p></blockquote><h2 id="2020-07-27"><a href="#2020-07-27" class="headerlink" title="2020/07/27"></a>2020/07/27</h2><blockquote><p>Acceleration</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665268-58a7c900-d119-11ea-9861-3e05d5f4c587.jpg" alt="Acc"></p><blockquote><p>Acoustic Emission</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665261-56de0580-d119-11ea-86b5-31a9b10bb816.jpg" alt="AE"></p><blockquote><p>Accerleration &amp; Acoustic Emission</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/88665402-868d0d80-d119-11ea-8e9f-98daa1f4f6a1.png" alt="Acc &amp; AE"></p><blockquote><p>Accerleration &amp; Acoustic Emission &amp; Scoring Data</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/90608792-110aed80-e23e-11ea-9887-a03d635c1e58.jpg" alt="20200813_무호흡_진단_알고리즘_발표_H_Oh-3"></p><p><img src="https://user-images.githubusercontent.com/42334717/90608764-051f2b80-e23e-11ea-9156-8175f6ebb90e.jpg" alt="20200813_무호흡_진단_알고리즘_발표_H_Oh-4"></p><h2 id="2021-01-06"><a href="#2021-01-06" class="headerlink" title="2021/01/06"></a>2021/01/06</h2><blockquote><p>R-R interval &amp; HRV</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/103840890-cb0fd280-50d5-11eb-94fa-a6bd83468619.png" alt="R-R interval &amp; HRV"></p><blockquote><p>Frequency Domain Analysis</p></blockquote><p><img src="https://user-images.githubusercontent.com/42334717/103643405-fa202a00-4f97-11eb-980f-1bb66f5a9e10.png" alt="Frequency Domain Analysis"></p><hr><h1 id="Index"><a href="#Index" class="headerlink" title="Index"></a>Index</h1><ul><li>Sleep Fragmentation Index(SFI, 수면분절지수)<ul><li>수면 분절의 정도를 유추하는 계산식을 통해 산출</li><li>기존에는 폐쇄성 수면무호흡증을 78%의 민감도, 95%의 특이도로 진단</li><li>수면무호흡 및 저호흡과 관련된 신체 움직임의 빈도만 반영</li><li>관련이 없는 움직임도 포함시킴으로써 민감도와 특이도가 낮아짐</li></ul></li><li>Apnea-Hypopnea Index(AHI, 수면무호흡지수)<ul><li>수면 시, 호흡의 장애 심각도를 측정하는 지표</li><li>무호흡 및 저호흡의 지속 시간, 혈중 산소 포화도 감소, 뇌파의 변화, 신체적 각성 등을 고려</li></ul></li><li>Heart Rate Variability(HRV, 비침습적인 심박변이도)<ul><li>심전도상의 R-R 간격의 변화를 측정하여 얻음</li><li>일반적으로 교감신경과 부교감신경의 영향을 받아 조절되는 것으로 알려짐</li></ul></li></ul>]]></content>
       
       
       <categories>
@@ -425,9 +425,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -551,9 +551,9 @@
             
             <tag> PHM </tag>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -2108,9 +2108,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2137,9 +2137,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2940,9 +2940,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -2969,9 +2969,9 @@
       
         <tags>
             
-            <tag> Arduino </tag>
-            
             <tag> C, C++ </tag>
+            
+            <tag> Arduino </tag>
             
         </tags>
       
@@ -3079,6 +3079,17 @@
     
     
     <entry>
+      <title>about Zerohertz</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 60px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '$'})    .command(`안녕하세요. 오효근입니다!`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='career' style='height: 150px'></div>            <script>        new GDemo('#career')          .openApp('terminal', {minHeight: '150px', windowTitle: 'Career', promptString: '$'})    .command(`<span class="token number">2017.03</span> ~ <span class="token punctuation">:</span> Konkuk Univ<span class="token operator">.</span> Mechanical Engineering`, {onCompleteDelay: 300}).command(`<span class="token number">2018.06</span> ~ <span class="token number">2019.11</span> <span class="token punctuation">:</span> Former undergraduate researcher at MRV Lab<span class="token operator">.</span><span class="token punctuation">(</span>Medical Robotics and Virtual Reality Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`<span class="token number">2019.11</span> ~ <span class="token punctuation">:</span> Undergraduate researcher at SiM Lab<span class="token operator">.</span><span class="token punctuation">(</span>Smart intelligent Manufacturing system Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='skills' style='height: 500px'></div>            <script>        new GDemo('#skills')          .openApp('terminal', {minHeight: '500px', windowTitle: 'Skills', promptString: '$'})    .command(`C`, {onCompleteDelay: 300}).command(`C++`, {onCompleteDelay: 300}).command(`Arduino`, {onCompleteDelay: 300}).command(`AutoCAD`, {onCompleteDelay: 300}).command(`Python`, {onCompleteDelay: 300}).command(`RaspberryPi`, {onCompleteDelay: 300}).command(`Linux`, {onCompleteDelay: 300}).command(`MatLab`, {onCompleteDelay: 300}).command(`html`, {onCompleteDelay: 300}).command(`MarkDown`, {onCompleteDelay: 300}).command(`Catia`, {onCompleteDelay: 300}).command(`3ds Max`, {onCompleteDelay: 300}).command(`Unreal Engine`, {onCompleteDelay: 300}).command(`Simulink`, {onCompleteDelay: 300}).command(`R`, {onCompleteDelay: 300}).command(`Cura`, {onCompleteDelay: 300}).command(`LabView`, {onCompleteDelay: 300}).command(`Ansys`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Research-Interests"><a href="#Research-Interests" class="headerlink" title="Research Interests"></a>Research Interests</h1><ul><li>PHM(Prognostics and Health Management)</li><li>Smart Data(Feature Extraction)</li><li>ML(Machine Learning)</li><li>DNN(Deep Neural Network)</li><li>Programming</li></ul>]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Categories</title>
       <link href="/categories/index.html"/>
       <url>/categories/index.html</url>
@@ -3095,17 +3106,6 @@
       <url>/tags/index.html</url>
       
         <content type="html"><![CDATA[]]></content>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>about Zerohertz</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
-      
-        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 60px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '$'})    .command(`안녕하세요. 오효근입니다!`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='career' style='height: 150px'></div>            <script>        new GDemo('#career')          .openApp('terminal', {minHeight: '150px', windowTitle: 'Career', promptString: '$'})    .command(`<span class="token number">2017.03</span> ~ <span class="token punctuation">:</span> Konkuk Univ<span class="token operator">.</span> Mechanical Engineering`, {onCompleteDelay: 300}).command(`<span class="token number">2018.06</span> ~ <span class="token number">2019.11</span> <span class="token punctuation">:</span> Former undergraduate researcher at MRV Lab<span class="token operator">.</span><span class="token punctuation">(</span>Medical Robotics and Virtual Reality Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`<span class="token number">2019.11</span> ~ <span class="token punctuation">:</span> Undergraduate researcher at SiM Lab<span class="token operator">.</span><span class="token punctuation">(</span>Smart intelligent Manufacturing system Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='skills' style='height: 500px'></div>            <script>        new GDemo('#skills')          .openApp('terminal', {minHeight: '500px', windowTitle: 'Skills', promptString: '$'})    .command(`C`, {onCompleteDelay: 300}).command(`C++`, {onCompleteDelay: 300}).command(`Arduino`, {onCompleteDelay: 300}).command(`AutoCAD`, {onCompleteDelay: 300}).command(`Python`, {onCompleteDelay: 300}).command(`RaspberryPi`, {onCompleteDelay: 300}).command(`Linux`, {onCompleteDelay: 300}).command(`MatLab`, {onCompleteDelay: 300}).command(`html`, {onCompleteDelay: 300}).command(`MarkDown`, {onCompleteDelay: 300}).command(`Catia`, {onCompleteDelay: 300}).command(`3ds Max`, {onCompleteDelay: 300}).command(`Unreal Engine`, {onCompleteDelay: 300}).command(`Simulink`, {onCompleteDelay: 300}).command(`R`, {onCompleteDelay: 300}).command(`Cura`, {onCompleteDelay: 300}).command(`LabView`, {onCompleteDelay: 300}).command(`Ansys`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Research-Interests"><a href="#Research-Interests" class="headerlink" title="Research Interests"></a>Research Interests</h1><ul><li>PHM(Prognostics and Health Management)</li><li>Smart Data(Feature Extraction)</li><li>ML(Machine Learning)</li><li>DNN(Deep Neural Network)</li><li>Programming</li></ul>]]></content>
       
     </entry>
     
