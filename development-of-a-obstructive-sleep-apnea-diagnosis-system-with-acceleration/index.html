@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta property="og:image" content="https://user-images.githubusercontent.com/42334717/89857466-2301e600-dbd7-11ea-9f52-f375b8a3d435.jpg">
+  <script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "7e701a42aec008";
+  if(window.wcs) {
+      wcs_do();
+  }
+  </script>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#800a0a">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <link rel="mask-icon" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png" color="#800a0a">
+  <link rel="manifest" href="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="msapplication-config" content="https://user-images.githubusercontent.com/42334717/60787577-38ffd480-a195-11e9-83a7-25af69eda64a.png">
+  <meta name="google-site-verification" content="PYYAJFWpEyGVVDYPD7Cmj5hll1zjjqk8PjonhYX3VjE">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zerohertz.github.io","root":"/","scheme":"Pisces","version":"8.0.0","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#800a0a","save":"manual"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null,"activeClass":"disqus"},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeInDown","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInDown","sidebar":"fadeInDown"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="Prototype 1(Arduino, Computer)ArduinoSenosr.ino1234567891011121314151617181920212223242526272829void setup() &amp;#123;  Serial.begin(2000000);&amp;#125;void loop() &amp;#123;  int x_val &#x3D; analogRead(A0);  int y_">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Development of a Obstructive Sleep Apnea Diagnosis System with Acceleration">
+<meta property="og:url" content="https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/index.html">
+<meta property="og:site_name" content="Zerohertz">
+<meta property="og:description" content="Prototype 1(Arduino, Computer)ArduinoSenosr.ino1234567891011121314151617181920212223242526272829void setup() &amp;#123;  Serial.begin(2000000);&amp;#125;void loop() &amp;#123;  int x_val &#x3D; analogRead(A0);  int y_">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-07-27T09:27:01.000Z">
+<meta property="article:modified_time" content="2021-01-07T01:35:32.130Z">
+<meta property="article:author" content="Zerohertz">
+<meta property="article:tag" content="PHM">
+<meta property="article:tag" content="Arduino">
+<meta property="article:tag" content="C, C++">
+<meta property="article:tag" content="RaspberryPi">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Statistics">
+<meta property="article:tag" content="Sleep apnea">
+<meta property="article:tag" content="R">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>Development of a Obstructive Sleep Apnea Diagnosis System with Acceleration | Zerohertz</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-145420109-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-145420109-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/rss2.xml" title="Zerohertz" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Zerohertz</h1>
+      <i class="logo-line"></i>
+    </a>
+      <img class="custom-logo-image" src="https://user-images.githubusercontent.com/42334717/76139363-5c678000-6092-11ea-9c6c-585be21a64cd.png" alt="Zerohertz">
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">26</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories<span class="badge">20</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">105</span></a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80" placeholder="Searching..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Prototype-1-Arduino-Computer"><span class="nav-number">1.</span> <span class="nav-text">Prototype 1(Arduino, Computer)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Arduino"><span class="nav-number">1.1.</span> <span class="nav-text">Arduino</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C"><span class="nav-number">1.2.</span> <span class="nav-text">C++</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Prototype-2-Arduino-nano-33-BLE-RaspberryPi"><span class="nav-number">2.</span> <span class="nav-text">Prototype 2(Arduino nano 33 BLE, RaspberryPi)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Arduino-1"><span class="nav-number">2.1.</span> <span class="nav-text">Arduino</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Python"><span class="nav-number">2.2.</span> <span class="nav-text">Python</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#R"><span class="nav-number">3.</span> <span class="nav-text">R</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Undersampling"><span class="nav-number">3.1.</span> <span class="nav-text">Undersampling</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Make-Label-Data"><span class="nav-number">3.2.</span> <span class="nav-text">Make Label Data</span></a></li></ol></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Zerohertz" src="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+  <p class="site-author-name" itemprop="name">Zerohertz</p>
+  <div class="site-description" itemprop="description">#800a0a</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">105</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL1plcm9oZXJ0eg==" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Zerohertz"><i class="fab fa-github fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="bWFpbHRvOm9oZzM0MTdAZ21haWwuY29t" title="E-Mail → mailto:ohg3417@gmail.com"><i class="fa fa-envelope fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuZmFjZWJvb2suY29tL3Blb3BsZS8lRUMlOTglQTQlRUQlOUElQTglRUElQjclQkMvMTAwMDEzOTQyMDg2NTY3" title="FB Page → https:&#x2F;&#x2F;www.facebook.com&#x2F;people&#x2F;%EC%98%A4%ED%9A%A8%EA%B7%BC&#x2F;100013942086567"><i class="fab fa-facebook fa-fw"></i></span>
+      </span>
+      <span class="links-of-author-item">
+        <span class="exturl" data-url="aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS96ZXJvaGVydHp6Lw==" title="Instagram → https:&#x2F;&#x2F;www.instagram.com&#x2F;zerohertzz&#x2F;"><i class="fab fa-instagram fa-fw"></i></span>
+      </span>
+  </div>
+
+
+
+      </section>
+        <div class="back-to-top animated">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://user-images.githubusercontent.com/42334717/71893479-250e4d00-318f-11ea-8989-0226312ff0f1.jpeg">
+      <meta itemprop="name" content="Zerohertz">
+      <meta itemprop="description" content="#800a0a">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Zerohertz">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Development of a Obstructive Sleep Apnea Diagnosis System with Acceleration
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-07-27 18:27:01" itemprop="dateCreated datePublished" datetime="2020-07-27T18:27:01+09:00">2020-07-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-01-07 10:35:32" itemprop="dateModified" datetime="2021-01-07T10:35:32+09:00">2021-01-07</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/research/" itemprop="url" rel="index"><span itemprop="name">Research</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/research/journal/" itemprop="url" rel="index"><span itemprop="name">Journal</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus: </span>
+    
+    <a title="disqus" href="/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>9 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Prototype-1-Arduino-Computer"><a href="#Prototype-1-Arduino-Computer" class="headerlink" title="Prototype 1(Arduino, Computer)"></a>Prototype 1(Arduino, Computer)</h1><h2 id="Arduino"><a href="#Arduino" class="headerlink" title="Arduino"></a>Arduino</h2><figure class="highlight c++"><figcaption><span>Senosr.ino</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">2000000</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="keyword">int</span> x_val = analogRead(A0);</span><br><span class="line">  <span class="keyword">int</span> y_val = analogRead(A1);</span><br><span class="line">  <span class="keyword">int</span> z_val = analogRead(A2);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">int</span> AE = analogRead(A7);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(AE &gt;= <span class="number">500</span>)&#123;</span><br><span class="line">    AE = <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span>&#123;</span><br><span class="line">    AE = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  Serial.print(x_val);</span><br><span class="line">  Serial.print(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">  Serial.print(y_val);</span><br><span class="line">  Serial.print(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">  Serial.print(z_val);</span><br><span class="line">  Serial.print(<span class="string">&quot;,&quot;</span>);</span><br><span class="line">  Serial.print(AE);</span><br><span class="line">  Serial.print(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">  delay(<span class="number">20</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><figure class="highlight c++"><figcaption><span>Serial.cpp</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;CSerialComm.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;chrono&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;windows.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> <span class="meta-keyword">warning</span>(disable:4996)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	CSerialComm SerialComm;</span><br><span class="line"></span><br><span class="line">	ofstream file;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;File name : &quot;</span>;</span><br><span class="line">	<span class="built_in">string</span> nameOfFile;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; nameOfFile;</span><br><span class="line">	nameOfFile = nameOfFile + <span class="string">&quot;.csv&quot;</span>;</span><br><span class="line">	file.open(nameOfFile);</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">&quot;Port num : &quot;</span>;</span><br><span class="line">	<span class="built_in">string</span> port_name;</span><br><span class="line">	<span class="built_in">cin</span> &gt;&gt; port_name;</span><br><span class="line">	<span class="keyword">char</span> port[<span class="number">10</span>];</span><br><span class="line">	<span class="built_in">strcpy</span>(port, port_name.c_str());</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span> (SerialComm.connect(port))</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Serial port is connected!!\n&quot;</span>);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;Sercial connection fail!!\n&quot;</span>);</span><br><span class="line"></span><br><span class="line">	Sleep(<span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">	BYTE data_init[<span class="number">32</span>];</span><br><span class="line">	<span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span> (j &lt; <span class="number">10</span>) &#123;</span><br><span class="line">		i = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">			SerialComm.readCommand(data_init[i]);</span><br><span class="line">			<span class="keyword">if</span> (data_init[i] == <span class="string">&#x27;\n&#x27;</span>) &#123;</span><br><span class="line">				j++;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			i++;</span><br><span class="line">			<span class="built_in">cout</span> &lt;&lt; j &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	BYTE data[<span class="number">32</span>];</span><br><span class="line"></span><br><span class="line">	i = <span class="number">0</span>;</span><br><span class="line">	chrono::system_clock::time_point start = <span class="built_in">std</span>::chrono::system_clock::now();</span><br><span class="line">	chrono::duration&lt;<span class="keyword">double</span>&gt; sec = <span class="built_in">std</span>::chrono::system_clock::now() - start;</span><br><span class="line">	<span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (GetAsyncKeyState(VK_ESCAPE)) <span class="keyword">break</span>;</span><br><span class="line">		sec = <span class="built_in">std</span>::chrono::system_clock::now() - start;</span><br><span class="line">		i = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (<span class="number">1</span>) &#123;</span><br><span class="line">			SerialComm.readCommand(data[i]);</span><br><span class="line">			<span class="keyword">if</span> (data[i] == <span class="string">&#x27;\n&#x27;</span>)&#123;</span><br><span class="line">				<span class="built_in">string</span> time = to_string(sec.count());</span><br><span class="line">				<span class="function"><span class="built_in">string</span> <span class="title">str_data</span><span class="params">(data, data + i + <span class="number">1</span>)</span></span>;</span><br><span class="line">				<span class="built_in">string</span> str = time + <span class="string">&#x27;,&#x27;</span> + str_data;</span><br><span class="line">				<span class="built_in">cout</span> &lt;&lt; str;</span><br><span class="line">				file &lt;&lt; str;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			i++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	file.close();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><figcaption><span>CSerialComm.h</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;serialport.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RETURN_SUCCESS 1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RETURN_FAIL 0</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CSerialComm</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">	CSerialComm();</span><br><span class="line">	~CSerialComm();</span><br><span class="line"></span><br><span class="line">	CSerialPort	serial;</span><br><span class="line">	<span class="function"><span class="keyword">int</span>		<span class="title">connect</span><span class="params">(<span class="keyword">char</span>* _portNum)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">int</span>		<span class="title">readCommand</span><span class="params">(BYTE &amp;p)</span></span>;</span><br><span class="line">	<span class="function"><span class="keyword">void</span>		<span class="title">disconnect</span><span class="params">()</span></span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><figcaption><span>CSerialComm.cpp</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;CSerialComm.h&quot;</span></span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CSerialComm::CSerialComm() &#123;&#125;</span><br><span class="line">CSerialComm::~CSerialComm() &#123;&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">CSerialComm::connect</span><span class="params">(<span class="keyword">char</span>* portNum)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!serial.OpenPort(portNum))</span><br><span class="line">		<span class="keyword">return</span> RETURN_FAIL;</span><br><span class="line"></span><br><span class="line">	serial.ConfigurePort(<span class="number">2000000</span>, <span class="number">8</span>, FALSE, NOPARITY, ONESTOPBIT);</span><br><span class="line">	serial.SetCommunicationTimeouts(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> RETURN_SUCCESS;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">CSerialComm::readCommand</span><span class="params">(BYTE &amp;p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (serial.ReadByte(p))</span><br><span class="line">		<span class="keyword">return</span> RETURN_SUCCESS;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> RETURN_FAIL;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CSerialComm::disconnect</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	serial.ClosePort();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="Prototype-2-Arduino-nano-33-BLE-RaspberryPi"><a href="#Prototype-2-Arduino-nano-33-BLE-RaspberryPi" class="headerlink" title="Prototype 2(Arduino nano 33 BLE, RaspberryPi)"></a>Prototype 2(Arduino nano 33 BLE, RaspberryPi)</h1><h2 id="Arduino-1"><a href="#Arduino-1" class="headerlink" title="Arduino"></a>Arduino</h2><figure class="highlight c++"><figcaption><span>peripheral.ino</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ArduinoBLE.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;Arduino_LSM9DS1.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function">BLEService <span class="title">ACC</span><span class="params">(<span class="string">&quot;1001&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">accX</span><span class="params">(<span class="string">&quot;2001&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">accY</span><span class="params">(<span class="string">&quot;2002&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">accZ</span><span class="params">(<span class="string">&quot;2003&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">BLEService <span class="title">GYRO</span><span class="params">(<span class="string">&quot;1002&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">gyroX</span><span class="params">(<span class="string">&quot;2011&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">gyroY</span><span class="params">(<span class="string">&quot;2012&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">gyroZ</span><span class="params">(<span class="string">&quot;2013&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function">BLEService <span class="title">MAG</span><span class="params">(<span class="string">&quot;1003&quot;</span>)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">magX</span><span class="params">(<span class="string">&quot;2021&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">magY</span><span class="params">(<span class="string">&quot;2022&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"><span class="function">BLEFloatCharacteristic <span class="title">magZ</span><span class="params">(<span class="string">&quot;2023&quot;</span>, BLERead | BLENotify)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">float</span> acc_x, acc_y, acc_z;</span><br><span class="line"><span class="keyword">float</span> gyro_x, gyro_y, gyro_z;</span><br><span class="line"><span class="keyword">float</span> mag_x, mag_y, mag_z;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">115200</span>);</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">if</span>(!BLE.begin()) &#123;</span><br><span class="line">    Serial.println(<span class="string">&quot;Starting BLE Failed!&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!IMU.begin()) &#123; <span class="comment">//LSM9DSI센서 시작</span></span><br><span class="line">    Serial.println(<span class="string">&quot;LSM9DSI센서 오류!&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  BLE.setDeviceName(<span class="string">&quot;IMU&quot;</span>);</span><br><span class="line">  BLE.setLocalName(<span class="string">&quot;IMU&quot;</span>);</span><br><span class="line">  </span><br><span class="line">  BLE.setAdvertisedService(ACC);</span><br><span class="line">  BLE.setAdvertisedService(GYRO);</span><br><span class="line">  BLE.setAdvertisedService(MAG);</span><br><span class="line">  ACC.addCharacteristic(accX);</span><br><span class="line">  ACC.addCharacteristic(accY);</span><br><span class="line">  ACC.addCharacteristic(accZ);</span><br><span class="line">  GYRO.addCharacteristic(gyroX);</span><br><span class="line">  GYRO.addCharacteristic(gyroY);</span><br><span class="line">  GYRO.addCharacteristic(gyroZ);</span><br><span class="line">  MAG.addCharacteristic(magX);</span><br><span class="line">  MAG.addCharacteristic(magY);</span><br><span class="line">  MAG.addCharacteristic(magZ);</span><br><span class="line">  BLE.addService(ACC);</span><br><span class="line">  BLE.addService(GYRO);</span><br><span class="line">  BLE.addService(MAG);</span><br><span class="line">  BLE.setConnectable(<span class="literal">true</span>);</span><br><span class="line">  BLE.setAdvertisingInterval(<span class="number">100</span>);</span><br><span class="line">  BLE.advertise();</span><br><span class="line">  Serial.println(<span class="string">&quot;Bluetooth Device Active, Waiting for Connections...&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  BLEDevice central = BLE.central();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(central) &#123;</span><br><span class="line">    Serial.print(<span class="string">&quot;Connected to Central: &quot;</span>);</span><br><span class="line">    Serial.println(central.address());</span><br><span class="line">    <span class="keyword">while</span>(central.connected()) &#123;</span><br><span class="line">      IMU.readAcceleration(acc_x, acc_y, acc_z);</span><br><span class="line">      IMU.readGyroscope(gyro_x, gyro_y, gyro_z);</span><br><span class="line">      IMU.readMagneticField(mag_x, mag_y, mag_z);      </span><br><span class="line">      accX.writeValue(acc_x);</span><br><span class="line">      accY.writeValue(acc_y);</span><br><span class="line">      accZ.writeValue(acc_z);</span><br><span class="line">      gyroX.writeValue(gyro_x);</span><br><span class="line">      gyroY.writeValue(gyro_y);</span><br><span class="line">      gyroZ.writeValue(gyro_z);</span><br><span class="line">      magX.writeValue(mag_x);</span><br><span class="line">      magY.writeValue(mag_y);</span><br><span class="line">      magZ.writeValue(mag_z);</span><br><span class="line">      Serial.println(acc_x);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  Serial.print(<span class="string">&quot;Disconnected from Central: &quot;</span>);</span><br><span class="line">  Serial.println(BLE.address());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><figcaption><span>central.ino</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ArduinoBLE.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">union</span> dat&#123;</span><br><span class="line">  <span class="keyword">unsigned</span> <span class="keyword">char</span> asdf[<span class="number">4</span>];</span><br><span class="line">  <span class="keyword">float</span> zxcv;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">getData</span><span class="params">(<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> data[], <span class="keyword">int</span> length)</span> </span>&#123;</span><br><span class="line">  dat dat;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line">    dat.asdf[i] = data[i]; </span><br><span class="line">    &#125;</span><br><span class="line">  <span class="keyword">return</span> dat.zxcv;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">printcsv</span><span class="params">(BLECharacteristic c1, BLECharacteristic c2, BLECharacteristic c3, BLECharacteristic c4, BLECharacteristic c5, BLECharacteristic c6, BLECharacteristic c7, BLECharacteristic c8, BLECharacteristic c9)</span></span>&#123;</span><br><span class="line">  c1.read();</span><br><span class="line">  c2.read();</span><br><span class="line">  c3.read();</span><br><span class="line">  c4.read();</span><br><span class="line">  c5.read();</span><br><span class="line">  c6.read();</span><br><span class="line">  c7.read();</span><br><span class="line">  c8.read();</span><br><span class="line">  c9.read(); </span><br><span class="line">  <span class="keyword">float</span> f1=getData(c1.value(), c1.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f2=getData(c2.value(), c2.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f3=getData(c3.value(), c3.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f4=getData(c4.value(), c4.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f5=getData(c5.value(), c5.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f6=getData(c6.value(), c6.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f7=getData(c7.value(), c7.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f8=getData(c8.value(), c8.valueLength());</span><br><span class="line">  <span class="keyword">float</span> f9=getData(c9.value(), c9.valueLength());</span><br><span class="line">  Serial.print(f1);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f2);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f3);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f4);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f5);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f6);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f7);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f8);</span><br><span class="line">  Serial.print(<span class="string">&#x27;,&#x27;</span>);</span><br><span class="line">  Serial.print(f9);</span><br><span class="line">  Serial.print(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Serial.begin(<span class="number">115200</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(!BLE.begin()) &#123;</span><br><span class="line">    Serial.println(<span class="string">&quot;Starting BLE Failed!&quot;</span>);</span><br><span class="line">    <span class="keyword">while</span>(<span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  BLE.scan();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  BLEDevice peripheral = BLE.available();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span>(peripheral)&#123;</span><br><span class="line">    <span class="keyword">if</span>(peripheral.localName()==<span class="string">&quot;IMU&quot;</span>)&#123;</span><br><span class="line">      BLE.stopScan();</span><br><span class="line">      <span class="keyword">if</span>(peripheral.connect())&#123;</span><br><span class="line">        Serial.println(<span class="string">&quot;Connect1&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span>(peripheral.discoverAttributes())&#123;</span><br><span class="line">        Serial.println(<span class="string">&quot;Connect2&quot;</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      BLEService acc=peripheral.service(<span class="string">&quot;1001&quot;</span>);</span><br><span class="line">      BLECharacteristic accx=acc.characteristic(<span class="string">&quot;2001&quot;</span>);</span><br><span class="line">      BLECharacteristic accy=acc.characteristic(<span class="string">&quot;2002&quot;</span>);</span><br><span class="line">      BLECharacteristic accz=acc.characteristic(<span class="string">&quot;2003&quot;</span>);</span><br><span class="line">      BLEService gyro=peripheral.service(<span class="string">&quot;1002&quot;</span>);</span><br><span class="line">      BLECharacteristic gyrox=gyro.characteristic(<span class="string">&quot;2011&quot;</span>);</span><br><span class="line">      BLECharacteristic gyroy=gyro.characteristic(<span class="string">&quot;2012&quot;</span>);</span><br><span class="line">      BLECharacteristic gyroz=gyro.characteristic(<span class="string">&quot;2013&quot;</span>);</span><br><span class="line">      BLEService mag=peripheral.service(<span class="string">&quot;1003&quot;</span>);</span><br><span class="line">      BLECharacteristic magx=mag.characteristic(<span class="string">&quot;2021&quot;</span>);</span><br><span class="line">      BLECharacteristic magy=mag.characteristic(<span class="string">&quot;2022&quot;</span>);</span><br><span class="line">      BLECharacteristic magz=mag.characteristic(<span class="string">&quot;2023&quot;</span>);</span><br><span class="line">      <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line"><span class="comment">//        accx.read();</span></span><br><span class="line"><span class="comment">//        float f1=getData(accx.value(),accx.valueLength());</span></span><br><span class="line"><span class="comment">//        Serial.print(f1);</span></span><br><span class="line"><span class="comment">//        Serial.print(&#x27;,&#x27;);</span></span><br><span class="line"><span class="comment">//        accy.read();</span></span><br><span class="line"><span class="comment">//        float f2=getData(accy.value(),accy.valueLength());</span></span><br><span class="line"><span class="comment">//        Serial.print(f2);</span></span><br><span class="line"><span class="comment">//        Serial.print(&#x27;,&#x27;);</span></span><br><span class="line"><span class="comment">//        accz.read();</span></span><br><span class="line"><span class="comment">//        float f3=getData(accz.value(),accz.valueLength());</span></span><br><span class="line"><span class="comment">//        Serial.println(f3);</span></span><br><span class="line">        <span class="keyword">if</span>(peripheral.connected())&#123;</span><br><span class="line">          printcsv(accx,accy,accz,gyrox,gyroy,gyroz,magx,magy,magz);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">          peripheral.disconnect();</span><br><span class="line">          <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  BLE.scan();</span><br><span class="line">  Serial.println(<span class="string">&quot;rescan&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h2><figure class="highlight python"><figcaption><span>ser.py</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> serial</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">ser = serial.Serial(<span class="string">&#x27;/dev/ttyACM0&#x27;</span>, <span class="number">115200</span>)</span><br><span class="line">f = open(<span class="string">&#x27;filename.csv&#x27;</span>, <span class="string">&#x27;w&#x27;</span>, encoding = <span class="string">&#x27;utf-8&#x27;</span>)</span><br><span class="line">t = time.time()</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        <span class="keyword">if</span> ser.in_waiting != <span class="number">0</span>:</span><br><span class="line">            t1 = time.time() - t</span><br><span class="line">            t2 = round(t1, <span class="number">5</span>)</span><br><span class="line">            t3 = str(t2)</span><br><span class="line">            sensor = ser.readline()</span><br><span class="line">            print(t3)</span><br><span class="line">            print(sensor.decode())</span><br><span class="line">            f.write(t3)</span><br><span class="line">            f.write(<span class="string">&#x27;,&#x27;</span>)</span><br><span class="line">            f.write(sensor.decode())</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line">    f.close()</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="R"><a href="#R" class="headerlink" title="R"></a>R</h1><h2 id="Undersampling"><a href="#Undersampling" class="headerlink" title="Undersampling"></a>Undersampling</h2><figure class="highlight r"><figcaption><span>undersampling.R</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">setwd(<span class="string">&quot;/Users/zerohertz/MATLAB/Obstructive Sleep Apnea/&quot;</span>)</span><br><span class="line"></span><br><span class="line">del=read.csv(<span class="string">&quot;delta.csv&quot;</span>,header=<span class="literal">T</span>)</span><br><span class="line"></span><br><span class="line">del0=subset(del,subset=(del$Sleep==<span class="number">0</span>))</span><br><span class="line">del10=subset(del,subset=(del$Sleep==<span class="number">10</span>))</span><br><span class="line">del20=subset(del,subset=(del$Sleep==<span class="number">20</span>))</span><br><span class="line">del30=subset(del,subset=(del$Sleep==<span class="number">30</span>))</span><br><span class="line">del40=subset(del,subset=(del$Sleep==<span class="number">40</span>))</span><br><span class="line"></span><br><span class="line">s1=del10[sample(nrow(del10),<span class="number">1252</span>,replace=<span class="literal">FALSE</span>),]</span><br><span class="line">s2=del20[sample(nrow(del20),<span class="number">10954</span>,replace=<span class="literal">FALSE</span>),]</span><br><span class="line">s3=del30[sample(nrow(del30),<span class="number">1643</span>,replace=<span class="literal">FALSE</span>),]</span><br><span class="line">s4=del40[sample(nrow(del40),<span class="number">4421</span>,replace=<span class="literal">FALSE</span>),]</span><br><span class="line"></span><br><span class="line">sleep=rbind(s1,s2,s3,s4)</span><br><span class="line"></span><br><span class="line">write.table(sleep,file=<span class="string">&quot;sl1.csv&quot;</span>,sep=<span class="string">&quot;,&quot;</span>,row.names=<span class="literal">F</span>,col.names=<span class="literal">T</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Make-Label-Data"><a href="#Make-Label-Data" class="headerlink" title="Make Label Data"></a>Make Label Data</h2><figure class="highlight r"><figcaption><span>MakeLabelData</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">i = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(i &lt;= length(raw[,<span class="number">1</span>]))&#123;</span><br><span class="line">	time=raw[i,<span class="number">1</span>]</span><br><span class="line">	ti=time%/%<span class="number">30</span>+<span class="number">1</span></span><br><span class="line">	raw[i,<span class="number">6</span>]=lab[ti,<span class="number">1</span>]</span><br><span class="line">  <span class="keyword">if</span>(lab[ti,<span class="number">1</span>]==<span class="string">&#x27;W&#x27;</span>)&#123;</span><br><span class="line">    raw[i,<span class="number">7</span>]=<span class="number">0</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(lab[ti,<span class="number">1</span>]==<span class="string">&#x27;N1&#x27;</span>)&#123;</span><br><span class="line">    raw[i,<span class="number">7</span>]=<span class="number">10</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(lab[ti,<span class="number">1</span>]==<span class="string">&#x27;N2&#x27;</span>)&#123;</span><br><span class="line">    raw[i,<span class="number">7</span>]=<span class="number">20</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">else</span> <span class="keyword">if</span>(lab[ti,<span class="number">1</span>]==<span class="string">&#x27;N3&#x27;</span>)&#123;</span><br><span class="line">    raw[i,<span class="number">7</span>]=<span class="number">30</span></span><br><span class="line">  &#125;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(lab[ti,<span class="number">1</span>]==<span class="string">&#x27;R&#x27;</span>)&#123;</span><br><span class="line">    raw[i,<span class="number">7</span>]=<span class="number">40</span></span><br><span class="line">  &#125;</span><br><span class="line">  i=i+<span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line">write.table(raw,file=<span class="string">&quot;label.csv&quot;</span>,sep=<span class="string">&quot;,&quot;</span>,row.names=<span class="literal">F</span>,col.names=<span class="literal">F</span>)</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">Related posts</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/arduino-nano-33-ble/" rel="bookmark">Arduino Nano 33 BLE</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/deep-actinet/" rel="bookmark">Deep-ACTINet</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/" rel="bookmark">Development of a Obstructive Sleep Apnea Diagnosis Algorithm Using HRV</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-for-ball-bearing-cage-defects-using-fisher-discriminant-ratio/" rel="bookmark">Diagnosis Systems for Ball Bearing Cage Defects using Fisher Discriminant Ratio</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/diagnosis-systems-with-smart-data-for-3d-printer-introduction/" rel="bookmark">Diagnosis Systems with Smart Data for 3D Printer(Introduction)</a></div>
+    </li>
+  </ul>
+
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>Zerohertz
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/" title="Development of a Obstructive Sleep Apnea Diagnosis System with Acceleration">https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/phm/" rel="tag"><i class="fa fa-tag"></i> PHM</a>
+              <a href="/tags/arduino/" rel="tag"><i class="fa fa-tag"></i> Arduino</a>
+              <a href="/tags/c-c/" rel="tag"><i class="fa fa-tag"></i> C, C++</a>
+              <a href="/tags/raspberrypi/" rel="tag"><i class="fa fa-tag"></i> RaspberryPi</a>
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> Python</a>
+              <a href="/tags/statistics/" rel="tag"><i class="fa fa-tag"></i> Statistics</a>
+              <a href="/tags/sleep-apnea/" rel="tag"><i class="fa fa-tag"></i> Sleep apnea</a>
+              <a href="/tags/r/" rel="tag"><i class="fa fa-tag"></i> R</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/matlab-12/" rel="prev" title="Matlab(12)">
+                  <i class="fa fa-chevron-left"></i> Matlab(12)
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/hexo-tag-gdemo/" rel="next" title="hexo-tag-gdemo">
+                  hexo-tag-gdemo <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 2018 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-theater-masks"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zerohertz</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Symbols count total: </span>
+    <span title="Symbols count total">595k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">9:01</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <span class="exturl theme-link" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & <span class="exturl theme-link" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9waXNjZXMv">NexT.Pisces</span>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="150" alpha="0.8" zindex="-2" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.0/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://https-zerohertz-github-io.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/";
+    this.page.identifier = "development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/";
+    this.page.title = "Development of a Obstructive Sleep Apnea Diagnosis System with Acceleration";
+    };
+  NexT.utils.loadComments('#disqus_thread', () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-zerohertz-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
