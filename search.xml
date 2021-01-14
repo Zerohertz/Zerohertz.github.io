@@ -319,12 +319,6 @@
       
         <tags>
             
-            <tag> PHM </tag>
-            
-            <tag> Statistics </tag>
-            
-            <tag> Sleep apnea </tag>
-            
             <tag> Arduino </tag>
             
             <tag> C, C++ </tag>
@@ -332,6 +326,12 @@
             <tag> RaspberryPi </tag>
             
             <tag> Python </tag>
+            
+            <tag> PHM </tag>
+            
+            <tag> Statistics </tag>
+            
+            <tag> Sleep apnea </tag>
             
             <tag> R </tag>
             
@@ -1696,9 +1696,9 @@
       
         <tags>
             
-            <tag> Matlab </tag>
-            
             <tag> Python </tag>
+            
+            <tag> Matlab </tag>
             
             <tag> Numerical analysis </tag>
             
@@ -2352,11 +2352,11 @@
     
     
     <entry>
-      <title>about Zerohertz</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>Tag Cloud</title>
+      <link href="/tags/index.html"/>
+      <url>/tags/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 60px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '$'})    .command(`안녕하세요. 오효근입니다!`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='career' style='height: 150px'></div>            <script>        new GDemo('#career')          .openApp('terminal', {minHeight: '150px', windowTitle: 'Career', promptString: '$'})    .command(`<span class="token number">2017.03</span> ~ <span class="token punctuation">:</span> Konkuk Univ<span class="token operator">.</span> Mechanical Engineering`, {onCompleteDelay: 300}).command(`<span class="token number">2018.06</span> ~ <span class="token number">2019.11</span> <span class="token punctuation">:</span> Former undergraduate researcher at MRV Lab<span class="token operator">.</span><span class="token punctuation">(</span>Medical Robotics and Virtual Reality Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`<span class="token number">2019.11</span> ~ <span class="token punctuation">:</span> Undergraduate researcher at SiM Lab<span class="token operator">.</span><span class="token punctuation">(</span>Smart intelligent Manufacturing system Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='skills' style='height: 500px'></div>            <script>        new GDemo('#skills')          .openApp('terminal', {minHeight: '500px', windowTitle: 'Skills', promptString: '$'})    .command(`C`, {onCompleteDelay: 300}).command(`C++`, {onCompleteDelay: 300}).command(`Arduino`, {onCompleteDelay: 300}).command(`AutoCAD`, {onCompleteDelay: 300}).command(`Python`, {onCompleteDelay: 300}).command(`RaspberryPi`, {onCompleteDelay: 300}).command(`Linux`, {onCompleteDelay: 300}).command(`MatLab`, {onCompleteDelay: 300}).command(`html`, {onCompleteDelay: 300}).command(`MarkDown`, {onCompleteDelay: 300}).command(`Catia`, {onCompleteDelay: 300}).command(`3ds Max`, {onCompleteDelay: 300}).command(`Unreal Engine`, {onCompleteDelay: 300}).command(`Simulink`, {onCompleteDelay: 300}).command(`R`, {onCompleteDelay: 300}).command(`Cura`, {onCompleteDelay: 300}).command(`LabView`, {onCompleteDelay: 300}).command(`Ansys`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Research-Interests"><a href="#Research-Interests" class="headerlink" title="Research Interests"></a>Research Interests</h1><ul><li>PHM(Prognostics and Health Management)</li><li>Smart Data(Feature Extraction)</li><li>ML(Machine Learning)</li><li>DNN(Deep Neural Network)</li><li>Programming</li></ul>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
@@ -2374,11 +2374,11 @@
     
     
     <entry>
-      <title>Tag Cloud</title>
-      <link href="/tags/index.html"/>
-      <url>/tags/index.html</url>
+      <title>about Zerohertz</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 60px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '$'})    .command(`안녕하세요. 오효근입니다!`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='career' style='height: 150px'></div>            <script>        new GDemo('#career')          .openApp('terminal', {minHeight: '150px', windowTitle: 'Career', promptString: '$'})    .command(`<span class="token number">2017.03</span> ~ <span class="token punctuation">:</span> Konkuk Univ<span class="token operator">.</span> Mechanical Engineering`, {onCompleteDelay: 300}).command(`<span class="token number">2018.06</span> ~ <span class="token number">2019.11</span> <span class="token punctuation">:</span> Former undergraduate researcher at MRV Lab<span class="token operator">.</span><span class="token punctuation">(</span>Medical Robotics and Virtual Reality Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`<span class="token number">2019.11</span> ~ <span class="token punctuation">:</span> Undergraduate researcher at SiM Lab<span class="token operator">.</span><span class="token punctuation">(</span>Smart intelligent Manufacturing system Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='skills' style='height: 500px'></div>            <script>        new GDemo('#skills')          .openApp('terminal', {minHeight: '500px', windowTitle: 'Skills', promptString: '$'})    .command(`C`, {onCompleteDelay: 300}).command(`C++`, {onCompleteDelay: 300}).command(`Arduino`, {onCompleteDelay: 300}).command(`AutoCAD`, {onCompleteDelay: 300}).command(`Python`, {onCompleteDelay: 300}).command(`RaspberryPi`, {onCompleteDelay: 300}).command(`Linux`, {onCompleteDelay: 300}).command(`MatLab`, {onCompleteDelay: 300}).command(`html`, {onCompleteDelay: 300}).command(`MarkDown`, {onCompleteDelay: 300}).command(`Catia`, {onCompleteDelay: 300}).command(`3ds Max`, {onCompleteDelay: 300}).command(`Unreal Engine`, {onCompleteDelay: 300}).command(`Simulink`, {onCompleteDelay: 300}).command(`R`, {onCompleteDelay: 300}).command(`Cura`, {onCompleteDelay: 300}).command(`LabView`, {onCompleteDelay: 300}).command(`Ansys`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Research-Interests"><a href="#Research-Interests" class="headerlink" title="Research Interests"></a>Research Interests</h1><ul><li>PHM(Prognostics and Health Management)</li><li>Smart Data(Feature Extraction)</li><li>ML(Machine Learning)</li><li>DNN(Deep Neural Network)</li><li>Programming</li></ul>]]></content>
       
     </entry>
     
