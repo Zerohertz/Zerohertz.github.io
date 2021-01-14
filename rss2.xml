@@ -9,14 +9,14 @@
     <atom:link href="https://zerohertz.github.io/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>#800a0a</description>
-    <pubDate>Thu, 07 Jan 2021 07:41:12 GMT</pubDate>
+    <pubDate>Thu, 14 Jan 2021 02:28:36 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
       <title>Development of a Obstructive Sleep Apnea Diagnosis Algorithm Using HRV</title>
-      <link>https://zerohertz.github.io/Development-of-a-Obstructive-Sleep-Apnea-Diagnosis-Algorithm-Using-HRV/</link>
-      <guid>https://zerohertz.github.io/Development-of-a-Obstructive-Sleep-Apnea-Diagnosis-Algorithm-Using-HRV/</guid>
-      <pubDate>Thu, 07 Jan 2021 01:30:29 GMT</pubDate>
+      <link>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</link>
+      <guid>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</guid>
+      <pubDate>Thu, 14 Jan 2021 02:28:10 GMT</pubDate>
       
       <description>&lt;p&gt;&lt;a href=&quot;https://github.com/Zerohertz/Development-of-a-Obstructive-Sleep-Apnea-Diagnosis-Algorithm-Using-HRV&quot;&gt;Source in Github&lt;/a&gt;&lt;/p&gt;
 &lt;h1 id=&quot;HRV-Heart-Rate-Variability&quot;&gt;&lt;a href=&quot;#HRV-Heart-Rate-Variability&quot; class=&quot;headerlink&quot; title=&quot;HRV(Heart Rate Variability)&quot;&gt;&lt;/a&gt;HRV(Heart Rate Variability)&lt;/h1&gt;&lt;h2 id=&quot;Detecting-R-R-Interval&quot;&gt;&lt;a href=&quot;#Detecting-R-R-Interval&quot; class=&quot;headerlink&quot; title=&quot;Detecting R-R Interval&quot;&gt;&lt;/a&gt;Detecting R-R Interval&lt;/h2&gt;&lt;figure class=&quot;highlight matlab&quot;&gt;&lt;figcaption&gt;&lt;span&gt;rrInterval.mat&lt;/span&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;params&quot;&gt;[qrspeaks, locs, y]&lt;/span&gt; = &lt;span class=&quot;title&quot;&gt;rrInterval&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;(time, ecg)&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;t = time;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wt = modwt(ecg, &lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wtrec = &lt;span class=&quot;built_in&quot;&gt;zeros&lt;/span&gt;(&lt;span class=&quot;built_in&quot;&gt;size&lt;/span&gt;(wt));&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;wtrec(&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, :) = wt(&lt;span class=&quot;number&quot;&gt;4&lt;/span&gt;:&lt;span class=&quot;number&quot;&gt;5&lt;/span&gt;, :);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;y = imodwt(wtrec, &lt;span class=&quot;string&quot;&gt;&amp;#x27;sym4&amp;#x27;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;y = &lt;span class=&quot;built_in&quot;&gt;abs&lt;/span&gt;(y).^&lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[qrspeaks, locs] = findpeaks(y, t, &lt;span class=&quot;string&quot;&gt;&amp;#x27;MinPeakHeight&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.1&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&amp;#x27;MinPeakDistance&amp;#x27;&lt;/span&gt;, &lt;span class=&quot;number&quot;&gt;0.450&lt;/span&gt;); &lt;span class=&quot;comment&quot;&gt;%time과 y에 대한 그래프를 해석 후 파라미터 결정&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;end&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -53,7 +53,7 @@
       <category domain="https://zerohertz.github.io/tags/sleep-apnea/">Sleep apnea</category>
       
       
-      <comments>https://zerohertz.github.io/Development-of-a-Obstructive-Sleep-Apnea-Diagnosis-Algorithm-Using-HRV/#disqus_thread</comments>
+      <comments>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/#disqus_thread</comments>
       
     </item>
     
