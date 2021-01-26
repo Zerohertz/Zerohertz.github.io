@@ -8,8 +8,16 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
-        <lastmod>2021-01-14T02:28:36.917Z</lastmod>
+        <loc>https://zerohertz.github.io/app-designer/</loc>
+        <lastmod>2021-01-26T07:34:07.982Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/source-code-for-extracting-cis/</loc>
+        <lastmod>2021-01-20T02:48:05.952Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -17,7 +25,15 @@
 
     <url>
         <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/</loc>
-        <lastmod>2021-01-07T07:41:48.138Z</lastmod>
+        <lastmod>2021-01-20T02:47:16.292Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
+        <lastmod>2021-01-14T02:28:36.917Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -274,22 +290,6 @@
     <url>
         <loc>https://zerohertz.github.io/c-basic-2/</loc>
         <lastmod>2020-03-27T02:27:26.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/source-code-for-extracting-cis/</loc>
-        <lastmod>2020-03-27T02:22:00.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-source-for-data-visualization/</loc>
-        <lastmod>2020-03-18T07:01:23.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
