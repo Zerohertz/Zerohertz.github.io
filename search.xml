@@ -4,7 +4,7 @@
   
     
     <entry>
-      <title>Exporting CWT-CNN Model to C++ from Matlab</title>
+      <title>Exporting CWT-CNN Model to C++ from MatLAB</title>
       <link href="/exporting-cwt-cnn-model-to-c-from-matlab/"/>
       <url>/exporting-cwt-cnn-model-to-c-from-matlab/</url>
       
@@ -13,12 +13,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> C, C++ </tag>
             
             <tag> Machine Learning </tag>
             
@@ -26,15 +28,13 @@
             
             <tag> Signal Processing </tag>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
             <tag> PHM </tag>
             
             <tag> Statistics </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> C, C++ </tag>
             
             <tag> Sleep apnea </tag>
             
@@ -54,7 +54,7 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
@@ -67,7 +67,7 @@
             
             <tag> Signal Processing </tag>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
             <tag> PHM </tag>
             
@@ -91,7 +91,7 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
@@ -104,7 +104,7 @@
             
             <tag> Signal Processing </tag>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
             <tag> PHM </tag>
             
@@ -397,6 +397,10 @@
       
         <tags>
             
+            <tag> Arduino </tag>
+            
+            <tag> C, C++ </tag>
+            
             <tag> Machine Learning </tag>
             
             <tag> PHM </tag>
@@ -404,10 +408,6 @@
             <tag> Statistics </tag>
             
             <tag> Smart data </tag>
-            
-            <tag> Arduino </tag>
-            
-            <tag> C, C++ </tag>
             
             <tag> RaspberryPi </tag>
             
@@ -424,7 +424,7 @@
     
     
     <entry>
-      <title>Matlab(12)</title>
+      <title>MatLAB(12)</title>
       <link href="/matlab-12/"/>
       <url>/matlab-12/</url>
       
@@ -433,7 +433,7 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
@@ -442,7 +442,7 @@
             
             <tag> DNN </tag>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
         </tags>
       
@@ -1040,7 +1040,7 @@
     
     
     <entry>
-      <title>Matlab(11)</title>
+      <title>MatLAB(11)</title>
       <link href="/matlab-11/"/>
       <url>/matlab-11/</url>
       
@@ -1049,7 +1049,7 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
@@ -1058,7 +1058,7 @@
             
             <tag> Machine Learning </tag>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
         </tags>
       
@@ -1067,7 +1067,7 @@
     
     
     <entry>
-      <title>Matlab(10)</title>
+      <title>MatLAB(10)</title>
       <link href="/matlab-10/"/>
       <url>/matlab-10/</url>
       
@@ -1076,14 +1076,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
         </tags>
       
@@ -1092,7 +1092,7 @@
     
     
     <entry>
-      <title>Matlab(9)</title>
+      <title>MatLAB(9)</title>
       <link href="/matlab-9/"/>
       <url>/matlab-9/</url>
       
@@ -1101,14 +1101,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
         </tags>
       
@@ -1117,7 +1117,7 @@
     
     
     <entry>
-      <title>Matlab(8)</title>
+      <title>MatLAB(8)</title>
       <link href="/matlab-8/"/>
       <url>/matlab-8/</url>
       
@@ -1126,14 +1126,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
         </tags>
       
@@ -1142,7 +1142,7 @@
     
     
     <entry>
-      <title>Matlab(7)</title>
+      <title>MatLAB(7)</title>
       <link href="/matlab-7/"/>
       <url>/matlab-7/</url>
       
@@ -1151,14 +1151,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
             <tag> Simulink </tag>
             
@@ -1169,7 +1169,7 @@
     
     
     <entry>
-      <title>Matlab(6)</title>
+      <title>MatLAB(6)</title>
       <link href="/matlab-6/"/>
       <url>/matlab-6/</url>
       
@@ -1178,14 +1178,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
             <tag> Simulink </tag>
             
@@ -1196,7 +1196,7 @@
     
     
     <entry>
-      <title>Matlab(5)</title>
+      <title>MatLAB(5)</title>
       <link href="/matlab-5/"/>
       <url>/matlab-5/</url>
       
@@ -1205,14 +1205,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
             <tag> Simulink </tag>
             
@@ -1223,7 +1223,7 @@
     
     
     <entry>
-      <title>Matlab(4)</title>
+      <title>MatLAB(4)</title>
       <link href="/matlab-4/"/>
       <url>/matlab-4/</url>
       
@@ -1232,14 +1232,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
         </tags>
       
@@ -1248,7 +1248,7 @@
     
     
     <entry>
-      <title>Matlab(3)</title>
+      <title>MatLAB(3)</title>
       <link href="/matlab-3/"/>
       <url>/matlab-3/</url>
       
@@ -1257,14 +1257,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
         </tags>
       
@@ -1273,7 +1273,7 @@
     
     
     <entry>
-      <title>Matlab(2)</title>
+      <title>MatLAB(2)</title>
       <link href="/matlab-2/"/>
       <url>/matlab-2/</url>
       
@@ -1282,14 +1282,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
         </tags>
       
@@ -1298,7 +1298,7 @@
     
     
     <entry>
-      <title>Matlab(1)</title>
+      <title>MatLAB(1)</title>
       <link href="/matlab-1/"/>
       <url>/matlab-1/</url>
       
@@ -1307,14 +1307,14 @@
       
       <categories>
           
-          <category> Matlab </category>
+          <category> MatLAB </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
         </tags>
       
@@ -1749,7 +1749,7 @@
       
         <tags>
             
-            <tag> Matlab </tag>
+            <tag> MatLAB </tag>
             
             <tag> Python </tag>
             
@@ -1822,7 +1822,7 @@
       <link href="/numerical-analysis-3/"/>
       <url>/numerical-analysis-3/</url>
       
-        <content type="html"><![CDATA[<h1 id="Newton-Raphson-method"><a href="#Newton-Raphson-method" class="headerlink" title="Newton-Raphson method"></a>Newton-Raphson method</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">newrap</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x - f(x) / f1(x)</span><br></pre></td></tr></table></figure><a id="more"></a><hr><h1 id="Root-for-the-algebraic-equation-using-Newton-Raphson-method"><a href="#Root-for-the-algebraic-equation-using-Newton-Raphson-method" class="headerlink" title="Root for the algebraic equation using Newton-Raphson method"></a>Root for the algebraic equation using Newton-Raphson method</h1><blockquote><p>Process</p></blockquote><ul><li>N-R Method로 Numerical analysis</li><li>(a), (b)의 시작점으로 값을 찾는다</li><li>True relative error를 구한다</li><li>Matlab으로 Plot</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x</span>):</span> <span class="comment">#f(x)</span></span><br><span class="line">    <span class="keyword">return</span> - <span class="number">2</span> + <span class="number">6</span> * x - <span class="number">4</span> * x ** <span class="number">2</span> + <span class="number">0.5</span> * x ** <span class="number">3</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span>(<span class="params">x</span>):</span> <span class="comment">#f&#x27;(x)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">6</span> - <span class="number">8</span> * x + <span class="number">1.5</span> * x ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">newrap</span>(<span class="params">x</span>):</span> <span class="comment">#Newton-Raphson method</span></span><br><span class="line">    <span class="keyword">return</span> x - f(x) / f1(x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = <span class="number">4.43</span> <span class="comment"># initial guess</span></span><br><span class="line">sol = <span class="number">0.47457</span> <span class="comment">#solution</span></span><br><span class="line">lis = [] <span class="comment">#solution in list</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> z <span class="keyword">in</span> range(<span class="number">0</span> ,<span class="number">30</span>):</span><br><span class="line">    a = round(a, <span class="number">2</span>) <span class="comment"># round off</span></span><br><span class="line">    esubt = abs(((a - sol) / sol) * <span class="number">100</span>) <span class="comment">#True relative error</span></span><br><span class="line">    esubt = round(esubt, <span class="number">2</span>) <span class="comment">#round off</span></span><br><span class="line">    a = newrap(a) <span class="comment">#use N-R method</span></span><br><span class="line">    lis = lis + [esubt]</span><br><span class="line">    print(esubt)</span><br><span class="line"></span><br><span class="line">print(lis)</span><br></pre></td></tr></table></figure><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">17</span> <span class="number">18</span> <span class="number">19</span> <span class="number">20</span> <span class="number">21</span> <span class="number">22</span> <span class="number">23</span> <span class="number">24</span> <span class="number">25</span> <span class="number">26</span> <span class="number">27</span> <span class="number">28</span> <span class="number">29</span>];</span><br><span class="line">y = [<span class="number">785.01</span>, <span class="number">1121.98</span>, <span class="number">641.54</span>, <span class="number">340.22</span>, <span class="number">156.89</span>, <span class="number">57.86</span>, <span class="number">13.61</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>];</span><br><span class="line">y2 = [<span class="number">833.48</span> <span class="number">830141.93</span> <span class="number">553274.45</span> <span class="number">368696.84</span> <span class="number">245644.39</span> <span class="number">163610.12</span> <span class="number">108920.62</span> <span class="number">72460.24</span> <span class="number">48154.03</span> <span class="number">31949.89</span> <span class="number">21148.53</span> <span class="number">13948.33</span> <span class="number">9150.3</span> <span class="number">5955.83</span> <span class="number">3829.69</span> <span class="number">2419.99</span> <span class="number">1488.63</span> <span class="number">879.65</span> <span class="number">487.72</span> <span class="number">245.39</span> <span class="number">104.21</span> <span class="number">32.57</span> <span class="number">5.18</span> <span class="number">0.96</span> <span class="number">0.96</span> <span class="number">0.96</span> <span class="number">0.96</span> <span class="number">0.96</span> <span class="number">0.96</span> <span class="number">0.96</span>];</span><br><span class="line"><span class="built_in">plot</span>(x,y,x,y2)</span><br></pre></td></tr></table></figure><p><img src="https://user-images.githubusercontent.com/42334717/46901623-053b9b00-cef2-11e8-8c70-325deb34ec8a.png" alt="Solution"><br><img src="https://user-images.githubusercontent.com/42334717/46902314-45a11600-cefe-11e8-89d2-f28a531ccebe.jpg" alt="실행결과"></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Newton-Raphson-method"><a href="#Newton-Raphson-method" class="headerlink" title="Newton-Raphson method"></a>Newton-Raphson method</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">newrap</span>(<span class="params">x</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x - f(x) / f1(x)</span><br></pre></td></tr></table></figure><a id="more"></a><hr><h1 id="Root-for-the-algebraic-equation-using-Newton-Raphson-method"><a href="#Root-for-the-algebraic-equation-using-Newton-Raphson-method" class="headerlink" title="Root for the algebraic equation using Newton-Raphson method"></a>Root for the algebraic equation using Newton-Raphson method</h1><blockquote><p>Process</p></blockquote><ul><li>N-R Method로 Numerical analysis</li><li>(a), (b)의 시작점으로 값을 찾는다</li><li>True relative error를 구한다</li><li>MatLAB으로 Plot</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">x</span>):</span> <span class="comment">#f(x)</span></span><br><span class="line">    <span class="keyword">return</span> - <span class="number">2</span> + <span class="number">6</span> * x - <span class="number">4</span> * x ** <span class="number">2</span> + <span class="number">0.5</span> * x ** <span class="number">3</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span>(<span class="params">x</span>):</span> <span class="comment">#f&#x27;(x)</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">6</span> - <span class="number">8</span> * x + <span class="number">1.5</span> * x ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">newrap</span>(<span class="params">x</span>):</span> <span class="comment">#Newton-Raphson method</span></span><br><span class="line">    <span class="keyword">return</span> x - f(x) / f1(x)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = <span class="number">4.43</span> <span class="comment"># initial guess</span></span><br><span class="line">sol = <span class="number">0.47457</span> <span class="comment">#solution</span></span><br><span class="line">lis = [] <span class="comment">#solution in list</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> z <span class="keyword">in</span> range(<span class="number">0</span> ,<span class="number">30</span>):</span><br><span class="line">    a = round(a, <span class="number">2</span>) <span class="comment"># round off</span></span><br><span class="line">    esubt = abs(((a - sol) / sol) * <span class="number">100</span>) <span class="comment">#True relative error</span></span><br><span class="line">    esubt = round(esubt, <span class="number">2</span>) <span class="comment">#round off</span></span><br><span class="line">    a = newrap(a) <span class="comment">#use N-R method</span></span><br><span class="line">    lis = lis + [esubt]</span><br><span class="line">    print(esubt)</span><br><span class="line"></span><br><span class="line">print(lis)</span><br></pre></td></tr></table></figure><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = [<span class="number">0</span> <span class="number">1</span> <span class="number">2</span> <span class="number">3</span> <span class="number">4</span> <span class="number">5</span> <span class="number">6</span> <span class="number">7</span> <span class="number">8</span> <span class="number">9</span> <span class="number">10</span> <span class="number">11</span> <span class="number">12</span> <span class="number">13</span> <span class="number">14</span> <span class="number">15</span> <span class="number">16</span> <span class="number">17</span> <span class="number">18</span> <span class="number">19</span> <span class="number">20</span> <span class="number">21</span> <span class="number">22</span> <span class="number">23</span> <span class="number">24</span> <span class="number">25</span> <span class="number">26</span> <span class="number">27</span> <span class="number">28</span> <span class="number">29</span>];</span><br><span class="line">y = [<span class="number">785.01</span>, <span class="number">1121.98</span>, <span class="number">641.54</span>, <span class="number">340.22</span>, <span class="number">156.89</span>, <span class="number">57.86</span>, <span class="number">13.61</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>, <span class="number">0.96</span>];</span><br><span class="line">y2 = [<span class="number">833.48</span> <span class="number">830141.93</span> <span class="number">553274.45</span> <span class="number">368696.84</span> <span class="number">245644.39</span> <span class="number">163610.12</span> <span class="number">108920.62</span> <span class="number">72460.24</span> <span class="number">48154.03</span> <span class="number">31949.89</span> <span class="number">21148.53</span> <span class="number">13948.33</span> <span class="number">9150.3</span> <span class="number">5955.83</span> <span class="number">3829.69</span> <span class="number">2419.99</span> <span class="number">1488.63</span> <span class="number">879.65</span> <span class="number">487.72</span> <span class="number">245.39</span> <span class="number">104.21</span> <span class="number">32.57</span> <span class="number">5.18</span> <span class="number">0.96</span> <span class="number">0.96</span> <span class="number">0.96</span> <span class="number">0.96</span> <span class="number">0.96</span> <span class="number">0.96</span> <span class="number">0.96</span>];</span><br><span class="line"><span class="built_in">plot</span>(x,y,x,y2)</span><br></pre></td></tr></table></figure><p><img src="https://user-images.githubusercontent.com/42334717/46901623-053b9b00-cef2-11e8-8c70-325deb34ec8a.png" alt="Solution"><br><img src="https://user-images.githubusercontent.com/42334717/46902314-45a11600-cefe-11e8-89d2-f28a531ccebe.jpg" alt="실행결과"></p>]]></content>
       
       
       <categories>
@@ -2416,22 +2416,22 @@
     
     
     <entry>
-      <title>about Zerohertz</title>
-      <link href="/about/index.html"/>
-      <url>/about/index.html</url>
+      <title>Categories</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 60px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '$'})    .command(`안녕하세요. 오효근입니다!`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='career' style='height: 150px'></div>            <script>        new GDemo('#career')          .openApp('terminal', {minHeight: '150px', windowTitle: 'Career', promptString: '$'})    .command(`<span class="token number">2017.03</span> ~ <span class="token number">2021.02</span> <span class="token punctuation">:</span> B<span class="token operator">.</span>S<span class="token operator">.</span> <span class="token keyword">in</span> Department of Mechanical Engineering<span class="token punctuation">,</span> Konkuk University`, {onCompleteDelay: 300}).command(`ㄴ <span class="token number">2018.06</span> ~ <span class="token number">2019.11</span> <span class="token punctuation">:</span> Undergraduate Researcher at MRV Lab<span class="token operator">.</span><span class="token punctuation">(</span>Medical Robotics and Virtual Reality Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`ㄴ <span class="token number">2019.11</span> ~ <span class="token number">2021.02</span> <span class="token punctuation">:</span> Undergraduate Researcher at SiM Lab<span class="token operator">.</span><span class="token punctuation">(</span>Smart intelligent Manufacturing system Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`<span class="token number">2021.03</span> ~ <span class="token punctuation">:</span> M<span class="token operator">.</span>S<span class="token operator">.</span> Candidate <span class="token keyword">in</span> Department of Mechanical Engineering<span class="token punctuation">,</span> Konkuk University`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='skills' style='height: 500px'></div>            <script>        new GDemo('#skills')          .openApp('terminal', {minHeight: '500px', windowTitle: 'Skills', promptString: '$'})    .command(`C`, {onCompleteDelay: 300}).command(`C++`, {onCompleteDelay: 300}).command(`Arduino`, {onCompleteDelay: 300}).command(`AutoCAD`, {onCompleteDelay: 300}).command(`Python`, {onCompleteDelay: 300}).command(`RaspberryPi`, {onCompleteDelay: 300}).command(`Linux`, {onCompleteDelay: 300}).command(`MatLab`, {onCompleteDelay: 300}).command(`html`, {onCompleteDelay: 300}).command(`MarkDown`, {onCompleteDelay: 300}).command(`Catia`, {onCompleteDelay: 300}).command(`3ds Max`, {onCompleteDelay: 300}).command(`Unreal Engine`, {onCompleteDelay: 300}).command(`Simulink`, {onCompleteDelay: 300}).command(`R`, {onCompleteDelay: 300}).command(`Cura`, {onCompleteDelay: 300}).command(`LabView`, {onCompleteDelay: 300}).command(`Ansys`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Research-Interests"><a href="#Research-Interests" class="headerlink" title="Research Interests"></a>Research Interests</h1><ul><li>PHM(Prognostics and Health Management)</li><li>Smart Data(Feature Extraction)</li><li>ML(Machine Learning)</li><li>DNN(Deep Neural Network)</li><li>Programming</li></ul>]]></content>
+        <content type="html"><![CDATA[]]></content>
       
     </entry>
     
     
     
     <entry>
-      <title>Categories</title>
-      <link href="/categories/index.html"/>
-      <url>/categories/index.html</url>
+      <title>about Zerohertz</title>
+      <link href="/about/index.html"/>
+      <url>/about/index.html</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='zerohertz' style='height: 60px'></div>            <script>        new GDemo('#zerohertz')          .openApp('terminal', {minHeight: '60px', windowTitle: 'Zerohertz', promptString: '$'})    .command(`안녕하세요. 오효근입니다!`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Career"><a href="#Career" class="headerlink" title="Career"></a>Career</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='career' style='height: 150px'></div>            <script>        new GDemo('#career')          .openApp('terminal', {minHeight: '150px', windowTitle: 'Career', promptString: '$'})    .command(`<span class="token number">2017.03</span> ~ <span class="token number">2021.02</span> <span class="token punctuation">:</span> B<span class="token operator">.</span>S<span class="token operator">.</span> <span class="token keyword">in</span> Department of Mechanical Engineering<span class="token punctuation">,</span> Konkuk University`, {onCompleteDelay: 300}).command(`ㄴ <span class="token number">2018.06</span> ~ <span class="token number">2019.11</span> <span class="token punctuation">:</span> Undergraduate Researcher at MRV Lab<span class="token operator">.</span><span class="token punctuation">(</span>Medical Robotics and Virtual Reality Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`ㄴ <span class="token number">2019.11</span> ~ <span class="token number">2021.02</span> <span class="token punctuation">:</span> Undergraduate Researcher at SiM Lab<span class="token operator">.</span><span class="token punctuation">(</span>Smart intelligent Manufacturing system Laboratory<span class="token punctuation">)</span>`, {onCompleteDelay: 300}).command(`<span class="token number">2021.03</span> ~ <span class="token punctuation">:</span> M<span class="token operator">.</span>S<span class="token operator">.</span> Candidate <span class="token keyword">in</span> Department of Mechanical Engineering<span class="token punctuation">,</span> Konkuk University`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Skills"><a href="#Skills" class="headerlink" title="Skills"></a>Skills</h1><link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.css">            <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/prismjs/themes/prism-tomorrow.css">            <script src="//cdn.jsdelivr.net/npm/@glorious/demo@0.11.1/dist/gdemo.min.js"></script>            <div id='skills' style='height: 500px'></div>            <script>        new GDemo('#skills')          .openApp('terminal', {minHeight: '500px', windowTitle: 'Skills', promptString: '$'})    .command(`C`, {onCompleteDelay: 300}).command(`C++`, {onCompleteDelay: 300}).command(`Arduino`, {onCompleteDelay: 300}).command(`AutoCAD`, {onCompleteDelay: 300}).command(`Python`, {onCompleteDelay: 300}).command(`RaspberryPi`, {onCompleteDelay: 300}).command(`Linux`, {onCompleteDelay: 300}).command(`MatLab`, {onCompleteDelay: 300}).command(`html`, {onCompleteDelay: 300}).command(`MarkDown`, {onCompleteDelay: 300}).command(`Catia`, {onCompleteDelay: 300}).command(`3ds Max`, {onCompleteDelay: 300}).command(`Unreal Engine`, {onCompleteDelay: 300}).command(`Simulink`, {onCompleteDelay: 300}).command(`R`, {onCompleteDelay: 300}).command(`Cura`, {onCompleteDelay: 300}).command(`LabView`, {onCompleteDelay: 300}).command(`Ansys`, {onCompleteDelay: 300})        .respond(``)        .end();    </script><hr><h1 id="Research-Interests"><a href="#Research-Interests" class="headerlink" title="Research Interests"></a>Research Interests</h1><ul><li>PHM(Prognostics and Health Management)</li><li>Smart Data(Feature Extraction)</li><li>ML(Machine Learning)</li><li>DNN(Deep Neural Network)</li><li>Programming</li></ul>]]></content>
       
     </entry>
     

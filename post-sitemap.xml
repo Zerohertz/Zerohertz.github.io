@@ -8,8 +8,128 @@
     </url>
 
     <url>
+        <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
+        <lastmod>2021-02-26T05:07:51.129Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
         <loc>https://zerohertz.github.io/exporting-cwt-cnn-model-to-c-from-matlab/</loc>
-        <lastmod>2021-02-26T04:59:23.474Z</lastmod>
+        <lastmod>2021-02-26T05:07:06.847Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-1/</loc>
+        <lastmod>2021-02-26T05:07:01.443Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-2/</loc>
+        <lastmod>2021-02-26T05:06:57.436Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-3/</loc>
+        <lastmod>2021-02-26T05:06:50.473Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-4/</loc>
+        <lastmod>2021-02-26T05:06:45.561Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-5/</loc>
+        <lastmod>2021-02-26T05:06:41.606Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-6/</loc>
+        <lastmod>2021-02-26T05:06:34.958Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-7/</loc>
+        <lastmod>2021-02-26T05:06:29.947Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-8/</loc>
+        <lastmod>2021-02-26T05:06:22.811Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-9/</loc>
+        <lastmod>2021-02-26T05:06:18.561Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-10/</loc>
+        <lastmod>2021-02-26T05:06:14.268Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-11/</loc>
+        <lastmod>2021-02-26T05:06:08.519Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/matlab-12/</loc>
+        <lastmod>2021-02-26T05:06:00.815Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/numerical-analysis-3/</loc>
+        <lastmod>2021-02-26T05:05:45.484Z</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+
+    </url>
+
+    <url>
+        <loc>https://zerohertz.github.io/numerical-analysis-5/</loc>
+        <lastmod>2021-02-26T05:05:14.083Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -17,7 +137,7 @@
 
     <url>
         <loc>https://zerohertz.github.io/app-designer/</loc>
-        <lastmod>2021-02-26T04:15:54.769Z</lastmod>
+        <lastmod>2021-02-26T05:05:10.516Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -34,14 +154,6 @@
     <url>
         <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-system-with-acceleration/</loc>
         <lastmod>2021-01-20T02:47:16.292Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/development-of-a-obstructive-sleep-apnea-diagnosis-algorithm-using-hrv/</loc>
-        <lastmod>2021-01-14T02:28:36.917Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -200,14 +312,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-12/</loc>
-        <lastmod>2020-08-10T16:36:52.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/hexo-tag-gdemo/</loc>
         <lastmod>2020-07-28T14:11:00.228Z</lastmod>
         <changefreq>daily</changefreq>
@@ -306,14 +410,6 @@
     <url>
         <loc>https://zerohertz.github.io/word/</loc>
         <lastmod>2020-02-26T07:45:23.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-11/</loc>
-        <lastmod>2020-02-25T07:27:24.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -424,22 +520,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/matlab-5/</loc>
-        <lastmod>2020-02-25T07:09:32.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-6/</loc>
-        <lastmod>2020-02-25T07:09:29.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/numerical-analysis-4/</loc>
         <lastmod>2020-02-25T07:09:12.000Z</lastmod>
         <changefreq>daily</changefreq>
@@ -450,14 +530,6 @@
     <url>
         <loc>https://zerohertz.github.io/tensorflow-1/</loc>
         <lastmod>2020-02-25T07:09:08.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-8/</loc>
-        <lastmod>2020-02-25T07:07:43.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -506,14 +578,6 @@
     <url>
         <loc>https://zerohertz.github.io/c-basic-1/</loc>
         <lastmod>2020-02-25T07:02:50.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/numerical-analysis-5/</loc>
-        <lastmod>2020-02-25T07:00:27.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
@@ -608,14 +672,6 @@
     </url>
 
     <url>
-        <loc>https://zerohertz.github.io/numerical-analysis-3/</loc>
-        <lastmod>2020-01-10T08:47:25.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
         <loc>https://zerohertz.github.io/numerical-analysis-2/</loc>
         <lastmod>2020-01-10T08:47:17.000Z</lastmod>
         <changefreq>daily</changefreq>
@@ -626,62 +682,6 @@
     <url>
         <loc>https://zerohertz.github.io/numerical-analysis-1/</loc>
         <lastmod>2020-01-10T08:47:04.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-10/</loc>
-        <lastmod>2020-01-10T08:46:25.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-9/</loc>
-        <lastmod>2020-01-10T08:46:11.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-7/</loc>
-        <lastmod>2020-01-10T08:45:05.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-4/</loc>
-        <lastmod>2020-01-10T08:43:37.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-3/</loc>
-        <lastmod>2020-01-10T08:43:29.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-2/</loc>
-        <lastmod>2020-01-10T08:43:19.000Z</lastmod>
-        <changefreq>daily</changefreq>
-        <priority>0.8</priority>
-
-    </url>
-
-    <url>
-        <loc>https://zerohertz.github.io/matlab-1/</loc>
-        <lastmod>2020-01-10T08:43:09.000Z</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.8</priority>
 
